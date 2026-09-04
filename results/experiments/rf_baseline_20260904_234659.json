@@ -1,0 +1,122 @@
+{
+  "experiment_name": "rf_baseline_20260904_234659",
+  "timestamp": "2026-09-04T23:46:59.638300",
+  "hyperparameters": {
+    "n_estimators": 200,
+    "max_depth": 20,
+    "min_samples_split": 5,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt",
+    "random_state": 42
+  },
+  "training_time": 1.297178030014038,
+  "n_features": 197,
+  "validation_metrics": {
+    "mae": 0.07446528341367444,
+    "mse": 0.008188151659673569,
+    "rmse": 0.09048840621689372,
+    "r2": 0.8241869817532074,
+    "pearson_corr": 0.9585441287043754,
+    "pearson_p": 0.0,
+    "spearman_corr": 0.9622386294495022,
+    "spearman_p": 0.0,
+    "kendall_corr": 0.8294832389447663,
+    "kendall_p": 0.0,
+    "mape": 339566537903.3012
+  },
+  "test_metrics": {
+    "mae": 0.25074336763642685,
+    "mse": 0.08415835826034274,
+    "rmse": 0.2901006002412658,
+    "r2": 0.03643593561870029,
+    "pearson_corr": 0.22880990171223908,
+    "pearson_p": 2.1590004484286686e-11,
+    "spearman_corr": 0.22239807512408588,
+    "spearman_p": 7.90882658090628e-11,
+    "kendall_corr": 0.14959523362843488,
+    "kendall_p": 9.516615477863732e-11,
+    "mape": 7252572718441.346
+  },
+  "feature_importance": [
+    {
+      "feature": "guide_pos_18_G",
+      "importance": 0.04905754550085211
+    },
+    {
+      "feature": "dinuc_TT",
+      "importance": 0.023460799804046237
+    },
+    {
+      "feature": "k2_TT",
+      "importance": 0.020789315017807324
+    },
+    {
+      "feature": "guide_pos_16_C",
+      "importance": 0.020407996751058265
+    },
+    {
+      "feature": "gc_guide",
+      "importance": 0.019953852204814767
+    },
+    {
+      "feature": "guide_pos_18_C",
+      "importance": 0.01861336018680673
+    },
+    {
+      "feature": "freq_T",
+      "importance": 0.018298224013557525
+    },
+    {
+      "feature": "at_skew",
+      "importance": 0.0178715814401669
+    },
+    {
+      "feature": "gc_full",
+      "importance": 0.016014239101649827
+    },
+    {
+      "feature": "k2_entropy",
+      "importance": 0.01542449593809452
+    },
+    {
+      "feature": "gc_content",
+      "importance": 0.014945555765385199
+    },
+    {
+      "feature": "heterogeneity",
+      "importance": 0.014889494472696586
+    },
+    {
+      "feature": "gc_guide_skew",
+      "importance": 0.012650480289045914
+    },
+    {
+      "feature": "gc_skew",
+      "importance": 0.012536467885169041
+    },
+    {
+      "feature": "k3_entropy",
+      "importance": 0.011994969600881974
+    },
+    {
+      "feature": "guide_pos_17_T",
+      "importance": 0.011482710364753674
+    },
+    {
+      "feature": "pyrimidine_content",
+      "importance": 0.011329838352689662
+    },
+    {
+      "feature": "k3_TTT",
+      "importance": 0.01080235532230517
+    },
+    {
+      "feature": "freq_G",
+      "importance": 0.010401524123654011
+    },
+    {
+      "feature": "purine_content",
+      "importance": 0.010368765716820823
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+# CRISPR-Cas9 sgRNA Activity Prediction Configuration
+# =================================================
+
+# Project settings
+project:
+  name: "crispr-sgrna-prediction"
+  version: "0.1.0"
+  random_seed: 42
+
+# Data settings
+data:
+  # Dataset paths
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  external_dir: "data/external"
+  
+  # Primary dataset
+  primary_dataset: "DeepSpCas9.csv"
+  
+  # Independent test set
+  test_dataset: "Moreno-Mateos.csv"
+  
+  # Sequence settings
+  context_length: 30
+  guide_length: 20
+  pam_length: 3
+  
+  # PAM positions (0-indexed)
+  pam_start: 24
+  pam_end: 27
+
+# Feature engineering settings
+features:
+  # GC content
+  gc_content:
+    enabled: true
+    include_regional: true
+    include_skew: true
+  
+  # Nucleotide composition
+  composition:
+    enabled: true
+    include_frequencies: true
+    include_dinucleotides: true
+    include_heterogeneity: true
+  
+  # k-mer features
+  kmer:
+    enabled: true
+    k_values: [2, 3]
+    include_entropy: true
+    include_complexity: true
+  
+  # Positional features
+  positional:
+    enabled: true
+    include_one_hot: true
+
+# Model settings
+models:
+  # Random Forest
+  random_forest:
+    n_estimators: 100
+    max_depth: 10
+    min_samples_split: 5
+    random_seed: 42
+  
+  # XGBoost
+  xgboost:
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.1
+    random_seed: 42
+  
+  # CNN
+  cnn:
+    # Architecture
+    conv_layers:
+      - filters: 64
+        kernel_size: 3
+        activation: "relu"
+      - filters: 32
+        kernel_size: 3
+        activation: "relu"
+    
+    # Pooling
+    pooling_type: "max"
+    pooling_size: 2
+    
+    # Dense layers
+    dense_units: 64
+    dropout_rate: 0.3
+    
+    # Output
+    output_units: 1
+    output_activation: "linear"
+    
+    # Training
+    learning_rate: 0.001
+    batch_size: 32
+    epochs: 100
+    optimizer: "adam"
+    loss: "mse"
+
+# Data split settings
+split:
+  train_ratio: 0.70
+  val_ratio: 0.15
+  test_ratio: 0.15
+  random_seed: 42
+  stratify: false
+
+# Evaluation settings
+evaluation:
+  metrics:
+    - "mae"
+    - "rmse"
+    - "pearson"
+    - "spearman"
+    - "r2"
+  
+  # Cross-validation
+  cv_folds: 5
+  cv_random_seed: 42
+
+# Experiment tracking
+experiments:
+  output_dir: "results/experiments"
+  figures_dir: "results/figures"
+  models_dir: "models"
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

@@ -1,0 +1,28 @@
+# CRISPR-Cas9 sgRNA Activity Prediction - Requirements
+# ====================================================
+
+# Core dependencies
+pandas>=1.5.0
+numpy>=1.21.0
+scikit-learn>=1.0.0
+scipy>=1.7.0
+
+# Deep learning (Phase 5)
+# tensorflow>=2.8.0
+# keras>=2.8.0
+
+# Visualization
+matplotlib>=3.5.0
+seaborn>=0.11.0
+
+# Experiment tracking (optional)
+# mlflow>=2.0.0
+
+# Development
+pytest>=7.0.0
+black>=22.0.0
+flake8>=4.0.0
+
+# Notebooks
+jupyter>=1.0.0
+ipykernel>=6.0.0

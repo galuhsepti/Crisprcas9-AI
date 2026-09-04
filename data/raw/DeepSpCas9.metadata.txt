@@ -1,0 +1,6 @@
+Dataset: DeepSpCas9 (Kim et al. 2019)
+Samples: 12832
+Columns: sequence_23mer, sequence_30mer, activity, id, guide_sequence, pam, gc_content
+Activity range: [0.0000, 0.9514]
+Activity mean: 0.4031
+Activity std: 0.2295
