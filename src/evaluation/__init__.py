@@ -16,6 +16,10 @@ from .metrics import (
     calculate_ranking_metrics,
     format_metrics_report
 )
+from .comparison import (
+    paired_error_tests,
+    bootstrap_metric_ci
+)
 
 __all__ = [
     'calculate_mae',
@@ -29,5 +33,7 @@ __all__ = [
     'calculate_all_metrics',
     'calculate_metrics_by_activity_bin',
     'calculate_ranking_metrics',
-    'format_metrics_report'
+    'format_metrics_report',
+    'paired_error_tests',
+    'bootstrap_metric_ci'
 ]
