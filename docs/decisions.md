@@ -60,7 +60,8 @@ measuring generalization to unseen data).
 
 ### Fix
 - Model is now fitted **only** on `X_train` / `y_train` (85% split)
-- Validation (15%) is truly unseen and used only for model selection
+- Validation (15%) is a held-out set not used during model fitting; used only
+  for evaluation / model selection
 - Moreno-Mateos held-out set is used **only** for final evaluation — never for
   tuning or feature engineering
 - Split seed fixed (`random_seed = 42`)
@@ -181,14 +182,72 @@ hyperparameters and **no** validation influence (D-005).
   considered but not installed.
 
 ### Impact
-- Validation is still *unseen during gradient training* (the CNN is fitted on
-  85% only), but it influences when training stops and which checkpoint is
-  kept. This is exactly why RF/XGBoost ratios must not be compared on
-  validation against the CNN on a head-to-head "no validation contact" basis —
-  the thesis text states the asymmetry explicitly.
+- The validation set is a **held-out validation set**: it is not used for
+  gradient updates, but it is used for early stopping / model selection. The
+  CNN is fitted on the 85% split only; validation decides when to stop and
+  which checkpoint is kept. Terminology used in reports reflects this
+  precisely (never "truly unseen validation").
+- This is exactly why RF/XGBoost validation results must not be compared with
+  the CNN on a head-to-head "no validation contact" basis — the thesis text
+  states the asymmetry explicitly.
 - Moreno-Mateos results remain a clean, equal-footing comparison across all
   three models.
 
 ### Files updated
 - `src/models/cnn.py`, `scripts/train_cnn.py`, `config.yaml` (CNN section),
   `tests/test_cnn.py`, `docs/phase5_cnn_report.md`.
+
+---
+
+## D-007: Audit fixes — best_epoch metadata, terminology, MAPE, interpretation
+
+**Date:** 2026-09-05
+**Status:** Applied
+
+### Decision
+A methodology audit of Phase 5 (CNN) was performed. The following corrections
+were applied without changing the research goal, datasets, labels, sequence
+geometry, CNN architecture, hyperparameters, split ratio, or random seed:
+
+1. **`best_epoch` metadata fixed.** Previously `best_epoch` was set to
+   `len(val_loss)` (the number of epochs run). It now correctly records the
+   **1-indexed epoch with the minimum validation loss**. `best_epoch` is
+   guaranteed `<= total_epochs_run`, `best_val_loss ==
+   val_loss[best_epoch - 1]`, and checkpoint selection logic is unchanged.
+   Without a validation set, `best_epoch = total_epochs_run` and
+   `best_val_loss = None` (no validation contact). The epoch index convention
+   (1-indexed) is documented in code.
+2. **Validation terminology.** The CNN validation set is described as a
+   "held-out validation set, not used for gradient updates but used for early
+   stopping / model selection" — not "truly unseen"/"completely unseen".
+   Terminology applied consistently in `src/models/cnn.py`,
+   `scripts/train_cnn.py`, the experiment JSON, and Phase 3/4/5 reports.
+3. **Cross-dataset interpretation made conservative.** Reported as: all
+   three models showed substantially reduced performance on Moreno-Mateos,
+   indicating limited cross-dataset generalization under the present feature
+   and model configurations; Random Forest had the strongest measured
+   performance there. Causal claims such as "XGBoost overfits" and "all three
+   models generalize comparably" were removed. In-domain validation performance
+   and external cross-dataset performance are reported separately.
+   Result numbers were not changed to fit a narrative.
+4. **MAPE.** Mean Absolute Percentage Error is **not** a primary metric (it is
+   unstable when targets approach zero). Primary metrics are MAE, RMSE, R²,
+   Pearson, Spearman. `calculate_mape` remains for compatibility, is not shown
+   by `format_metrics_report`, and a test documents its instability.
+
+### Rationale
+- Scientific correctness and reproducibility take priority over performance or
+  convenience.
+- Moreno-Mateos remains completely untouched until final evaluation.
+
+### Files updated
+- `src/models/cnn.py` (best_epoch tracking, docstrings)
+- `scripts/train_cnn.py` (terminology; JSON now stores the full validation-loss
+  curve and corrected validation_split description)
+- `src/evaluation/metrics.py` (MAPE warning docstring)
+- `docs/phase5_cnn_report.md`, `docs/phase4_xgboost_report.md`,
+  `docs/phase3_rf_report.md` (terminology + conservative interpretation)
+- `tests/test_cnn.py`, `tests/test_evaluation.py` (best_epoch + MAPE tests)
+- Regenerated experiment `results/experiments/cnn_baseline_*.json` with the
+  same data/split/seed/architecture/hyperparameters (numbers unchanged;
+  `best_epoch`, `total_epochs_run`, `best_val_loss` now consistent).

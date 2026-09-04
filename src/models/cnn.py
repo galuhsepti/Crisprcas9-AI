@@ -2,18 +2,20 @@
 Convolutional Neural Network (CNN) model for CRISPR-Cas9 sgRNA activity
 prediction using PyTorch.
 
-Architecture (from config.yaml):
-  - Conv1D layer 1: 64 filters, kernel 3, ReLU
-  - (max) pooling
-  - Conv1D layer 2: 32 filters, kernel 3, ReLU
-  - (max) pooling
-  - Dense layer: 64 units, dropout
+Architecture (from config.yaml): CRISPRpred-style parallel multi-kernel
+convolutions over the one-hot encoded 30-mer (n, 30, 4):
+  - 3 parallel branches: Conv1d(4, 64, k) with k in {5, 7, 9}, ReLU,
+    MaxPool1d(2), GlobalAvgPool; branch outputs concatenated (192-dim)
+  - Dense layer: 64 units, ReLU, Dropout(0.3)
   - Output: 1 unit, linear (regression)
 
 This model is the primary model of the thesis. Unlike the RF/XGB baselines,
-early stopping on the validation set is used (best model by validation
-loss retained) because this is the main model, not a baseline. Moreno-Mateos
-remains held out and is only used for final evaluation.
+early stopping on the validation set is used (best model by validation loss
+retained) because this is the main model, not a baseline. The validation set
+is a held-out validation set: it is **not** used for gradient updates, but it
+is used for early stopping / model selection. Moreno-Mateos remains held out
+and is only used for final evaluation (never for training, tuning, early
+stopping, or model selection).
 """
 
 from typing import Dict, List, Optional, Tuple, Any
@@ -225,11 +227,18 @@ class CNNModel:
     ) -> Dict[str, Any]:
         """
         Train the CNN with early stopping on validation loss.
-        
+
+        Epochs are numbered starting from 1. The checkpoint selected on
+        validation loss corresponds to epoch ``best_epoch`` (1-indexed), which
+        is the epoch with the minimum recorded validation loss. ``best_epoch``
+        <= ``total_epochs_run``.
+
         Args:
             X_train: One-hot encoded training features (n, 30, 4)
             y_train: Training targets
-            X_val: One-hot encoded validation features
+            X_val: One-hot encoded validation features. Held-out validation
+                used for early stopping and model selection; never for
+                gradient updates.
             y_val: Validation targets
             verbose: Print progress
             
@@ -249,6 +258,7 @@ class CNNModel:
             val_loader = DataLoader(val_dataset, batch_size=self.batch_size, shuffle=False)
 
         best_val_loss = float('inf')
+        best_epoch = None
         best_state = None
         patience_counter = 0
         history = {'train_loss': [], 'val_loss': []}
@@ -292,6 +302,7 @@ class CNNModel:
             if val_loader is not None:
                 if avg_val_loss < best_val_loss:
                     best_val_loss = avg_val_loss
+                    best_epoch = epoch
                     best_state = {k: v.clone() for k, v in self.network.state_dict().items()}
                     patience_counter = 0
                 else:
@@ -305,19 +316,42 @@ class CNNModel:
         if best_state is not None:
             self.network.load_state_dict(best_state)
 
+        total_epochs_run = len(history['train_loss'])
+        if val_loader is not None:
+            # best_epoch is 1-indexed and points to the epoch with the
+            # minimum validation loss. always <= total_epochs_run.
+            assert best_epoch is not None and best_epoch <= total_epochs_run
+            # Guard: best_val_loss must correspond to the recorded value at
+            # that epoch in the val_loss curve.
+            assert np.isclose(history['val_loss'][best_epoch - 1], best_val_loss)
+        else:
+            # No validation set provided: every epoch was trained to the end,
+            # so the selected model corresponds to the final epoch.
+            best_epoch = total_epochs_run
+            best_val_loss = None
+
         self.best_val_loss = best_val_loss
         self.training_history = {
             'train_loss': history['train_loss'],
             'val_loss': history['val_loss'],
             'best_val_loss': best_val_loss,
-            'best_epoch': len(history['val_loss']) if history['val_loss'] else len(history['train_loss']),
-            'total_epochs_run': len(history['train_loss']),
+            'best_epoch': best_epoch,  # 1-indexed epoch of minimum validation loss
+            'total_epochs_run': total_epochs_run,
             'early_stopping': val_loader is not None,
             'training_time': time.time() - start_time
         }
         self.is_fitted = True
 
-        logger.info(f"Training completed. Best val loss: {best_val_loss:.4f}")
+        if best_val_loss is None:
+            logger.info(
+                f"Training completed (no validation set). "
+                f"Epochs run: {total_epochs_run}"
+            )
+        else:
+            logger.info(
+                f"Training completed. Best val loss: {best_val_loss:.4f} "
+                f"at epoch {best_epoch}"
+            )
         return self.training_history
 
     def predict(self, X: np.ndarray) -> np.ndarray:

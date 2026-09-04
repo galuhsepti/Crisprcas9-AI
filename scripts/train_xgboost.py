@@ -4,8 +4,9 @@ Training script for XGBoost baseline model.
 
 Methodology (identical to Phase 3 RF for fair comparison):
   - DeepSpCas9 split into train (85%) / validation (15%), fixed seed.
-  - Model fitted ONLY on X_train/y_train (with early stopping on validation).
-  - Validation is truly unseen (used only for early stopping/model selection).
+  - Model fitted ONLY on X_train/y_train with a FIXED n_estimators and
+    NO early stopping (D-005).
+  - Validation is a held-out validation set used only for evaluation.
   - Moreno-Mateos is a held-out independent test set, used ONLY for final
     evaluation, never for tuning or feature engineering.
 """
@@ -125,7 +126,7 @@ def main():
     )
     print(f"   n_estimators used: {model.n_estimators} (no early stopping)")
 
-    print("\n6. Evaluating on truly unseen validation set...")
+    print("\n6. Evaluating on held-out validation set (used only for evaluation)...")
     y_val_pred = model.predict(X_val)
     val_metrics = calculate_all_metrics(y_val, y_val_pred)
     print(format_metrics_report(val_metrics))

@@ -27,8 +27,9 @@ used in `scripts/prepare_data.py`.
 
 - **Training set:** DeepSpCas9, 85% split (n = 8,599) — model fitted **only**
   on this split.
-- **Validation set:** DeepSpCas9, 15% split (n = 1,518) — completely unseen
-  during training; used for model selection only.
+- **Validation set:** DeepSpCas9, 15% split (n = 1,518) — a held-out validation
+  set, unseen during the gradient-free model fitting; used for model selection
+  only.
 - **Independent test set:** Moreno-Mateos (n = 810) — held out entirely; used
   **only** for final evaluation, never for tuning or feature engineering.
 - Fixed seed random split (`random_seed = 42`).
@@ -57,7 +58,7 @@ min_samples_split=5, min_samples_leaf=2, max_features='sqrt', random_state=42`.
 
 ## Results (corrected)
 
-### Validation set (truly unseen, n = 1,518)
+### Validation set (held-out, used only for model selection, n = 1,518)
 
 | Metric | Value |
 |--------|-------|
@@ -86,11 +87,13 @@ performance (R² = 0.36, Pearson r = 0.64) is substantially lower than the
 invalid 0.82 R² previously reported. These corrected numbers are the ones to
 use in the thesis.
 
-The cross-dataset drop (r ≈ 0.64 → 0.24) is expected and consistent with the
-CRISPR prediction literature: different laboratories, cell lines, and activity
-measurement protocols introduce large domain shifts. The independent-test
-correlations remain statistically significant (p < 1e-10), indicating that the
-learned features carry real biological signal.
+The cross-dataset drop (r ≈ 0.64 → 0.24) indicates limited cross-dataset
+generalization under the present feature and model configurations, consistent
+with the CRISPR prediction literature, where different laboratories, cell
+lines, and activity measurement protocols introduce large domain shifts. The
+independent-test correlations remain statistically significant (p < 1e-10),
+i.e. the predictions retain a weak but detectable relationship with measured
+activity.
 
 The top features (guide position 18/19 near the PAM-proximal end, GC content,
 TT/AT-rich seed-region features) are consistent with known determinants of

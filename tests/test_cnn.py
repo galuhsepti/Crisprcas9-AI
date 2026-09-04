@@ -97,3 +97,38 @@ class TestCNNModel:
         params = model.get_params()
         assert params['epochs'] == 100
         assert params['learning_rate'] == 0.0005
+
+    def test_best_epoch_points_to_min_val_loss(self, small_data):
+        """best_epoch must be the 1-indexed epoch of minimum validation loss."""
+        X, y = small_data
+        model = CNNModel(epochs=50, batch_size=8, patience=1, use_cpu_threads=1,
+                         random_state=42)
+        history = model.fit(X[:30], y[:30], X[30:], y[30:], verbose=False)
+        val_loss = history['val_loss']
+        min_index = int(np.argmin(val_loss))
+        # 1-indexed epoch of minimum validation loss
+        expected_best_epoch = min_index + 1
+        assert history['best_epoch'] == expected_best_epoch
+        assert np.isclose(val_loss[history['best_epoch'] - 1], history['best_val_loss'])
+        assert np.isclose(min(val_loss), history['best_val_loss'])
+
+    def test_best_epoch_and_total_epochs_consistency(self, small_data):
+        """best_epoch must be <= total_epochs_run and consistent."""
+        X, y = small_data
+        model = CNNModel(epochs=40, batch_size=8, patience=2, use_cpu_threads=1,
+                         random_state=42)
+        history = model.fit(X[:30], y[:30], X[30:], y[30:], verbose=False)
+        assert history['best_epoch'] >= 1
+        assert history['best_epoch'] <= history['total_epochs_run']
+        assert len(history['train_loss']) == history['total_epochs_run']
+        assert len(history['val_loss']) == history['total_epochs_run']
+
+    def test_best_epoch_without_validation_is_final_epoch(self, small_data):
+        """Without a validation set, best_epoch = total_epochs_run (final)."""
+        X, y = small_data
+        model = CNNModel(epochs=5, batch_size=8, use_cpu_threads=1,
+                         random_state=42)
+        history = model.fit(X, y, verbose=False)
+        assert history['early_stopping'] is False
+        assert history['best_epoch'] == history['total_epochs_run']
+        assert history['best_val_loss'] is None

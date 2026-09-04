@@ -12,9 +12,8 @@ Identical to Phase 3 (see `docs/decisions.md` D-001, D-002, D-003) and, after
 correction D-005, uses a **fully fair protocol** matching Random Forest:
 
 - **Training set:** DeepSpCas9 85% split (n = 8,599)
-- **Validation set:** DeepSpCas9 15% split (n = 1,518), truly unseen during
-  training and used **only for evaluation** — **not** for early stopping or
-  model selection
+- **Validation set:** DeepSpCas9 15% split (n = 1,518), a held-out validation
+  set used **only for evaluation** — not for early stopping or model selection
 - **Independent test set:** Moreno-Mateos (n = 810), held out; used only for
   final evaluation, never for tuning or feature engineering
 - Fixed seed split (`random_seed = 42`)
@@ -37,7 +36,7 @@ influence training in any way, exactly matching the Random Forest baseline.
 
 ## Results
 
-### Validation set (truly unseen, n = 1,518)
+### Validation set (held-out, used only for evaluation, n = 1,518)
 
 | Metric | Value |
 |--------|-------|
@@ -83,29 +82,31 @@ influence training in any way, exactly matching the Random Forest baseline.
 
 ## Interpretation
 
-**In-domain (validation):** XGBoost clearly outperforms Random Forest
-(R² 0.5112 vs 0.3619; Pearson 0.7173 vs 0.6375). XGBoost's boosting of weak
-learners and built-in regularization capture the sequence-activity relationship
-more effectively than bagged trees.
+**In-domain (validation):** XGBoost outperforms Random Forest
+(R² 0.5112 vs 0.3619; Pearson 0.7173 vs 0.6375). The measured difference
+reflects the models' behavior on this split under the fixed configurations
+used; no causal mechanism is claimed here.
 
-**Cross-domain (Moreno-Mateos):** Random Forest generalizes slightly better to
-the independent test set (R² 0.0456 vs -0.0240; Pearson 0.2352 vs 0.1833).
-XGBoost overfits the in-domain signal more, leading to a slightly larger
-performance drop on the held-out dataset. Both models' test correlations remain
-statistically significant (p < 1e-7), confirming real, transferable biological
-signal, though the cross-dataset effect is large — a known limitation in
-CRISPR prediction.
+**Cross-domain (Moreno-Mateos):** Random Forest achieved the stronger measured
+performance on the independent test set (R² 0.0456 vs -0.0240; Pearson 0.2352
+vs 0.1833). Both models showed substantially reduced performance on this
+independent dataset relative to the validation split, indicating limited
+cross-dataset generalization under the present feature and model
+configurations. Both models' test correlations remain statistically
+significant (p < 1e-7), i.e. a weak but detectable relationship with measured
+activity persists, while absolute accuracy (R²) is poor out-of-domain. No
+claim of overfitting as a cause is made without a dedicated analysis.
 
 **Top features:** consistent with Phase 3 — guide positions 17-19 (PAM-proximal
 seed region), TT/AT-rich features, and GC content dominate.
 
 ## Conclusion for Thesis
 
-- XGBoost is the better model **within** DeepSpCas9 (higher in-domain accuracy).
-- Random Forest is more robust **across** datasets (better held-out
-  generalization).
-- Both serve as strong baselines against which the CNN (Phase 5) will be
-  compared.
+- XGBoost had the higher in-domain performance on the DeepSpCas9 validation
+  split.
+- Random Forest had the higher measured performance on the external
+  Moreno-Mateos test set.
+- Both serve as strong baselines against which the CNN (Phase 5) is compared.
 
 ## Files
 

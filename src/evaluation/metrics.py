@@ -138,6 +138,13 @@ def calculate_mape(y_true: np.ndarray, y_pred: np.ndarray) -> float:
         
     Returns:
         MAPE value (as fraction)
+        
+    Warning:
+        MAPE is NOT a primary metric for this project. sgRNA activity targets
+        can be close to zero, which makes the per-sample percentage error
+        explode and yields unstable, near-arbitrarily large values. Never use
+        MAPE for model selection or to conclude one model is better. Primary
+        metrics are MAE, RMSE, R², Pearson and Spearman correlations.
     """
     return mean_absolute_percentage_error(y_true, y_pred)
 

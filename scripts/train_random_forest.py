@@ -4,7 +4,8 @@ Training script for Random Forest baseline model.
 
 Methodology:
   - DeepSpCas9 is split into train (85%) / validation (15%) with a fixed seed.
-  - The model is fitted ONLY on X_train/y_train; validation is truly unseen.
+  - The model is fitted ONLY on X_train/y_train; validation is a held-out
+    set used only for evaluation.
   - Moreno-Mateos is a held-out independent test set, used ONLY for final
     evaluation (never for tuning or feature engineering).
 """
@@ -123,7 +124,7 @@ def main():
     )
     history = model.fit(X_train, y_train, feature_names=feature_names)
 
-    print("\n6. Evaluating on truly unseen validation set...")
+    print("\n6. Evaluating on held-out validation set (used only for evaluation)...")
     y_val_pred = model.predict(X_val)
     val_metrics = calculate_all_metrics(y_val, y_val_pred)
     print(format_metrics_report(val_metrics))

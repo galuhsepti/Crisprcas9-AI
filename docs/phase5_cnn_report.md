@@ -14,10 +14,12 @@ The overall protocol follows the same rigorous safeguards as Phases 3/4
 (`docs/decisions.md` D-001, D-002, D-003, D-004):
 
 - **Training set:** DeepSpCas9 85% split (n = 8,599)
-- **Validation set:** DeepSpCas9 15% split (n = 1,518), truly unseen during
-  training
+- **Validation set:** DeepSpCas9 15% split (n = 1,518), a held-out validation
+  set. It is **not** used for gradient updates, but it is used for early
+  stopping / model selection (D-006).
 - **Independent test set:** Moreno-Mateos (n = 810), held out; used only for
-  final evaluation, never for training or tuning
+  final evaluation, never for training, tuning, early stopping, or model
+  selection
 - Fixed seed split (`random_seed = 42`)
 - Consistent sequence geometry: guide `[4:24]`, PAM `[24:27]`
 - One-hot encoding produced by the same extractor used everywhere else
@@ -34,7 +36,13 @@ baselines:
   the comparison between models is unfair (D-005).
 - The CNN is the **primary model** of the thesis. Early stopping on a
   validation split is standard practice for deep networks and does not use the
-  external test set. The test set still remains fully independent.
+  external test set. The test set still remains fully independent of all
+  training and model-selection decisions.
+
+The selected checkpoint corresponds to the epoch with the **minimum
+validation loss** (`best_epoch`), and `total_epochs_run` records the actual
+number of epochs trained. Both are 1-indexed and stored consistently in the
+experiment JSON.
 
 This decision is recorded in `docs/decisions.md` (D-006) so the thesis text can
 state it explicitly and defensibly.
@@ -61,12 +69,23 @@ cnn:
 
 Each branch: `Conv1d(4, 64, k)` -> ReLU -> MaxPool1d(2) -> GlobalAvgPool.
 Branch outputs are concatenated (192-dim) -> Dense(64) -> ReLU -> Dropout(0.3)
--> Linear(1). Ran on CPU (no CUDA in this environment), 4 threads; finished in
-~7 minutes (34 epochs; early stopping triggered at epoch 24 + patience 10).
+-> Linear(1). Ran on CPU (no CUDA in this environment), 4 threads.
 
 ## Results
 
-### Validation set (truly unseen, n = 1,518)
+### Training run (reproducible)
+
+Same dataset, split (85/15, seed 42), architecture and hyperparameters as the
+initial run. Results are numerically identical, confirming reproducibility.
+
+| Quantity | Value |
+|----------|-------|
+| Best epoch (1-indexed, min validation loss) | 24 |
+| Total epochs run | 34 |
+| Best validation loss | 0.029134 |
+| Early stopping | Triggered at epoch 34 (patience 10) |
+
+### Validation set (held-out validation, not used for gradient updates, n = 1,518)
 
 | Metric | Value |
 |--------|-------|
@@ -87,6 +106,17 @@ Branch outputs are concatenated (192-dim) -> Dense(64) -> ReLU -> Dropout(0.3)
 | Pearson r | 0.1838 (p = 1.4e-07) |
 | Spearman ρ | 0.1602 (p = 4.6e-06) |
 | Kendall τ | 0.1092 (p = 3.3e-06) |
+
+### MAPE is not a primary metric
+
+The primary metrics of this research are MAE, RMSE, R², Pearson correlation,
+and Spearman correlation. Mean Absolute Percentage Error (MAPE) is **not** used
+as a primary metric. Many sgRNA activity targets are close to zero, making the
+per-sample percentage error explode and yielding unstable, near-arbitrarily
+large MAPE values. MAPE therefore cannot be used for model selection or for
+concluding that one model is better. It is still computed by the generic
+evaluation utility (`calculate_all_metrics`) for compatibility, but it is not
+shown in the primary results and must not be used for comparison.
 
 ## Three-Model Comparison
 
@@ -112,40 +142,58 @@ Branch outputs are concatenated (192-dim) -> Dense(64) -> ReLU -> Dropout(0.3)
 
 ## Interpretation
 
-**In-domain (validation):** the CNN (R² 0.4164, Pearson 0.6468) learns a
-meaningful sequence-activity relationship from raw sequence alone and outperforms
-the Random Forest baseline, but does **not** beat XGBoost (R² 0.5112), which
-benefits from 197 well-engineered features plus boosting. This is expected: the
-CNN must re-discover the useful sequence features (GC, composition, k-mers,
-positional motifs) from the one-hot input at fixed capacity.
+**In-domain (validation, DeepSpCas9 15%):** the CNN (R² 0.4164, Pearson 0.6468)
+learns a meaningful sequence-activity relationship from raw sequence alone. It
+outperforms the Random Forest baseline on this split but does not match XGBoost
+(R² 0.5112), which is trained on 197 engineered features (GC content,
+composition, k-mers, positional features) rather than the raw one-hot encoding.
+No claim is made here about the cause of this difference beyond the difference
+in input representation and model family.
 
-**Cross-domain (Moreno-Mateos):** all three models show a large, typical drop
-(negative R²) — CRISPR models trained on one cell line transfer poorly to a
-different assay. Random Forest is the most robust; the CNN and XGBoost
-generalize comparably. All test-set correlations remain statistically
-significant (Pearson p ≈ 1e-7), i.e. there is real but weak transferable signal.
+**Cross-dataset (Moreno-Mateos):** all three models showed substantially
+reduced performance on the independent Moreno-Mateos dataset (negative R²),
+indicating **limited cross-dataset generalization under the present feature and
+model configurations**. Random Forest showed the strongest performance among
+the three models on this external test set. This comparison is observational:
+it reflects the measured performance on this dataset under the fixed
+configurations used. It should not be interpreted as causal evidence about
+overfitting or about the general transferability of any individual model
+without further dedicated analysis.
 
-**Role of engineered features:** the close CNN vs XGBoost split shows the 
-features engineered in Phase 2 capture most of the learnable signal; the CNN
-demonstrates end-to-end learning is viable on this data at modest size.
+**Statistical significance:** all three models retain statistically significant
+correlations on the external test set (Pearson p ≈ 1e-7 for the CNN), i.e. the
+predictions preserve a weak but detectable monotonic relationship with measured
+activity, while absolute accuracy (R²) is poor out-of-domain.
+
+**Role of engineered features:** the close CNN vs XGBoost split reflects the
+different input representations (raw one-hot vs 197 engineered features). It
+shows the Phase 2 engineered features capture a large share of the learnable
+in-domain signal; the CNN demonstrates end-to-end learning is viable on this
+data at modest size.
 
 ## Conclusion for Thesis
 
-- The CNN (primary model) achieves strong in-domain performance (R² 0.42,
-  Pearson 0.65) purely from raw sequence, confirming the feasibility of deep
-  learning for sgRNA activity prediction in this workflow.
-- XGBoost remains the best in-domain model; Random Forest the most
-  cross-domain-robust. These three models provide a complete baseline + primary
-  model set.
+- The CNN (primary model) achieves moderate in-domain performance (R² 0.42,
+  Pearson 0.65) purely from raw sequence, confirming end-to-end deep learning
+  for sgRNA activity prediction is workable in this pipeline.
+- On the validation split, XGBoost had the highest in-domain performance among
+  the three models; on the external Moreno-Mateos test set, Random Forest had
+  the highest measured performance. All three models show limited
+  cross-dataset performance (see Interpretation).
 - The early-stopping asymmetry vs baselines is deliberately recorded (D-006) so
   the method section is precise about how each model's validation split was used.
 
 ## Files
 
-- Model: `models/cnn_baseline_20260905_004728.pt`
-- Results: `results/experiments/cnn_baseline_20260905_004728.json` (includes
-  XGBoost + RF comparison)
+- Model: `models/cnn_baseline_20260905_011720.pt` (regenerated artifacts)
+- Results: `results/experiments/cnn_baseline_20260905_011720.json` (includes
+  the full validation-loss curve, best_epoch, total_epochs_run, and the
+  XGBoost + RF comparison). The earlier run
+  `results/experiments/cnn_baseline_20260905_004728.json` is preserved for
+  traceability.
 - Modules: `src/models/cnn.py` (`CNNModel`, `CRISPRsvGN`);
   exported from `src/models/__init__.py`
 - Training script: `scripts/train_cnn.py`
-- Tests: `tests/test_cnn.py` (8 tests, passing)
+- Tests: `tests/test_cnn.py` (CNN, incl. best_epoch consistency),
+  `tests/test_evaluation.py` (MAPE-not-primary documentation); 11 + 3
+  respective tests, passing

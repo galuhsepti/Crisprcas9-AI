@@ -6,11 +6,13 @@ Methodology:
   - DeepSpCas9 split into train (85%) / validation (15%), fixed seed 42.
   - Input: one-hot encoded 30-mer (n, 30, 4) exactly as extracted by
     extract_one_hot_for_cnn (same sequence geometry guide [4:24], PAM [24:27]).
-  - CNN is the main model of the thesis; view is used for early stopping
-    (best model by validation loss retained) — standard for deep learning.
-  - Validation set is not part of training data (truly unseen).
+  - CNN is the main model of the thesis; the validation set is used for early
+    stopping (best model by validation loss retained) — standard for deep
+    learning.
+  - The validation set is a held-out validation set: it is NOT used for
+    gradient updates, but it IS used for early stopping / model selection.
   - Moreno-Mateos held-out test set: used ONLY for final evaluation,
-    never for training or tuning.
+    never for training, tuning, early stopping, or model selection.
 """
 
 import sys
@@ -118,7 +120,7 @@ def main():
     )
     print(f"   Best validation loss: {history['best_val_loss']:.6f}")
 
-    print("\n5. Evaluating on truly unseen validation set...")
+    print("\n5. Evaluating on held-out validation set (used for early stopping, not gradient updates)...")
     y_val_pred = model.predict(X_val)
     val_metrics = calculate_all_metrics(y_val, y_val_pred)
     print(format_metrics_report(val_metrics))
@@ -193,7 +195,7 @@ def main():
         'methodology': {
             'model': 'CNN (primary)',
             'train_split': 'DeepSpCas9 85%',
-            'validation_split': 'DeepSpCas9 15% (unseen; early stopping for main model)',
+            'validation_split': 'DeepSpCas9 15% (held-out validation, not used for gradient updates but used for early stopping/model selection)',
             'test_set': 'Moreno-Mateos (held-out, never used for training/tuning)',
             'input': 'one-hot (n, 30, 4)',
             'guide_slice': '[4:24]',
@@ -212,6 +214,7 @@ def main():
             k: (v[-20:] if isinstance(v, list) else v)
             for k, v in history.items() if k != 'val_loss'
         },
+        'val_loss_curve': history.get('val_loss', []),
         'comparison': comparison
     }
 

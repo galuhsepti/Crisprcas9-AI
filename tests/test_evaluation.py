@@ -146,3 +146,32 @@ class TestFormatReport:
         assert 'R²' in report
         assert 'Pearson' in report
         assert 'Spearman' in report
+
+
+class TestMAPENotPrimary:
+    """Document that MAPE is not a primary metric (unstable near zero target)."""
+
+    def test_mape_explodes_when_target_near_zero(self):
+        """A target close to zero makes MAPE explode to a huge value."""
+        y_true = np.array([0.001, 0.5, 0.9])
+        y_pred = np.array([0.05, 0.45, 0.85])
+        mape = calculate_mape(y_true, y_pred)
+        # The per-sample error on the near-zero target is ~4900%
+        assert mape > 5.0
+
+    def test_primary_metrics_remain_stable(self):
+        """The primary metrics stay well-behaved for the same data."""
+        y_true = np.array([0.001, 0.5, 0.9])
+        y_pred = np.array([0.05, 0.45, 0.85])
+        assert calculate_mae(y_true, y_pred) < 0.1
+        assert calculate_rmse(y_true, y_pred) < 0.1
+        assert -1.0 < calculate_r2(y_true, y_pred) < 1.0
+        assert -1.0 < calculate_pearson_correlation(y_true, y_pred)[0] < 1.0
+
+    def test_format_report_does_not_emit_mape(self):
+        """The formatted primary report must not show MAPE."""
+        y_true = np.array([0.001, 0.5, 0.9])
+        y_pred = np.array([0.05, 0.45, 0.85])
+        metrics = calculate_all_metrics(y_true, y_pred)
+        report = format_metrics_report(metrics)
+        assert 'MAPE' not in report
