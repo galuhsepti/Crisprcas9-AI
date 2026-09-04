@@ -8,11 +8,13 @@ Phase 3 Random Forest baseline for a fair comparison.
 
 ## Methodology
 
-Identical to Phase 3 (see `docs/decisions.md` D-001, D-002, D-003):
+Identical to Phase 3 (see `docs/decisions.md` D-001, D-002, D-003) and, after
+correction D-005, uses a **fully fair protocol** matching Random Forest:
 
 - **Training set:** DeepSpCas9 85% split (n = 8,599)
 - **Validation set:** DeepSpCas9 15% split (n = 1,518), truly unseen during
-  training; XGBoost used early stopping on validation for model selection
+  training and used **only for evaluation** — **not** for early stopping or
+  model selection
 - **Independent test set:** Moreno-Mateos (n = 810), held out; used only for
   final evaluation, never for tuning or feature engineering
 - Fixed seed split (`random_seed = 42`)
@@ -25,14 +27,13 @@ Identical to Phase 3 (see `docs/decisions.md` D-001, D-002, D-003):
 n_estimators: 100
 max_depth: 6
 learning_rate: 0.1
-early_stopping_rounds: 20
 objective: reg:squarederror
 random_seed: 42
 ```
 
-Early stopping selected the best iteration at 99 (best validation RMSE 0.1564).
-Note: with early stopping the model stopped before fully burning n_estimators,
-so these were not overfit.
+The baseline is trained with a **fixed** number of boosting rounds
+(`n_estimators = 100`) and **no early stopping**. Validation is not used to
+influence training in any way, exactly matching the Random Forest baseline.
 
 ## Results
 

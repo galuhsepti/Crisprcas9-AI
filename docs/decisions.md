@@ -120,3 +120,40 @@ Moreno-Mateos).
 ### Re-evaluation trigger
 If filtered-out sequences materially change sample size or skew the
 distribution, revisit whether threshold should be relaxed.
+
+---
+
+## D-005: Remove early stopping / validation-based model selection from XGBoost baseline
+
+**Date:** 2026-09-05
+**Status:** Applied
+
+### Issue
+The first Phase 4 XGBoost run used `early_stopping_rounds=20` with the
+validation set as the `eval_set`. This made validation influence the number of
+boosting rounds (a form of model selection on the validation set), which is
+**not fair** relative to the Random Forest baseline. Random Forest used a fixed
+`n_estimators=200` with no validation feedback.
+
+### Fix
+- The XGBoost baseline is now trained with a **fixed** `n_estimators=100`
+  (from `config.yaml`) and **no early stopping**.
+- Validation is used strictly for evaluation, never for training/model
+  selection — exactly matching the Random Forest protocol.
+- Moreno-Mateos remains held out and is used only for final evaluation.
+- Early-stopping remains available in `XGBoostModel.fit` as an option but is
+  **not** used for baselines.
+- The old early-stopping experiment JSON/model was removed.
+
+### Impact
+- The methodology is now symmetric and fair across RF and XGBoost baselines.
+- Reported numbers are unchanged (early stopping had stopped at round 99, so
+  fixed 100 rounds produces identical predictions), but the protocol is now
+  methodologically correct and defensible for the thesis.
+
+### Files updated
+- `scripts/train_xgboost.py` — remove `eval_set`/`early_stopping_rounds` from
+  baseline fit; record `early_stopping: false` in results metadata.
+- `docs/phase4_xgboost_report.md` — update methodology section.
+- Removed `xgboost_baseline_20260905_002128.*` (early-stopping run).
+- Regenerated `xgboost_baseline_20260905_002839.json` with corrected protocol.

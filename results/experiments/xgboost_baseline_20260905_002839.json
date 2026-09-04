@@ -1,12 +1,13 @@
 {
-  "experiment_name": "xgboost_baseline_20260905_002128",
-  "timestamp": "2026-09-05T00:21:28.011836",
+  "experiment_name": "xgboost_baseline_20260905_002839",
+  "timestamp": "2026-09-05T00:28:39.709085",
   "methodology": {
     "train_split": "DeepSpCas9 85%",
-    "validation_split": "DeepSpCas9 15% (unseen during training)",
+    "validation_split": "DeepSpCas9 15% (unseen, used only for evaluation, not model selection)",
     "test_set": "Moreno-Mateos (held-out, never used for tuning)",
     "guide_slice": "[4:24]",
-    "pam_slice": "[24:27]"
+    "pam_slice": "[24:27]",
+    "early_stopping": false
   },
   "hyperparameters": {
     "n_estimators": 100,
@@ -20,7 +21,7 @@
     "objective": "reg:squarederror",
     "random_state": 42
   },
-  "training_time": 4.391241788864136,
+  "training_time": 5.558953285217285,
   "n_features": 197,
   "n_train": 8599,
   "n_val": 1518,
@@ -161,8 +162,8 @@
         "kendall_p": 3.801495323177402e-07,
         "mape": 6944171890047.926
       },
-      "best_iteration": 99,
-      "best_val_rmse": 0.15638215552582702
+      "early_stopping": false,
+      "n_estimators": 100
     },
     "random_forest": {
       "validation": {
@@ -189,7 +190,7 @@
         "spearman_p": 7.222259695245503e-11,
         "kendall_corr": 0.1516221136708667,
         "kendall_p": 1.0548381520022321e-10,
-        "mape": 7612248939314.93
+        "mape": 7612248939314.929
       }
     }
   }

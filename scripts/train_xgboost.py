@@ -109,21 +109,21 @@ def main():
     )
     print(f"   Train: {X_train.shape}, Validation: {X_val.shape}")
 
-    print("\n5. Fitting XGBoost on X_train/y_train with early stopping on validation...")
+    print("\n5. Fitting XGBoost on X_train/y_train (no early stopping, fixed n_estimators)...")
     model = XGBoostModel(
         n_estimators=xgb_cfg['n_estimators'],
         max_depth=xgb_cfg['max_depth'],
         learning_rate=xgb_cfg['learning_rate'],
         random_state=xgb_cfg['random_seed']
     )
+    # Baseline uses a fixed number of boosting rounds (n_estimators=100).
+    # Validation is NOT used for early stopping or model selection, matching
+    # the Random Forest protocol. Fit uses train split only.
     history = model.fit(
         X_train, y_train,
-        feature_names=feature_names,
-        eval_set=(X_val, y_val),
-        early_stopping_rounds=20
+        feature_names=feature_names
     )
-    print(f"   Best iteration: {history.get('best_iteration')}")
-    print(f"   Best validation RMSE: {history.get('best_score')}")
+    print(f"   n_estimators used: {model.n_estimators} (no early stopping)")
 
     print("\n6. Evaluating on truly unseen validation set...")
     y_val_pred = model.predict(X_val)
@@ -172,8 +172,8 @@ def main():
         'xgboost': {
             'validation': val_metrics,
             'test': test_metrics,
-            'best_iteration': history.get('best_iteration'),
-            'best_val_rmse': history.get('best_score')
+            'early_stopping': False,
+            'n_estimators': model.n_estimators
         },
         'random_forest': {
             'validation': rf_val_metrics,
@@ -186,10 +186,11 @@ def main():
         'timestamp': datetime.now().isoformat(),
         'methodology': {
             'train_split': 'DeepSpCas9 85%',
-            'validation_split': 'DeepSpCas9 15% (unseen during training)',
+            'validation_split': 'DeepSpCas9 15% (unseen, used only for evaluation, not model selection)',
             'test_set': 'Moreno-Mateos (held-out, never used for tuning)',
             'guide_slice': '[4:24]',
-            'pam_slice': '[24:27]'
+            'pam_slice': '[24:27]',
+            'early_stopping': False
         },
         'hyperparameters': model.get_params(),
         'training_time': history['training_time'],
