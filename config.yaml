@@ -81,33 +81,27 @@ models:
     learning_rate: 0.1
     random_seed: 42
   
-  # CNN
+  # CNN (Phase 5, primary model, PyTorch)
+  # Architecture: CRISPRpred-style parallel convolutions over the one-hot
+  # encoded 30-mer (n, 30, 4). 3 parallel branches (kernels 5, 7, 9) ->
+  # global average pool -> concatenate -> dense.
   cnn:
-    # Architecture
-    conv_layers:
-      - filters: 64
-        kernel_size: 3
-        activation: "relu"
-      - filters: 32
-        kernel_size: 3
-        activation: "relu"
-    
-    # Pooling
-    pooling_type: "max"
-    pooling_size: 2
-    
-    # Dense layers
+    input_length: 30
+    n_nucleotides: 4
+    conv_n_filters: 64
+    conv_kernel_sizes: [5, 7, 9]
     dense_units: 64
     dropout_rate: 0.3
-    
+
     # Output
     output_units: 1
     output_activation: "linear"
-    
+
     # Training
     learning_rate: 0.001
     batch_size: 32
     epochs: 100
+    patience: 10
     optimizer: "adam"
     loss: "mse"
 

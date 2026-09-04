@@ -157,3 +157,38 @@ boosting rounds (a form of model selection on the validation set), which is
 - `docs/phase4_xgboost_report.md` — update methodology section.
 - Removed `xgboost_baseline_20260905_002128.*` (early-stopping run).
 - Regenerated `xgboost_baseline_20260905_002839.json` with corrected protocol.
+
+---
+
+## D-006: CNN is the primary model — early stopping on validation allowed
+
+**Date:** 2026-09-05
+**Status:** Applied
+
+### Decision
+The CNN (Phase 5) is the **primary model** of the thesis. It **may** use the
+DeepSpCas9 validation split (15%) for early stopping (best model by validation
+loss retained). RF and XGBoost remain strict evaluation baselines with fixed
+hyperparameters and **no** validation influence (D-005).
+
+### Rationale
+- D-005's ban on validation-based model selection exists to keep the baseline
+  comparison fair. It does not apply to the primary model.
+- Early stopping on a train/validation split is standard deep-learning practice
+  and does not consume the external Moreno-Mateos test set, which remains fully
+  independent and is used only for final evaluation.
+- Framework: PyTorch (CPU; no CUDA in this environment). TensorFlow was
+  considered but not installed.
+
+### Impact
+- Validation is still *unseen during gradient training* (the CNN is fitted on
+  85% only), but it influences when training stops and which checkpoint is
+  kept. This is exactly why RF/XGBoost ratios must not be compared on
+  validation against the CNN on a head-to-head "no validation contact" basis —
+  the thesis text states the asymmetry explicitly.
+- Moreno-Mateos results remain a clean, equal-footing comparison across all
+  three models.
+
+### Files updated
+- `src/models/cnn.py`, `scripts/train_cnn.py`, `config.yaml` (CNN section),
+  `tests/test_cnn.py`, `docs/phase5_cnn_report.md`.
