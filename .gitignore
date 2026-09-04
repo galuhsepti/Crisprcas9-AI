@@ -33,6 +33,9 @@ ENV/
 models/*.pkl
 models/*.h5
 models/*.pt
+models/**/*.pkl
+models/**/*.h5
+models/**/*.pt
 
 # Third-party cloned repositories
 data/external/

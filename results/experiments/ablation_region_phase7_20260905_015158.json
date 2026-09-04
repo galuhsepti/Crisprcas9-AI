@@ -1,0 +1,355 @@
+{
+  "experiment_name": "ablation_region_phase7_20260905_015158",
+  "phase": "7",
+  "timestamp": "2026-09-05T01:51:58.482873",
+  "methodology": {
+    "objective": "Isolate which sequence regions of the 30-mer window carry predictive signal by training CNN variants on restricted regions (identical recipe)",
+    "geometry": {
+      "guide": "[4:24]",
+      "pam": "[24:27]",
+      "guide_pam": "[4:27]",
+      "context_pam": "[0:4] + [24:30]"
+    },
+    "regions_evaluated": [
+      "full",
+      "guide",
+      "guide_pam",
+      "context_pam"
+    ],
+    "training_recipe": {
+      "input_length": 30,
+      "n_nucleotides": 4,
+      "conv_n_filters": 64,
+      "conv_kernel_sizes": [
+        5,
+        7,
+        9
+      ],
+      "dense_units": 64,
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "patience": 10,
+      "optimizer": "adam",
+      "loss": "mse",
+      "random_state": 42
+    },
+    "validation_split": "DeepSpCas9 15%, seed 42; used for early stopping/model selection (D-006); in-domain comparisons are descriptive only",
+    "test_set": "Moreno-Mateos, untouched by all variants; fair comparison basis",
+    "no_canonical_change": "canonical CNN artifacts and results unchanged; full region reuses the canonical model",
+    "note": "MAPE not used as a primary metric (D-007)."
+  },
+  "n_train": 8599,
+  "n_validation": 1518,
+  "n_test": 810,
+  "results": {
+    "full": {
+      "source": "canonical model (cnn_baseline_20260905_011720.pt)",
+      "trained_in_phase5": true,
+      "input_length": 30,
+      "validation": {
+        "mae": 0.13851598186679445,
+        "mse": 0.029194925739516635,
+        "rmse": 0.17086522682955896,
+        "r2": 0.4164203471040929,
+        "pearson_corr": 0.6468276844257322,
+        "pearson_p": 1.2402834576458976e-180,
+        "spearman_corr": 0.6312538900612067,
+        "spearman_p": 1.5192592294207507e-169,
+        "kendall_corr": 0.45187566820652725,
+        "kendall_p": 2.435619273325573e-153,
+        "mape": 2.5152356449429005
+      },
+      "test": {
+        "mae": 0.25180076077028474,
+        "mse": 0.08752060617663093,
+        "rmse": 0.29583881790027305,
+        "r2": -0.01110838825158944,
+        "pearson_corr": 0.1838363433348554,
+        "pearson_p": 1.3719668528049523e-07,
+        "spearman_corr": 0.16020174146486912,
+        "spearman_p": 4.605380529665623e-06,
+        "kendall_corr": 0.109173537702945,
+        "kendall_p": 3.309231784953433e-06,
+        "mape": 7537696602139.532
+      },
+      "bootstrap_test": {
+        "r2": {
+          "metric": "r2",
+          "point": -0.01110838825158944,
+          "ci_lower": -0.0690042246552992,
+          "ci_upper": 0.03533824547037737,
+          "n_boot": 1000,
+          "n_samples": 810
+        },
+        "pearson": {
+          "metric": "pearson",
+          "point": 0.1838363433348554,
+          "ci_lower": 0.11206788933007157,
+          "ci_upper": 0.2458785123392327,
+          "n_boot": 1000,
+          "n_samples": 810
+        },
+        "spearman": {
+          "metric": "spearman",
+          "point": 0.16020174146486912,
+          "ci_lower": 0.08730806961090601,
+          "ci_upper": 0.2249328941259507,
+          "n_boot": 1000,
+          "n_samples": 810
+        },
+        "mae": {
+          "metric": "mae",
+          "point": 0.25180076077028474,
+          "ci_lower": 0.24205052743456978,
+          "ci_upper": 0.26220259792020334,
+          "n_boot": 1000,
+          "n_samples": 810
+        },
+        "rmse": {
+          "metric": "rmse",
+          "point": 0.29583881790027305,
+          "ci_lower": 0.2858065454476341,
+          "ci_upper": 0.30656645842464686,
+          "n_boot": 1000,
+          "n_samples": 810
+        }
+      }
+    },
+    "guide": {
+      "source": "models/ablation/cnn_guide.pt",
+      "trained_in_phase5": false,
+      "training": {
+        "best_epoch": 22,
+        "total_epochs_run": 32,
+        "best_val_loss": 0.02460631016098584
+      },
+      "input_length": 20,
+      "validation": {
+        "mae": 0.1254203412364415,
+        "mse": 0.02470786487360799,
+        "rmse": 0.15718735595972086,
+        "r2": 0.5061125575249414,
+        "pearson_corr": 0.7114396334566311,
+        "pearson_p": 1.6091176652315755e-234,
+        "spearman_corr": 0.6999089521923304,
+        "spearman_p": 7.702561733612959e-224,
+        "kendall_corr": 0.510989636122192,
+        "kendall_p": 1.6435061162437846e-195,
+        "mape": 2.0894225791352268
+      },
+      "test": {
+        "mae": 0.2519950391699297,
+        "mse": 0.08971853161279258,
+        "rmse": 0.29953051866678393,
+        "r2": -0.03650058949811097,
+        "pearson_corr": 0.1967538882947785,
+        "pearson_p": 1.6389244468239734e-08,
+        "spearman_corr": 0.18110854614383343,
+        "spearman_p": 2.1091352549722978e-07,
+        "kendall_corr": 0.12282251898915049,
+        "kendall_p": 1.676350964834805e-07,
+        "mape": 7407985441483.083
+      },
+      "bootstrap_test": {
+        "r2": {
+          "metric": "r2",
+          "point": -0.03650058949811097,
+          "ci_lower": -0.10489211208372023,
+          "ci_upper": 0.024977097988892184,
+          "n_boot": 1000,
+          "n_samples": 810
+        },
+        "pearson": {
+          "metric": "pearson",
+          "point": 0.1967538882947785,
+          "ci_lower": 0.12338556187375913,
+          "ci_upper": 0.26522430337336744,
+          "n_boot": 1000,
+          "n_samples": 810
+        },
+        "spearman": {
+          "metric": "spearman",
+          "point": 0.18110854614383343,
+          "ci_lower": 0.1080463907318801,
+          "ci_upper": 0.2509809442270405,
+          "n_boot": 1000,
+          "n_samples": 810
+        },
+        "mae": {
+          "metric": "mae",
+          "point": 0.2519950391699297,
+          "ci_lower": 0.2407599888276347,
+          "ci_upper": 0.2637986338527383,
+          "n_boot": 1000,
+          "n_samples": 810
+        },
+        "rmse": {
+          "metric": "rmse",
+          "point": 0.29953051866678393,
+          "ci_lower": 0.2887178977779358,
+          "ci_upper": 0.3121499963829284,
+          "n_boot": 1000,
+          "n_samples": 810
+        }
+      }
+    },
+    "guide_pam": {
+      "source": "models/ablation/cnn_guide_pam.pt",
+      "trained_in_phase5": false,
+      "training": {
+        "best_epoch": 32,
+        "total_epochs_run": 42,
+        "best_val_loss": 0.02599830147422229
+      },
+      "input_length": 23,
+      "validation": {
+        "mae": 0.1310578083296087,
+        "mse": 0.02616285676194111,
+        "rmse": 0.1617493640232972,
+        "r2": 0.47702861092628646,
+        "pearson_corr": 0.6921611638003333,
+        "pearson_p": 6.01133779589134e-217,
+        "spearman_corr": 0.6803769956224863,
+        "spearman_p": 7.11809226367943e-207,
+        "kendall_corr": 0.49221428118564925,
+        "kendall_p": 1.477405483077444e-181,
+        "mape": 2.2912553817498043
+      },
+      "test": {
+        "mae": 0.2543538388820695,
+        "mse": 0.08969040942679464,
+        "rmse": 0.2994835712135052,
+        "r2": -0.03617569940193044,
+        "pearson_corr": 0.17430554197233394,
+        "pearson_p": 5.993700513034083e-07,
+        "spearman_corr": 0.1570935383812852,
+        "spearman_p": 7.0565824610090016e-06,
+        "kendall_corr": 0.10513256023806664,
+        "kendall_p": 7.5172885694310935e-06,
+        "mape": 8724615951116.906
+      },
+      "bootstrap_test": {
+        "r2": {
+          "metric": "r2",
+          "point": -0.03617569940193044,
+          "ci_lower": -0.09957361163846307,
+          "ci_upper": 0.019433060080287088,
+          "n_boot": 1000,
+          "n_samples": 810
+        },
+        "pearson": {
+          "metric": "pearson",
+          "point": 0.17430554197233394,
+          "ci_lower": 0.10345411625876637,
+          "ci_upper": 0.24067970783592868,
+          "n_boot": 1000,
+          "n_samples": 810
+        },
+        "spearman": {
+          "metric": "spearman",
+          "point": 0.1570935383812852,
+          "ci_lower": 0.08490404096595361,
+          "ci_upper": 0.22335169233480734,
+          "n_boot": 1000,
+          "n_samples": 810
+        },
+        "mae": {
+          "metric": "mae",
+          "point": 0.2543538388820695,
+          "ci_lower": 0.2437103890539326,
+          "ci_upper": 0.26504988583358424,
+          "n_boot": 1000,
+          "n_samples": 810
+        },
+        "rmse": {
+          "metric": "rmse",
+          "point": 0.2994835712135052,
+          "ci_lower": 0.2887093689841844,
+          "ci_upper": 0.3102526664841497,
+          "n_boot": 1000,
+          "n_samples": 810
+        }
+      }
+    },
+    "context_pam": {
+      "source": "models/ablation/cnn_context_pam.pt",
+      "trained_in_phase5": false,
+      "training": {
+        "best_epoch": 6,
+        "total_epochs_run": 16,
+        "best_val_loss": 0.04679419146850705
+      },
+      "input_length": 10,
+      "validation": {
+        "mae": 0.18405898927460793,
+        "mse": 0.04687755227670319,
+        "rmse": 0.2165122450964453,
+        "r2": 0.06296094292784737,
+        "pearson_corr": 0.25729805837278225,
+        "pearson_p": 2.23234859466886e-24,
+        "spearman_corr": 0.2524670927060349,
+        "spearman_p": 1.674408630047812e-23,
+        "kendall_corr": 0.17049510938389809,
+        "kendall_p": 2.4600746574178808e-23,
+        "mape": 3.62673230595335
+      },
+      "test": {
+        "mae": 0.25898429203763373,
+        "mse": 0.09031190830348602,
+        "rmse": 0.3005193975494527,
+        "r2": -0.04335575396237745,
+        "pearson_corr": 0.11397928366485538,
+        "pearson_p": 0.0011561099570113337,
+        "spearman_corr": 0.12101817411629687,
+        "spearman_p": 0.0005572485637523126,
+        "kendall_corr": 0.08072018508833213,
+        "kendall_p": 0.000584942431897475,
+        "mape": 6963446715694.948
+      },
+      "bootstrap_test": {
+        "r2": {
+          "metric": "r2",
+          "point": -0.04335575396237745,
+          "ci_lower": -0.08373681411774958,
+          "ci_upper": -0.01032951383042222,
+          "n_boot": 1000,
+          "n_samples": 810
+        },
+        "pearson": {
+          "metric": "pearson",
+          "point": 0.11397928366485538,
+          "ci_lower": 0.04146645391431746,
+          "ci_upper": 0.18018645517461443,
+          "n_boot": 1000,
+          "n_samples": 810
+        },
+        "spearman": {
+          "metric": "spearman",
+          "point": 0.12101817411629687,
+          "ci_lower": 0.04707724626809705,
+          "ci_upper": 0.19079985350062845,
+          "n_boot": 1000,
+          "n_samples": 810
+        },
+        "mae": {
+          "metric": "mae",
+          "point": 0.25898429203763373,
+          "ci_lower": 0.24854748409484462,
+          "ci_upper": 0.26924294827309875,
+          "n_boot": 1000,
+          "n_samples": 810
+        },
+        "rmse": {
+          "metric": "rmse",
+          "point": 0.3005193975494527,
+          "ci_lower": 0.29082113719948005,
+          "ci_upper": 0.3099334586587567,
+          "n_boot": 1000,
+          "n_samples": 810
+        }
+      }
+    }
+  }
+}
