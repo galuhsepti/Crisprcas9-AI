@@ -124,7 +124,9 @@ def calculate_at_skew(sequence: str) -> float:
 def calculate_gc_content_by_region(
     sequence: str,
     context_length: int = 30,
-    guide_length: int = 20
+    guide_length: int = 20,
+    guide_start: int = 4,
+    pam_length: int = 3
 ) -> dict:
     """
     Calculate GC content for different regions of a 30-mer.
@@ -139,6 +141,8 @@ def calculate_gc_content_by_region(
         sequence: 30-mer DNA sequence
         context_length: Expected full length
         guide_length: Expected guide length
+        guide_start: Start position of guide (fixed at 4)
+        pam_length: Length of PAM sequence (3 for NGG)
         
     Returns:
         Dictionary with GC content for each region
@@ -146,14 +150,15 @@ def calculate_gc_content_by_region(
     if len(sequence) != context_length:
         raise ValueError(f"Expected sequence length {context_length}, got {len(sequence)}")
     
-    guide_start = (context_length - guide_length) // 2
     guide_end = guide_start + guide_length
+    pam_start = guide_end
+    pam_end = pam_start + pam_length
     
     return {
         'gc_5prime_context': calculate_gc_content(sequence[:guide_start]),
         'gc_guide': calculate_gc_content(sequence[guide_start:guide_end]),
-        'gc_pam': calculate_gc_content(sequence[guide_end:guide_end + 3]),
-        'gc_3prime_context': calculate_gc_content(sequence[guide_end + 3:]),
+        'gc_pam': calculate_gc_content(sequence[pam_start:pam_end]),
+        'gc_3prime_context': calculate_gc_content(sequence[pam_end:]),
         'gc_full': calculate_gc_content(sequence),
         'gc_guide_skew': calculate_gc_skew(sequence[guide_start:guide_end]),
     }

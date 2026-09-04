@@ -23,11 +23,18 @@ data:
   # Sequence settings
   context_length: 30
   guide_length: 20
+  guide_start: 4
   pam_length: 3
   
   # PAM positions (0-indexed)
   pam_start: 24
   pam_end: 27
+  
+  # Region definitions (30-mer):
+  #   5' context: [0:4]  (4 bp)
+  #   guide:      [4:24] (20 bp)
+  #   PAM:        [24:27] (3 bp, NGG)
+  #   3' context: [27:30] (3 bp)
 
 # Feature engineering settings
 features:
@@ -58,11 +65,13 @@ features:
 
 # Model settings
 models:
-  # Random Forest
+  # Random Forest (used for Phase 3 baseline)
   random_forest:
-    n_estimators: 100
-    max_depth: 10
+    n_estimators: 200
+    max_depth: 20
     min_samples_split: 5
+    min_samples_leaf: 2
+    max_features: "sqrt"
     random_seed: 42
   
   # XGBoost
@@ -103,12 +112,15 @@ models:
     loss: "mse"
 
 # Data split settings
+#   DeepSpCas9 is split into train/validation (for model selection).
+#   Moreno-Mateos is a completely held-out independent test set,
+#   used ONLY for final evaluation — never for tuning.
 split:
-  train_ratio: 0.70
+  train_ratio: 0.85
   val_ratio: 0.15
-  test_ratio: 0.15
   random_seed: 42
   stratify: false
+  external_test: "Moreno-Mateos.csv"
 
 # Evaluation settings
 evaluation:

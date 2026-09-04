@@ -324,7 +324,8 @@ class CRISPRPreprocessor:
         self,
         sequence: str,
         context_length: int = 30,
-        guide_length: int = 20
+        guide_length: int = 20,
+        guide_start: int = 4
     ) -> str:
         """
         Extract guide sequence from context.
@@ -333,12 +334,12 @@ class CRISPRPreprocessor:
             sequence: Full context sequence (30-mer)
             context_length: Full context length
             guide_length: Guide length to extract
+            guide_start: Start position of guide (fixed at 4)
             
         Returns:
             Guide sequence (20bp)
         """
-        start = (context_length - guide_length) // 2
-        return sequence[start:start + guide_length]
+        return sequence[guide_start:guide_start + guide_length]
     
     def preprocess_pipeline(
         self,

@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """
 Training script for Random Forest baseline model.
+
+Methodology:
+  - DeepSpCas9 is split into train (85%) / validation (15%) with a fixed seed.
+  - The model is fitted ONLY on X_train/y_train; validation is truly unseen.
+  - Moreno-Mateos is a held-out independent test set, used ONLY for final
+    evaluation (never for tuning or feature engineering).
 """
 
 import sys
@@ -9,11 +15,10 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.model_selection import train_test_split
 import yaml
 import json
 import logging
-import time
 from datetime import datetime
 
 from src.bioinformatics import SequenceFeatureExtractor
@@ -51,59 +56,79 @@ def extract_features(df: pd.DataFrame, feature_extractor: SequenceFeatureExtract
 
 def main():
     print("=" * 60)
-    print("Random Forest Baseline Training")
+    print("Random Forest Baseline Training (corrected)")
     print("=" * 60)
 
     config = load_config()
     random_seed = config['project']['random_seed']
 
-    results_dir = Path('results/experiments')
-    models_dir = Path('models')
+    # Data geometry from config (must match Experiment: guide [4:24], PAM [24:27])
+    context_length = config['data']['context_length']
+    guide_length = config['data']['guide_length']
+    guide_start = config['data']['guide_start']
+
+    # Random Forest hyperparameters from config
+    rf_cfg = config['models']['random_forest']
+
+    results_dir = Path(config['experiments']['output_dir'])
+    models_dir = Path(config['experiments']['models_dir'])
     results_dir.mkdir(parents=True, exist_ok=True)
     models_dir.mkdir(parents=True, exist_ok=True)
 
     print("\n1. Loading and validating data...")
-    df_train = load_and_validate_data('data/raw/DeepSpCas9.csv')
-    df_test = load_and_validate_data('data/raw/Moreno-Mateos.csv')
+    df_train = load_and_validate_data(f"data/raw/{config['data']['primary_dataset']}")
+    df_test = load_and_validate_data(f"data/raw/{config['data']['test_dataset']}")
 
     print("\n2. Initializing feature extractor...")
     feature_extractor = SequenceFeatureExtractor(
-        context_length=30, guide_length=20, k_values=[2, 3],
-        include_one_hot=False, include_gc=True,
-        include_composition=True, include_kmer=True,
+        context_length=context_length,
+        guide_length=guide_length,
+        guide_start=guide_start,
+        k_values=[2, 3],
+        include_one_hot=False,
+        include_gc=True,
+        include_composition=True,
+        include_kmer=True,
         include_positional=True
     )
     feature_names = feature_extractor.get_feature_names()
     print(f"   Features: {len(feature_names)}")
+    print(f"   Guide slice: [{guide_start}:{guide_start + guide_length}], PAM slice: "
+          f"[{guide_start + guide_length}:{guide_start + guide_length + 3}]")
 
     print("\n3. Extracting features...")
     X_train_full = extract_features(df_train, feature_extractor)
     y_train_full = df_train['activity'].values
     X_test = extract_features(df_test, feature_extractor)
     y_test = df_test['activity'].values
-    print(f"   Training set: {X_train_full.shape}")
-    print(f"   Test set: {X_test.shape}")
+    print(f"   DeepSpCas9: {X_train_full.shape}")
+    print(f"   Moreno-Mateos (held-out): {X_test.shape}")
 
-    print("\n4. Splitting data...")
+    print(f"\n4. Splitting DeepSpCas9 into train/validation (seed={random_seed})...")
     X_train, X_val, y_train, y_val = train_test_split(
-        X_train_full, y_train_full, test_size=0.15, random_state=random_seed
+        X_train_full, y_train_full,
+        test_size=config['split']['val_ratio'],
+        random_state=config['split']['random_seed']
     )
-    print(f"   Train: {X_train.shape}, Val: {X_val.shape}")
+    print(f"   Train: {X_train.shape}, Validation: {X_val.shape}")
 
-    print("\n5. Training Random Forest (n=200, depth=20)...")
+    print("\n5. Fitting Random Forest on X_train/y_train ONLY...")
     model = RandomForestModel(
-        n_estimators=200, max_depth=20,
-        min_samples_split=5, min_samples_leaf=2,
-        max_features='sqrt', random_state=random_seed
+        n_estimators=rf_cfg['n_estimators'],
+        max_depth=rf_cfg['max_depth'],
+        min_samples_split=rf_cfg['min_samples_split'],
+        min_samples_leaf=rf_cfg['min_samples_leaf'],
+        max_features=rf_cfg['max_features'],
+        random_state=rf_cfg['random_seed']
     )
-    history = model.fit(X_train_full, y_train_full, feature_names=feature_names)
+    history = model.fit(X_train, y_train, feature_names=feature_names)
 
-    print("\n6. Evaluating on validation set...")
+    print("\n6. Evaluating on truly unseen validation set...")
     y_val_pred = model.predict(X_val)
     val_metrics = calculate_all_metrics(y_val, y_val_pred)
     print(format_metrics_report(val_metrics))
 
-    print("\n7. Evaluating on test set (Moreno-Mateos)...")
+    print("\n7. Evaluating on held-out test set (Moreno-Mateos)...")
     y_test_pred = model.predict(X_test)
     test_metrics = calculate_all_metrics(y_test, y_test_pred)
     print(format_metrics_report(test_metrics))
@@ -113,14 +138,25 @@ def main():
     print(importance_df.to_string(index=False))
 
     print("\n9. Saving results...")
-    experiment_name = f"rf_baseline_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    experiment_name = f"rf_baseline_fixed_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
 
     results = {
         'experiment_name': experiment_name,
         'timestamp': datetime.now().isoformat(),
+        'methodology': {
+            'train_split': 'DeepSpCas9 85%',
+            'validation_split': 'DeepSpCas9 15% (unseen during training)',
+            'test_set': 'Moreno-Mateos (held-out, never used for tuning)',
+            'pam_slice': '[24:27]',
+            'guide_slice': '[4:24]',
+            'guide_start': guide_start
+        },
         'hyperparameters': model.get_params(),
         'training_time': history['training_time'],
         'n_features': len(feature_names),
+        'n_train': int(X_train.shape[0]),
+        'n_val': int(X_val.shape[0]),
+        'n_test': int(X_test.shape[0]),
         'validation_metrics': val_metrics,
         'test_metrics': test_metrics,
         'feature_importance': importance_df.to_dict('records')
@@ -137,13 +173,16 @@ def main():
     print(f"   Model:   {model_path}")
 
     print("\n" + "=" * 60)
-    print("Phase 3 Complete - Random Forest Baseline")
+    print("Phase 3 (corrected) complete")
     print("=" * 60)
+    print(f"Validation MAE:  {val_metrics['mae']:.4f}")
+    print(f"Validation RMSE: {val_metrics['rmse']:.4f}")
+    print(f"Validation R²:   {val_metrics['r2']:.4f}")
+    print(f"Validation r:    {val_metrics['pearson_corr']:.4f}")
     print(f"Test MAE:  {test_metrics['mae']:.4f}")
     print(f"Test RMSE: {test_metrics['rmse']:.4f}")
     print(f"Test R²:   {test_metrics['r2']:.4f}")
-    print(f"Pearson r: {test_metrics['pearson_corr']:.4f}")
-    print(f"Spearman ρ:{test_metrics['spearman_corr']:.4f}")
+    print(f"Test r:    {test_metrics['pearson_corr']:.4f}")
 
     return results
 

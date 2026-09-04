@@ -48,6 +48,8 @@ class SequenceFeatureExtractor:
         self,
         context_length: int = 30,
         guide_length: int = 20,
+        guide_start: int = 4,
+        pam_length: int = 3,
         k_values: List[int] = [2, 3],
         include_one_hot: bool = True,
         include_gc: bool = True,
@@ -61,6 +63,10 @@ class SequenceFeatureExtractor:
         Args:
             context_length: Full context sequence length
             guide_length: Guide sequence length
+            guide_start: Start position of guide (0-indexed), fixed at 4 for 30-mer:
+                         4bp 5' context (0-3) + 20bp guide (4-23) + 3bp PAM (24-26)
+                         + 3bp 3' context (27-29)
+            pam_length: Length of PAM sequence (3 for NGG)
             k_values: List of k values for k-mer features
             include_one_hot: Include one-hot encoding features
             include_gc: Include GC content features
@@ -70,14 +76,17 @@ class SequenceFeatureExtractor:
         """
         self.context_length = context_length
         self.guide_length = guide_length
+        self.guide_start = guide_start
+        self.pam_length = pam_length
+        self.guide_end = guide_start + guide_length
+        self.pam_start = guide_start + guide_length
+        self.pam_end = guide_start + guide_length + pam_length
         self.k_values = k_values
         self.include_one_hot = include_one_hot
         self.include_gc = include_gc
         self.include_composition = include_composition
         self.include_kmer = include_kmer
         self.include_positional = include_positional
-        
-        self.guide_start = (context_length - guide_length) // 2
     
     def extract_gc_features(self, sequence: str) -> Dict[str, float]:
         """Extract GC content features."""

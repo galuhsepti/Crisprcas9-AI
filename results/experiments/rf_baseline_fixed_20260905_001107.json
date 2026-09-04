@@ -1,0 +1,133 @@
+{
+  "experiment_name": "rf_baseline_fixed_20260905_001107",
+  "timestamp": "2026-09-05T00:11:07.245358",
+  "methodology": {
+    "train_split": "DeepSpCas9 85%",
+    "validation_split": "DeepSpCas9 15% (unseen during training)",
+    "test_set": "Moreno-Mateos (held-out, never used for tuning)",
+    "pam_slice": "[24:27]",
+    "guide_slice": "[4:24]",
+    "guide_start": 4
+  },
+  "hyperparameters": {
+    "n_estimators": 200,
+    "max_depth": 20,
+    "min_samples_split": 5,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt",
+    "random_state": 42
+  },
+  "training_time": 0.8553481101989746,
+  "n_features": 197,
+  "n_train": 8599,
+  "n_val": 1518,
+  "n_test": 810,
+  "validation_metrics": {
+    "mae": 0.14989252256093744,
+    "mse": 0.03192487310272681,
+    "rmse": 0.1786753287466594,
+    "r2": 0.3618512158495508,
+    "pearson_corr": 0.6374754052983969,
+    "pearson_p": 6.744233189044434e-174,
+    "spearman_corr": 0.626238487828374,
+    "spearman_p": 4.1560171999512873e-166,
+    "kendall_corr": 0.4476512567710872,
+    "kendall_p": 1.5940459372747832e-150,
+    "mape": 2.7863236645490432
+  },
+  "test_metrics": {
+    "mae": 0.2484701098867135,
+    "mse": 0.08261585251463385,
+    "rmse": 0.28742973491730783,
+    "r2": 0.045555268304266705,
+    "pearson_corr": 0.2352103369771678,
+    "pearson_p": 1.2084491417719281e-11,
+    "spearman_corr": 0.22632019741646264,
+    "spearman_p": 7.222259695245503e-11,
+    "kendall_corr": 0.1516221136708667,
+    "kendall_p": 1.0548381520022321e-10,
+    "mape": 7612248939314.929
+  },
+  "feature_importance": [
+    {
+      "feature": "guide_pos_19_G",
+      "importance": 0.04860987087889835
+    },
+    {
+      "feature": "dinuc_TT",
+      "importance": 0.02446573184016229
+    },
+    {
+      "feature": "guide_pos_17_C",
+      "importance": 0.021204873714380817
+    },
+    {
+      "feature": "k2_TT",
+      "importance": 0.020486372404907045
+    },
+    {
+      "feature": "freq_T",
+      "importance": 0.019290266564815795
+    },
+    {
+      "feature": "gc_guide",
+      "importance": 0.017612685785235505
+    },
+    {
+      "feature": "gc_full",
+      "importance": 0.017403614787629935
+    },
+    {
+      "feature": "guide_pos_19_C",
+      "importance": 0.017236746218744766
+    },
+    {
+      "feature": "at_skew",
+      "importance": 0.016760361383386744
+    },
+    {
+      "feature": "k2_entropy",
+      "importance": 0.015542341513309821
+    },
+    {
+      "feature": "gc_content",
+      "importance": 0.014393819965331529
+    },
+    {
+      "feature": "heterogeneity",
+      "importance": 0.014000196222499216
+    },
+    {
+      "feature": "gc_guide_skew",
+      "importance": 0.013534824951856065
+    },
+    {
+      "feature": "gc_skew",
+      "importance": 0.011870827406006177
+    },
+    {
+      "feature": "k3_entropy",
+      "importance": 0.011787066001130308
+    },
+    {
+      "feature": "guide_pos_19_T",
+      "importance": 0.010782573793788709
+    },
+    {
+      "feature": "k3_TTT",
+      "importance": 0.01028130224545905
+    },
+    {
+      "feature": "purine_content",
+      "importance": 0.01014208908203701
+    },
+    {
+      "feature": "freq_G",
+      "importance": 0.009882570443182616
+    },
+    {
+      "feature": "pyrimidine_content",
+      "importance": 0.009669086910279368
+    }
+  ]
+}

@@ -1,123 +1,106 @@
-# Phase 3 Report - Random Forest Baseline
+# Phase 3 Report - Random Forest Baseline (corrected)
 
-## Overview
+> **IMPORTANT:** This report supersedes the earlier Phase 3 baseline results.
+> The previous results (MAE 0.0745 / RMSE 0.0905 / R² 0.8242 on validation)
+> were **invalid** for two reasons and must NOT be used as final thesis results:
+> 1. **Data leakage:** the model was fitted on the *full* DeepSpCas9 set
+>    (including the samples later used for validation), so validation was
+>    **not** truly unseen.
+> 2. **Wrong sequence geometry:** `guide_start` was erroneously derived as
+>    `(30-20)//2 = 5`, so the guide spanned positions 5-24 (including the first
+>    PAM base) instead of the correct positions 4-23. PAM/context GC slices were
+>    also shifted by one base.
 
-This report documents the implementation and evaluation of the Random Forest baseline model for sgRNA activity prediction as part of the CRISPR-Cas9 prediction pipeline.
+## Corrected Geometry (30-mer)
 
-## Data Summary
+| Region | Slice | Length |
+|--------|-------|--------|
+| 5' context | [0:4] | 4 bp |
+| Guide | [4:24] | 20 bp |
+| PAM (NGG) | [24:27] | 3 bp |
+| 3' context | [27:30] | 3 bp |
 
-| Dataset | Total | Valid | Filtered | Filter Reason |
-|---------|-------|-------|----------|---------------|
-| DeepSpCas9 (train) | 12,832 | 10,094 | 2,738 | Homopolymer runs (≥4 identical nucleotides) |
-| Moreno-Mateos (test) | 1,020 | 836 | 184 | Homopolymer runs (≥4 identical nucleotides) |
+This matches the standard DeepSpCas9 30-mer format and the slicing already
+used in `scripts/prepare_data.py`.
 
-### Filter Details (DeepSpCas9)
-- 891 sequences with C homopolymer
-- 703 sequences with G homopolymer
-- 657 sequences with A homopolymer
-- 487 sequences with T homopolymer
+## Methodology (corrected)
+
+- **Training set:** DeepSpCas9, 85% split (n = 8,599) — model fitted **only**
+  on this split.
+- **Validation set:** DeepSpCas9, 15% split (n = 1,518) — completely unseen
+  during training; used for model selection only.
+- **Independent test set:** Moreno-Mateos (n = 810) — held out entirely; used
+  **only** for final evaluation, never for tuning or feature engineering.
+- Fixed seed random split (`random_seed = 42`).
+
+## Data Summary (post-filter)
+
+| Dataset | Total | Valid | Filtered | Reason |
+|---------|-------|-------|----------|--------|
+| DeepSpCas9 | 12,832 | 10,117 | 2,715 | Homopolymer runs (≥4 identical nucleotides) |
+| Moreno-Mateos | 1,020 | 810 | 210 | Homopolymer runs (≥4 identical nucleotides) |
 
 ## Feature Engineering
 
-Total features: **197**
+Total features: **197** (identical columns across train/test)
 
-| Category | Count | Description |
-|----------|-------|-------------|
-| GC Content | 10 | Overall GC, regional GC, skew, optimal GC |
-| Composition | 17 | Nucleotide frequencies, di-nucleotides, heterogeneity |
-| k-mer (k=2) | 18 | 16 dinucleotides + entropy + complexity |
-| k-mer (k=3) | 66 | 64 trinucleotides + entropy + complexity |
-| Positional | 80 | One-hot binary features for 20 guide positions × 4 nucleotides |
+| Category | Count |
+|----------|-------|
+| GC Content | 10 |
+| Composition | 17 |
+| k-mer (k=2) | 18 |
+| k-mer (k=3) | 66 |
+| Positional (guide one-hot) | 80 |
 
-## Model Configuration
+Model hyperparameters (from `config.yaml`): `n_estimators=200, max_depth=20,
+min_samples_split=5, min_samples_leaf=2, max_features='sqrt', random_state=42`.
 
-```yaml
-n_estimators: 200
-max_depth: 20
-min_samples_split: 5
-min_samples_leaf: 2
-max_features: 'sqrt'
-random_state: 42
-```
+## Results (corrected)
 
-## Results
-
-### Validation Set (held-out 15% of DeepSpCas9, n=1,515)
-Evaluation on held-out DeepSpCas9 sequences (same distribution as training):
+### Validation set (truly unseen, n = 1,518)
 
 | Metric | Value |
 |--------|-------|
-| MAE | 0.0745 |
-| RMSE | 0.0905 |
-| R² | 0.8242 |
-| Pearson r | 0.9585 (p < 0.001) |
-| Spearman ρ | 0.9622 (p < 0.001) |
-| Kendall τ | 0.8295 (p < 0.001) |
+| MAE | 0.1499 |
+| RMSE | 0.1787 |
+| R² | 0.3619 |
+| Pearson r | 0.6375 (p = 6.7e-174) |
+| Spearman ρ | 0.6262 (p = 4.2e-166) |
+| Kendall τ | 0.4477 (p = 1.6e-150) |
 
-### Independent Test Set (Moreno-Mateos, n=836)
-Evaluation on completely independent dataset (different laboratory, methods, cells):
+### Independent test set (Moreno-Mateos, n = 810)
 
 | Metric | Value |
 |--------|-------|
-| MAE | 0.2507 |
-| RMSE | 0.2901 |
-| R² | 0.0364 |
-| Pearson r | 0.2288 (p=2.16e-11) |
-| Spearman ρ | 0.2224 (p=7.91e-11) |
-| Kendall τ | 0.1496 (p=9.52e-11) |
+| MAE | 0.2485 |
+| RMSE | 0.2874 |
+| R² | 0.0456 |
+| Pearson r | 0.2352 (p = 1.2e-11) |
+| Spearman ρ | 0.2263 (p = 7.2e-11) |
+| Kendall τ | 0.1516 (p = 1.1e-10) |
 
 ## Interpretation
 
-### Within-dataset performance (validation)
-The Random Forest model performs excellently on held-out DeepSpCas9 sequences:
-- Pearson correlation of 0.96 indicates strong sequence-activity relationship modeling
-- R² of 0.82 shows the model explains most variance in DeepSpCas9 data
+With leakage and geometry bugs fixed, the honestly measured in-domain
+performance (R² = 0.36, Pearson r = 0.64) is substantially lower than the
+invalid 0.82 R² previously reported. These corrected numbers are the ones to
+use in the thesis.
 
-### Cross-dataset performance (Moreno-Mateos test set)
-Significant performance drop on the independent test set:
-- Correlation drops from 0.96 to 0.23
-- R² drops from 0.82 to 0.04
+The cross-dataset drop (r ≈ 0.64 → 0.24) is expected and consistent with the
+CRISPR prediction literature: different laboratories, cell lines, and activity
+measurement protocols introduce large domain shifts. The independent-test
+correlations remain statistically significant (p < 1e-10), indicating that the
+learned features carry real biological signal.
 
-This domain shift is **well-known in CRISPR prediction literature** and is caused by:
-1. Different experimental conditions (cell lines, delivery methods, assay types)
-2. Different activity measurement methodologies (modification frequency vs. other readouts)
-3. Batch effects between laboratories
-4. Potentially different sequence context distributions
+The top features (guide position 18/19 near the PAM-proximal end, GC content,
+TT/AT-rich seed-region features) are consistent with known determinants of
+sgRNA activity.
 
-Despite the drop, the Pearson/Spearman correlations remain **statistically significant** (p < 1e-10), demonstrating that the learned sequence features carry real biological signal that generalizes across datasets.
+## Files
 
-## Top Feature Importance
+- Model: `models/rf_baseline_fixed_*.pkl`
+- Results: `results/experiments/rf_baseline_fixed_*.json`
 
-| Rank | Feature | Importance |
-|------|---------|------------|
-| 1 | guide_pos_18_G | 0.0491 |
-| 2 | dinuc_TT | 0.0235 |
-| 3 | k2_TT | 0.0208 |
-| 4 | guide_pos_16_C | 0.0204 |
-| 5 | gc_guide | 0.0200 |
-| 6 | guide_pos_18_C | 0.0186 |
-| 7 | freq_T | 0.0183 |
-| 8 | at_skew | 0.0179 |
-| 9 | gc_full | 0.0160 |
-| 10 | k2_entropy | 0.0154 |
+## Decision Record
 
-This aligns with known biology:
-- **Position 18 of the guide** (adjacent to PAM) is critical for Cas9 binding specificity
-- **GC content** is a well-established predictor of sgRNA efficiency
-- **TT dinucleotide** in seed region affects off-target specificity
-
-## Files Generated
-
-- `models/rf_baseline_*.pkl` - Trained Random Forest model
-- `results/experiments/rf_baseline_*.json` - Complete results with metrics
-- `src/models/random_forest.py` - RandomForestModel class
-- `src/evaluation/metrics.py` - Comprehensive evaluation metrics
-- `tests/test_evaluation.py` - 13 evaluation tests (pass)
-- `tests/test_models.py` - 10 model tests (pass)
-
-## Next Steps
-
-1. Proceed to Phase 4: XGBoost model for comparison
-2. Compare XGBoost vs Random Forest performance
-3. Consider reducing homopolymer filtering strictness to retain more training data
-4. Explore feature selection to improve cross-dataset generalization
+See `docs/decisions.md` for the full record of methodology corrections.

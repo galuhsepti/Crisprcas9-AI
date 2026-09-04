@@ -210,6 +210,7 @@ def extract_guide_kmer_features(
     sequence: str,
     context_length: int = 30,
     guide_length: int = 20,
+    guide_start: int = 4,
     k_values: List[int] = [2, 3]
 ) -> Dict[str, float]:
     """
@@ -221,6 +222,7 @@ def extract_guide_kmer_features(
         sequence: 30-mer DNA sequence
         context_length: Full sequence length
         guide_length: Guide sequence length
+        guide_start: Start position of guide (fixed at 4)
         k_values: List of k values to extract
         
     Returns:
@@ -230,8 +232,7 @@ def extract_guide_kmer_features(
         raise ValueError(f"Expected length {context_length}, got {len(sequence)}")
     
     # Extract guide sequence
-    start = (context_length - guide_length) // 2
-    guide = sequence[start:start + guide_length]
+    guide = sequence[guide_start:guide_start + guide_length]
     
     features = {}
     

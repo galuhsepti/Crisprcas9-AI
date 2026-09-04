@@ -169,8 +169,8 @@ def validate_sequence(
     if not is_valid:
         errors.append(error)
     
-    # Check guide sequence
-    guide_start = (context_length - guide_length) // 2
+    # Check guide sequence (guide at positions 4-24 for 30-mer)
+    guide_start = 4
     is_valid, error = validate_guide_sequence(
         sequence,
         guide_start=guide_start,
@@ -179,9 +179,9 @@ def validate_sequence(
     if not is_valid:
         errors.append(error)
     
-    # Check PAM if requested
+    # Check PAM if requested (PAM at positions 24-27 for 30-mer)
     if check_pam and len(sequence) >= context_length:
-        pam_start = guide_start + guide_length
+        pam_start = guide_start + guide_length  # = 24
         is_valid, error = validate_pam_sequence(
             sequence,
             pam_start=pam_start,

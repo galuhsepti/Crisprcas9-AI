@@ -292,6 +292,49 @@ class TestSequenceFeatureExtractor:
         assert count > 0
 
 
+class TestGuideGeometry:
+    """Regression tests for correct 30-mer geometry (guide [4:24], PAM [24:27])."""
+
+    def test_guide_start_is_4(self):
+        """guide_start must be 4, not derived as (30-20)//2 = 5."""
+        extractor = SequenceFeatureExtractor()
+        assert extractor.guide_start == 4
+        assert extractor.guide_end == 24
+
+    def test_pam_bounds(self):
+        """PAM must span [24:27]."""
+        extractor = SequenceFeatureExtractor()
+        assert extractor.pam_start == 24
+        assert extractor.pam_end == 27
+
+    def test_gc_region_slices(self):
+        """Regional GC slices must match guide [4:24] and PAM [24:27]."""
+        from src.bioinformatics.gc_content import calculate_gc_content_by_region
+        # Build a sequence where each region has distinct GC content:
+        #  5' context (0-3): ACGT -> 0.5
+        #  guide (4-23): C*20 -> 1.0
+        #  PAM (24-26): GGG -> 1.0
+        #  3' context (27-29): AAA -> 0.0
+        seq = "ACGT" + "C" * 20 + "GGG" + "AAA"
+        result = calculate_gc_content_by_region(seq)
+        assert result['gc_5prime_context'] == 0.5
+        assert result['gc_guide'] == 1.0
+        assert result['gc_pam'] == 1.0
+        assert result['gc_3prime_context'] == 0.0
+
+    def test_positional_features_use_guide_4_24(self):
+        """guide_pos_0 must correspond to position 4 of the 30-mer."""
+        extractor = SequenceFeatureExtractor(include_gc=False, include_composition=False,
+                                             include_kmer=False, include_positional=True)
+        # Distinct at each position: position 4 of 30-mer is the first guide base
+        seq = "TTTT" + "C" + "A" * 19 + "N" * 6  # guide = C + 19 A
+        features = extractor.extract_all_features(seq)
+        assert features['guide_pos_0_C'] == 1.0
+        assert features['guide_pos_0_A'] == 0.0
+        assert features['guide_pos_0_G'] == 0.0
+        assert features['guide_pos_0_T'] == 0.0
+
+
 class TestEdgeCases:
     """Test edge cases."""
     
