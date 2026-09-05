@@ -26,7 +26,7 @@ check.
 - Validation used for early stopping / model selection (D-006); in-domain
   comparisons are **descriptive only**. The test set is the fair comparison
   basis.
-- Bootstrap 95% CIs (n_boot = 1000, seed 42) on test-set metrics.
+- Percentile bootstrap 95% CIs (n_boot = 1000, seed 42) on test-set metrics.
 
 ## Results - Validation (in-domain, descriptive)
 
@@ -46,7 +46,7 @@ check.
 | guide_pam | 23 | 0.2544 | 0.2995 | -0.0362 | 0.1743 | 0.1571 |
 | context_pam | 10 | 0.2590 | 0.3005 | -0.0434 | 0.1140 | 0.1210 |
 
-## Bootstrap 95% CI on test R²
+## Percentile Bootstrap 95% CI on test R²
 
 | Region | R² | 95% CI |
 |--------|------|-----------------|

@@ -195,7 +195,7 @@ def main():
             print(f"   {a} vs {b}: mean sq-err diff = {t['mean_diff']:.4e} "
                   f"(t p={t['t_p_value']:.3e}, wilcoxon p={t['wilcoxon_p_value']:.3e})")
 
-    print("\n8. Bootstrap 95% CIs on the TEST set (n_boot=1000, seed=42)...")
+    print("\n8. Percentile bootstrap 95% CIs on the TEST set (n_boot=1000, seed=42)...")
     bootstrap = {}
     for name in models:
         bootstrap[name] = {

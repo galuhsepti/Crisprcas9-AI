@@ -46,7 +46,7 @@ independent external test set:
       bioinformatics/              # sequence validation + feature extraction
       data/                        # data loading, validation, preprocessing
       models/                      # RandomForestModel, XGBoostModel, CNNModel
-      evaluation/                  # metrics, comparison (paired tests, bootstrap CI)
+      evaluation/                  # metrics, comparison (paired tests, percentile CI)
       ablation/                    # sequence-region ablation (Phase 7)
       interpretability/            # CNN attribution + tabular importance (Phase 8)
     scripts/                       # one entry-point per pipeline phase
@@ -82,10 +82,13 @@ independent external test set:
 Paired significance tests (per-sample squared error) on the test set:
 Random Forest significantly outperforms XGBoost (t p ≈ 3e-5) and the CNN
 (t p ≈ 4e-3, borderline after Bonferroni); no significant XGBoost-vs-CNN
-difference. Bootstrap 95% CIs place Random Forest's R² entirely above zero;
-all other intervals straddle zero. Cross-dataset generalization is weak for
-every model (top-5 precision 0 out-of-domain) — a central finding discussed in
-`docs/phase6_evaluation_report.md`.
+difference. Percentile bootstrap 95% CIs place Random Forest's R² entirely
+above zero; all other intervals straddle zero. Cross-dataset generalization is
+weak for every model — as a secondary ranking-quality observation, none of the
+models recover the measured top-5 guides on the external set (precision@5 = 0,
+see `calculate_ranking_metrics` / Phase 6 report). Fully discussed in
+`docs/phase6_evaluation_report.md`. The primary metrics are MAE, RMSE, R²,
+Pearson and Spearman.
 
 **Dominant signal location:** CNN attribution and the Phase 7 region ablation
 agree the 20 bp guide `[4:24]` carries ~70% of the predictive signal;

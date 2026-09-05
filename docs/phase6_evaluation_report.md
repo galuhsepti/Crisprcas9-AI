@@ -80,7 +80,7 @@ comparisons a Bonferroni threshold of 0.0167 applies for strong control.
 - No statistically significant difference was detected between XGBoost and the
   CNN.
 
-## Bootstrap 95% Confidence Intervals (test set, n_boot = 1000, seed 42)
+## Percentile Bootstrap 95% Confidence Intervals (test set, n_boot = 1000, seed 42)
 
 | Metric | RandomForest | XGBoost | CNN |
 |--------|--------------|---------|-----|
@@ -142,9 +142,9 @@ strongest relative ranking signal.
   chance (raw t p ≈ 3e-5 vs XGBoost, 4e-3 vs CNN; borderline under the
   conservative Bonferroni adjustment). No significant XGBoost-vs-CNN
   difference was detected.
-- **Uncertainty.** Bootstrap R² intervals show RF is the only model whose
-  external R² is fully above zero; all correlation intervals are strictly
-  positive across models.
+- **Uncertainty.** Percentile bootstrap R² intervals show RF is the only
+  model whose external R² is fully above zero; all correlation intervals are
+  strictly positive across models.
 - **Ranking caveat.** Significant low-level correlations do not translate into
   reliable identification of the very best guides out-of-domain (P@5 = 0 for
   all models).
@@ -164,7 +164,7 @@ strongest relative ranking signal.
 ## Files
 
 - Results: `results/experiments/evaluation_phase6_20260905_013405.json`
-  (scalars, paired tests, bootstrap CIs, bin metrics, ranking).
+  (scalars, paired tests, percentile bootstrap CIs, bin metrics, ranking).
 - Module: `src/evaluation/comparison.py` (`paired_error_tests`,
   `bootstrap_metric_ci`); exported from `src/evaluation/__init__.py`.
 - Script: `scripts/evaluate_models_phase6.py`.

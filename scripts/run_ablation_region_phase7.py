@@ -21,7 +21,7 @@ Methodology:
     (Moreno-Mateos). No enrichment on the test set.
   - Validation split was used for early stopping / model selection (D-006);
     primary comparison relies on the untouched Moreno-Mateos test set.
-  - Bootstrap 95% CIs (n_boot=1000, seed 42) on test-set metrics.
+  - Percentile bootstrap 95% CIs (n_boot=1000, seed 42) on test-set metrics.
   - Results saved to results/experiments/ablation_region_phase7_*.json;
     variant models saved to models/ablation/ (gitignored).
 """
@@ -209,7 +209,7 @@ def main():
               f"{t['mae']:<9.4f}{t['rmse']:<9.4f}{t['r2']:<9.4f}"
               f"{t['pearson_corr']:<10.4f}{t['spearman_corr']:<10.4f}")
 
-    print("\n7. Bootstrap 95% CI on test R2 (n_boot=1000, seed 42):")
+    print("\n7. Percentile bootstrap 95% CI on test R2 (n_boot=1000, seed 42):")
     for region in REGIONS:
         b = results[region]['bootstrap_test']['r2']
         print(f"   {region:<14} R2={b['point']:.4f} "

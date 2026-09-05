@@ -2,8 +2,8 @@
 Model comparison utilities for CRISPR-Cas9 sgRNA prediction.
 
 Provides paired significance tests for comparing two regression models on the
-same samples, and bootstrap confidence intervals for scalar performance
-metrics.
+same samples, and percentile-bootstrap confidence intervals for scalar
+performance metrics.
 
 Interpretation notes
 --------------------
@@ -140,7 +140,11 @@ def bootstrap_metric_ci(
     alpha: float = 0.05
 ) -> Dict[str, float]:
     """
-    Bias-corrected percentile bootstrap confidence interval for a metric.
+    Percentile bootstrap 95% confidence interval for a metric.
+
+    The interval is the (alpha/2, 1-alpha/2) percentile interval of the
+    bootstrap resampling distribution. It is computed without bias-correction
+    or acceleration (it is NOT a BCa / bias-corrected percentile bootstrap).
 
     Args:
         y_true: True target values
