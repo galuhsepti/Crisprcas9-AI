@@ -75,39 +75,51 @@ class RandomForestModel:
         # Training history
         self.training_history = {}
         self.is_fitted = False
-        
+
     def fit(
         self,
         X: np.ndarray,
         y: np.ndarray,
-        feature_names: Optional[List[str]] = None
+        feature_names: Optional[List[str]] = None,
+        sample_weight: Optional[np.ndarray] = None
     ) -> Dict[str, Any]:
         """
         Train the Random Forest model.
-        
+
         Args:
             X: Feature matrix
             y: Target values
             feature_names: Optional list of feature names
-            
+            sample_weight: Optional per-sample non-negative weights (e.g.
+                domain-adaptation reweighting). Defaults to None -> canonical
+                unweighted fit.
+
         Returns:
             Dictionary with training results
         """
         logger.info("Training Random Forest model...")
         start_time = time.time()
-        
+
         # Store feature names
         self.feature_names = feature_names
-        
+
         # Fit model
-        self.model.fit(X, y)
-        
+        if sample_weight is not None:
+            sample_weight = np.asarray(sample_weight, dtype=float).ravel()
+            if sample_weight.size != X.shape[0]:
+                raise ValueError("sample_weight length must equal X rows")
+            if np.any(sample_weight < 0) or not np.all(np.isfinite(sample_weight)):
+                raise ValueError("sample_weight must be finite and non-negative")
+            self.model.fit(X, y, sample_weight=sample_weight)
+        else:
+            self.model.fit(X, y)
+
         # Calculate training time
         training_time = time.time() - start_time
-        
+
         # Get feature importances
         importances = self.model.feature_importances_
-        
+
         # Store training history
         self.training_history = {
             'training_time': training_time,
@@ -116,12 +128,18 @@ class RandomForestModel:
             'feature_importances': importances.tolist() if feature_names is None else 
                 dict(zip(feature_names, importances.tolist()))
         }
-        
+        if sample_weight is not None:
+            self.training_history['sample_weight'] = {
+                'mean': float(np.mean(sample_weight)),
+                'min': float(np.min(sample_weight)),
+                'max': float(np.max(sample_weight)),
+            }
+
         self.is_fitted = True
-        
+
         logger.info(f"Training completed in {training_time:.2f} seconds")
         logger.info(f"Number of trees: {self.n_estimators}")
-        
+
         return self.training_history
     
     def predict(self, X: np.ndarray) -> np.ndarray:

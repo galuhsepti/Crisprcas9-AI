@@ -85,33 +85,44 @@ class XGBoostModel:
         # Training history
         self.training_history = {}
         self.is_fitted = False
-    
+
     def fit(
         self,
         X: np.ndarray,
         y: np.ndarray,
         feature_names: Optional[List[str]] = None,
         eval_set: Optional[Tuple[np.ndarray, np.ndarray]] = None,
-        early_stopping_rounds: int = 20
+        early_stopping_rounds: int = 20,
+        sample_weight: Optional[np.ndarray] = None
     ) -> Dict[str, Any]:
         """
         Train the XGBoost model.
-        
+
         Args:
             X: Feature matrix
             y: Target values
             feature_names: Optional list of feature names
             eval_set: Optional (X_val, y_val) for early stopping
             early_stopping_rounds: Stop if score doesn't improve for N rounds
-            
+            sample_weight: Optional per-sample non-negative weights (e.g.
+                domain-adaptation reweighting). Defaults to None -> canonical
+                unweighted fit.
+
         Returns:
             Dictionary with training results
         """
         logger.info("Training XGBoost model...")
         start_time = time.time()
-        
+
         self.feature_names = feature_names
-        
+
+        if sample_weight is not None:
+            sample_weight = np.asarray(sample_weight, dtype=float).ravel()
+            if sample_weight.size != X.shape[0]:
+                raise ValueError("sample_weight length must equal X rows")
+            if np.any(sample_weight < 0) or not np.all(np.isfinite(sample_weight)):
+                raise ValueError("sample_weight must be finite and non-negative")
+
         if eval_set is not None and early_stopping_rounds:
             self.model = xgb.XGBRegressor(
                 n_estimators=self.n_estimators,
@@ -130,15 +141,17 @@ class XGBoostModel:
                 eval_metric='rmse'
             )
             X_val, y_val = eval_set
-            self.model.fit(
-                X, y,
-                eval_set=[(X_val, y_val)],
-                verbose=False
-            )
+            fit_kwargs = dict(eval_set=[(X_val, y_val)], verbose=False)
+            if sample_weight is not None:
+                fit_kwargs['sample_weight'] = sample_weight
+            self.model.fit(X, y, **fit_kwargs)
             self.best_iteration = self.model.best_iteration
             self.best_score = self.model.best_score
         else:
-            self.model.fit(X, y, verbose=False)
+            fit_kwargs = dict(verbose=False)
+            if sample_weight is not None:
+                fit_kwargs['sample_weight'] = sample_weight
+            self.model.fit(X, y, **fit_kwargs)
             self.best_iteration = None
             self.best_score = None
         

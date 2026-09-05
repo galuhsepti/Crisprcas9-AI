@@ -223,7 +223,8 @@ class CNNModel:
         y_train: np.ndarray,
         X_val: Optional[np.ndarray] = None,
         y_val: Optional[np.ndarray] = None,
-        verbose: bool = True
+        verbose: bool = True,
+        sample_weight: Optional[np.ndarray] = None
     ) -> Dict[str, Any]:
         """
         Train the CNN with early stopping on validation loss.
@@ -241,14 +242,29 @@ class CNNModel:
                 gradient updates.
             y_val: Validation targets
             verbose: Print progress
-            
+            sample_weight: Optional per-sample non-negative weights for the
+                training set (e.g. domain-adaptation reweighting). When
+                provided, the per-batch MSE is weighted by these values
+                (scaled overall so the mean weight is 1). The validation loss
+                is never weighted. Defaults to None (unweighted, identical to
+                the canonical Phase 5 behaviour).
+
         Returns:
             Dictionary with training history
         """
         start_time = time.time()
 
         Xt, yt = self._to_tensor(X_train, y_train)
-        train_dataset = TensorDataset(Xt, yt)
+        if sample_weight is not None:
+            sample_weight = np.asarray(sample_weight, dtype=np.float32).reshape(-1)
+            if sample_weight.size != len(X_train):
+                raise ValueError("sample_weight length must equal X_train length")
+            if np.any(sample_weight < 0) or not np.all(np.isfinite(sample_weight)):
+                raise ValueError("sample_weight must be finite and non-negative")
+            wt = torch.from_numpy(sample_weight).to(self.device)
+            train_dataset = TensorDataset(Xt, yt, wt)
+        else:
+            train_dataset = TensorDataset(Xt, yt)
         train_loader = DataLoader(train_dataset, batch_size=self.batch_size, shuffle=True)
 
         val_loader = None
@@ -267,10 +283,18 @@ class CNNModel:
             self.network.train()
             epoch_loss = 0.0
             n_batches = 0
-            for xb, yb in train_loader:
+            for train_batch in train_loader:
                 self.optimizer.zero_grad()
+                if sample_weight is not None:
+                    xb, yb, wb = train_batch
+                else:
+                    xb, yb = train_batch
                 pred = self.network(xb)
-                loss = self.criterion(pred, yb)
+                if sample_weight is not None:
+                    sq_err = (pred - yb) ** 2
+                    loss = torch.mean(sq_err * wb.unsqueeze(1))
+                else:
+                    loss = self.criterion(pred, yb)
                 loss.backward()
                 self.optimizer.step()
                 epoch_loss += loss.item()
@@ -340,6 +364,12 @@ class CNNModel:
             'early_stopping': val_loader is not None,
             'training_time': time.time() - start_time
         }
+        if sample_weight is not None:
+            self.training_history['sample_weight'] = {
+                'mean': float(np.mean(sample_weight)),
+                'min': float(np.min(sample_weight)),
+                'max': float(np.max(sample_weight)),
+            }
         self.is_fitted = True
 
         if best_val_loss is None:
