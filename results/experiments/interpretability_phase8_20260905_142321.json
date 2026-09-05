@@ -1,0 +1,293 @@
+{
+  "experiment_name": "interpretability_phase8_20260905_142321",
+  "phase": "8",
+  "timestamp": "2026-09-05T14:23:21.231910",
+  "methodology": {
+    "data_used": "DeepSpCas9 validation split (in-domain regime); no Moreno-Mateos data used in this phase",
+    "n_validation": 1518,
+    "cnn": {
+      "model": "models/cnn_baseline_20260905_011720.pt",
+      "methods": [
+        "position_saliency",
+        "integrated_gradients (zero baseline, steps=50)"
+      ]
+    },
+    "tabular": {
+      "random_forest": "models/rf_baseline_fixed_20260905_001107.pkl (impurity decrease)",
+      "xgboost": "models/xgboost_baseline_20260905_002839.pkl (split-gain)"
+    },
+    "guardrails": [
+      "Attribution describes the fitted models; it is not evidence of a biological mechanism.",
+      "Vendor importances are not statistical tests.",
+      "Variant/group shares are descriptive within each model."
+    ]
+  },
+  "cnn_attribution": {
+    "saliency_profile": [
+      0.023905714973807335,
+      0.023864567279815674,
+      0.026355968788266182,
+      0.029606390744447708,
+      0.033849455416202545,
+      0.03147592023015022,
+      0.031284961849451065,
+      0.03253510966897011,
+      0.0332757867872715,
+      0.03359697759151459,
+      0.033719584345817566,
+      0.03346977382898331,
+      0.033231221139431,
+      0.03330642729997635,
+      0.03295896574854851,
+      0.03387758135795593,
+      0.03344469144940376,
+      0.03335722163319588,
+      0.03166767582297325,
+      0.034237876534461975,
+      0.039098918437957764,
+      0.04421481490135193,
+      0.043122708797454834,
+      0.04865724593400955,
+      0.03121211938560009,
+      0.0474184975028038,
+      0.03426554054021835,
+      0.03568843752145767,
+      0.02246757410466671,
+      0.02083226852118969
+    ],
+    "integrated_gradients_profile": [
+      0.023048948496580124,
+      0.022990671917796135,
+      0.02734426036477089,
+      0.02841847948729992,
+      0.03523464500904083,
+      0.02894478477537632,
+      0.030917633324861526,
+      0.02994787134230137,
+      0.031194327399134636,
+      0.031435225158929825,
+      0.03188823163509369,
+      0.03132695332169533,
+      0.03161992132663727,
+      0.03090718761086464,
+      0.0309775248169899,
+      0.031027402728796005,
+      0.030902359634637833,
+      0.032980747520923615,
+      0.030180342495441437,
+      0.03248817101120949,
+      0.03549543023109436,
+      0.04329869523644447,
+      0.05016551911830902,
+      0.046462006866931915,
+      0.030810151249170303,
+      0.043386150151491165,
+      0.04617833346128464,
+      0.04259898513555527,
+      0.032404132187366486,
+      0.02542497217655182
+    ],
+    "spearman_saliency_vs_ig": 0.8589543937708565,
+    "spearman_p": 1.2482452471230543e-09,
+    "region_shares": {
+      "saliency": {
+        "guide": 0.7043829560279846,
+        "pam": 0.11289616674184799,
+        "flanks_5p": 0.1037326529622078,
+        "flanks_3p": 0.07898829132318497
+      },
+      "integrated_gradients": {
+        "guide": 0.6773949861526489,
+        "pam": 0.12037461996078491,
+        "flanks_5p": 0.10180234909057617,
+        "flanks_3p": 0.10042807459831238
+      }
+    }
+  },
+  "tabular_importance": {
+    "random_forest": {
+      "groups": {
+        "gc_composition": {
+          "importance": 0.1857089486743249,
+          "n_features": 17,
+          "share": 0.1857089486743249
+        },
+        "kmer_2": {
+          "importance": 0.244409980739722,
+          "n_features": 34,
+          "share": 0.244409980739722
+        },
+        "kmer_3": {
+          "importance": 0.2474011769933906,
+          "n_features": 66,
+          "share": 0.2474011769933906
+        },
+        "positional_guide_onehot": {
+          "importance": 0.3224798935925626,
+          "n_features": 80,
+          "share": 0.3224798935925626
+        }
+      },
+      "top_features": [
+        {
+          "feature": "guide_pos_19_G",
+          "importance": 0.04860987087889835
+        },
+        {
+          "feature": "dinuc_TT",
+          "importance": 0.02446573184016229
+        },
+        {
+          "feature": "guide_pos_17_C",
+          "importance": 0.021204873714380817
+        },
+        {
+          "feature": "k2_TT",
+          "importance": 0.020486372404907045
+        },
+        {
+          "feature": "freq_T",
+          "importance": 0.019290266564815795
+        },
+        {
+          "feature": "gc_guide",
+          "importance": 0.017612685785235505
+        },
+        {
+          "feature": "gc_full",
+          "importance": 0.017403614787629935
+        },
+        {
+          "feature": "guide_pos_19_C",
+          "importance": 0.017236746218744766
+        },
+        {
+          "feature": "at_skew",
+          "importance": 0.016760361383386744
+        },
+        {
+          "feature": "k2_entropy",
+          "importance": 0.015542341513309821
+        },
+        {
+          "feature": "gc_content",
+          "importance": 0.014393819965331529
+        },
+        {
+          "feature": "heterogeneity",
+          "importance": 0.014000196222499216
+        },
+        {
+          "feature": "gc_guide_skew",
+          "importance": 0.013534824951856065
+        },
+        {
+          "feature": "gc_skew",
+          "importance": 0.011870827406006177
+        },
+        {
+          "feature": "k3_entropy",
+          "importance": 0.011787066001130308
+        }
+      ]
+    },
+    "xgboost": {
+      "groups": {
+        "gc_composition": {
+          "importance": 3.0340722650289536,
+          "n_features": 15,
+          "share": 0.07175869564136476
+        },
+        "kmer_2": {
+          "importance": 4.808971010148525,
+          "n_features": 18,
+          "share": 0.11373673957699929
+        },
+        "kmer_3": {
+          "importance": 10.340801991522312,
+          "n_features": 66,
+          "share": 0.24456980519222635
+        },
+        "positional_guide_onehot": {
+          "importance": 24.097751937806606,
+          "n_features": 80,
+          "share": 0.5699347595894096
+        }
+      },
+      "top_features": [
+        {
+          "feature": "guide_pos_19_G",
+          "importance": 3.8062164783477783
+        },
+        {
+          "feature": "dinuc_TT",
+          "importance": 2.26607346534729
+        },
+        {
+          "feature": "guide_pos_18_T",
+          "importance": 1.749180555343628
+        },
+        {
+          "feature": "guide_pos_17_C",
+          "importance": 1.0801522731781006
+        },
+        {
+          "feature": "guide_pos_19_A",
+          "importance": 0.9590595960617065
+        },
+        {
+          "feature": "guide_pos_18_A",
+          "importance": 0.9417551159858704
+        },
+        {
+          "feature": "guide_pos_16_A",
+          "importance": 0.6430795192718506
+        },
+        {
+          "feature": "guide_pos_13_G",
+          "importance": 0.5866203308105469
+        },
+        {
+          "feature": "freq_T",
+          "importance": 0.5498446822166443
+        },
+        {
+          "feature": "guide_pos_17_G",
+          "importance": 0.5039450526237488
+        },
+        {
+          "feature": "guide_pos_0_C",
+          "importance": 0.5011494159698486
+        },
+        {
+          "feature": "guide_pos_16_T",
+          "importance": 0.4712570905685425
+        },
+        {
+          "feature": "guide_pos_2_C",
+          "importance": 0.4694702625274658
+        },
+        {
+          "feature": "guide_pos_17_A",
+          "importance": 0.3962865173816681
+        },
+        {
+          "feature": "guide_pos_17_T",
+          "importance": 0.379598468542099
+        }
+      ]
+    },
+    "top15_overlap": [
+      "dinuc_TT",
+      "freq_T",
+      "guide_pos_17_C",
+      "guide_pos_19_G"
+    ]
+  },
+  "cross_method": {
+    "guide_fraction_cnn_saliency": 0.7043829560279846,
+    "guide_fraction_cnn_ig": 0.6773949861526489,
+    "guide_fraction_rf": 0.3224798935925626,
+    "guide_fraction_xgb": 0.5699347595894096
+  }
+}
