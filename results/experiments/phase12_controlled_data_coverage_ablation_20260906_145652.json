@@ -1,0 +1,447 @@
+{
+  "experiment_name": "phase12_controlled_data_coverage_ablation_20260906_145652",
+  "phase": "12",
+  "status": "INFEASIBLE",
+  "feasibility_audit": {
+    "decision": "INFEASIBLE",
+    "triggered_stop_conditions": [
+      1,
+      7,
+      8,
+      9
+    ],
+    "stop_condition_texts": {
+      "1": "No valid matched control can be constructed.",
+      "7": "Activity coverage cannot be controlled adequately.",
+      "8": "Sequence/domain diversity cannot be separated from activity coverage.",
+      "9": "Sample size cannot be controlled."
+    },
+    "notes": [
+      "The only additional training source is DeepHF; no same-domain extra rows exist, so ARM B (sample size at constant canonical activity AND constant canonical sequence/domain) is structurally impossible. Sample count can therefore never be varied while holding the other two levers fixed.",
+      "deephf differs from canonical composition (GC d=+1.53, kmer3 JSD=0.080); any pool containing it changes both sequence diversity and activity coverage simultaneously.",
+      "Within deephf, GC correlates monotonically with activity (range 0.072); activity-selected subsets co-select composition. Activity coverage and sequence diversity cannot be separated, even inside one source."
+    ],
+    "same_domain_extra_data": {
+      "same_domain_extra_rows_exist": false,
+      "qualifying_sources": {},
+      "candidate_sources_checked": [
+        "deephf"
+      ]
+    },
+    "gap_probes": [
+      {
+        "source": "deephf",
+        "sequence_gap": {
+          "gc": {
+            "deepspcas9": {
+              "n": 8599,
+              "mean": 0.551153234872272,
+              "median": 0.5666666666666667,
+              "std": 0.11511330746014474,
+              "min": 0.06666666666666667,
+              "max": 1.0,
+              "q01": 0.3,
+              "q25": 0.4666666666666667,
+              "q75": 0.6333333333333333,
+              "q99": 0.8666666666666667
+            },
+            "deephf": {
+              "n": 48295,
+              "mean": 0.42742381889084446,
+              "median": 0.43333333333333335,
+              "std": 0.07288475134014943,
+              "min": 0.16666666666666666,
+              "max": 0.7333333333333333,
+              "q01": 0.26666666666666666,
+              "q25": 0.36666666666666664,
+              "q75": 0.4666666666666667,
+              "q99": 0.6
+            },
+            "cohens_d": 1.5332623786059913,
+            "ks_test": {
+              "statistic": 0.5024624953380323,
+              "p_value": 0.0
+            },
+            "wasserstein_1d": 0.12398038050822177
+          },
+          "nucleotide_composition": {
+            "nucleotides": [
+              "A",
+              "C",
+              "G",
+              "T"
+            ],
+            "deepspcas9": [
+              0.22294065201380378,
+              0.25449470868705665,
+              0.2966585261852201,
+              0.22590611311393227
+            ],
+            "deephf": [
+              0.42358698277936097,
+              0.17342444007316907,
+              0.2539993788176758,
+              0.14898919832972374
+            ],
+            "mean_abs_delta": 0.1003231653827994
+          },
+          "kmer_2": {
+            "js_divergence": 0.06323686090877745,
+            "pearson": {
+              "pearson_across_kmers": 0.020103535646167153,
+              "p_value": 0.9410916513231217,
+              "mean_abs_frequency_difference": 0.02650152117544711
+            }
+          },
+          "kmer_3": {
+            "js_divergence": 0.07963164220504486,
+            "pearson": {
+              "pearson_across_kmers": 0.11479535731567889,
+              "p_value": 0.36639130896734656,
+              "mean_abs_frequency_difference": 0.007090885042294825
+            },
+            "top_differing_3mers": [
+              {
+                "kmer": "AAA",
+                "deepspcas9_freq": 0.008551658830761054,
+                "added_freq": 0.13412731279497705,
+                "delta": 0.125575653964216,
+                "abs_delta": 0.125575653964216
+              },
+              {
+                "kmer": "GAA",
+                "deepspcas9_freq": 0.01711162427524841,
+                "added_freq": 0.04856092763224918,
+                "delta": 0.031449303357000774,
+                "abs_delta": 0.031449303357000774
+              },
+              {
+                "kmer": "GGA",
+                "deepspcas9_freq": 0.024861694881464468,
+                "added_freq": 0.048973570171406224,
+                "delta": 0.024111875289941756,
+                "abs_delta": 0.024111875289941756
+              },
+              {
+                "kmer": "AAG",
+                "deepspcas9_freq": 0.016729520043859383,
+                "added_freq": 0.04039977519115912,
+                "delta": 0.02367025514729974,
+                "abs_delta": 0.02367025514729974
+              },
+              {
+                "kmer": "GGC",
+                "deepspcas9_freq": 0.026390111807020514,
+                "added_freq": 0.010424030881633765,
+                "delta": -0.015966080925386747,
+                "abs_delta": 0.015966080925386747
+              },
+              {
+                "kmer": "GGT",
+                "deepspcas9_freq": 0.021264931138172318,
+                "added_freq": 0.009472290831643583,
+                "delta": -0.011792640306528735,
+                "abs_delta": 0.011792640306528735
+              },
+              {
+                "kmer": "CTG",
+                "deepspcas9_freq": 0.026900968551160254,
+                "added_freq": 0.01676304852617504,
+                "delta": -0.010137920024985213,
+                "abs_delta": 0.010137920024985213
+              },
+              {
+                "kmer": "GCC",
+                "deepspcas9_freq": 0.020463342913628,
+                "added_freq": 0.011289249108898437,
+                "delta": -0.009174093804729562,
+                "abs_delta": 0.009174093804729562
+              },
+              {
+                "kmer": "GCT",
+                "deepspcas9_freq": 0.02061701526755613,
+                "added_freq": 0.011857187227308275,
+                "delta": -0.008759828040247854,
+                "abs_delta": 0.008759828040247854
+              },
+              {
+                "kmer": "CCT",
+                "deepspcas9_freq": 0.018478062233150315,
+                "added_freq": 0.01051055270436014,
+                "delta": -0.007967509528790174,
+                "abs_delta": 0.007967509528790174
+              }
+            ]
+          },
+          "overlap": {
+            "exact_30mer": {
+              "shared_unique": 0,
+              "in_a_only": 8599,
+              "in_b_only": 48295,
+              "jaccard": 0.0,
+              "fraction_of_a_shared": 0.0,
+              "fraction_of_b_shared": 0.0
+            },
+            "guide_20mer_overlap_count": 330,
+            "guide_20mer_jaccard": 0.005834202570585012,
+            "guide_20mer_fraction_of_add": 0.006833005487110467
+          },
+          "length": {
+            "deephf": {
+              "n": 48295,
+              "min": 30.0,
+              "max": 30.0,
+              "mean": 30.0,
+              "uniform": true
+            }
+          }
+        },
+        "activity_gap": {
+          "n_a": 8599,
+          "n_b": 48295,
+          "mean": {
+            "a": 0.4263848685987796,
+            "b": 0.7324544630119898,
+            "delta": 0.3060695944132102
+          },
+          "std": {
+            "a": 0.21982584877714414,
+            "b": 0.21271821185850895,
+            "delta": -0.007107636918635196
+          },
+          "quantiles": {
+            "a": {
+              "p5": 0.06202892985151046,
+              "p10": 0.1162881744923302,
+              "p25": 0.2514963919847437,
+              "p50": 0.4365218611832409,
+              "p75": 0.6013392513551115,
+              "p90": 0.7141611064886839,
+              "p95": 0.7718027890384876
+            },
+            "b": {
+              "p5": 0.2785063163442501,
+              "p10": 0.3954571048816926,
+              "p25": 0.61812865497076,
+              "p50": 0.805730613116855,
+              "p75": 0.897640887007178,
+              "p90": 0.9368027007696815,
+              "p95": 0.9528407183205188
+            },
+            "max_abs_quantile_delta": 0.36920875193361413
+          },
+          "bins": {
+            "a": {
+              "[0.00, 0.20]": 0.1896732178160251,
+              "[0.20, 0.40]": 0.2608442842190952,
+              "[0.40, 0.60]": 0.2974764507500872,
+              "[0.60, 0.80]": 0.21932782881730434,
+              "[0.80, 1.00]": 0.03267821839748808
+            },
+            "b": {
+              "[0.00, 0.20]": 0.025965420851019775,
+              "[0.20, 0.40]": 0.07623977637436588,
+              "[0.40, 0.60]": 0.13133864789315663,
+              "[0.60, 0.80]": 0.2548089864375194,
+              "[0.80, 1.00]": 0.5116471684439383
+            },
+            "max_abs_bin_delta": 0.47896895004645024
+          },
+          "fraction_below_0.2": {
+            "a": 0.1896732178160251,
+            "b": 0.025965420851019775
+          },
+          "wasserstein_1d": 0.3060695944132103,
+          "cohens_d": -1.4315192164225627,
+          "ks_test": {
+            "statistic": 0.5495984438103125,
+            "p_value": 0.0
+          },
+          "high_activity_>0.8": {
+            "a": 0.03267821839748808,
+            "b": 0.5116471684439383
+          }
+        }
+      }
+    ],
+    "within_source_entanglement": {
+      "deephf": {
+        "rows": [
+          {
+            "bin": "[0.00, 0.20]",
+            "n": 1254,
+            "gc_mean": 0.37402977139819243,
+            "gc_sd": 0.08488610587557936
+          },
+          {
+            "bin": "[0.20, 0.40]",
+            "n": 3682,
+            "gc_mean": 0.391689299293862,
+            "gc_sd": 0.07632857054500061
+          },
+          {
+            "bin": "[0.40, 0.60]",
+            "n": 6343,
+            "gc_mean": 0.4035419622681171,
+            "gc_sd": 0.07184061933314308
+          },
+          {
+            "bin": "[0.60, 0.80]",
+            "n": 12306,
+            "gc_mean": 0.4193428679776803,
+            "gc_sd": 0.06996008187819387
+          },
+          {
+            "bin": "[0.80, 1.00]",
+            "n": 24710,
+            "gc_mean": 0.44561311210036425,
+            "gc_sd": 0.06739838676184726
+          }
+        ],
+        "gc_range_across_bins": 0.07158334070217182,
+        "monotonic_in_activity": true,
+        "entangled_warning": "If GC correlates with activity within a source, activity-selected subsets differ in composition too; the dimensions remain confounded and must be reported as such."
+      }
+    },
+    "conclusion": "Phase 12 controlled isolation is not identifiable under the available data.",
+    "augment": {
+      "allowed_additional_datasets": [
+        "DeepHF"
+      ],
+      "validation_split_n": 1518,
+      "input_hashes": {
+        "deepspcas9_csv": "bddb691886f34b9c56b1d775fdc5479f2e17186f52f31912831992855dcdc79c",
+        "deephf_xlsx": "ea32655daab48a82d96d7bdffdcf098b6ff5a510174cb115405fdce81f362975",
+        "phase10_json": "4b6649b9bdd621672c0024c6554de4acdf7c461a64b96a5bae0e175d5f35b1ba",
+        "phase11_json": "c2752df7ebe166ccfd9dec7a16836feb75702fe5d1773230e65ea33acec55cd9"
+      }
+    }
+  },
+  "provenance": {
+    "git_head": "d5cf9fd67b3002ce905b0e357beff30c4cd78f50",
+    "git_status": "M .gitignore\n?? docs/phase10_multidataset_report.md\n?? docs/phase11_targeted_dataset_analysis_report.md\n?? results/experiments/external_predictions_cnn_20260906_131729.csv\n?? results/experiments/external_predictions_random_forest_20260906_131729.csv\n?? results/experiments/external_predictions_xgboost_20260906_131729.csv\n?? results/experiments/phase10_multidataset_20260906_131729.json\n?? results/experiments/phase11_pool_composition_20260906_141922.csv\n?? results/experiments/phase11_targeted_dataset_analysis_20260906_141922.json\n?? results/experiments/pool_d1_20260906_131729.csv\n?? scripts/run_phase10_multidataset.py\n?? scripts/run_phase11_dataset_analysis.py\n?? scripts/run_phase12_coverage_ablation.py\n?? src/coverage_ablation/\n?? src/dataset_analysis/\n?? src/multidataset/\n?? tests/test_phase10_multidataset.py\n?? tests/test_phase11_dataset_analysis.py\n?? tests/test_phase12_coverage_ablation.py",
+    "split_policy": "DeepSpCas9 85/15 seed-42 canonical split",
+    "deephf_exclusions": {
+      "n_mapped_valid": 51965,
+      "n_unlabeled_dropped": 3670,
+      "n_retained": 48295
+    },
+    "canonical_artifacts": {
+      "random_forest": "models/rf_baseline_fixed_20260905_001107.pkl",
+      "xgboost": "models/xgboost_baseline_20260905_002839.pkl",
+      "cnn": "models/cnn_baseline_20260905_011720.pt"
+    }
+  },
+  "environment": {
+    "python": "3.14.4",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "sklearn": "1.9.0",
+    "git_head": "d5cf9fd67b3002ce905b0e357beff30c4cd78f50",
+    "git_status_porcelain": "M .gitignore\n?? docs/phase10_multidataset_report.md\n?? docs/phase11_targeted_dataset_analysis_report.md\n?? results/experiments/external_predictions_cnn_20260906_131729.csv\n?? results/experiments/external_predictions_random_forest_20260906_131729.csv\n?? results/experiments/external_predictions_xgboost_20260906_131729.csv\n?? results/experiments/phase10_multidataset_20260906_131729.json\n?? results/experiments/phase11_pool_composition_20260906_141922.csv\n?? results/experiments/phase11_targeted_dataset_analysis_20260906_141922.json\n?? results/experiments/pool_d1_20260906_131729.csv\n?? scripts/run_phase10_multidataset.py\n?? scripts/run_phase11_dataset_analysis.py\n?? scripts/run_phase12_coverage_ablation.py\n?? src/coverage_ablation/\n?? src/dataset_analysis/\n?? src/multidataset/\n?? tests/test_phase10_multidataset.py\n?? tests/test_phase11_dataset_analysis.py\n?? tests/test_phase12_coverage_ablation.py"
+  },
+  "input_hashes": {
+    "deepspcas9_csv": "bddb691886f34b9c56b1d775fdc5479f2e17186f52f31912831992855dcdc79c",
+    "deephf_xlsx": "ea32655daab48a82d96d7bdffdcf098b6ff5a510174cb115405fdce81f362975",
+    "phase10_json": "4b6649b9bdd621672c0024c6554de4acdf7c461a64b96a5bae0e175d5f35b1ba",
+    "phase11_json": "c2752df7ebe166ccfd9dec7a16836feb75702fe5d1773230e65ea33acec55cd9"
+  },
+  "locked_reference": {
+    "phase10": {
+      "path": "results/experiments/phase10_multidataset_20260906_131729.json",
+      "sha256": "4b6649b9bdd621672c0024c6554de4acdf7c461a64b96a5bae0e175d5f35b1ba",
+      "verdict": "PARTIAL_SUPPORT",
+      "primary_cnn_d": 0.0022024431919907468,
+      "ci": [
+        -0.002919450474457207,
+        0.007472997122570826
+      ]
+    },
+    "phase11": {
+      "path": "results/experiments/phase11_targeted_dataset_analysis_20260906_141922.json",
+      "sha256": "c2752df7ebe166ccfd9dec7a16836feb75702fe5d1773230e65ea33acec55cd9",
+      "decision_gate": "D",
+      "hypotheses": {
+        "H1": "PARTIALLY SUPPORTED",
+        "H2": "SUPPORTED",
+        "H3": "SUPPORTED",
+        "H5": "PARTIALLY SUPPORTED",
+        "H6": "NOT IDENTIFIABLE"
+      }
+    },
+    "note": "Values are quoted from the locked Phase 10/11 result JSONs only. Moreno-Mateos raw data is NOT read in this phase and no new evaluation is performed."
+  },
+  "arms_constructed": false,
+  "models_trained": [],
+  "external_evaluation_performed": false,
+  "interpretation_rule": "No causal language is used: controlled comparisons are \"consistent with\" a contributor, never \"caused by\".",
+  "timestamp": "2026-09-06T14:57:07.174888",
+  "decision_gate": {
+    "gate": "F",
+    "label": "CONTROLLED ABLATION INFEASIBLE WITH AVAILABLE DATA",
+    "reason": "The controlled 5-arm design cannot be constructed with the available data (stop conditions [1, 7, 8, 9]). Consequence for mechanism identifiability: E"
+  },
+  "arm_definitions": {
+    "A": {
+      "name": "canonical baseline",
+      "composition": "original DeepSpCas9 training split (canonical, 85/15 seed 42)",
+      "role": "reference"
+    },
+    "B": {
+      "name": "sample-size control",
+      "goal": "isolate sample count: larger n with approximately the SAME activity distribution AND the SAME sequence/domain distribution as the canonical baseline",
+      "status": "pre-registered; construction hinges on feasibility audit"
+    },
+    "C": {
+      "name": "activity-coverage control",
+      "goal": "isolate activity coverage: approximately same total sample count as the chosen diversified control, deliberately broader activity coverage, diversity controlled as far as feasible",
+      "status": "pre-registered; construction hinges on feasibility audit"
+    },
+    "D": {
+      "name": "diversity control",
+      "goal": "isolate sequence/domain diversity: approximately same total sample count, comparable activity distribution, increased sequence/domain diversity",
+      "status": "pre-registered; construction hinges on feasibility audit"
+    },
+    "E": {
+      "name": "full diversified reference",
+      "composition": "Phase 10 diversified pool (DeepSpCas9 train + DeepHF, 56,894)",
+      "status": "reference only; construction frozen from Phase 10; not redesigned"
+    }
+  },
+  "tolerances": {
+    "sample_size_rel_pct": 10.0,
+    "activity_wasserstein": 0.05,
+    "activity_bin_max_delta": 0.05,
+    "activity_cohens_d": 0.2,
+    "gc_cohens_d": 0.2,
+    "kmer3_js_divergence": 0.02,
+    "note": "Tolerances are pre-defined descriptive thresholds. They are NOT a single composite score; each dimension is reported independently."
+  },
+  "moreno_mateos_freeze": {
+    "moreno_mateos_raw_accessed": false,
+    "moreno_mateos_evaluated": false,
+    "moreno_mateos_loader_imported": false
+  },
+  "pool_provenance_files": {
+    "deepspcas9": "results/pools/phase12_source_provenance_deepspcas9_20260906_145652.csv",
+    "deephf": "results/pools/phase12_source_provenance_deephf_20260906_145652.csv"
+  },
+  "figures": {
+    "activity_by_source": "results/figures/phase12_activity_by_source_20260906_145652.png",
+    "gc_by_source": "results/figures/phase12_gc_by_source_20260906_145652.png",
+    "gc_vs_activity_bins": "results/figures/phase12_gc_vs_activity_bins_20260906_145652.png"
+  },
+  "phase11_summary": {
+    "path": "results/experiments/phase11_targeted_dataset_analysis_20260906_141922.json",
+    "sha256": "c2752df7ebe166ccfd9dec7a16836feb75702fe5d1773230e65ea33acec55cd9",
+    "decision_gate": "D",
+    "hypotheses": {
+      "H1": "PARTIALLY SUPPORTED",
+      "H2": "SUPPORTED",
+      "H3": "SUPPORTED",
+      "H5": "PARTIALLY SUPPORTED",
+      "H6": "NOT IDENTIFIABLE"
+    }
+  }
+}
