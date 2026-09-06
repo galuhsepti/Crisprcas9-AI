@@ -1,0 +1,910 @@
+{
+  "experiment_name": "phase11_targeted_dataset_analysis_20260906_141922",
+  "phase": "11",
+  "timestamp": "2026-09-06T14:19:34.283076",
+  "analysis_only": true,
+  "environment": {
+    "python": "3.14.4",
+    "numpy": "2.5.2",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "sklearn": "1.9.0",
+    "git_head": "d5cf9fd67b3002ce905b0e357beff30c4cd78f50",
+    "git_status_porcelain": "M .gitignore\n?? docs/phase10_multidataset_report.md\n?? results/experiments/external_predictions_cnn_20260906_131729.csv\n?? results/experiments/external_predictions_random_forest_20260906_131729.csv\n?? results/experiments/external_predictions_xgboost_20260906_131729.csv\n?? results/experiments/phase10_multidataset_20260906_131729.json\n?? results/experiments/phase11_pool_composition_20260906_141859.csv\n?? results/experiments/pool_d1_20260906_131729.csv\n?? scripts/run_phase10_multidataset.py\n?? scripts/run_phase11_dataset_analysis.py\n?? src/dataset_analysis/\n?? src/multidataset/\n?? tests/test_phase10_multidataset.py\n?? tests/test_phase11_dataset_analysis.py"
+  },
+  "phase10_source": {
+    "json_path": "results/experiments/phase10_multidataset_20260906_131729.json",
+    "json_sha256": "4b6649b9bdd621672c0024c6554de4acdf7c461a64b96a5bae0e175d5f35b1ba",
+    "pool_csv": "results/experiments/pool_d1_20260906_131729.csv",
+    "pool_csv_sha256": "9c99ab785d4563f835a05b5440eca0707fda343e7f28e9d23bd5ccd6a91d8a03"
+  },
+  "input_hashes": {
+    "deepspcas9_csv": "bddb691886f34b9c56b1d775fdc5479f2e17186f52f31912831992855dcdc79c",
+    "deephf_xlsx": "ea32655daab48a82d96d7bdffdcf098b6ff5a510174cb115405fdce81f362975"
+  },
+  "stop_conditions": {
+    "provenance_reconstructed": true,
+    "pool_row_level_verified": true,
+    "no_new_model_training": true,
+    "no_hyperparameter_changes": true,
+    "no_moreno_mateos_read_or_evaluated": true,
+    "moreno_mateos_quoted_only_from_locked_jsons": true,
+    "canonical_artifacts_untouched": true,
+    "checkpoint": "If ANY of the above were False the script would halt before producing output."
+  },
+  "provenance": {
+    "reconstruction": {
+      "n_deepspcas9_valid": 10117,
+      "n_train_split": 8599,
+      "n_validation": 1518,
+      "n_deephf_mapped_valid": 51965,
+      "n_deephf_unlabeled_dropped": 3670,
+      "n_deephf_retained": 48295,
+      "n_pool_rebuilt": 56894,
+      "n_pool_stored": 56894,
+      "pool_per_source_rebuilt": {
+        "deephf": 48295,
+        "deepspcas9": 8599
+      },
+      "pool_row_level_match_with_stored": true,
+      "phase10_json_counts": {
+        "n_deephf_mapped": 48295,
+        "n_train_split": 8599,
+        "n_validation": 1518,
+        "n_pool_d1": 56894
+      }
+    },
+    "geometry_transformation": "DeepHF 21-mer -> canonical 30-mer via constant flanks AAAA/AAA",
+    "label_harmonization": "raw-scale identity"
+  },
+  "locked_external_reference": {
+    "phase10_verdict": "PARTIAL_SUPPORT",
+    "phase10_decision_gate": "C - document; retain canonical as production model until a replication is available",
+    "family_delta_mae": {
+      "random_forest": 3.703756629944155e-05,
+      "xgboost": -0.00040660694080923987,
+      "cnn": -0.0022024431919907828
+    },
+    "primary_endpoint": {
+      "model": "cnn",
+      "d_external": 0.0022024431919907468,
+      "ci_lower": -0.002919450474457207,
+      "ci_upper": 0.007472997122570826,
+      "dz": 0.029587270201042765,
+      "t_p": 0.9946508016804998,
+      "wilcoxon_p": 0.498024132592076
+    },
+    "external_mae": {
+      "random_forest": {
+        "B": 0.2484701098867135,
+        "D1": 0.24850714745301294
+      },
+      "xgboost": {
+        "B": 0.2539727605549819,
+        "D1": 0.2535661536141727
+      },
+      "cnn": {
+        "B": 0.25180076077028474,
+        "D1": 0.24959831757829395
+      }
+    },
+    "external_high_tercile_mae_cnn": {
+      "B": 0.3256964176908081,
+      "D1": 0.3086225286237845
+    },
+    "note": "All values above are cited verbatim from the locked Phase 10 result JSON. Moreno-Mateos was NOT read or re-evaluated here."
+  },
+  "analysis_A_pool_composition": {
+    "deephf": {
+      "retained_count": 48295,
+      "fraction_of_pool": 0.8488592821738672,
+      "label": {
+        "n": 48295,
+        "mean": 0.7324544630119898,
+        "median": 0.805730613116855,
+        "std": 0.21271821185850895,
+        "min": 0.0296461213967658,
+        "max": 1.0,
+        "q01": 0.12589752073197455,
+        "q25": 0.61812865497076,
+        "q75": 0.897640887007178,
+        "q99": 0.9774510052541718,
+        "fraction_near_zero_<=0.05": 0.0007247127031783829,
+        "fraction_high_>0.8": 0.5116471684439383
+      },
+      "gc": {
+        "n": 48295,
+        "mean": 0.42742381889084446,
+        "median": 0.43333333333333335,
+        "std": 0.07288475134014943,
+        "min": 0.16666666666666666,
+        "max": 0.7333333333333333,
+        "q01": 0.26666666666666666,
+        "q25": 0.36666666666666664,
+        "q75": 0.4666666666666667,
+        "q99": 0.6
+      },
+      "sequence_length": {
+        "n": 48295,
+        "min": 30.0,
+        "max": 30.0,
+        "mean": 30.0,
+        "uniform": true
+      },
+      "duplicate_count": 0,
+      "unique_sequences": 48295
+    },
+    "deepspcas9": {
+      "retained_count": 8599,
+      "fraction_of_pool": 0.1511407178261328,
+      "label": {
+        "n": 8599,
+        "mean": 0.4263848685987796,
+        "median": 0.4365218611832409,
+        "std": 0.21982584877714414,
+        "min": 0.0,
+        "max": 0.9513502579144332,
+        "q01": 0.008649654323388182,
+        "q25": 0.2514963919847437,
+        "q75": 0.6013392513551115,
+        "q99": 0.8543042719447074,
+        "fraction_near_zero_<=0.05": 0.04116757762530527,
+        "fraction_high_>0.8": 0.03267821839748808
+      },
+      "gc": {
+        "n": 8599,
+        "mean": 0.551153234872272,
+        "median": 0.5666666666666667,
+        "std": 0.11511330746014474,
+        "min": 0.06666666666666667,
+        "max": 1.0,
+        "q01": 0.3,
+        "q25": 0.4666666666666667,
+        "q75": 0.6333333333333333,
+        "q99": 0.8666666666666667
+      },
+      "sequence_length": {
+        "n": 8599,
+        "min": 30.0,
+        "max": 30.0,
+        "mean": 30.0,
+        "uniform": true
+      },
+      "duplicate_count": 0,
+      "unique_sequences": 8599
+    }
+  },
+  "analysis_B_activity_coverage": {
+    "deepspcas9": {
+      "descriptive": {
+        "n": 8599,
+        "mean": 0.4263848685987796,
+        "median": 0.4365218611832409,
+        "std": 0.21982584877714414,
+        "min": 0.0,
+        "max": 0.9513502579144332,
+        "q01": 0.008649654323388182,
+        "q25": 0.2514963919847437,
+        "q75": 0.6013392513551115,
+        "q99": 0.8543042719447074,
+        "fraction_near_zero_<=0.05": 0.04116757762530527,
+        "fraction_high_>0.8": 0.03267821839748808
+      },
+      "bins": [
+        {
+          "bin": "[0.00, 0.20]",
+          "n": 1631,
+          "fraction": 0.1896732178160251,
+          "label_mean": 0.10690467766386562,
+          "label_median": 0.11015237745548,
+          "label_std": 0.059157459175390066
+        },
+        {
+          "bin": "[0.20, 0.40]",
+          "n": 2243,
+          "fraction": 0.2608442842190952,
+          "label_mean": 0.30391828997951614,
+          "label_median": 0.3053594582913125,
+          "label_std": 0.057779101653802095
+        },
+        {
+          "bin": "[0.40, 0.60]",
+          "n": 2558,
+          "fraction": 0.2974764507500872,
+          "label_mean": 0.5021249767790846,
+          "label_median": 0.5018291131871495,
+          "label_std": 0.05699130407301643
+        },
+        {
+          "bin": "[0.60, 0.80]",
+          "n": 1886,
+          "fraction": 0.21932782881730434,
+          "label_mean": 0.683810476866358,
+          "label_median": 0.678688398843653,
+          "label_std": 0.05480156071959926
+        },
+        {
+          "bin": "[0.80, 1.00]",
+          "n": 281,
+          "fraction": 0.03267821839748808,
+          "label_mean": 0.8410355210542229,
+          "label_median": 0.8387271349713172,
+          "label_std": 0.02971042896913251
+        }
+      ]
+    },
+    "deephf": {
+      "descriptive": {
+        "n": 48295,
+        "mean": 0.7324544630119898,
+        "median": 0.805730613116855,
+        "std": 0.21271821185850895,
+        "min": 0.0296461213967658,
+        "max": 1.0,
+        "q01": 0.12589752073197455,
+        "q25": 0.61812865497076,
+        "q75": 0.897640887007178,
+        "q99": 0.9774510052541718,
+        "fraction_near_zero_<=0.05": 0.0007247127031783829,
+        "fraction_high_>0.8": 0.5116471684439383
+      },
+      "bins": [
+        {
+          "bin": "[0.00, 0.20]",
+          "n": 1254,
+          "fraction": 0.025965420851019775,
+          "label_mean": 0.13671949035923,
+          "label_median": 0.140784126983447,
+          "label_std": 0.04294436373834584
+        },
+        {
+          "bin": "[0.20, 0.40]",
+          "n": 3682,
+          "fraction": 0.07623977637436588,
+          "label_mean": 0.31028550750082573,
+          "label_median": 0.3150841648112465,
+          "label_std": 0.057124849643616145
+        },
+        {
+          "bin": "[0.40, 0.60]",
+          "n": 6343,
+          "fraction": 0.13133864789315663,
+          "label_mean": 0.5091597636470615,
+          "label_median": 0.513643393725143,
+          "label_std": 0.057174690025585576
+        },
+        {
+          "bin": "[0.60, 0.80]",
+          "n": 12306,
+          "fraction": 0.2548089864375194,
+          "label_mean": 0.713202906861879,
+          "label_median": 0.7191228548109575,
+          "label_std": 0.05740975588026241
+        },
+        {
+          "bin": "[0.80, 1.00]",
+          "n": 24710,
+          "fraction": 0.5116471684439383,
+          "label_mean": 0.8925008279635752,
+          "label_median": 0.896063696745883,
+          "label_std": 0.0470088176261225
+        }
+      ]
+    },
+    "combined": {
+      "bins": [
+        {
+          "bin": "[0.00, 0.20]",
+          "n": 2885,
+          "fraction": 0.05070833479804549,
+          "label_mean": 0.11986404512313319,
+          "label_median": 0.127261037462478,
+          "label_std": 0.05475120038488854
+        },
+        {
+          "bin": "[0.20, 0.40]",
+          "n": 5925,
+          "fraction": 0.10414103420395823,
+          "label_mean": 0.307875099247611,
+          "label_median": 0.311351258261038,
+          "label_std": 0.057451613817448566
+        },
+        {
+          "bin": "[0.40, 0.60]",
+          "n": 8901,
+          "fraction": 0.15644883467500967,
+          "label_mean": 0.5071380823968328,
+          "label_median": 0.510563530718619,
+          "label_std": 0.057207506614369866
+        },
+        {
+          "bin": "[0.60, 0.80]",
+          "n": 14192,
+          "fraction": 0.24944633880549794,
+          "label_mean": 0.7092968948148417,
+          "label_median": 0.7138494433502428,
+          "label_std": 0.05793383872209084
+        },
+        {
+          "bin": "[0.80, 1.00]",
+          "n": 24991,
+          "fraction": 0.4392554575174887,
+          "label_mean": 0.8919221495896994,
+          "label_median": 0.89525080686514,
+          "label_std": 0.04716268643050889
+        }
+      ]
+    },
+    "coverage_expansion": {
+      "threshold": {
+        "abs_min": 0.02,
+        "rel_min": 0.25
+      },
+      "bins": [
+        {
+          "bin": "[0.00, 0.20]",
+          "base_fraction": 0.1896732178160251,
+          "added_fraction": 0.025965420851019775,
+          "delta_fraction": -0.16370779696500534,
+          "rel_gain": -0.8631044427357946,
+          "expanded": false
+        },
+        {
+          "bin": "[0.20, 0.40]",
+          "base_fraction": 0.2608442842190952,
+          "added_fraction": 0.07623977637436588,
+          "delta_fraction": -0.18460450784472934,
+          "rel_gain": -0.7077191988215906,
+          "expanded": false
+        },
+        {
+          "bin": "[0.40, 0.60]",
+          "base_fraction": 0.2974764507500872,
+          "added_fraction": 0.13133864789315663,
+          "delta_fraction": -0.16613780285693058,
+          "rel_gain": -0.558490604678165,
+          "expanded": false
+        },
+        {
+          "bin": "[0.60, 0.80]",
+          "base_fraction": 0.21932782881730434,
+          "added_fraction": 0.2548089864375194,
+          "delta_fraction": 0.03548115762021509,
+          "rel_gain": 0.16177225576682372,
+          "expanded": false
+        },
+        {
+          "bin": "[0.80, 1.00]",
+          "base_fraction": 0.03267821839748808,
+          "added_fraction": 0.5116471684439383,
+          "delta_fraction": 0.47896895004645024,
+          "rel_gain": 14.657131677755963,
+          "expanded": true
+        }
+      ],
+      "combined_coverage": {
+        "base": {
+          "[0.00, 0.20]": 0.1896732178160251,
+          "[0.20, 0.40]": 0.2608442842190952,
+          "[0.40, 0.60]": 0.2974764507500872,
+          "[0.60, 0.80]": 0.21932782881730434,
+          "[0.80, 1.00]": 0.03267821839748808
+        },
+        "combined": {
+          "[0.00, 0.20]": 0.05070833479804549,
+          "[0.20, 0.40]": 0.10414103420395823,
+          "[0.40, 0.60]": 0.15644883467500967,
+          "[0.60, 0.80]": 0.24944633880549794,
+          "[0.80, 1.00]": 0.4392554575174887
+        },
+        "max_delta_fraction": 0.4065772391200006
+      }
+    },
+    "expanded_bins": [
+      "[0.80, 1.00]"
+    ]
+  },
+  "analysis_C_sequence_diversity": {
+    "gc": {
+      "deepspcas9": {
+        "n": 8599,
+        "mean": 0.551153234872272,
+        "median": 0.5666666666666667,
+        "std": 0.11511330746014474,
+        "min": 0.06666666666666667,
+        "max": 1.0,
+        "q01": 0.3,
+        "q25": 0.4666666666666667,
+        "q75": 0.6333333333333333,
+        "q99": 0.8666666666666667
+      },
+      "deephf": {
+        "n": 48295,
+        "mean": 0.42742381889084446,
+        "median": 0.43333333333333335,
+        "std": 0.07288475134014943,
+        "min": 0.16666666666666666,
+        "max": 0.7333333333333333,
+        "q01": 0.26666666666666666,
+        "q25": 0.36666666666666664,
+        "q75": 0.4666666666666667,
+        "q99": 0.6
+      },
+      "cohens_d": 1.5332623786059913,
+      "ks_test": {
+        "statistic": 0.5024624953380323,
+        "p_value": 0.0
+      },
+      "wasserstein_1d": 0.12398038050822177
+    },
+    "nucleotide_composition": {
+      "nucleotides": [
+        "A",
+        "C",
+        "G",
+        "T"
+      ],
+      "deepspcas9": [
+        0.22294065201380378,
+        0.25449470868705665,
+        0.2966585261852201,
+        0.22590611311393227
+      ],
+      "deephf": [
+        0.42358698277936097,
+        0.17342444007316907,
+        0.2539993788176758,
+        0.14898919832972374
+      ],
+      "mean_abs_delta": 0.1003231653827994
+    },
+    "kmer_2": {
+      "js_divergence": 0.06323686090877745,
+      "pearson": {
+        "pearson_across_kmers": 0.020103535646167153,
+        "p_value": 0.9410916513231217,
+        "mean_abs_frequency_difference": 0.02650152117544711
+      }
+    },
+    "kmer_3": {
+      "js_divergence": 0.07963164220504486,
+      "pearson": {
+        "pearson_across_kmers": 0.11479535731567889,
+        "p_value": 0.36639130896734656,
+        "mean_abs_frequency_difference": 0.007090885042294825
+      },
+      "top_differing_3mers": [
+        {
+          "kmer": "AAA",
+          "deepspcas9_freq": 0.008551658830761054,
+          "added_freq": 0.13412731279497705,
+          "delta": 0.125575653964216,
+          "abs_delta": 0.125575653964216
+        },
+        {
+          "kmer": "GAA",
+          "deepspcas9_freq": 0.01711162427524841,
+          "added_freq": 0.04856092763224918,
+          "delta": 0.031449303357000774,
+          "abs_delta": 0.031449303357000774
+        },
+        {
+          "kmer": "GGA",
+          "deepspcas9_freq": 0.024861694881464468,
+          "added_freq": 0.048973570171406224,
+          "delta": 0.024111875289941756,
+          "abs_delta": 0.024111875289941756
+        },
+        {
+          "kmer": "AAG",
+          "deepspcas9_freq": 0.016729520043859383,
+          "added_freq": 0.04039977519115912,
+          "delta": 0.02367025514729974,
+          "abs_delta": 0.02367025514729974
+        },
+        {
+          "kmer": "GGC",
+          "deepspcas9_freq": 0.026390111807020514,
+          "added_freq": 0.010424030881633765,
+          "delta": -0.015966080925386747,
+          "abs_delta": 0.015966080925386747
+        },
+        {
+          "kmer": "GGT",
+          "deepspcas9_freq": 0.021264931138172318,
+          "added_freq": 0.009472290831643583,
+          "delta": -0.011792640306528735,
+          "abs_delta": 0.011792640306528735
+        },
+        {
+          "kmer": "CTG",
+          "deepspcas9_freq": 0.026900968551160254,
+          "added_freq": 0.01676304852617504,
+          "delta": -0.010137920024985213,
+          "abs_delta": 0.010137920024985213
+        },
+        {
+          "kmer": "GCC",
+          "deepspcas9_freq": 0.020463342913628,
+          "added_freq": 0.011289249108898437,
+          "delta": -0.009174093804729562,
+          "abs_delta": 0.009174093804729562
+        },
+        {
+          "kmer": "GCT",
+          "deepspcas9_freq": 0.02061701526755613,
+          "added_freq": 0.011857187227308275,
+          "delta": -0.008759828040247854,
+          "abs_delta": 0.008759828040247854
+        },
+        {
+          "kmer": "CCT",
+          "deepspcas9_freq": 0.018478062233150315,
+          "added_freq": 0.01051055270436014,
+          "delta": -0.007967509528790174,
+          "abs_delta": 0.007967509528790174
+        }
+      ]
+    },
+    "overlap": {
+      "exact_30mer": {
+        "shared_unique": 0,
+        "in_a_only": 8599,
+        "in_b_only": 48295,
+        "jaccard": 0.0,
+        "fraction_of_a_shared": 0.0,
+        "fraction_of_b_shared": 0.0
+      },
+      "guide_20mer_overlap_count": 330,
+      "guide_20mer_jaccard": 0.005834202570585012,
+      "guide_20mer_fraction_of_add": 0.006833005487110467
+    },
+    "length": {
+      "deephf": {
+        "n": 48295,
+        "min": 30.0,
+        "max": 30.0,
+        "mean": 30.0,
+        "uniform": true
+      }
+    }
+  },
+  "analysis_D_diversity_vs_sample_size_evidence_matrix": {
+    "sample_size": {
+      "base_n": 8599,
+      "added_n": 48295,
+      "combined_n": 56894,
+      "ratio": 6.61635073845796,
+      "added_fraction_of_pool": 0.8488592821738672
+    },
+    "activity_coverage": {
+      "js_divergence": null,
+      "expanded_bins": [
+        "[0.80, 1.00]"
+      ],
+      "max_bin_delta_fraction": 0.4065772391200006
+    },
+    "sequence_diversity": {
+      "gc_cohens_d": 1.5332623786059913,
+      "kmer3_js_divergence": 0.07963164220504486,
+      "kmer3_pearson": {
+        "pearson_across_kmers": 0.11479535731567889,
+        "p_value": 0.36639130896734656,
+        "mean_abs_frequency_difference": 0.007090885042294825
+      },
+      "guide_overlap_jaccard": 0.005834202570585012
+    },
+    "experimental_domains": {
+      "unique_domains": 2,
+      "contexts": [
+        "(human) pooled SpCas9 screen NGS mod-freq",
+        "(human) pooled SpCas9 screens HEK293T/HCT116/T, edited-read fraction"
+      ],
+      "label_scales_harmonized_raw": true
+    },
+    "interpretation": {
+      "confound": "Phase 10 changed n, activity coverage and sequence composition SIMULTANEOUSLY by adding DeepHF. No size-matched or single-factor arm exists, so the Phase 10 design CANNOT separate these. The matrix is therefore descriptive evidence for the hypothesis classification, NOT a controlled causal test.",
+      "no_fabricated_diversity_score": true
+    }
+  },
+  "analysis_E_high_activity_coverage": {
+    "thresholds": [
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "rows": {
+      "0.6": {
+        "threshold": 0.6,
+        "base_n": 2166,
+        "added_n": 37013,
+        "combined_n": 39179,
+        "base_fraction": 0.2518897546226305,
+        "added_fraction": 0.7663940366497567,
+        "combined_fraction": 0.6886314901395578,
+        "added_ratio_vs_base": 3.0425772489156317,
+        "combined_delta_fraction": 0.4367417355169273
+      },
+      "0.7": {
+        "threshold": 0.7,
+        "base_n": 993,
+        "added_n": 32081,
+        "combined_n": 33074,
+        "base_fraction": 0.11547854401674613,
+        "added_fraction": 0.6642716637333057,
+        "combined_fraction": 0.5813266776813021,
+        "added_ratio_vs_base": 5.752338405279653,
+        "combined_delta_fraction": 0.46584813366455596
+      },
+      "0.8": {
+        "threshold": 0.8,
+        "base_n": 281,
+        "added_n": 24710,
+        "combined_n": 24991,
+        "base_fraction": 0.03267821839748808,
+        "added_fraction": 0.5116471684439383,
+        "combined_fraction": 0.4392554575174887,
+        "added_ratio_vs_base": 15.657131677755963,
+        "combined_delta_fraction": 0.4065772391200006
+      },
+      "0.9": {
+        "threshold": 0.9,
+        "base_n": 10,
+        "added_n": 11660,
+        "combined_n": 11670,
+        "base_fraction": 0.001162925921618793,
+        "added_fraction": 0.24143286054456983,
+        "combined_fraction": 0.20511829015361902,
+        "added_ratio_vs_base": 207.60811678227557,
+        "combined_delta_fraction": 0.20395536423200022
+      }
+    },
+    "interpretation_caveat": "Coverage expansion is *consistent with* improved high-activity training coverage; it does not establish causation."
+  },
+  "analysis_F_arm_attribution": {
+    "baseline_B": "DeepSpCas9 training split only (8,599)",
+    "primary_D1": "DeepSpCas9 + DeepHF (56,894)",
+    "internal_val_r2": {
+      "random_forest": {
+        "B": 0.3618512158495508,
+        "D1": 0.34153765795652125
+      },
+      "xgboost": {
+        "B": 0.5111595261972401,
+        "D1": 0.5034517655652594
+      },
+      "cnn": {
+        "B": 0.4164203478977804,
+        "D1": 0.40964982913349457
+      }
+    },
+    "quoted_external": {
+      "B": {
+        "random_forest": {
+          "model": "random_forest",
+          "arm": "B",
+          "mae": 0.2484701098867135,
+          "rmse": 0.28742973491730783,
+          "r2": 0.045555268304266705,
+          "pearson": 0.2352103369771678,
+          "spearman": 0.22632019741646264,
+          "prediction_std": 0.07460248855917402,
+          "source": "quoted verbatim from Phase 10 result JSON (locked)"
+        },
+        "xgboost": {
+          "model": "xgboost",
+          "arm": "B",
+          "mae": 0.2539727605549819,
+          "rmse": 0.2977196515215585,
+          "r2": -0.024005761907549328,
+          "pearson": 0.18330025236738523,
+          "spearman": 0.17721057966377554,
+          "prediction_std": 0.12198894039076512,
+          "source": "quoted verbatim from Phase 10 result JSON (locked)"
+        },
+        "cnn": {
+          "model": "cnn",
+          "arm": "B",
+          "mae": 0.25180076077028474,
+          "rmse": 0.29583881790027305,
+          "r2": -0.01110838825158944,
+          "pearson": 0.1838363433348554,
+          "spearman": 0.16020174146486912,
+          "prediction_std": 0.11486378697638025,
+          "source": "quoted verbatim from Phase 10 result JSON (locked)"
+        }
+      },
+      "D1": {
+        "random_forest": {
+          "model": "random_forest",
+          "arm": "D1",
+          "mae": 0.24850714745301294,
+          "rmse": 0.2875248362794406,
+          "r2": 0.044923572976167336,
+          "pearson": 0.22745210633732554,
+          "spearman": 0.22120547686554487,
+          "prediction_std": 0.07529831141181256,
+          "source": "quoted verbatim from Phase 10 result JSON (locked)"
+        },
+        "xgboost": {
+          "model": "xgboost",
+          "arm": "D1",
+          "mae": 0.2535661536141727,
+          "rmse": 0.29765107829022575,
+          "r2": -0.02353410142503587,
+          "pearson": 0.2026294046551377,
+          "spearman": 0.19831164139042579,
+          "prediction_std": 0.13239802585985092,
+          "source": "quoted verbatim from Phase 10 result JSON (locked)"
+        },
+        "cnn": {
+          "model": "cnn",
+          "arm": "D1",
+          "mae": 0.24959831757829395,
+          "rmse": 0.29585621561142866,
+          "r2": -0.011227314422645795,
+          "pearson": 0.19664220915135855,
+          "spearman": 0.1968592634334095,
+          "prediction_std": 0.12359551418363647,
+          "source": "quoted verbatim from Phase 10 result JSON (locked)"
+        }
+      }
+    },
+    "note": "Internal val is a conservative, lower-magnitude proxy; no selection or conclusion is drawn from it. External values are locked Phase 10 outputs quoted verbatim."
+  },
+  "label_quality_audit": {
+    "dataset": "DeepHF",
+    "no_imputation_performed": true,
+    "n_mapped_valid": 51965,
+    "n_unlabeled_dropped": 3670,
+    "n_retained": 48295,
+    "drop_location": "after canonical sequence validation, BEFORE model training and BEFORE statistics",
+    "nan_in_retained_labels": 0,
+    "pool_n": 56894,
+    "pool_nan_labels": 0,
+    "deepspcas9_labels": {
+      "n": 8599,
+      "nan_count": 0,
+      "untouched": true
+    }
+  },
+  "duplicate_conflict_audit": {
+    "n_rows": 56894,
+    "n_unique_normalized_sequences": 56894,
+    "fraction_duplicate_rows": 0.0,
+    "label_col_non_null": 56894,
+    "label_col_null": 0,
+    "scan": {
+      "within_source_duplicate_rows": 0,
+      "within_source_label_conflicts": 0,
+      "cross_source_exact_30mer_rows": 0,
+      "cross_source_exact_30mer_pairwise": {},
+      "cross_source_label_conflicts": [],
+      "cross_source_label_conflict_count": 0,
+      "shared_guide_cross_source": 330
+    },
+    "policy_verified": true,
+    "note": "Cross-source exact 30-mers are absent by construction (DeepHF source has no genomic flanks); same-guide co-occurrences are retained as independent experiments with no averaging."
+  },
+  "phase9a_to_10_consistency": {
+    "phase9a_json": "results/experiments/phase9a_domain_diagnostics_20260905_161859.json",
+    "quoted_phase9a": {
+      "validation_vs_test_label": {
+        "cohens_d": -0.3010353276429892,
+        "ks_p": 1.2200221698984241e-17,
+        "val_high_gt0.8": 0.025032938076416336,
+        "test_high_gt0.8": 0.20246913580246914
+      },
+      "validation_vs_test_gc": {
+        "val_mean": 0.5496047430830039,
+        "test_mean": 0.5844032921810699,
+        "cohens_d": -0.33328853007497977
+      },
+      "validation_vs_test_kmer3": {
+        "pearson_across_kmers": 0.8345356982453433,
+        "p_value": 1.0685194519809443e-17,
+        "mean_abs_frequency_difference": 0.005227291244048521
+      },
+      "validation_vs_test_overlap_jaccard": 0.0
+    },
+    "pool_vs_validation": {
+      "label": {
+        "validation_mean": 0.4215027870774039,
+        "deephf_mean": 0.7324544630119898,
+        "fraction_high_gt0.8_validation": 0.025032938076416336,
+        "fraction_high_gt0.8_deephf": 0.5116471684439383
+      },
+      "gc": {
+        "validation_mean": 0.5496047430830039,
+        "deephf_mean": 0.42742381889084446
+      },
+      "nucleotide_G": {
+        "validation_G": 0.29556433904259993,
+        "deephf_G": 0.2539993788176758
+      }
+    },
+    "shift_classifications": [
+      {
+        "shift": "label high-activity tail (>0.8)",
+        "base_metric": 0.025032938076416336,
+        "added_metric": 0.5116471684439383,
+        "delta": 0.486614230367522,
+        "direction": "increase_needed",
+        "status": "potentially addressed",
+        "caveat": "matching a training distribution does not guarantee generalization; this classifies direction only"
+      },
+      {
+        "shift": "label distribution mean",
+        "base_metric": 0.4215027870774039,
+        "added_metric": 0.7324544630119898,
+        "delta": 0.3109516759345859,
+        "direction": "increase_needed",
+        "status": "potentially addressed",
+        "caveat": "matching a training distribution does not guarantee generalization; this classifies direction only"
+      },
+      {
+        "shift": "GC content mean",
+        "base_metric": 0.5496047430830039,
+        "added_metric": 0.42742381889084446,
+        "delta": -0.12218092419215942,
+        "direction": "increase_needed",
+        "status": "not addressed",
+        "caveat": "matching a training distribution does not guarantee generalization; this classifies direction only"
+      },
+      {
+        "shift": "nucleotide composition: G fraction",
+        "base_metric": 0.29556433904259993,
+        "added_metric": 0.2539993788176758,
+        "delta": -0.04156496022492412,
+        "direction": "increase_needed",
+        "status": "not addressed",
+        "caveat": "matching a training distribution does not guarantee generalization; this classifies direction only"
+      },
+      {
+        "shift": "label distribution mean OVERSHOOT",
+        "base_metric": 0.4215027870774039,
+        "added_metric": 0.7324544630119898,
+        "test_metric_quoted": 0.4969372521271605,
+        "status": "partially addressed - direction correct but the added domain overshoots the observed external mean",
+        "caveat": "descriptive; external values quoted from Phase 9A JSON"
+      }
+    ],
+    "note": "All \"test\" scalars are cited from the Phase 9A JSON. No Moreno-Mateos row was read in this phase. The k-mer profile direction against the external composition cannot be classified from the stored scalars; the raw pool k-mer summary is reported instead."
+  },
+  "hypothesis_assessment_H1_H6": {
+    "H1": "PARTIALLY SUPPORTED",
+    "H2": "SUPPORTED",
+    "H3": "SUPPORTED",
+    "H4": "SUPPORTED",
+    "H5": "PARTIALLY SUPPORTED",
+    "H5_detail": {
+      "threshold": 0.8,
+      "base_fraction": 0.03267821839748808,
+      "added_fraction": 0.5116471684439383,
+      "external_effect_size": 0.0022024431919907468,
+      "external_ci_excludes_zero": false
+    },
+    "H6": "NOT IDENTIFIABLE",
+    "H6_detail": {
+      "external_effect_size": 0.0022024431919907468,
+      "external_ci_excludes_zero": false
+    }
+  },
+  "decision_gate": {
+    "gate": "D",
+    "label": "EVIDENCE TOO WEAK TO ATTRIBUTE THE GAIN -- freeze dataset experiments",
+    "reason": "external |d| = +0.0022 < effect threshold 0.01 or its CI does not exclude zero"
+  },
+  "figures": {
+    "activity_distribution": "results/figures/phase11_activity_distribution_by_source_20260906_141922.png",
+    "activity_ecdf": "results/figures/phase11_activity_ecdf_20260906_141922.png",
+    "coverage_by_bin": "results/figures/phase11_coverage_by_bin_20260906_141922.png",
+    "gc_distribution": "results/figures/phase11_gc_distribution_20260906_141922.png",
+    "kmer3_top_diffs": "results/figures/phase11_kmer3_top_diffs_20260906_141922.png",
+    "high_activity_region": "results/figures/phase11_high_activity_region_20260906_141922.png"
+  },
+  "outputs": {
+    "pool_composition_csv": "results/experiments/phase11_pool_composition_20260906_141922.csv"
+  }
+}
