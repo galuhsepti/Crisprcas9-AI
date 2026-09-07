@@ -1,0 +1,27 @@
+{
+  "experiment_name": "phase13_representation_audit_20260906_203923",
+  "timestamp": "2026-09-06T20:40:31.737359",
+  "git_head": "7cde40039f32013b7cbdc09215dea965a553abe9",
+  "representation": "nucleotide_embedding",
+  "hyperparameters": {
+    "vocab_size": 4,
+    "embedding_dim": 8,
+    "seq_len": 30,
+    "conv_n_filters": 64,
+    "conv_kernel_sizes": [
+      5,
+      7,
+      9
+    ],
+    "dense_units": 64,
+    "dropout_rate": 0.3,
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "epochs": 100,
+    "patience": 10,
+    "optimizer": "adam",
+    "loss": "mse",
+    "random_state": 42
+  },
+  "freeze_marker": true
+}

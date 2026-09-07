@@ -1,0 +1,104 @@
+{
+  "experiment_name": "phase14_domain_shift_audit_20260907_115601",
+  "phase": "14",
+  "timestamp": "2026-09-07T12:01:26.111966",
+  "config_hash": "aee0fea36592d744b6e560a06035174cda438d8c2ac2668bb9ab5cf2bd085553",
+  "status": "FROZEN",
+  "gc_method": "internal_train_quantile",
+  "gc_edges": {
+    "full_30mer": [
+      0.47,
+      0.53,
+      0.57,
+      0.63
+    ],
+    "guide_4_24": [
+      0.45,
+      0.5,
+      0.55,
+      0.65
+    ],
+    "source_30mer": "internal_train_quantile",
+    "source_guide": "internal_train_quantile"
+  },
+  "activity_edges": [
+    0.0,
+    0.2,
+    0.4,
+    0.6,
+    0.8,
+    1.0
+  ],
+  "activity_split_points": [
+    0.2,
+    0.4,
+    0.6,
+    0.8
+  ],
+  "min_n_report": 20,
+  "min_n_boot": 30,
+  "min_n_common_support": 20,
+  "n_boot": 1000,
+  "bootstrap_seed": 20260907,
+  "fdr_q": 0.05,
+  "alpha": 0.05,
+  "effect_thresholds": {
+    "rho": 0.15,
+    "dmae": 0.02,
+    "c6_cell_delta": 0.02,
+    "convergence_rho": 0.6,
+    "dispersion_sd_ratio": 0.6
+  },
+  "confirmatory_tests": [
+    "C1_activity_lowbin_delta_mae",
+    "C2_activity_highbin_delta_mae",
+    "C3_spearman_abs_gc",
+    "C4_spearman_abs_activity",
+    "C5_spearman_abs_gc_train_z",
+    "C6_joint_common_support_median_delta",
+    "C7_cross_model_bin_mae_consistency"
+  ],
+  "frozen_covariates": {
+    "gc_mean": 0.551153234872272,
+    "gc_std": 0.11511330746014474,
+    "gc_guide_mean": 0.532364228398651,
+    "gc_guide_std": 0.12659222505404108,
+    "activity_mean": 0.4263848685987796,
+    "activity_std": 0.21982584877714414,
+    "train_f2": [
+      0.04619622971396033,
+      0.05377128856202205,
+      0.07397010879372501,
+      0.04751955921097481,
+      0.07300367725196595,
+      0.06493938749894736,
+      0.04788848743438491,
+      0.06866075044812749,
+      0.06816349936440083,
+      0.07536160981028267,
+      0.0951594211034964,
+      0.0587518195780584,
+      0.03527675631889835,
+      0.060291693901857075,
+      0.08122837058038024,
+      0.04981734042851815
+    ]
+  },
+  "internal_summary": {
+    "n_valid": 10117,
+    "n_train": 8599,
+    "n_val": 1518,
+    "rf_validation_mae": 0.14989252256093744
+  },
+  "external_stat_only": {
+    "exists": true,
+    "size_bytes": 117715
+  },
+  "canonical_hashes_before": {
+    "models/rf_baseline_fixed_20260905_001107.pkl": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+    "models/xgboost_baseline_20260905_002839.pkl": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+    "models/cnn_baseline_20260905_011720.pt": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616"
+  },
+  "git_head": "7cde40039f32013b7cbdc09215dea965a553abe9",
+  "git_status": "?? docs/phase13_representation_audit_report.md\n?? results/experiments/phase13_representation_audit_20260906_203923.json\n?? results/experiments/phase13_representation_audit_20260906_203923_freeze.json\n?? results/experiments/phase14_domain_shift_audit_20260907_114702.json\n?? results/experiments/phase14_domain_shift_audit_20260907_114702_final.json\n?? results/experiments/phase14_domain_shift_audit_20260907_114702_freeze.json\n?? results/predictions/\n?? scripts/run_phase13_representation_audit.py\n?? scripts/run_phase14_domain_shift_audit.py\n?? src/domain_shift/\n?? src/representation_audit/\n?? tests/test_phase13_representation_audit.py\n?? tests/test_phase14_domain_shift.py\n"
+}
