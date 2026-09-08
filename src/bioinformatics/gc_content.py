@@ -5,7 +5,7 @@ This module provides functions to calculate GC content in DNA sequences,
 which is an important feature for predicting sgRNA activity.
 """
 
-from typing import Union, List, Optional
+from typing import List
 import numpy as np
 
 

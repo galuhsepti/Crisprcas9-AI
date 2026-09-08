@@ -5,8 +5,7 @@ This module provides functions to analyze nucleotide frequencies
 and composition patterns in DNA sequences.
 """
 
-from typing import Dict, List, Optional, Tuple
-from collections import Counter
+from typing import Dict, List
 import numpy as np
 
 

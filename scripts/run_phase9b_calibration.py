@@ -462,7 +462,6 @@ def main():
     for model in MODELS:
         external_ranking_check[model] = {}
         for method in ['linear', 'variance']:
-            raw = preds_test[model]['raw']
             cal = preds_test[model][method]
             ext = external[model]
             external_ranking_check[model][method] = {

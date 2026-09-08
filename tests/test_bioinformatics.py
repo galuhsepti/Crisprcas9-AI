@@ -40,7 +40,8 @@ from src.bioinformatics.positional_features import (
     extract_one_hot_encoding,
     extract_one_hot_batch,
     extract_position_frequency_matrix,
-    extract_conservation_score
+    extract_conservation_score,
+    calculate_positional_gc_content
 )
 from src.bioinformatics.sequence_features import SequenceFeatureExtractor
 
@@ -251,6 +252,11 @@ class TestPositionalFeatures:
             sequence_length=4
         )
         assert all(c > 0.9 for c in cons)
+
+    def test_positional_gc_content_short_sequence(self):
+        """Short sequences should return their overall GC content."""
+        result = calculate_positional_gc_content("ACG", window_size=5)
+        np.testing.assert_array_equal(result, np.array([2 / 3]))
 
 
 class TestSequenceFeatureExtractor:

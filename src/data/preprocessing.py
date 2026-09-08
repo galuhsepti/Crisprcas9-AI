@@ -14,8 +14,7 @@ import logging
 from .validation import (
     validate_sequence,
     normalize_sequence,
-    convert_rna_to_dna,
-    is_valid_dna
+    convert_rna_to_dna
 )
 
 # Configure logging

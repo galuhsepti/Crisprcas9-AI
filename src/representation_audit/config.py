@@ -24,7 +24,7 @@ from pathlib import Path
 @dataclass(frozen=True)
 class Phase13ExperimentConfig:
     # ---- Dataset / split (MUST match canonical Phase 5) ----
-    project_root: str = "/home/konta/crispr-prediction"
+    project_root: str = str(Path(__file__).resolve().parents[2])
     primary_dataset: str = "data/raw/DeepSpCas9.csv"
     external_dataset: str = "data/raw/Moreno-Mateos.csv"
     context_length: int = 30

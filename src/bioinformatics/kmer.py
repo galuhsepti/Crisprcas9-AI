@@ -5,10 +5,9 @@ This module provides functions to extract k-mer features from DNA sequences,
 which can be used as input features for machine learning models.
 """
 
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional
 from itertools import product
 import numpy as np
-from collections import Counter
 
 
 # Valid nucleotides

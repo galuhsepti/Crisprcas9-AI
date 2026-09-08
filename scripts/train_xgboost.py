@@ -151,7 +151,7 @@ def main():
         max_features=config['models']['random_forest']['max_features'],
         random_state=config['models']['random_forest']['random_seed']
     )
-    rf_history = rf_model.fit(X_train, y_train, feature_names=feature_names)
+    rf_model.fit(X_train, y_train, feature_names=feature_names)
     rf_val_pred = rf_model.predict(X_val)
     rf_val_metrics = calculate_all_metrics(y_val, rf_val_pred)
     rf_test_pred = rf_model.predict(X_test)

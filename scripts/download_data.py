@@ -5,7 +5,6 @@ Download and prepare CRISPR-Cas9 sgRNA dataset.
 This script downloads the Azimuth dataset and prepares it for training.
 """
 
-import os
 import sys
 import subprocess
 import logging
@@ -62,8 +61,6 @@ def load_azimuth_training_data(azimuth_dir):
     # Try to load the model and extract training data
     try:
         import pickle
-        import os
-        
         # List all files in saved_models
         saved_models_dir = azimuth_dir / 'saved_models'
         if saved_models_dir.exists():

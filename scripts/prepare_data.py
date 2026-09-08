@@ -7,7 +7,6 @@ performs basic validation, and saves clean versions for the pipeline.
 """
 
 import pandas as pd
-import numpy as np
 from pathlib import Path
 import logging
 

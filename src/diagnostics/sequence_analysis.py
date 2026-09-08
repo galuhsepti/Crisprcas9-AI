@@ -11,17 +11,15 @@ changed here. Analyses are descriptive; observed differences are reported as
 "sequence distribution differences" and are not biological claims.
 """
 
-from typing import Dict, Iterable, List, Sequence
+from typing import Dict, List, Sequence
 import numpy as np
 
 from ..bioinformatics.gc_content import calculate_gc_content
 from ..bioinformatics.kmer import (
     extract_kmer_matrix,
-    extract_kmer_frequencies,
     generate_kmers
 )
 from ..bioinformatics.nucleotide_composition import (
-    count_nucleotides,
     calculate_frequencies
 )
 from ..bioinformatics.positional_features import extract_position_frequency_matrix

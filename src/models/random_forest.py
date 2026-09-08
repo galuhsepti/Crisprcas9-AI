@@ -5,21 +5,16 @@ This module implements a Random Forest regressor for predicting
 sgRNA activity based on bioinformatics features.
 """
 
-from typing import Dict, List, Optional, Tuple, Any
+from typing import Dict, List, Optional, Any
 import numpy as np
 import pandas as pd
+import pickle
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import (
     cross_val_score,
     GridSearchCV,
-    RandomizedSearchCV,
-    KFold
+    RandomizedSearchCV
 )
-from sklearn.preprocessing import StandardScaler
-from sklearn.pipeline import Pipeline
-import pickle
-import json
-from pathlib import Path
 import logging
 import time
 

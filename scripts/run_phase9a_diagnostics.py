@@ -66,7 +66,6 @@ from src.diagnostics import (
     nucleotide_frequency_array,
     mean_positional_frequency_matrix,
     positional_entropy,
-    mean_kmer_frequencies,
     sequence_length_summary,
     ambiguous_character_summary,
     duplicate_summary,
@@ -308,7 +307,6 @@ def main():
 
     X_tab_val, X_oh_val = build_tabular_and_onehot(df_val, feature_extractor)
     X_tab_test, X_oh_test = build_tabular_and_onehot(df_test, feature_extractor)
-    gc_guide_val = seq_gc_guide(df_val)
     gc_guide_test = seq_gc_guide(df_test)
 
     # -------------------------------------------------- dataset distribution

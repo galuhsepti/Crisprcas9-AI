@@ -8,6 +8,8 @@ nucleotide features from DNA sequences.
 from typing import Dict, List, Optional
 import numpy as np
 
+from .gc_content import calculate_gc_content
+
 
 # Valid nucleotides
 NUCLEOTIDES = ['A', 'C', 'G', 'T']

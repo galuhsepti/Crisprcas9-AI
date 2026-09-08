@@ -99,8 +99,6 @@ def main():
         include_kmer=True,
         include_positional=True
     )
-    feature_names = feature_extractor.get_feature_names()
-
     X_tab_full = extract_features(df_train, feature_extractor)
     X_tab_test = extract_features(df_test, feature_extractor)
     X_oh_full = extract_one_hot_for_cnn(df_train['sequence_30mer'].tolist(), context_length)

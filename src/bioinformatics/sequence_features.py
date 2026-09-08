@@ -5,7 +5,7 @@ This module integrates all bioinformatics feature extraction functions
 into a unified interface.
 """
 
-from typing import Dict, List, Optional, Union
+from typing import Dict, List
 import numpy as np
 import pandas as pd
 
@@ -18,23 +18,16 @@ from .gc_content import (
 )
 from .nucleotide_composition import (
     calculate_frequencies,
-    calculate_composition_features,
     calculate_dinucleotide_frequencies,
     calculate_heterogeneity,
-    get_reverse_complement
 )
 from .kmer import (
-    extract_kmer_frequencies,
     extract_kmer_features,
-    extract_guide_kmer_features,
     calculate_kmer_entropy,
     calculate_kmer_complexity
 )
 from .positional_features import (
-    extract_one_hot_encoding,
     extract_one_hot_batch,
-    extract_position_frequency_matrix,
-    extract_conservation_score,
     extract_position_specific_features
 )
 

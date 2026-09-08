@@ -1,0 +1,33 @@
+{
+  "record_type": "phase15_primary_data_provenance",
+  "timestamp": "2026-09-07T23:09:35+07:00",
+  "git_head": "d54d2e228704d8f7b77737b0d22205115f7c54f7",
+  "origin_main": "d54d2e228704d8f7b77737b0d22205115f7c54f7",
+  "moreno_raw_accessed": false,
+  "files_inspected": [
+    {
+      "path": "data/raw/DeepSpCas9.csv",
+      "role": "canonical reference dataset; not a new candidate",
+      "source": "Kim et al. 2019 / Benchmarking-CRISPR-on-tools",
+      "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+      "size_bytes": 1556444,
+      "raw_rows": 12832,
+      "canonical_valid_rows": 10117,
+      "audit_use": "deterministic reference coverage and diversity statistics only"
+    },
+    {
+      "path": "data/raw/DeepSpCas9.metadata.txt",
+      "role": "canonical metadata",
+      "sha256": "9ee534a11c14669808cc353e8230141dce8e498cfa9fbe99b8b2df916866623c",
+      "size_bytes": 222,
+      "audit_use": "metadata read for provenance; hash recorded"
+    }
+  ],
+  "primary_candidate_files_inspected": [],
+  "candidate_files_absent": [
+    "DeepHF_training.xlsx",
+    "benchmark supplementary dataset files"
+  ],
+  "canonical_model_binary_status": "RECORDED_BUT_NOT_LOCALLY_VERIFIED",
+  "note": "Both DeepSpCas9 file hashes were computed locally during the read-only audit."
+}

@@ -22,7 +22,7 @@ Interpretation notes
 - MAPE is never used (see metrics.calculate_mape warning).
 """
 
-from typing import Callable, Dict, Optional, Tuple
+from typing import Callable, Dict
 import numpy as np
 from scipy import stats
 

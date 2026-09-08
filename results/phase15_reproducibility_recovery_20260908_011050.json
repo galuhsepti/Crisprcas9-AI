@@ -1,0 +1,92 @@
+{
+  "experiment_name": "phase15_reproducibility_recovery_20260908_011050",
+  "phase": "15",
+  "record_type": "append_only_reproducibility_recovery_addendum",
+  "timestamp": "2026-09-08T01:10:50+07:00",
+  "original_feasibility_snapshot": {
+    "timestamp": "2026-09-07T23:09:35+07:00",
+    "report": "docs/phase15_data_feasibility_report.md",
+    "result": "results/phase15_data_feasibility_20260907_230935.json",
+    "provenance": "results/phase15_data_provenance_20260907_230935.json",
+    "gate1": "FAIL for new accepted training data",
+    "feasibility_status": "INFEASIBLE under available workspace evidence",
+    "canonical_binary_status": "RECORDED_BUT_NOT_LOCALLY_VERIFIED",
+    "preserved_unchanged": true
+  },
+  "recovery": {
+    "source_root": "\\\\wsl$\\Ubuntu\\home\\konta\\crispr-prediction",
+    "source_posix_root": "/home/konta/crispr-prediction",
+    "generated_or_regenerated": false,
+    "model_loaded_and_resaved": false,
+    "converted": false,
+    "models": [
+      {
+        "name": "random_forest",
+        "local_path": "models/rf_baseline_fixed_20260905_001107.pkl",
+        "source_path": "/home/konta/crispr-prediction/models/rf_baseline_fixed_20260905_001107.pkl",
+        "size_bytes": 53056052,
+        "authoritative_sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285740280b6",
+        "actual_local_sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285740280b6",
+        "actual_source_sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285740280b6",
+        "exists_local": true,
+        "exists_source": true,
+        "hash_match_authority": true,
+        "byte_identical_to_source": true
+      },
+      {
+        "name": "xgboost",
+        "local_path": "models/xgboost_baseline_20260905_002839.pkl",
+        "source_path": "/home/konta/crispr-prediction/models/xgboost_baseline_20260905_002839.pkl",
+        "size_bytes": 477707,
+        "authoritative_sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "actual_local_sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "actual_source_sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "exists_local": true,
+        "exists_source": true,
+        "hash_match_authority": true,
+        "byte_identical_to_source": true
+      },
+      {
+        "name": "cnn",
+        "local_path": "models/cnn_baseline_20260905_011720.pt",
+        "source_path": "/home/konta/crispr-prediction/models/cnn_baseline_20260905_011720.pt",
+        "size_bytes": 78101,
+        "authoritative_sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "actual_local_sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "actual_source_sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "exists_local": true,
+        "exists_source": true,
+        "hash_match_authority": true,
+        "byte_identical_to_source": true
+      }
+    ]
+  },
+  "portability_fixes": {
+    "src/domain_shift/config.py": "project_root derives from Path(__file__).resolve().parents[2]",
+    "src/representation_audit/config.py": "project_root derives from Path(__file__).resolve().parents[2]",
+    "scientific_configuration_changed": false
+  },
+  "validation": {
+    "targeted_phase14_reproducibility_tests": "3 passed, 41 deselected",
+    "full_pytest": "410 passed, 3 warnings",
+    "warnings": [
+      "XGBoost serialized-model compatibility warning",
+      "constant-input Pearson correlation warning",
+      "constant-input Spearman correlation warning"
+    ]
+  },
+  "immutability": {
+    "scientific_parameters_changed": false,
+    "model_retrained": false,
+    "model_regenerated": false,
+    "canonical_results_changed": false,
+    "moreno_accessed": false,
+    "new_dataset_analysis": false,
+    "prediction_files_created": false,
+    "commit": false,
+    "push": false
+  },
+  "current_status": "REPRODUCIBILITY_RECOVERED",
+  "technical_gate": "PASS",
+  "note": "Append-only recovery record. Original Phase 15 feasibility artifacts remain historical and were not rewritten."
+}

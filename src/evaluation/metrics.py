@@ -5,7 +5,7 @@ This module provides functions to evaluate regression models
 for predicting sgRNA activity.
 """
 
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, Tuple
 import numpy as np
 from scipy import stats
 from sklearn.metrics import (

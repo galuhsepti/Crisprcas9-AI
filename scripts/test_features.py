@@ -114,11 +114,11 @@ def main():
     print("\n" + "=" * 60)
     print("Summary")
     print("=" * 60)
-    print(f"Dataset: DeepSpCas9")
+    print("Dataset: DeepSpCas9")
     print(f"Sample size: {sample_size}")
     print(f"Features extracted: {features_df.shape[1]}")
     print(f"One-hot encoding: {one_hot.shape}")
-    print(f"Output files:")
+    print("Output files:")
     print(f"  - {output_path}")
     print(f"  - {processed_dir / 'one_hot_sample.npy'}")
     
