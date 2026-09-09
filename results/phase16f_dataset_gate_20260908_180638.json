@@ -1,0 +1,2177 @@
+{
+  "protocol_version": "phase16f-dataset-gate-v1",
+  "timestamp": "2026-09-08T18:06:38.452284",
+  "phase": "16F",
+  "scope": "final_data_readiness_and_dataset_acceptance_gate_only",
+  "source_artifacts": {
+    "phase16b": "results\\phase16b_primary_file_verification_20260908_151501.json",
+    "phase16c": "results\\phase16c_compatibility_audit_20260908_152340.json",
+    "phase16d": "results\\phase16d_overlap_independence_audit_20260908_153958.json",
+    "phase16e": "results\\phase16e_distribution_audit_20260908_170415.json"
+  },
+  "candidate_evidence_matrix": [
+    {
+      "candidate_id": "crispron_2021_rth_tools",
+      "candidate_name": "CRISPRon 2021 sgRNA efficiency data",
+      "provenance": {
+        "status": "VERIFIED_PRIMARY_FILE",
+        "evidence": {
+          "candidate_id": "crispron_2021_rth_tools",
+          "candidate_name": "CRISPRon 2021 sgRNA efficiency data",
+          "source_study_id": "xu_2021_crispron",
+          "source_publication": "Xu F et al. 2021. Enhancing CRISPR-Cas9 gRNA efficiency prediction by data integration and deep learning.",
+          "primary_source_or_accession": "RTH-tools/crispron GitHub repository",
+          "primary_file_status": "SOURCE_ARCHIVE_OBTAINED_PRIMARY_EXPERIMENTAL_FILE_UNRESOLVED",
+          "candidate_status_after_16b": "INSUFFICIENT_PROVENANCE",
+          "files": [
+            {
+              "original_filename": "crispron_main.zip",
+              "source_url": "https://github.com/RTH-tools/crispron/archive/refs/heads/main.zip",
+              "local_raw_path": "data/phase16/raw/crispron_main.zip",
+              "file_format": "zip",
+              "sha256": "3FA17A7CB3DE043703EC3090505C96340E6DA13F23ACDA8FD7F7268A3F572A9B",
+              "size_bytes": 16262993,
+              "verified_local_file": true,
+              "provenance_role": "official repository source archive; raw experimental table not identified in 16B"
+            }
+          ],
+          "provenance_relationship": "Official repository archive was obtained, but the primary experimental sgRNA training table was not located from this archive during Phase 16B.",
+          "unresolved_issues": [
+            "Actual primary experimental data filename unresolved.",
+            "Repository archive appears to contain model artifacts/test output rather than raw study table."
+          ]
+        }
+      },
+      "sequence": {
+        "status": "NOT_VERIFIED",
+        "evidence": []
+      },
+      "label": {
+        "status": "INSUFFICIENT_PROVENANCE",
+        "evidence": [],
+        "unit_conversion": "NOT_PERFORMED",
+        "label_harmonization": "NOT_PERFORMED"
+      },
+      "compatibility": {
+        "status": "INSUFFICIENT_PROVENANCE",
+        "reason": "Phase 16C evidence does not resolve this candidate beyond Phase 16B."
+      },
+      "overlap": {
+        "exact_30mer": "NO_30MER_SEQUENCE_AVAILABLE",
+        "exact_guide": "NO_GUIDE_SEQUENCE_AVAILABLE",
+        "duplicate_evidence": {
+          "n_records_with_sequence": 0,
+          "n_unique_sequences": 0,
+          "duplicate_sequence_count": 0,
+          "duplicate_record_excess": 0,
+          "max_occurrences": 0
+        },
+        "identical_sequence_label_conflicts": {
+          "n_conflicting_sequences": 0,
+          "examples": []
+        },
+        "rc_status": {
+          "status": "RC_OVERLAP_NOT_ASSESSED"
+        }
+      },
+      "independence": {
+        "independence_assessment": "INSUFFICIENT_SEQUENCE_INFORMATION",
+        "reason": "No verified sequence file was available for Phase 16D exact audit."
+      },
+      "distribution_information_value": {
+        "sequence": {
+          "status": "NO_SEQUENCE_AVAILABLE"
+        },
+        "activity": {
+          "status": "NOT_ANALYZED_LABEL_SEMANTICS_NOT_ESTABLISHED_AS_CONTINUOUS_ACTIVITY",
+          "reason": "Phase 16C did not establish target-compatible continuous activity for this candidate."
+        },
+        "potential_information_value": "Not established as admissible information value because the candidate fails or lacks a critical readiness requirement."
+      },
+      "final_decision": "INSUFFICIENT_EVIDENCE",
+      "reason_for_non_acceptance": "No primary experimental table or verified sequence file was available in Phase 16B-16E.",
+      "unresolved_questions": [
+        "Primary file, SHA-256, row schema, sequence geometry, label units, and parent relationships require verification.",
+        "Overlap and distribution evidence cannot be assessed without verified primary data."
+      ]
+    },
+    {
+      "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+      "candidate_name": "CRISPRpred(SEQ) additional files HCT116/HEK293/HeLa/HL60",
+      "provenance": {
+        "status": "VERIFIED_PRIMARY_FILE",
+        "evidence": {
+          "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+          "candidate_name": "CRISPRpred(SEQ) additional files HCT116/HEK293/HeLa/HL60",
+          "source_study_id": "rafid_2020_crisprpredseq",
+          "source_publication": "Rafid AHM et al. 2020. CRISPRpred(SEQ): a sequence-based method for sgRNA on target activity prediction using traditional machine learning. BMC Bioinformatics.",
+          "primary_source_or_accession": "BMC Bioinformatics DOI:10.1186/s12859-020-3531-9 supplementary files",
+          "primary_file_status": "OFFICIAL_SUPPLEMENTARY_FILES_OBTAINED",
+          "candidate_status_after_16b": "PENDING_PRIMARY_VERIFICATION",
+          "files": [
+            {
+              "original_filename": "crisprpredseq_additional_file_1.csv",
+              "source_url": "https://static-content.springer.com/esm/art%3A10.1186%2Fs12859-020-3531-9/MediaObjects/12859_2020_3531_MOESM1_ESM.csv",
+              "local_raw_path": "data/phase16/raw/crisprpredseq_additional_file_1.csv",
+              "file_format": "csv",
+              "sha256": "F6DA050009616E5BB50A8E66E9429830E89B59E607D0C740CEBC364066F34A93",
+              "size_bytes": 114466,
+              "verified_local_file": true,
+              "provenance_role": "publisher-hosted supplementary file"
+            },
+            {
+              "original_filename": "crisprpredseq_additional_file_2.csv",
+              "source_url": "https://static-content.springer.com/esm/art%3A10.1186%2Fs12859-020-3531-9/MediaObjects/12859_2020_3531_MOESM2_ESM.csv",
+              "local_raw_path": "data/phase16/raw/crisprpredseq_additional_file_2.csv",
+              "file_format": "csv",
+              "sha256": "6DBD8C62A9E1E93D2A6B265DE13E5EA6B287E9C605186223611A2BE8C7968357",
+              "size_bytes": 63004,
+              "verified_local_file": true,
+              "provenance_role": "publisher-hosted supplementary file"
+            },
+            {
+              "original_filename": "crisprpredseq_additional_file_3.csv",
+              "source_url": "https://static-content.springer.com/esm/art%3A10.1186%2Fs12859-020-3531-9/MediaObjects/12859_2020_3531_MOESM3_ESM.csv",
+              "local_raw_path": "data/phase16/raw/crisprpredseq_additional_file_3.csv",
+              "file_format": "csv",
+              "sha256": "466813EFDAF0DCCA7CBD6C4690A99BE9CA47593671174F3D72D87FEF669E204D",
+              "size_bytes": 218740,
+              "verified_local_file": true,
+              "provenance_role": "publisher-hosted supplementary file"
+            },
+            {
+              "original_filename": "crisprpredseq_additional_file_4.csv",
+              "source_url": "https://static-content.springer.com/esm/art%3A10.1186%2Fs12859-020-3531-9/MediaObjects/12859_2020_3531_MOESM4_ESM.csv",
+              "local_raw_path": "data/phase16/raw/crisprpredseq_additional_file_4.csv",
+              "file_format": "csv",
+              "sha256": "9B19CA010304B15AAB9F2E58962D00B811B0C6C368B2E6B2847DA8DC65A00A47",
+              "size_bytes": 56065,
+              "verified_local_file": true,
+              "provenance_role": "publisher-hosted supplementary file"
+            }
+          ],
+          "provenance_relationship": "Article reports HCT116, HEK293, HeLa, and HL60 files as data used by previous DeepCRISPR/Haeussler work; independent identity cannot be assumed.",
+          "unresolved_issues": [
+            "Whether files are primary experimental data or processed reuse remains unresolved.",
+            "Original upstream source relationship requires verification.",
+            "Label and sequence definitions deferred to Phase 16C."
+          ]
+        }
+      },
+      "sequence": {
+        "status": "guide_plus_pam",
+        "evidence": [
+          "guide_plus_pam",
+          "guide_plus_pam",
+          "guide_plus_pam",
+          "guide_plus_pam"
+        ]
+      },
+      "label": {
+        "status": "INCOMPATIBLE",
+        "evidence": [
+          "CSV columns sgRNA,label; observed label values are 0/1.",
+          "CSV columns sgRNA,label; observed label values are 0/1.",
+          "CSV columns sgRNA,label; observed label values are 0/1.",
+          "CSV columns sgRNA,label; observed label values are 0/1."
+        ],
+        "unit_conversion": "NOT_PERFORMED",
+        "label_harmonization": "NOT_PERFORMED"
+      },
+      "compatibility": {
+        "status": "INCOMPATIBLE",
+        "reason": "Verified files contain binary labels and 23-mer guide+PAM schema; no label harmonization or sequence transformation performed."
+      },
+      "overlap": {
+        "exact_30mer": "NO_30MER_SEQUENCE_AVAILABLE",
+        "exact_guide": {
+          "n_a": 12465,
+          "n_b": 12825,
+          "shared_unique": 1966,
+          "fraction_of_a": 0.15772162053750502,
+          "fraction_of_b": 0.1532943469785575,
+          "jaccard": 0.08429085920082319
+        },
+        "duplicate_evidence": {
+          "n_records_with_sequence": 16749,
+          "n_unique_sequences": 12465,
+          "duplicate_sequence_count": 4217,
+          "duplicate_record_excess": 4284,
+          "max_occurrences": 3
+        },
+        "identical_sequence_label_conflicts": {
+          "n_conflicting_sequences": 402,
+          "examples": [
+            {
+              "sequence": "AATGTATGCACAGGGAACAGAGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "ATTCAGCTATACCCTGGAGGAGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "TGCCCGACGATGTCCGCAGGCGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "AGCCACCCAGAGAACCCGCAAGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "CTGCAGGGATGTGCACGGGCAGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "TTTCGTTGGTCCAGGCCAGGAGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "CCATAGATACACGAAGGGCCTGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "GGACATTATCAACCCGGACAAGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "AGCCACTGTGAGGCGGGAACGGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "GGCCTTAAGTCTTCTCCACATGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "AGGCCAACTCTTCCGGCGAGAGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "AGCCTGTTATCCACCTCCAGAGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "CAGATACCGTTTCCCTGGCCCGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "ACAGCCAGGGTTCCACAGGGTGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "GCACCTGGACATCAGTAACGCGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "CTTACCAATAACTCCAAGGCTGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "CTACATACCTTCTGGCGGCCAGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "TGTACAAGAACGCCCGGGAGAGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "TACCATGTTGGGCTCCCAGAGGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            },
+            {
+              "sequence": "TGGCAGCTACTGGTAGCACCAGG",
+              "labels": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        },
+        "rc_status": {
+          "status": "RC_OVERLAP_NOT_ASSESSED"
+        }
+      },
+      "independence": {
+        "independence_assessment": "NOT_ESTABLISHED_DERIVED_OR_PROCESSED_RISK",
+        "reason": "Phase 16B/16C provenance reports relationship to DeepCRISPR/Haeussler-used processed datasets."
+      },
+      "distribution_information_value": {
+        "sequence": {
+          "n_sequences": 16749,
+          "length": {
+            "n": 16749,
+            "min": 23.0,
+            "max": 23.0,
+            "mean": 23.0,
+            "uniform": true
+          },
+          "ambiguous_characters": {
+            "sequences_with_ambiguous": 0,
+            "fraction_sequences": 0.0,
+            "total_ambiguous_characters": 0,
+            "characters": {}
+          },
+          "duplicates": {
+            "total": 16749,
+            "unique": 12465,
+            "duplicated_sequences": 4217,
+            "fraction_unique": 0.7442235357334767,
+            "duplicate_rate": 0.25577646426652334,
+            "max_occurrences": 3
+          },
+          "gc": {
+            "n": 16749,
+            "mean": 0.5800787587578233,
+            "median": 0.5652173913043478,
+            "std": 0.08402696552297394,
+            "min": 0.21739130434782608,
+            "max": 0.8695652173913043,
+            "q01": 0.391304347826087,
+            "q25": 0.5217391304347826,
+            "q75": 0.6521739130434783,
+            "q99": 0.7391304347826086
+          },
+          "gc_histogram": {
+            "counts_density": [
+              3,
+              9,
+              46,
+              0,
+              101,
+              197,
+              304,
+              0,
+              2203,
+              3165,
+              3100,
+              0,
+              2889,
+              2215,
+              1705,
+              0,
+              678,
+              92,
+              36,
+              6
+            ],
+            "bin_edges": [
+              0.21739130434782608,
+              0.25,
+              0.2826086956521739,
+              0.3152173913043478,
+              0.34782608695652173,
+              0.3804347826086957,
+              0.4130434782608695,
+              0.44565217391304346,
+              0.4782608695652174,
+              0.5108695652173912,
+              0.5434782608695652,
+              0.5760869565217391,
+              0.608695652173913,
+              0.6413043478260869,
+              0.6739130434782609,
+              0.7065217391304348,
+              0.7391304347826086,
+              0.7717391304347826,
+              0.8043478260869564,
+              0.8369565217391304,
+              0.8695652173913043
+            ]
+          },
+          "gc_ecdf": {
+            "x": [
+              0.21739130434782608,
+              0.34782608695652173,
+              0.391304347826087,
+              0.391304347826087,
+              0.391304347826087,
+              0.43478260869565216,
+              0.43478260869565216,
+              0.43478260869565216,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.4782608695652174,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5217391304347826,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.5652173913043478,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6086956521739131,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6521739130434783,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.6956521739130435,
+              0.7391304347826086,
+              0.7391304347826086,
+              0.7391304347826086,
+              0.7391304347826086,
+              0.7391304347826086,
+              0.7391304347826086,
+              0.7391304347826086,
+              0.7391304347826086,
+              0.782608695652174,
+              0.8695652173913043
+            ],
+            "y": [
+              5.9705057018329455e-05,
+              0.005074929846558003,
+              0.010090154636097677,
+              0.015105379425637352,
+              0.020120604215177026,
+              0.0251358290047167,
+              0.030151053794256373,
+              0.035225983640814376,
+              0.04024120843035405,
+              0.04525643321989373,
+              0.0502716580094334,
+              0.05528688279897307,
+              0.060302107588512746,
+              0.06537703743507076,
+              0.07039226222461042,
+              0.07540748701415009,
+              0.08042271180368978,
+              0.08543793659322944,
+              0.09045316138276913,
+              0.09552809122932712,
+              0.1005433160188668,
+              0.10555854080840647,
+              0.11057376559794614,
+              0.11558899038748582,
+              0.12060421517702549,
+              0.1256791450235835,
+              0.13069436981312318,
+              0.13570959460266285,
+              0.14072481939220252,
+              0.1457400441817422,
+              0.15075526897128186,
+              0.15577049376082155,
+              0.16084542360737955,
+              0.16586064839691922,
+              0.1708758731864589,
+              0.17589109797599856,
+              0.18090632276553825,
+              0.18592154755507792,
+              0.19099647740163592,
+              0.19601170219117559,
+              0.20102692698071525,
+              0.20604215177025495,
+              0.21105737655979462,
+              0.2160726013493343,
+              0.22114753119589228,
+              0.22616275598543198,
+              0.23117798077497165,
+              0.23619320556451132,
+              0.24120843035405098,
+              0.24622365514359065,
+              0.2512985849901487,
+              0.2563138097796883,
+              0.261329034569228,
+              0.2663442593587677,
+              0.27135948414830735,
+              0.27637470893784705,
+              0.28144963878440504,
+              0.28646486357394474,
+              0.2914800883634844,
+              0.2964953131530241,
+              0.3015105379425637,
+              0.3065257627321034,
+              0.3115409875216431,
+              0.3166159173682011,
+              0.32163114215774075,
+              0.32664636694728044,
+              0.3316615917368201,
+              0.3366768165263598,
+              0.3416920413158995,
+              0.34676697116245747,
+              0.3517821959519971,
+              0.3567974207415368,
+              0.3618126455310765,
+              0.36682787032061615,
+              0.37184309511015584,
+              0.37691802495671384,
+              0.38193324974625353,
+              0.3869484745357932,
+              0.39196369932533287,
+              0.3969789241148725,
+              0.4019941489044122,
+              0.4070690787509702,
+              0.4120843035405099,
+              0.41709952833004954,
+              0.42211475311958924,
+              0.4271299779091289,
+              0.4321452026986686,
+              0.43716042748820827,
+              0.44223535733476627,
+              0.4472505821243059,
+              0.4522658069138456,
+              0.4572810317033853,
+              0.46229625649292494,
+              0.46731148128246464,
+              0.47238641112902263,
+              0.47740163591856233,
+              0.48241686070810197,
+              0.48743208549764167,
+              0.4924473102871813,
+              0.497462535076721,
+              0.502537464923279,
+              0.5075526897128186,
+              0.5125679145023584,
+              0.517583139291898,
+              0.5225983640814377,
+              0.5276135888709774,
+              0.5326885187175354,
+              0.5377037435070751,
+              0.5427189682966147,
+              0.5477341930861545,
+              0.5527494178756941,
+              0.5577646426652337,
+              0.5628395725117917,
+              0.5678547973013314,
+              0.5728700220908711,
+              0.5778852468804108,
+              0.5829004716699504,
+              0.5879156964594902,
+              0.5929309212490298,
+              0.5980058510955878,
+              0.6030210758851274,
+              0.6080363006746672,
+              0.6130515254642068,
+              0.6180667502537465,
+              0.6230819750432862,
+              0.6281569048898442,
+              0.6331721296793839,
+              0.6381873544689235,
+              0.6432025792584632,
+              0.6482178040480029,
+              0.6532330288375425,
+              0.6583079586841005,
+              0.6633231834736402,
+              0.6683384082631799,
+              0.6733536330527196,
+              0.6783688578422592,
+              0.683384082631799,
+              0.688459012478357,
+              0.6934742372678966,
+              0.6984894620574362,
+              0.703504686846976,
+              0.7085199116365156,
+              0.7135351364260553,
+              0.718550361215595,
+              0.723625291062153,
+              0.7286405158516926,
+              0.7336557406412323,
+              0.738670965430772,
+              0.7436861902203117,
+              0.7487014150098513,
+              0.7537763448564093,
+              0.758791569645949,
+              0.7638067944354887,
+              0.7688220192250284,
+              0.773837244014568,
+              0.7788524688041077,
+              0.7839273986506657,
+              0.7889426234402054,
+              0.793957848229745,
+              0.7989730730192848,
+              0.8039882978088244,
+              0.809003522598364,
+              0.814078452444922,
+              0.8190936772344618,
+              0.8241089020240014,
+              0.8291241268135411,
+              0.8341393516030808,
+              0.8391545763926205,
+              0.8442295062391785,
+              0.8492447310287181,
+              0.8542599558182578,
+              0.8592751806077975,
+              0.8642904053973371,
+              0.8693056301868768,
+              0.8743208549764165,
+              0.8793957848229745,
+              0.8844110096125142,
+              0.8894262344020538,
+              0.8944414591915936,
+              0.8994566839811332,
+              0.9044719087706728,
+              0.9095468386172308,
+              0.9145620634067706,
+              0.9195772881963102,
+              0.9245925129858499,
+              0.9296077377753896,
+              0.9346229625649293,
+              0.9396978924114873,
+              0.9447131172010269,
+              0.9497283419905665,
+              0.9547435667801063,
+              0.9597587915696459,
+              0.9647740163591856,
+              0.9698489462057436,
+              0.9748641709952833,
+              0.979879395784823,
+              0.9848946205743626,
+              0.9899098453639024,
+              0.994925070153442,
+              1.0
+            ]
+          },
+          "nucleotide_composition": {
+            "A": 0.23406978223232808,
+            "C": 0.24751899529371846,
+            "G": 0.33255976346416016,
+            "T": 0.1858514590099028
+          },
+          "guide_gc": "NOT_ASSESSED_GUIDE_BOUNDARIES_UNVERIFIED",
+          "positional_nucleotide_composition": "NOT_ASSESSED_GEOMETRY_OR_ORIENTATION_UNVERIFIED",
+          "kmer_2": {
+            "k": 2,
+            "geometry": "observed_sequence_only",
+            "top_kmers": [
+              {
+                "kmer": "GG",
+                "mean_frequency": 0.11715489120110024
+              },
+              {
+                "kmer": "AG",
+                "mean_frequency": 0.09163640705821713
+              },
+              {
+                "kmer": "CA",
+                "mean_frequency": 0.08140241751202784
+              },
+              {
+                "kmer": "TG",
+                "mean_frequency": 0.07754872746811801
+              },
+              {
+                "kmer": "GA",
+                "mean_frequency": 0.0724955085513849
+              },
+              {
+                "kmer": "GC",
+                "mean_frequency": 0.06977892845705176
+              },
+              {
+                "kmer": "CC",
+                "mean_frequency": 0.06498624069821747
+              },
+              {
+                "kmer": "CT",
+                "mean_frequency": 0.062386356851692346
+              },
+              {
+                "kmer": "AC",
+                "mean_frequency": 0.05829113271348072
+              },
+              {
+                "kmer": "AA",
+                "mean_frequency": 0.053398031904206354
+              }
+            ],
+            "mean_frequencies": {
+              "AA": 0.053398031904206354,
+              "AC": 0.05829113271348072,
+              "AG": 0.09163640705821713,
+              "AT": 0.04138374611238328,
+              "CA": 0.08140241751202784,
+              "CC": 0.06498624069821747,
+              "CG": 0.0499948436541619,
+              "CT": 0.062386356851692346,
+              "GA": 0.0724955085513849,
+              "GC": 0.06977892845705176,
+              "GG": 0.11715489120110024,
+              "GT": 0.04279224268477033,
+              "TA": 0.026986685772285277,
+              "TC": 0.05325148312788856,
+              "TG": 0.07754872746811801,
+              "TT": 0.03651235623293502
+            }
+          },
+          "kmer_3": {
+            "k": 3,
+            "geometry": "observed_sequence_only",
+            "top_kmers": [
+              {
+                "kmer": "AGG",
+                "mean_frequency": 0.04042885289526312
+              },
+              {
+                "kmer": "TGG",
+                "mean_frequency": 0.03597371840251549
+              },
+              {
+                "kmer": "CAG",
+                "mean_frequency": 0.0330965032738233
+              },
+              {
+                "kmer": "CTG",
+                "mean_frequency": 0.027089037298599142
+              },
+              {
+                "kmer": "GAG",
+                "mean_frequency": 0.02704639082930063
+              },
+              {
+                "kmer": "CCA",
+                "mean_frequency": 0.024848676111435427
+              },
+              {
+                "kmer": "AAG",
+                "mean_frequency": 0.02468946262605336
+              },
+              {
+                "kmer": "GGA",
+                "mean_frequency": 0.022122145174265556
+              },
+              {
+                "kmer": "AGC",
+                "mean_frequency": 0.02198567647250944
+              },
+              {
+                "kmer": "AGA",
+                "mean_frequency": 0.021863423260519755
+              }
+            ],
+            "mean_frequencies": {
+              "AAA": 0.010269269807152533,
+              "AAC": 0.012705804753090645,
+              "AAG": 0.02468946262605336,
+              "AAT": 0.008276258141922023,
+              "ACA": 0.01894924785843511,
+              "ACC": 0.017516326489995303,
+              "ACG": 0.011511703612724262,
+              "ACT": 0.013089622976779859,
+              "AGA": 0.021863423260519755,
+              "AGC": 0.02198567647250944,
+              "AGG": 0.04042885289526312,
+              "AGT": 0.011722092861264997,
+              "ATA": 0.005981878093646221,
+              "ATC": 0.011571408669742598,
+              "ATG": 0.018770132687379936,
+              "ATT": 0.007030981238396945,
+              "CAA": 0.018019554827721117,
+              "CAC": 0.019950018337980272,
+              "CAG": 0.0330965032738233,
+              "CAT": 0.014212646668314961,
+              "CCA": 0.024848676111435427,
+              "CCC": 0.011670917098106411,
+              "CCG": 0.01475852147533968,
+              "CCT": 0.016802708903728716,
+              "CGA": 0.012083166301328165,
+              "CGC": 0.011699348077639076,
+              "CGG": 0.0213601949227939,
+              "CGT": 0.007232841193077982,
+              "CTA": 0.007013922650677422,
+              "CTC": 0.016882315646419954,
+              "CTG": 0.027089037298599142,
+              "CTT": 0.014371860153697194,
+              "GAA": 0.019958547631839876,
+              "GAC": 0.01573654717125877,
+              "GAG": 0.02704639082930063,
+              "GAT": 0.013206189992863248,
+              "GCA": 0.021428429273671785,
+              "GCC": 0.019213655968087367,
+              "GCG": 0.014747149083526794,
+              "GCT": 0.01771250024876971,
+              "GGA": 0.022122145174265556,
+              "GGC": 0.019472377881833477,
+              "GGG": 0.021047454147936264,
+              "GGT": 0.012472670720923883,
+              "GTA": 0.007693423061505106,
+              "GTC": 0.010681519010374285,
+              "GTG": 0.017999653142048436,
+              "GTT": 0.008455373312976975,
+              "TAA": 0.005336494858257574,
+              "TAC": 0.009868392995743854,
+              "TAG": 0.007571169849515192,
+              "TAT": 0.005495708343639786,
+              "TCA": 0.01619144284377925,
+              "TCC": 0.016384773504600526,
+              "TCG": 0.009151932311524048,
+              "TCT": 0.014059119378839453,
+              "TGA": 0.016450164757525258,
+              "TGC": 0.01619712903968576,
+              "TGG": 0.03597371840251549,
+              "TGT": 0.012620511814493102,
+              "TTA": 0.005745900963526143,
+              "TTC": 0.013314227715086942,
+              "TTG": 0.013385305163918212,
+              "TTT": 0.005805606020544481
+            }
+          }
+        },
+        "activity": {
+          "status": "NOT_ANALYZED_LABEL_SEMANTICS_NOT_ESTABLISHED_AS_CONTINUOUS_ACTIVITY",
+          "reason": "Phase 16C did not establish target-compatible continuous activity for this candidate."
+        },
+        "potential_information_value": "Not established as admissible information value because the candidate fails or lacks a critical readiness requirement."
+      },
+      "final_decision": "REJECTED_FOR_CURRENT_TARGET",
+      "reason_for_non_acceptance": "Phase 16C identifies binary labels and 23-mer guide+PAM geometry, which are not the canonical continuous 30-mer activity label; no rescue or transformation is permitted.",
+      "unresolved_questions": [
+        "Primary parent/processed relationships remain incompletely established.",
+        "Orientation remains unverified; reverse-complement overlap was not assessed."
+      ]
+    },
+    {
+      "candidate_id": "deep_hf_2019_public_data_listing",
+      "candidate_name": "DeepHF on-target activity data",
+      "provenance": {
+        "status": "NOT_VERIFIED",
+        "evidence": {
+          "candidate_id": "deep_hf_2019_public_data_listing",
+          "candidate_name": "DeepHF on-target activity data",
+          "source_study_id": "wang_2019_deephf",
+          "source_publication": "Wang et al. 2019. Optimized CRISPR guide RNA design for two high-fidelity Cas9 variants by deep learning.",
+          "primary_source_or_accession": "DeepHF publication/source links; prior Phase 10-12 project records",
+          "primary_file_status": "PRIMARY_FILE_NOT_OBTAINED_IN_16B_PRIOR_EVIDENCE_EXISTS",
+          "candidate_status_after_16b": "PENDING_PRIMARY_VERIFICATION",
+          "files": [],
+          "provenance_relationship": "DeepHF was already analyzed in Phases 10-12 and must not be counted as a new independent dataset merely because it was rediscovered. Phase 16B did not restore the primary DeepHF file in data/phase16/raw.",
+          "unresolved_issues": [
+            "Primary file unavailable in current Phase 16B acquisition.",
+            "Role requires supervisor decision because DeepHF is prior evidence, not new discovery."
+          ]
+        }
+      },
+      "sequence": {
+        "status": "NOT_VERIFIED",
+        "evidence": []
+      },
+      "label": {
+        "status": "INSUFFICIENT_PROVENANCE",
+        "evidence": [],
+        "unit_conversion": "NOT_PERFORMED",
+        "label_harmonization": "NOT_PERFORMED"
+      },
+      "compatibility": {
+        "status": "INSUFFICIENT_PROVENANCE",
+        "reason": "Phase 16C evidence does not resolve this candidate beyond Phase 16B."
+      },
+      "overlap": {
+        "exact_30mer": "NO_30MER_SEQUENCE_AVAILABLE",
+        "exact_guide": "NO_GUIDE_SEQUENCE_AVAILABLE",
+        "duplicate_evidence": {
+          "n_records_with_sequence": 0,
+          "n_unique_sequences": 0,
+          "duplicate_sequence_count": 0,
+          "duplicate_record_excess": 0,
+          "max_occurrences": 0
+        },
+        "identical_sequence_label_conflicts": {
+          "n_conflicting_sequences": 0,
+          "examples": []
+        },
+        "rc_status": {
+          "status": "RC_OVERLAP_NOT_ASSESSED"
+        }
+      },
+      "independence": {
+        "independence_assessment": "INSUFFICIENT_SEQUENCE_INFORMATION",
+        "reason": "No verified sequence file was available for Phase 16D exact audit."
+      },
+      "distribution_information_value": {
+        "sequence": {
+          "status": "NO_SEQUENCE_AVAILABLE"
+        },
+        "activity": {
+          "status": "NOT_ANALYZED_LABEL_SEMANTICS_NOT_ESTABLISHED_AS_CONTINUOUS_ACTIVITY",
+          "reason": "Phase 16C did not establish target-compatible continuous activity for this candidate."
+        },
+        "potential_information_value": "Not established as admissible information value because the candidate fails or lacks a critical readiness requirement."
+      },
+      "final_decision": "ALREADY_ANALYZED_NOT_NEW",
+      "reason_for_non_acceptance": "DeepHF was already analyzed in Phase 10-12 and is not a new independent Phase 16 discovery.",
+      "unresolved_questions": [
+        "Any future reuse would require an explicit protocol decision and reproduction of the prior Phase 10-12 evidence, not rediscovery as an independent candidate."
+      ]
+    },
+    {
+      "candidate_id": "doench_2016_orcs_publication_screens",
+      "candidate_name": "Doench 2016 published CRISPR screens",
+      "provenance": {
+        "status": "VERIFIED_PRIMARY_FILE",
+        "evidence": {
+          "candidate_id": "doench_2016_orcs_publication_screens",
+          "candidate_name": "Doench 2016 published CRISPR screens",
+          "source_study_id": "doench_2016_nbt_3437",
+          "source_publication": "Doench JG et al. 2016. Optimized sgRNA design to maximize activity and minimize off-target effects of CRISPR-Cas9. Nature Biotechnology 34:184-191.",
+          "primary_source_or_accession": "BioGRID ORCS Dataset 19; PubMed:26780180",
+          "primary_file_status": "PRIMARY_SUPPLEMENTARY_FILES_OBTAINED",
+          "candidate_status_after_16b": "PENDING_PRIMARY_VERIFICATION",
+          "files": [
+            {
+              "original_filename": "doench2016_orcs_STable_06_Vem_STARSOutputs.xlsx",
+              "source_url": "https://orcs.thebiogrid.org/uploads/processed/5aeb49259de3c/STable_06_Vem_STARSOutputs.xlsx",
+              "local_raw_path": "data/phase16/raw/doench2016_orcs_STable_06_Vem_STARSOutputs.xlsx",
+              "file_format": "xlsx",
+              "sha256": "3FA01C4ADAD9DD624B67D5EACB982FC8F7448461E6A2FEBE8FAEFE5E7EEFE7B8",
+              "size_bytes": 1177546,
+              "verified_local_file": true,
+              "provenance_role": "publisher/ORCS-hosted publication supplementary file"
+            },
+            {
+              "original_filename": "doench2016_orcs_STable_09_Sel_STARSOutput.xlsx",
+              "source_url": "https://orcs.thebiogrid.org/uploads/processed/5e4d50e13c7d6/STable%2009%20Sel_STARSOutput.xlsx",
+              "local_raw_path": "data/phase16/raw/doench2016_orcs_STable_09_Sel_STARSOutput.xlsx",
+              "file_format": "xlsx",
+              "sha256": "88FF9066C2F6F93CF2917A83C8BFD10A26378AF60853358DDA3442ADE24C9030",
+              "size_bytes": 862342,
+              "verified_local_file": true,
+              "provenance_role": "publisher/ORCS-hosted publication supplementary file"
+            },
+            {
+              "original_filename": "doench2016_orcs_STable_12_NegativeSelection_individual_STARS.xlsx",
+              "source_url": "https://orcs.thebiogrid.org/uploads/processed/5af0c639e9d96/STable%2012%20NegativeSelection_individual_STARS.xlsx",
+              "local_raw_path": "data/phase16/raw/doench2016_orcs_STable_12_NegativeSelection_individual_STARS.xlsx",
+              "file_format": "xlsx",
+              "sha256": "2A7018E31F9E6ABD2AC5355B7D8C900C9F979E133DB22F638197EE908FD7F399",
+              "size_bytes": 2084283,
+              "verified_local_file": true,
+              "provenance_role": "publisher/ORCS-hosted publication supplementary file"
+            },
+            {
+              "original_filename": "doench2016_orcs_STable_15_IFNg_data_STARS.xlsx",
+              "source_url": "https://orcs.thebiogrid.org/uploads/processed/5afb153562639/STable_15_IFNg_data_STARS.xlsx",
+              "local_raw_path": "data/phase16/raw/doench2016_orcs_STable_15_IFNg_data_STARS.xlsx",
+              "file_format": "xlsx",
+              "sha256": "9D00508EA5F8AF2AC809B0646497EF7A56E484AA4E3B99D779E89CDEA21EEA58",
+              "size_bytes": 2884151,
+              "verified_local_file": true,
+              "provenance_role": "publisher/ORCS-hosted publication supplementary file"
+            }
+          ],
+          "provenance_relationship": "Multiple supplementary screen tables from the same original Doench 2016 study; independence from canonical data is not assessed in Phase 16B.",
+          "unresolved_issues": [
+            "Row-level label semantics not assessed.",
+            "Sequence geometry not assessed.",
+            "Subset/overlap relationship not assessed."
+          ]
+        }
+      },
+      "sequence": {
+        "status": "guide_only",
+        "evidence": [
+          "guide_only",
+          "guide_only",
+          "guide_only",
+          "guide_only"
+        ]
+      },
+      "label": {
+        "status": "INCOMPATIBLE",
+        "evidence": [
+          "Workbook contains STARS/rank/enrichment-style screen outputs",
+          "Workbook contains STARS/rank/enrichment-style screen outputs",
+          "Workbook contains STARS/rank/enrichment-style screen outputs",
+          "Workbook contains sgRNA and average log fold change IFNgamma - mock"
+        ],
+        "unit_conversion": "NOT_PERFORMED",
+        "label_harmonization": "NOT_PERFORMED"
+      },
+      "compatibility": {
+        "status": "INCOMPATIBLE",
+        "reason": "Primary files are screen-enrichment/rank/log-fold-change outputs, not substantively compatible continuous SpCas9 editing activity."
+      },
+      "overlap": {
+        "exact_30mer": "NO_30MER_SEQUENCE_AVAILABLE",
+        "exact_guide": {
+          "n_a": 157580,
+          "n_b": 12825,
+          "shared_unique": 2333,
+          "fraction_of_a": 0.014805178322122097,
+          "fraction_of_b": 0.1819103313840156,
+          "jaccard": 0.013880955780855823
+        },
+        "duplicate_evidence": {
+          "n_records_with_sequence": 214820,
+          "n_unique_sequences": 157580,
+          "duplicate_sequence_count": 26370,
+          "duplicate_record_excess": 57240,
+          "max_occurrences": 12484
+        },
+        "identical_sequence_label_conflicts": {
+          "n_conflicting_sequences": 296,
+          "examples": [
+            {
+              "sequence": "GTTCTTGCTTCCTATAGCCT",
+              "labels": [
+                "-0.010463288452314146",
+                "0.25423642375644206"
+              ]
+            },
+            {
+              "sequence": "AGAAAACGTAAGTTTCTCAG",
+              "labels": [
+                "-0.39336407952935026",
+                "-1.6994039984393172"
+              ]
+            },
+            {
+              "sequence": "TGTACTTTACCTCTCCCTCG",
+              "labels": [
+                "-1.1124103227695112",
+                "-1.5736857238161361"
+              ]
+            },
+            {
+              "sequence": "TCATGGCCAAGAAAATGCAA",
+              "labels": [
+                "-0.5447252574703199",
+                "-1.0842304157476939"
+              ]
+            },
+            {
+              "sequence": "CCTTTGCTATGCTCTCCCTA",
+              "labels": [
+                "-0.09599619604851473",
+                "-1.7142483730134144"
+              ]
+            },
+            {
+              "sequence": "GTACCTGTAGCACATACTGA",
+              "labels": [
+                "-1.871999516569689",
+                "0.3196051888694873"
+              ]
+            },
+            {
+              "sequence": "TTACCTTTCCCTCTATTAAG",
+              "labels": [
+                "-0.2414867880542344",
+                "-1.4677536178505362"
+              ]
+            },
+            {
+              "sequence": "GTTTCAACTTCTGACAAGTC",
+              "labels": [
+                "-0.6976179250935726",
+                "-2.058786459514816"
+              ]
+            },
+            {
+              "sequence": "GAGCTCTGCTAGGAAGCGCG",
+              "labels": [
+                "-0.18848770528291459",
+                "-0.9398366228873316",
+                "-1.7989115942002183"
+              ]
+            },
+            {
+              "sequence": "CATGACTTACTTTCATTCGA",
+              "labels": [
+                "0.09566822258785912",
+                "0.27685051809477734"
+              ]
+            },
+            {
+              "sequence": "TTCTGCATGGACACACACTA",
+              "labels": [
+                "-0.8560058766117393",
+                "-2.592409868867274"
+              ]
+            },
+            {
+              "sequence": "CTAAAACTGAGGAGCAGCCA",
+              "labels": [
+                "-0.6408090551881278",
+                "-1.767113250161521"
+              ]
+            },
+            {
+              "sequence": "AGAGTGCTCGGAATTATCTA",
+              "labels": [
+                "-1.5544986909052891",
+                "-2.1438115489126517"
+              ]
+            },
+            {
+              "sequence": "TGTCTTTGCAGGATCTACTG",
+              "labels": [
+                "-1.0115660530352857",
+                "-1.0799711836691315"
+              ]
+            },
+            {
+              "sequence": "GGCTCTGTCTGCTCTGAGGA",
+              "labels": [
+                "-3.377618426081619",
+                "0.06583501594170649"
+              ]
+            },
+            {
+              "sequence": "TGTTGTTTGGAAATACAGTG",
+              "labels": [
+                "-1.5354989937212975",
+                "-4.050832852644206"
+              ]
+            },
+            {
+              "sequence": "GAAATGTGAAGAGAAGGTAA",
+              "labels": [
+                "-0.5205557483757275",
+                "0.07210236031363948"
+              ]
+            },
+            {
+              "sequence": "CTTCCATGTCAAACACCAGT",
+              "labels": [
+                "-0.18643181651732998",
+                "-5.241537425485059"
+              ]
+            },
+            {
+              "sequence": "GGAGAAGAAGATGTCAACAA",
+              "labels": [
+                "-4.728133473708526",
+                "0.14557256598971513"
+              ]
+            },
+            {
+              "sequence": "CAGCTGCTCACAGAACAAGA",
+              "labels": [
+                "-4.089738622096218",
+                "0.06175425024350023"
+              ]
+            }
+          ]
+        },
+        "rc_status": {
+          "status": "RC_OVERLAP_NOT_ASSESSED"
+        }
+      },
+      "independence": {
+        "independence_assessment": "NOT_ESTABLISHED",
+        "reason": "Same original study across multiple files; prior project records indicate possible canonical overlap requiring exact audit."
+      },
+      "distribution_information_value": {
+        "sequence": {
+          "n_sequences": 194653,
+          "length": {
+            "n": 194653,
+            "min": 20.0,
+            "max": 20.0,
+            "mean": 20.0,
+            "uniform": true
+          },
+          "ambiguous_characters": {
+            "sequences_with_ambiguous": 0,
+            "fraction_sequences": 0.0,
+            "total_ambiguous_characters": 0,
+            "characters": {}
+          },
+          "duplicates": {
+            "total": 194653,
+            "unique": 157573,
+            "duplicated_sequences": 26365,
+            "fraction_unique": 0.8095071743050454,
+            "duplicate_rate": 0.19049282569495463,
+            "max_occurrences": 48
+          },
+          "gc": {
+            "n": 194653,
+            "mean": 0.5218229361992879,
+            "median": 0.5,
+            "std": 0.1163132676129112,
+            "min": 0.0,
+            "max": 1.0,
+            "q01": 0.25,
+            "q25": 0.45,
+            "q75": 0.6,
+            "q99": 0.8
+          },
+          "gc_histogram": {
+            "counts_density": [
+              2,
+              4,
+              131,
+              0,
+              631,
+              7563,
+              10964,
+              0,
+              18549,
+              27444,
+              37673,
+              56416,
+              0,
+              26384,
+              0,
+              5253,
+              3318,
+              0,
+              314,
+              7
+            ],
+            "bin_edges": [
+              0.0,
+              0.05,
+              0.1,
+              0.15000000000000002,
+              0.2,
+              0.25,
+              0.30000000000000004,
+              0.35000000000000003,
+              0.4,
+              0.45,
+              0.5,
+              0.55,
+              0.6000000000000001,
+              0.65,
+              0.7000000000000001,
+              0.75,
+              0.8,
+              0.8500000000000001,
+              0.9,
+              0.9500000000000001,
+              1.0
+            ]
+          },
+          "gc_ecdf": {
+            "x": [
+              0.0,
+              0.25,
+              0.25,
+              0.3,
+              0.3,
+              0.3,
+              0.3,
+              0.3,
+              0.3,
+              0.35,
+              0.35,
+              0.35,
+              0.35,
+              0.35,
+              0.35,
+              0.35,
+              0.35,
+              0.35,
+              0.35,
+              0.35,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.4,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.45,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.55,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.6,
+              0.65,
+              0.65,
+              0.65,
+              0.65,
+              0.65,
+              0.65,
+              0.65,
+              0.65,
+              0.65,
+              0.65,
+              0.65,
+              0.65,
+              0.65,
+              0.65,
+              0.65,
+              0.65,
+              0.65,
+              0.7,
+              0.7,
+              0.7,
+              0.7,
+              0.7,
+              0.7,
+              0.7,
+              0.7,
+              0.7,
+              0.7,
+              0.75,
+              0.75,
+              0.75,
+              0.75,
+              0.75,
+              0.75,
+              0.8,
+              0.8,
+              0.85,
+              1.0
+            ],
+            "y": [
+              5.1373469712770934e-06,
+              0.005029462684880274,
+              0.010053788022789271,
+              0.015078113360698269,
+              0.020102438698607266,
+              0.02512676403651626,
+              0.03015108937442526,
+              0.035180552059305537,
+              0.04020487739721453,
+              0.04522920273512353,
+              0.05025352807303252,
+              0.05527785341094152,
+              0.06030217874885052,
+              0.06532650408675951,
+              0.07035596677163979,
+              0.07538029210954879,
+              0.08040461744745779,
+              0.08542894278536678,
+              0.09045326812327578,
+              0.09547759346118477,
+              0.10050705614606505,
+              0.10553138148397405,
+              0.11055570682188304,
+              0.11558003215979204,
+              0.12060435749770104,
+              0.12562868283561004,
+              0.13065300817351902,
+              0.1356824708583993,
+              0.1407067961963083,
+              0.1457311215342173,
+              0.1507554468721263,
+              0.1557797722100353,
+              0.16080409754794428,
+              0.16582842288585328,
+              0.17085788557073356,
+              0.17588221090864256,
+              0.18090653624655156,
+              0.18593086158446057,
+              0.19095518692236954,
+              0.19597951226027854,
+              0.20100897494515882,
+              0.20603330028306782,
+              0.21105762562097682,
+              0.2160819509588858,
+              0.2211062762967948,
+              0.2261306016347038,
+              0.2311549269726128,
+              0.23618438965749308,
+              0.24120871499540208,
+              0.24623304033331106,
+              0.2512573656712201,
+              0.25628169100912906,
+              0.26130601634703804,
+              0.26633034168494707,
+              0.2713598043698273,
+              0.27638412970773635,
+              0.2814084550456453,
+              0.2864327803835543,
+              0.2914571057214633,
+              0.2964814310593723,
+              0.3015108937442526,
+              0.3065352190821616,
+              0.3115595444200706,
+              0.3165838697579796,
+              0.32160819509588856,
+              0.3266325204337976,
+              0.33165684577170657,
+              0.33668630845658687,
+              0.34171063379449584,
+              0.3467349591324048,
+              0.35175928447031385,
+              0.3567836098082228,
+              0.36180793514613185,
+              0.3668373978310121,
+              0.37186172316892113,
+              0.3768860485068301,
+              0.3819103738447391,
+              0.3869346991826481,
+              0.3919590245205571,
+              0.3969833498584661,
+              0.40201281254334637,
+              0.40703713788125534,
+              0.41206146321916437,
+              0.41708578855707334,
+              0.4221101138949824,
+              0.42713443923289135,
+              0.4321587645708003,
+              0.43718822725568063,
+              0.4422125525935896,
+              0.44723687793149863,
+              0.4522612032694076,
+              0.4572855286073166,
+              0.4623098539452256,
+              0.46733931663010586,
+              0.4723636419680149,
+              0.47738796730592387,
+              0.4824122926438329,
+              0.48743661798174187,
+              0.49246094331965085,
+              0.4974852686575599,
+              0.5025147313424402,
+              0.5075390566803492,
+              0.5125633820182581,
+              0.5175877073561671,
+              0.5226120326940761,
+              0.5276363580319852,
+              0.5326606833698941,
+              0.5376901460547744,
+              0.5427144713926834,
+              0.5477387967305923,
+              0.5527631220685014,
+              0.5577874474064104,
+              0.5628117727443194,
+              0.5678412354291996,
+              0.5728655607671086,
+              0.5778898861050177,
+              0.5829142114429267,
+              0.5879385367808356,
+              0.5929628621187446,
+              0.5979871874566536,
+              0.6030166501415339,
+              0.6080409754794429,
+              0.6130653008173519,
+              0.6180896261552609,
+              0.62311395149317,
+              0.6281382768310789,
+              0.6331626021689879,
+              0.6381920648538681,
+              0.6432163901917771,
+              0.6482407155296862,
+              0.6532650408675952,
+              0.6582893662055042,
+              0.6633136915434131,
+              0.6683431542282934,
+              0.6733674795662025,
+              0.6783918049041114,
+              0.6834161302420204,
+              0.6884404555799294,
+              0.6934647809178384,
+              0.6984891062557474,
+              0.7035185689406277,
+              0.7085428942785367,
+              0.7135672196164456,
+              0.7185915449543546,
+              0.7236158702922637,
+              0.7286401956301727,
+              0.7336696583150529,
+              0.7386939836529619,
+              0.7437183089908709,
+              0.74874263432878,
+              0.7537669596666889,
+              0.7587912850045979,
+              0.7638156103425069,
+              0.7688450730273872,
+              0.7738693983652962,
+              0.7788937237032052,
+              0.7839180490411142,
+              0.7889423743790231,
+              0.7939666997169322,
+              0.7989910250548412,
+              0.8040204877397215,
+              0.8090448130776304,
+              0.8140691384155394,
+              0.8190934637534485,
+              0.8241177890913575,
+              0.8291421144292664,
+              0.8341715771141467,
+              0.8391959024520557,
+              0.8442202277899648,
+              0.8492445531278737,
+              0.8542688784657827,
+              0.8592932038036917,
+              0.8643175291416006,
+              0.869346991826481,
+              0.87437131716439,
+              0.879395642502299,
+              0.8844199678402079,
+              0.8894442931781169,
+              0.894468618516026,
+              0.899492943853935,
+              0.9045224065388152,
+              0.9095467318767242,
+              0.9145710572146332,
+              0.9195953825525423,
+              0.9246197078904512,
+              0.9296440332283602,
+              0.9346734959132404,
+              0.9396978212511495,
+              0.9447221465890585,
+              0.9497464719269675,
+              0.9547707972648765,
+              0.9597951226027854,
+              0.9648194479406945,
+              0.9698489106255748,
+              0.9748732359634837,
+              0.9798975613013927,
+              0.9849218866393017,
+              0.9899462119772108,
+              0.9949705373151198,
+              1.0
+            ]
+          },
+          "nucleotide_composition": {
+            "A": 0.26331035226788524,
+            "C": 0.27128531283873975,
+            "G": 0.2505376233605538,
+            "T": 0.21486671153284406
+          },
+          "guide_gc": {
+            "n": 194653,
+            "mean": 0.5218229361992879,
+            "median": 0.5,
+            "std": 0.1163132676129112,
+            "min": 0.0,
+            "max": 1.0,
+            "q01": 0.25,
+            "q25": 0.45,
+            "q75": 0.6,
+            "q99": 0.8
+          },
+          "positional_nucleotide_composition": "NOT_ASSESSED_GEOMETRY_OR_ORIENTATION_UNVERIFIED",
+          "kmer_2": {
+            "k": 2,
+            "geometry": "observed_sequence_only",
+            "top_kmers": [
+              {
+                "kmer": "CA",
+                "mean_frequency": 0.08802519571257023
+              },
+              {
+                "kmer": "AG",
+                "mean_frequency": 0.08060875939284304
+              },
+              {
+                "kmer": "CC",
+                "mean_frequency": 0.07748498204761936
+              },
+              {
+                "kmer": "GA",
+                "mean_frequency": 0.07226111133789283
+              },
+              {
+                "kmer": "CT",
+                "mean_frequency": 0.06894400751453895
+              },
+              {
+                "kmer": "TG",
+                "mean_frequency": 0.06764317718407684
+              },
+              {
+                "kmer": "GC",
+                "mean_frequency": 0.06746418120012929
+              },
+              {
+                "kmer": "TC",
+                "mean_frequency": 0.06622337671322806
+              },
+              {
+                "kmer": "AA",
+                "mean_frequency": 0.06603005023511148
+              },
+              {
+                "kmer": "AC",
+                "mean_frequency": 0.06304903705835327
+              }
+            ],
+            "mean_frequencies": {
+              "AA": 0.06603005023511148,
+              "AC": 0.06304903705835327,
+              "AG": 0.08060875939284304,
+              "AT": 0.05181663348571765,
+              "CA": 0.08802519571257023,
+              "CC": 0.07748498204761936,
+              "CG": 0.04305989037988053,
+              "CT": 0.06894400751453895,
+              "GA": 0.07226111133789283,
+              "GC": 0.06746418120012929,
+              "GG": 0.05365958911499375,
+              "GT": 0.047896026586606626,
+              "TA": 0.039876357577788124,
+              "TC": 0.06622337671322806,
+              "TG": 0.06764317718407684,
+              "TT": 0.045957624458346606
+            }
+          },
+          "kmer_3": {
+            "k": 3,
+            "geometry": "observed_sequence_only",
+            "top_kmers": [
+              {
+                "kmer": "CAG",
+                "mean_frequency": 0.029973565495789778
+              },
+              {
+                "kmer": "CCA",
+                "mean_frequency": 0.027496508031135205
+              },
+              {
+                "kmer": "AGA",
+                "mean_frequency": 0.025171858526625103
+              },
+              {
+                "kmer": "CTG",
+                "mean_frequency": 0.023699723211189946
+              },
+              {
+                "kmer": "TCC",
+                "mean_frequency": 0.021836293301438738
+              },
+              {
+                "kmer": "AGC",
+                "mean_frequency": 0.02164963636148167
+              },
+              {
+                "kmer": "GAA",
+                "mean_frequency": 0.021647067687995198
+              },
+              {
+                "kmer": "ACA",
+                "mean_frequency": 0.02126005421615762
+              },
+              {
+                "kmer": "AAG",
+                "mean_frequency": 0.021051135439325918
+              },
+              {
+                "kmer": "GCA",
+                "mean_frequency": 0.02101660105135313
+              }
+            ],
+            "mean_frequencies": {
+              "AAA": 0.018272972360515297,
+              "AAC": 0.014497022336627467,
+              "AAG": 0.021051135439325918,
+              "AAT": 0.011467700072559421,
+              "ACA": 0.02126005421615762,
+              "ACC": 0.019231087570666897,
+              "ACG": 0.009499810774392029,
+              "ACT": 0.014581217745323458,
+              "AGA": 0.025171858526625103,
+              "AGC": 0.02164963636148167,
+              "AGG": 0.017057704393647795,
+              "AGT": 0.01400212457839366,
+              "ATA": 0.010586074250652885,
+              "ATC": 0.015363806933949108,
+              "ATG": 0.016629592146041015,
+              "ATT": 0.010163099350017964,
+              "CAA": 0.019070402773731645,
+              "CAC": 0.020648995334739666,
+              "CAG": 0.029973565495789778,
+              "CAT": 0.017123919087944445,
+              "CCA": 0.027496508031135205,
+              "CCC": 0.018263839299234353,
+              "CCG": 0.01460947315366505,
+              "CCT": 0.01877928644535866,
+              "CGA": 0.010484183535723144,
+              "CGC": 0.010923426701766829,
+              "CGG": 0.008904449342052985,
+              "CGT": 0.007495960047425978,
+              "CTA": 0.010074908227010841,
+              "CTC": 0.02026711920987389,
+              "CTG": 0.023699723211189946,
+              "CTT": 0.01695067633174596,
+              "GAA": 0.021647067687995198,
+              "GAC": 0.014818677338662977,
+              "GAG": 0.020603330028327833,
+              "GAT": 0.014310079988505612,
+              "GCA": 0.02101660105135313,
+              "GCC": 0.01873932930224872,
+              "GCG": 0.010985645681752336,
+              "GCT": 0.01812084980853894,
+              "GGA": 0.01746840674318554,
+              "GGC": 0.01345670957494193,
+              "GGG": 0.009582579142261044,
+              "GGT": 0.010285539452833415,
+              "GTA": 0.01101104700844503,
+              "GTC": 0.012988925592390059,
+              "GTG": 0.01435488907042072,
+              "GTT": 0.010187073635883934,
+              "TAA": 0.008455787706561113,
+              "TAC": 0.013460990697418056,
+              "TAG": 0.009883684756413,
+              "TAT": 0.009161316690617023,
+              "TCA": 0.02004193216763478,
+              "TCC": 0.021836293301438738,
+              "TCG": 0.00869553056522099,
+              "TCT": 0.017802048888152552,
+              "TGA": 0.01939719512273835,
+              "TGC": 0.018045787461125194,
+              "TGG": 0.016133552755146975,
+              "TGT": 0.014832091522420215,
+              "TTA": 0.008889893525634634,
+              "TTC": 0.017481250110613907,
+              "TTG": 0.012918715183782424,
+              "TTT": 0.008135845153516081
+            }
+          }
+        },
+        "activity": {
+          "status": "NOT_ANALYZED_LABEL_SEMANTICS_NOT_ESTABLISHED_AS_CONTINUOUS_ACTIVITY",
+          "reason": "Phase 16C did not establish target-compatible continuous activity for this candidate."
+        },
+        "potential_information_value": "Not established as admissible information value because the candidate fails or lacks a critical readiness requirement."
+      },
+      "final_decision": "REJECTED_FOR_CURRENT_TARGET",
+      "reason_for_non_acceptance": "Phase 16C identifies screen rank/enrichment/log-fold-change label semantics and guide-only geometry; accepting it would require prohibited label harmonization and sequence transformation.",
+      "unresolved_questions": [
+        "Phase 16D reports 214,820 sequence records while Phase 16E reports 194,653 usable sequence records; the discrepancy was not reconciled in Phase 16F.",
+        "PAM and orientation remain unverified; reverse-complement overlap was not assessed."
+      ]
+    },
+    {
+      "candidate_id": "sgdesigner_2020_public_data_listing",
+      "candidate_name": "SgDesigner / unique plasmid library sgRNA potency data",
+      "provenance": {
+        "status": "NOT_VERIFIED",
+        "evidence": {
+          "candidate_id": "sgdesigner_2020_public_data_listing",
+          "candidate_name": "SgDesigner / unique plasmid library sgRNA potency data",
+          "source_study_id": "sgdesigner_2020",
+          "source_publication": "SgDesigner 2020 source publication listed by public_data_crisprCas9",
+          "primary_source_or_accession": "public_data_crisprCas9 catalog link only",
+          "primary_file_status": "INSUFFICIENT_PRIMARY_SOURCE_VERIFICATION",
+          "candidate_status_after_16b": "INSUFFICIENT_PROVENANCE",
+          "files": [],
+          "provenance_relationship": "Only catalog-level source-link evidence was retained in Phase 16B; no official primary file was obtained.",
+          "unresolved_issues": [
+            "Primary repository URL and original data file unresolved.",
+            "Publication identity requires primary-source confirmation."
+          ]
+        }
+      },
+      "sequence": {
+        "status": "NOT_VERIFIED",
+        "evidence": []
+      },
+      "label": {
+        "status": "INSUFFICIENT_PROVENANCE",
+        "evidence": [],
+        "unit_conversion": "NOT_PERFORMED",
+        "label_harmonization": "NOT_PERFORMED"
+      },
+      "compatibility": {
+        "status": "INSUFFICIENT_PROVENANCE",
+        "reason": "Phase 16C evidence does not resolve this candidate beyond Phase 16B."
+      },
+      "overlap": {
+        "exact_30mer": "NO_30MER_SEQUENCE_AVAILABLE",
+        "exact_guide": "NO_GUIDE_SEQUENCE_AVAILABLE",
+        "duplicate_evidence": {
+          "n_records_with_sequence": 0,
+          "n_unique_sequences": 0,
+          "duplicate_sequence_count": 0,
+          "duplicate_record_excess": 0,
+          "max_occurrences": 0
+        },
+        "identical_sequence_label_conflicts": {
+          "n_conflicting_sequences": 0,
+          "examples": []
+        },
+        "rc_status": {
+          "status": "RC_OVERLAP_NOT_ASSESSED"
+        }
+      },
+      "independence": {
+        "independence_assessment": "INSUFFICIENT_SEQUENCE_INFORMATION",
+        "reason": "No verified sequence file was available for Phase 16D exact audit."
+      },
+      "distribution_information_value": {
+        "sequence": {
+          "status": "NO_SEQUENCE_AVAILABLE"
+        },
+        "activity": {
+          "status": "NOT_ANALYZED_LABEL_SEMANTICS_NOT_ESTABLISHED_AS_CONTINUOUS_ACTIVITY",
+          "reason": "Phase 16C did not establish target-compatible continuous activity for this candidate."
+        },
+        "potential_information_value": "Not established as admissible information value because the candidate fails or lacks a critical readiness requirement."
+      },
+      "final_decision": "INSUFFICIENT_EVIDENCE",
+      "reason_for_non_acceptance": "No official primary file or confirmed repository data file was verified in Phase 16B-16E.",
+      "unresolved_questions": [
+        "Primary file, SHA-256, experimental label definition, sequence geometry, and independence require verification."
+      ]
+    }
+  ],
+  "final_decision": {
+    "accepted_for_future_pipeline": [],
+    "no_candidate_accepted": true,
+    "reason": "No candidate satisfies every critical provenance, sequence, label, compatibility, and independence requirement without prohibited transformation."
+  },
+  "unresolved_questions": [
+    "Any future reuse would require an explicit protocol decision and reproduction of the prior Phase 10-12 evidence, not rediscovery as an independent candidate.",
+    "Orientation remains unverified; reverse-complement overlap was not assessed.",
+    "Overlap and distribution evidence cannot be assessed without verified primary data.",
+    "PAM and orientation remain unverified; reverse-complement overlap was not assessed.",
+    "Phase 16D reports 214,820 sequence records while Phase 16E reports 194,653 usable sequence records; the discrepancy was not reconciled in Phase 16F.",
+    "Primary file, SHA-256, experimental label definition, sequence geometry, and independence require verification.",
+    "Primary file, SHA-256, row schema, sequence geometry, label units, and parent relationships require verification.",
+    "Primary parent/processed relationships remain incompletely established."
+  ],
+  "clarification_checks": {
+    "deepspcas9_distribution_population_n": 12832,
+    "deepspcas9_canonical_valid_modeling_population_n": 10117,
+    "distribution_population_distinct_from_modeling_population": true,
+    "phase16e_report_explicitly_states_distinction": false,
+    "overlap_parser_excludes_non_dna_workbook_metadata_rank_stars": true,
+    "overlap_parser_limitation": "Selected fields use a DNA-character filter; DNA-looking metadata strings could still pass."
+  },
+  "locks": {
+    "no_modeling_performed": true,
+    "no_moreno_raw_data_accessed": true,
+    "moreno_remained_locked": true,
+    "no_pooling_occurred": true,
+    "no_transformation_occurred": true,
+    "no_generalization_claim_was_made": true,
+    "no_automatic_dataset_promotion": true
+  }
+}

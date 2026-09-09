@@ -1,0 +1,607 @@
+{
+  "phase": "16D",
+  "scope": "exact_overlap_and_independence_only",
+  "status": "OVERLAP_AUDIT_RECORDED",
+  "canonical_reference": {
+    "dataset": "DeepSpCas9",
+    "source": "data/raw/DeepSpCas9.csv",
+    "n_rows": 12832,
+    "n_unique_30mer": 12832,
+    "n_unique_guides": 12825
+  },
+  "candidate_reports": [
+    {
+      "candidate_id": "crispron_2021_rth_tools",
+      "sequence_available": false,
+      "sequence_record_count": 0,
+      "sequence_kinds": [],
+      "exact_30mer_vs_deepspcas9": "NO_30MER_SEQUENCE_AVAILABLE",
+      "exact_guide_vs_deepspcas9": "NO_GUIDE_SEQUENCE_AVAILABLE",
+      "duplicate_records": {
+        "n_records_with_sequence": 0,
+        "n_unique_sequences": 0,
+        "duplicate_sequence_count": 0,
+        "duplicate_record_excess": 0,
+        "max_occurrences": 0
+      },
+      "duplicate_sequences": {
+        "n_records_with_sequence": 0,
+        "n_unique_sequences": 0,
+        "duplicate_sequence_count": 0,
+        "duplicate_record_excess": 0,
+        "max_occurrences": 0
+      },
+      "identical_sequence_label_conflicts": {
+        "n_conflicting_sequences": 0,
+        "examples": []
+      },
+      "rc_overlap_status": {
+        "status": "RC_OVERLAP_NOT_ASSESSED"
+      },
+      "provenance_relationship": {
+        "independence_assessment": "INSUFFICIENT_SEQUENCE_INFORMATION",
+        "reason": "No verified sequence file was available for Phase 16D exact audit."
+      },
+      "compatibility_status_from_16c": "INSUFFICIENT_PROVENANCE",
+      "limitations": [
+        "Incompatible labels are not rescued or reinterpreted.",
+        "No sequence transformation was performed.",
+        "RC overlap was not assessed because orientation was not verified."
+      ]
+    },
+    {
+      "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+      "sequence_available": true,
+      "sequence_record_count": 16749,
+      "sequence_kinds": [
+        "guide_plus_pam"
+      ],
+      "exact_30mer_vs_deepspcas9": "NO_30MER_SEQUENCE_AVAILABLE",
+      "exact_guide_vs_deepspcas9": {
+        "n_a": 12465,
+        "n_b": 12825,
+        "shared_unique": 1966,
+        "fraction_of_a": 0.15772162053750502,
+        "fraction_of_b": 0.1532943469785575,
+        "jaccard": 0.08429085920082319
+      },
+      "duplicate_records": {
+        "n_records_with_sequence": 16749,
+        "n_unique_sequences": 12465,
+        "duplicate_sequence_count": 4217,
+        "duplicate_record_excess": 4284,
+        "max_occurrences": 3
+      },
+      "duplicate_sequences": {
+        "n_records_with_sequence": 16749,
+        "n_unique_sequences": 12465,
+        "duplicate_sequence_count": 4217,
+        "duplicate_record_excess": 4284,
+        "max_occurrences": 3
+      },
+      "identical_sequence_label_conflicts": {
+        "n_conflicting_sequences": 402,
+        "examples": [
+          {
+            "sequence": "AATGTATGCACAGGGAACAGAGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "ATTCAGCTATACCCTGGAGGAGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "TGCCCGACGATGTCCGCAGGCGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "AGCCACCCAGAGAACCCGCAAGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "CTGCAGGGATGTGCACGGGCAGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "TTTCGTTGGTCCAGGCCAGGAGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "CCATAGATACACGAAGGGCCTGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "GGACATTATCAACCCGGACAAGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "AGCCACTGTGAGGCGGGAACGGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "GGCCTTAAGTCTTCTCCACATGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "AGGCCAACTCTTCCGGCGAGAGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "AGCCTGTTATCCACCTCCAGAGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "CAGATACCGTTTCCCTGGCCCGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "ACAGCCAGGGTTCCACAGGGTGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "GCACCTGGACATCAGTAACGCGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "CTTACCAATAACTCCAAGGCTGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "CTACATACCTTCTGGCGGCCAGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "TGTACAAGAACGCCCGGGAGAGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "TACCATGTTGGGCTCCCAGAGGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "sequence": "TGGCAGCTACTGGTAGCACCAGG",
+            "labels": [
+              "0",
+              "1"
+            ]
+          }
+        ]
+      },
+      "rc_overlap_status": {
+        "status": "RC_OVERLAP_NOT_ASSESSED"
+      },
+      "provenance_relationship": {
+        "independence_assessment": "NOT_ESTABLISHED_DERIVED_OR_PROCESSED_RISK",
+        "reason": "Phase 16B/16C provenance reports relationship to DeepCRISPR/Haeussler-used processed datasets."
+      },
+      "compatibility_status_from_16c": "INCOMPATIBLE",
+      "limitations": [
+        "Incompatible labels are not rescued or reinterpreted.",
+        "No sequence transformation was performed.",
+        "RC overlap was not assessed because orientation was not verified."
+      ]
+    },
+    {
+      "candidate_id": "deep_hf_2019_public_data_listing",
+      "sequence_available": false,
+      "sequence_record_count": 0,
+      "sequence_kinds": [],
+      "exact_30mer_vs_deepspcas9": "NO_30MER_SEQUENCE_AVAILABLE",
+      "exact_guide_vs_deepspcas9": "NO_GUIDE_SEQUENCE_AVAILABLE",
+      "duplicate_records": {
+        "n_records_with_sequence": 0,
+        "n_unique_sequences": 0,
+        "duplicate_sequence_count": 0,
+        "duplicate_record_excess": 0,
+        "max_occurrences": 0
+      },
+      "duplicate_sequences": {
+        "n_records_with_sequence": 0,
+        "n_unique_sequences": 0,
+        "duplicate_sequence_count": 0,
+        "duplicate_record_excess": 0,
+        "max_occurrences": 0
+      },
+      "identical_sequence_label_conflicts": {
+        "n_conflicting_sequences": 0,
+        "examples": []
+      },
+      "rc_overlap_status": {
+        "status": "RC_OVERLAP_NOT_ASSESSED"
+      },
+      "provenance_relationship": {
+        "independence_assessment": "INSUFFICIENT_SEQUENCE_INFORMATION",
+        "reason": "No verified sequence file was available for Phase 16D exact audit."
+      },
+      "compatibility_status_from_16c": "INSUFFICIENT_PROVENANCE",
+      "limitations": [
+        "Incompatible labels are not rescued or reinterpreted.",
+        "No sequence transformation was performed.",
+        "RC overlap was not assessed because orientation was not verified."
+      ]
+    },
+    {
+      "candidate_id": "doench_2016_orcs_publication_screens",
+      "sequence_available": true,
+      "sequence_record_count": 214820,
+      "sequence_kinds": [
+        "guide_only"
+      ],
+      "exact_30mer_vs_deepspcas9": "NO_30MER_SEQUENCE_AVAILABLE",
+      "exact_guide_vs_deepspcas9": {
+        "n_a": 157580,
+        "n_b": 12825,
+        "shared_unique": 2333,
+        "fraction_of_a": 0.014805178322122097,
+        "fraction_of_b": 0.1819103313840156,
+        "jaccard": 0.013880955780855823
+      },
+      "duplicate_records": {
+        "n_records_with_sequence": 214820,
+        "n_unique_sequences": 157580,
+        "duplicate_sequence_count": 26370,
+        "duplicate_record_excess": 57240,
+        "max_occurrences": 12484
+      },
+      "duplicate_sequences": {
+        "n_records_with_sequence": 214820,
+        "n_unique_sequences": 157580,
+        "duplicate_sequence_count": 26370,
+        "duplicate_record_excess": 57240,
+        "max_occurrences": 12484
+      },
+      "identical_sequence_label_conflicts": {
+        "n_conflicting_sequences": 296,
+        "examples": [
+          {
+            "sequence": "GTTCTTGCTTCCTATAGCCT",
+            "labels": [
+              "-0.010463288452314146",
+              "0.25423642375644206"
+            ]
+          },
+          {
+            "sequence": "AGAAAACGTAAGTTTCTCAG",
+            "labels": [
+              "-0.39336407952935026",
+              "-1.6994039984393172"
+            ]
+          },
+          {
+            "sequence": "TGTACTTTACCTCTCCCTCG",
+            "labels": [
+              "-1.1124103227695112",
+              "-1.5736857238161361"
+            ]
+          },
+          {
+            "sequence": "TCATGGCCAAGAAAATGCAA",
+            "labels": [
+              "-0.5447252574703199",
+              "-1.0842304157476939"
+            ]
+          },
+          {
+            "sequence": "CCTTTGCTATGCTCTCCCTA",
+            "labels": [
+              "-0.09599619604851473",
+              "-1.7142483730134144"
+            ]
+          },
+          {
+            "sequence": "GTACCTGTAGCACATACTGA",
+            "labels": [
+              "-1.871999516569689",
+              "0.3196051888694873"
+            ]
+          },
+          {
+            "sequence": "TTACCTTTCCCTCTATTAAG",
+            "labels": [
+              "-0.2414867880542344",
+              "-1.4677536178505362"
+            ]
+          },
+          {
+            "sequence": "GTTTCAACTTCTGACAAGTC",
+            "labels": [
+              "-0.6976179250935726",
+              "-2.058786459514816"
+            ]
+          },
+          {
+            "sequence": "GAGCTCTGCTAGGAAGCGCG",
+            "labels": [
+              "-0.18848770528291459",
+              "-0.9398366228873316",
+              "-1.7989115942002183"
+            ]
+          },
+          {
+            "sequence": "CATGACTTACTTTCATTCGA",
+            "labels": [
+              "0.09566822258785912",
+              "0.27685051809477734"
+            ]
+          },
+          {
+            "sequence": "TTCTGCATGGACACACACTA",
+            "labels": [
+              "-0.8560058766117393",
+              "-2.592409868867274"
+            ]
+          },
+          {
+            "sequence": "CTAAAACTGAGGAGCAGCCA",
+            "labels": [
+              "-0.6408090551881278",
+              "-1.767113250161521"
+            ]
+          },
+          {
+            "sequence": "AGAGTGCTCGGAATTATCTA",
+            "labels": [
+              "-1.5544986909052891",
+              "-2.1438115489126517"
+            ]
+          },
+          {
+            "sequence": "TGTCTTTGCAGGATCTACTG",
+            "labels": [
+              "-1.0115660530352857",
+              "-1.0799711836691315"
+            ]
+          },
+          {
+            "sequence": "GGCTCTGTCTGCTCTGAGGA",
+            "labels": [
+              "-3.377618426081619",
+              "0.06583501594170649"
+            ]
+          },
+          {
+            "sequence": "TGTTGTTTGGAAATACAGTG",
+            "labels": [
+              "-1.5354989937212975",
+              "-4.050832852644206"
+            ]
+          },
+          {
+            "sequence": "GAAATGTGAAGAGAAGGTAA",
+            "labels": [
+              "-0.5205557483757275",
+              "0.07210236031363948"
+            ]
+          },
+          {
+            "sequence": "CTTCCATGTCAAACACCAGT",
+            "labels": [
+              "-0.18643181651732998",
+              "-5.241537425485059"
+            ]
+          },
+          {
+            "sequence": "GGAGAAGAAGATGTCAACAA",
+            "labels": [
+              "-4.728133473708526",
+              "0.14557256598971513"
+            ]
+          },
+          {
+            "sequence": "CAGCTGCTCACAGAACAAGA",
+            "labels": [
+              "-4.089738622096218",
+              "0.06175425024350023"
+            ]
+          }
+        ]
+      },
+      "rc_overlap_status": {
+        "status": "RC_OVERLAP_NOT_ASSESSED"
+      },
+      "provenance_relationship": {
+        "independence_assessment": "NOT_ESTABLISHED",
+        "reason": "Same original study across multiple files; prior project records indicate possible canonical overlap requiring exact audit."
+      },
+      "compatibility_status_from_16c": "INCOMPATIBLE",
+      "limitations": [
+        "Incompatible labels are not rescued or reinterpreted.",
+        "No sequence transformation was performed.",
+        "RC overlap was not assessed because orientation was not verified."
+      ]
+    },
+    {
+      "candidate_id": "sgdesigner_2020_public_data_listing",
+      "sequence_available": false,
+      "sequence_record_count": 0,
+      "sequence_kinds": [],
+      "exact_30mer_vs_deepspcas9": "NO_30MER_SEQUENCE_AVAILABLE",
+      "exact_guide_vs_deepspcas9": "NO_GUIDE_SEQUENCE_AVAILABLE",
+      "duplicate_records": {
+        "n_records_with_sequence": 0,
+        "n_unique_sequences": 0,
+        "duplicate_sequence_count": 0,
+        "duplicate_record_excess": 0,
+        "max_occurrences": 0
+      },
+      "duplicate_sequences": {
+        "n_records_with_sequence": 0,
+        "n_unique_sequences": 0,
+        "duplicate_sequence_count": 0,
+        "duplicate_record_excess": 0,
+        "max_occurrences": 0
+      },
+      "identical_sequence_label_conflicts": {
+        "n_conflicting_sequences": 0,
+        "examples": []
+      },
+      "rc_overlap_status": {
+        "status": "RC_OVERLAP_NOT_ASSESSED"
+      },
+      "provenance_relationship": {
+        "independence_assessment": "INSUFFICIENT_SEQUENCE_INFORMATION",
+        "reason": "No verified sequence file was available for Phase 16D exact audit."
+      },
+      "compatibility_status_from_16c": "INSUFFICIENT_PROVENANCE",
+      "limitations": [
+        "Incompatible labels are not rescued or reinterpreted.",
+        "No sequence transformation was performed.",
+        "RC overlap was not assessed because orientation was not verified."
+      ]
+    }
+  ],
+  "pairwise_candidate_overlap": {
+    "crispron_2021_rth_tools_vs_crisprpredseq_2020_bmc_additional_files": {
+      "exact_30mer": "NO_30MER_SEQUENCE_AVAILABLE",
+      "exact_guide": "NO_GUIDE_SEQUENCE_AVAILABLE",
+      "rc_overlap_status": {
+        "status": "RC_OVERLAP_NOT_ASSESSED"
+      }
+    },
+    "crispron_2021_rth_tools_vs_deep_hf_2019_public_data_listing": {
+      "exact_30mer": "NO_30MER_SEQUENCE_AVAILABLE",
+      "exact_guide": "NO_GUIDE_SEQUENCE_AVAILABLE",
+      "rc_overlap_status": {
+        "status": "RC_OVERLAP_NOT_ASSESSED"
+      }
+    },
+    "crispron_2021_rth_tools_vs_doench_2016_orcs_publication_screens": {
+      "exact_30mer": "NO_30MER_SEQUENCE_AVAILABLE",
+      "exact_guide": "NO_GUIDE_SEQUENCE_AVAILABLE",
+      "rc_overlap_status": {
+        "status": "RC_OVERLAP_NOT_ASSESSED"
+      }
+    },
+    "crispron_2021_rth_tools_vs_sgdesigner_2020_public_data_listing": {
+      "exact_30mer": "NO_30MER_SEQUENCE_AVAILABLE",
+      "exact_guide": "NO_GUIDE_SEQUENCE_AVAILABLE",
+      "rc_overlap_status": {
+        "status": "RC_OVERLAP_NOT_ASSESSED"
+      }
+    },
+    "crisprpredseq_2020_bmc_additional_files_vs_deep_hf_2019_public_data_listing": {
+      "exact_30mer": "NO_30MER_SEQUENCE_AVAILABLE",
+      "exact_guide": "NO_GUIDE_SEQUENCE_AVAILABLE",
+      "rc_overlap_status": {
+        "status": "RC_OVERLAP_NOT_ASSESSED"
+      }
+    },
+    "crisprpredseq_2020_bmc_additional_files_vs_doench_2016_orcs_publication_screens": {
+      "exact_30mer": "NO_30MER_SEQUENCE_AVAILABLE",
+      "exact_guide": {
+        "n_a": 12465,
+        "n_b": 157580,
+        "shared_unique": 1543,
+        "fraction_of_a": 0.12378660248696349,
+        "fraction_of_b": 0.009791851757837288,
+        "jaccard": 0.009157161339331284
+      },
+      "rc_overlap_status": {
+        "status": "RC_OVERLAP_NOT_ASSESSED"
+      }
+    },
+    "crisprpredseq_2020_bmc_additional_files_vs_sgdesigner_2020_public_data_listing": {
+      "exact_30mer": "NO_30MER_SEQUENCE_AVAILABLE",
+      "exact_guide": "NO_GUIDE_SEQUENCE_AVAILABLE",
+      "rc_overlap_status": {
+        "status": "RC_OVERLAP_NOT_ASSESSED"
+      }
+    },
+    "deep_hf_2019_public_data_listing_vs_doench_2016_orcs_publication_screens": {
+      "exact_30mer": "NO_30MER_SEQUENCE_AVAILABLE",
+      "exact_guide": "NO_GUIDE_SEQUENCE_AVAILABLE",
+      "rc_overlap_status": {
+        "status": "RC_OVERLAP_NOT_ASSESSED"
+      }
+    },
+    "deep_hf_2019_public_data_listing_vs_sgdesigner_2020_public_data_listing": {
+      "exact_30mer": "NO_30MER_SEQUENCE_AVAILABLE",
+      "exact_guide": "NO_GUIDE_SEQUENCE_AVAILABLE",
+      "rc_overlap_status": {
+        "status": "RC_OVERLAP_NOT_ASSESSED"
+      }
+    },
+    "doench_2016_orcs_publication_screens_vs_sgdesigner_2020_public_data_listing": {
+      "exact_30mer": "NO_30MER_SEQUENCE_AVAILABLE",
+      "exact_guide": "NO_GUIDE_SEQUENCE_AVAILABLE",
+      "rc_overlap_status": {
+        "status": "RC_OVERLAP_NOT_ASSESSED"
+      }
+    }
+  },
+  "non_modeling_guards": {
+    "no_model_training": true,
+    "no_model_evaluation": true,
+    "no_dataset_pooling": true,
+    "no_label_rescue": true,
+    "no_sequence_transformation": true,
+    "no_distribution_analysis": true,
+    "no_moreno_raw_data_accessed": true
+  },
+  "timestamp": "2026-09-08T15:40:35.885666",
+  "git": {
+    "head": "75ce53e731ed5355b5c3ce2041ead59014cc721a",
+    "status_before_output": "?? data/phase16/\n?? docs/phase16a_dataset_landscape_report.md\n?? docs/phase16b_primary_file_verification_report.md\n?? docs/phase16c_compatibility_audit_report.md\n?? results/phase16a_dataset_inventory_20260908_150236.json\n?? results/phase16a_dataset_inventory_20260908_150359.json\n?? results/phase16a_provenance_audit_20260908_150236.json\n?? results/phase16a_provenance_audit_20260908_150359.json\n?? results/phase16b_primary_file_verification_20260908_151501.json\n?? results/phase16c_compatibility_audit_20260908_152340.json\n?? scripts/run_phase16_dataset_landscape.py\n?? scripts/run_phase16b_primary_file_verification.py\n?? scripts/run_phase16c_compatibility_audit.py\n?? scripts/run_phase16d_overlap_audit.py\n?? src/dataset_landscape/\n?? tests/test_phase16_dataset_landscape.py\n?? tests/test_phase16b_primary_file_verification.py\n?? tests/test_phase16c_compatibility.py\n?? tests/test_phase16d_overlap.py"
+  },
+  "artifacts": {
+    "overlap_json": "results\\phase16d_overlap_independence_audit_20260908_153958.json",
+    "report_md": "docs\\phase16d_overlap_independence_audit_report.md"
+  }
+}

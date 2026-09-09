@@ -1,0 +1,750 @@
+{
+  "phase": "16C",
+  "scope": "biological_measurement_compatibility_only",
+  "status": "COMPATIBILITY_AUDIT_RECORDED",
+  "records": [
+    {
+      "candidate_id": "doench_2016_orcs_publication_screens",
+      "candidate_name": "Doench 2016 published CRISPR screens",
+      "compatibility_status": "INCOMPATIBLE",
+      "compatibility_reason": "Primary files are screen-enrichment/rank/log-fold-change outputs, not substantively compatible continuous SpCas9 editing activity.",
+      "files": [
+        {
+          "candidate_id": "doench_2016_orcs_publication_screens",
+          "file": "data/phase16/raw/doench2016_orcs_STable_06_Vem_STARSOutputs.xlsx",
+          "observation_unit": "Workbook contains STARS/rank/enrichment-style screen outputs",
+          "schema_observation": {
+            "sheets": [
+              {
+                "sheet": "STARS Vem Avana lentiCRISPRv2",
+                "columns_observed": [
+                  "p-value=0 means <4.91932552027e-07, FDR=0 means <4.86603282713e-05",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8"
+                ],
+                "first_row_values": [
+                  "Gene Symbol",
+                  "Number of spacers",
+                  "Ranks of spacers",
+                  "Most enriched spacer",
+                  "STARS Score",
+                  "Average Score",
+                  "p-value",
+                  "FDR",
+                  "q-value"
+                ]
+              },
+              {
+                "sheet": "STARS Vem Avana lentiGuide",
+                "columns_observed": [
+                  "p-value=0 means <4.91932552027e-07, FDR=0 means <8.21175981491e-05",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8"
+                ],
+                "first_row_values": [
+                  "Gene Symbol",
+                  "Number of spacers",
+                  "Ranks of spacers",
+                  "Most enriched spacer",
+                  "STARS Score",
+                  "Average Score",
+                  "p-value",
+                  "FDR",
+                  "q-value"
+                ]
+              },
+              {
+                "sheet": "STARS Vem GeCKOv1 lentiCRISPRv1",
+                "columns_observed": [
+                  "p-value=0 means <1.19152302858e-06, FDR=0 means <0.000131514354279",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8"
+                ],
+                "first_row_values": [
+                  "Gene Symbol",
+                  "Number of spacers",
+                  "Ranks of spacers",
+                  "Most enriched spacer",
+                  "STARS Score",
+                  "Average Score",
+                  "p-value",
+                  "FDR",
+                  "q-value"
+                ]
+              },
+              {
+                "sheet": "STARS Vem GeCKOv1 lentiGuide",
+                "columns_observed": [
+                  "p-value=0 means <1.19152302858e-06, FDR=0 means <0.000117034039696",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "first_row_values": [
+                  "Gene Symbol",
+                  "Number of perturbations",
+                  "Ranks of perturbations",
+                  "Perturbations",
+                  "Most enriched perturbation",
+                  "STARS Score",
+                  "Average Score",
+                  "p-value",
+                  "FDR",
+                  "q-value"
+                ]
+              },
+              {
+                "sheet": "STARS Vem GeCKOv2 lentiGuide",
+                "columns_observed": [
+                  "p-value=0 means <4.54779459202e-07, FDR=0 means <0.000103507804914",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "first_row_values": [
+                  "Gene Symbol",
+                  "Number of perturbations",
+                  "Ranks of perturbations",
+                  "Perturbations",
+                  "Most enriched perturbation",
+                  "STARS Score",
+                  "Average Score",
+                  "p-value",
+                  "FDR",
+                  "q-value"
+                ]
+              }
+            ]
+          },
+          "sequence_schema": "guide_only",
+          "sequence_length": 20,
+          "guide_definition": "20-nt guide indicated by observed schema",
+          "PAM_definition": "UNKNOWN",
+          "orientation": "UNKNOWN",
+          "activity_definition": "Workbook contains STARS/rank/enrichment-style screen outputs",
+          "activity_units": "screen score/log fold change/rank",
+          "continuous_status": "NOT_TARGET_COMPATIBLE_OR_UNCLEAR",
+          "experimental_status": "EXPERIMENTAL_OR_SCREEN_OUTPUT_REPORTED",
+          "organism": "human or publication-specific; row-level check deferred",
+          "cell_line_or_system": "publication-specific; see candidate record",
+          "Cas9_variant": "UNKNOWN",
+          "assay": "BioGRID ORCS Dataset 19; PubMed:26780180",
+          "compatibility_status": "INCOMPATIBLE",
+          "compatibility_reason": "Disallowed label type for thesis target: rank, enrichment Sequence: Noncanonical source sequence requires explicit future transformation approval.",
+          "required_transformation": "REQUIRED_NOT_PERFORMED",
+          "transformation_status": "NOT_PERFORMED",
+          "provenance_confidence": "PRIMARY_FILE_SCHEMA_OBSERVED",
+          "unresolved_questions": [
+            "No label harmonization approved or performed.",
+            "No sequence transformation approved or performed.",
+            "Independence and overlap are deferred to Phase 16D."
+          ]
+        },
+        {
+          "candidate_id": "doench_2016_orcs_publication_screens",
+          "file": "data/phase16/raw/doench2016_orcs_STable_09_Sel_STARSOutput.xlsx",
+          "observation_unit": "Workbook contains STARS/rank/enrichment-style screen outputs",
+          "schema_observation": {
+            "sheets": [
+              {
+                "sheet": "Avana Sel lentiGuide",
+                "columns_observed": [
+                  "p-value=0 means <4.91932552027e-07, FDR=0 means <2.92699868456e-05",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "first_row_values": [
+                  "Gene Symbol",
+                  "Number of perturbations",
+                  "Ranks of perturbations",
+                  "Perturbations",
+                  "Most enriched perturbation",
+                  "STARS Score",
+                  "Average Score",
+                  "p-value",
+                  "FDR",
+                  "q-value"
+                ]
+              },
+              {
+                "sheet": "Avana Sel lentiCRISPRv2",
+                "columns_observed": [
+                  "p-value=0 means <4.91932552027e-07, FDR=0 means <4.55226815453e-05",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "first_row_values": [
+                  "Gene Symbol",
+                  "Number of perturbations",
+                  "Ranks of perturbations",
+                  "Perturbations",
+                  "Most enriched perturbation",
+                  "STARS Score",
+                  "Average Score",
+                  "p-value",
+                  "FDR",
+                  "q-value"
+                ]
+              }
+            ]
+          },
+          "sequence_schema": "guide_only",
+          "sequence_length": 20,
+          "guide_definition": "20-nt guide indicated by observed schema",
+          "PAM_definition": "UNKNOWN",
+          "orientation": "UNKNOWN",
+          "activity_definition": "Workbook contains STARS/rank/enrichment-style screen outputs",
+          "activity_units": "screen score/log fold change/rank",
+          "continuous_status": "NOT_TARGET_COMPATIBLE_OR_UNCLEAR",
+          "experimental_status": "EXPERIMENTAL_OR_SCREEN_OUTPUT_REPORTED",
+          "organism": "human or publication-specific; row-level check deferred",
+          "cell_line_or_system": "publication-specific; see candidate record",
+          "Cas9_variant": "UNKNOWN",
+          "assay": "BioGRID ORCS Dataset 19; PubMed:26780180",
+          "compatibility_status": "INCOMPATIBLE",
+          "compatibility_reason": "Disallowed label type for thesis target: rank, enrichment Sequence: Noncanonical source sequence requires explicit future transformation approval.",
+          "required_transformation": "REQUIRED_NOT_PERFORMED",
+          "transformation_status": "NOT_PERFORMED",
+          "provenance_confidence": "PRIMARY_FILE_SCHEMA_OBSERVED",
+          "unresolved_questions": [
+            "No label harmonization approved or performed.",
+            "No sequence transformation approved or performed.",
+            "Independence and overlap are deferred to Phase 16D."
+          ]
+        },
+        {
+          "candidate_id": "doench_2016_orcs_publication_screens",
+          "file": "data/phase16/raw/doench2016_orcs_STable_12_NegativeSelection_individual_STARS.xlsx",
+          "observation_unit": "Workbook contains STARS/rank/enrichment-style screen outputs",
+          "schema_observation": {
+            "sheets": [
+              {
+                "sheet": "Avana6_lentiCRISPRv2_A375",
+                "columns_observed": [
+                  "p-value=0 means <4.91932552027e-07, FDR=0 means <0.000396989569486",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "first_row_values": [
+                  "Gene Symbol",
+                  "Number of perturbations",
+                  "Ranks of perturbations",
+                  "Perturbations",
+                  "Most enriched perturbation",
+                  "STARS Score",
+                  "Average Score",
+                  "p-value",
+                  "FDR",
+                  "q-value"
+                ]
+              },
+              {
+                "sheet": "Avana6_lentiGuide_A375",
+                "columns_observed": [
+                  "p-value=0 means <4.91932552027e-07, FDR=0 means <0.000230913139921",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "first_row_values": [
+                  "Gene Symbol",
+                  "Number of perturbations",
+                  "Ranks of perturbations",
+                  "Perturbations",
+                  "Most enriched perturbation",
+                  "STARS Score",
+                  "Average Score",
+                  "p-value",
+                  "FDR",
+                  "q-value"
+                ]
+              },
+              {
+                "sheet": "Avana4_lentiGuide_HT29",
+                "columns_observed": [
+                  "p-value=0 means <1.03950212016e-06, FDR=0 means <0.0010493773903",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "first_row_values": [
+                  "Gene Symbol",
+                  "Number of perturbations",
+                  "Ranks of perturbations",
+                  "Perturbations",
+                  "Most enriched perturbation",
+                  "STARS Score",
+                  "Average Score",
+                  "p-value",
+                  "FDR",
+                  "q-value"
+                ]
+              },
+              {
+                "sheet": "GeCKOv2_lentiGuide_A375",
+                "columns_observed": [
+                  "p-value=0 means <4.54779459202e-07, FDR=0 means <0.000325508397924",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "first_row_values": [
+                  "Gene Symbol",
+                  "Number of perturbations",
+                  "Ranks of perturbations",
+                  "Perturbations",
+                  "Most enriched perturbation",
+                  "STARS Score",
+                  "Average Score",
+                  "p-value",
+                  "FDR",
+                  "q-value"
+                ]
+              },
+              {
+                "sheet": "GeCKOv2_lentiGuide_HT29",
+                "columns_observed": [
+                  "p-value=0 means <4.54779459202e-07, FDR=0 means <0.000152919593157",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "first_row_values": [
+                  "Gene Symbol",
+                  "Number of perturbations",
+                  "Ranks of perturbations",
+                  "Perturbations",
+                  "Most enriched perturbation",
+                  "STARS Score",
+                  "Average Score",
+                  "p-value",
+                  "FDR",
+                  "q-value"
+                ]
+              }
+            ]
+          },
+          "sequence_schema": "guide_only",
+          "sequence_length": 20,
+          "guide_definition": "20-nt guide indicated by observed schema",
+          "PAM_definition": "UNKNOWN",
+          "orientation": "UNKNOWN",
+          "activity_definition": "Workbook contains STARS/rank/enrichment-style screen outputs",
+          "activity_units": "screen score/log fold change/rank",
+          "continuous_status": "NOT_TARGET_COMPATIBLE_OR_UNCLEAR",
+          "experimental_status": "EXPERIMENTAL_OR_SCREEN_OUTPUT_REPORTED",
+          "organism": "human or publication-specific; row-level check deferred",
+          "cell_line_or_system": "publication-specific; see candidate record",
+          "Cas9_variant": "UNKNOWN",
+          "assay": "BioGRID ORCS Dataset 19; PubMed:26780180",
+          "compatibility_status": "INCOMPATIBLE",
+          "compatibility_reason": "Disallowed label type for thesis target: rank, enrichment Sequence: Noncanonical source sequence requires explicit future transformation approval.",
+          "required_transformation": "REQUIRED_NOT_PERFORMED",
+          "transformation_status": "NOT_PERFORMED",
+          "provenance_confidence": "PRIMARY_FILE_SCHEMA_OBSERVED",
+          "unresolved_questions": [
+            "No label harmonization approved or performed.",
+            "No sequence transformation approved or performed.",
+            "Independence and overlap are deferred to Phase 16D."
+          ]
+        },
+        {
+          "candidate_id": "doench_2016_orcs_publication_screens",
+          "file": "data/phase16/raw/doench2016_orcs_STable_15_IFNg_data_STARS.xlsx",
+          "observation_unit": "Workbook contains sgRNA and average log fold change IFNgamma - mock",
+          "schema_observation": {
+            "sheets": [
+              {
+                "sheet": "Data",
+                "columns_observed": [
+                  "sgRNA",
+                  "Average log fold change IFNgamma - mock"
+                ],
+                "first_row_values": [
+                  "CCTGTGATCCAGAAGAGAAA",
+                  "-0.9787476202724523"
+                ]
+              },
+              {
+                "sheet": "STARS analysis",
+                "columns_observed": [
+                  "p-value=0 means <3.65847412365e-06, FDR=0 means <0.000261215052428",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8"
+                ],
+                "first_row_values": [
+                  "Gene Symbol",
+                  "Number of spacers",
+                  "Ranks of spacers",
+                  "Most enriched spacer",
+                  "STARS Score",
+                  "Average Score",
+                  "p-value",
+                  "FDR",
+                  "q-value"
+                ]
+              }
+            ]
+          },
+          "sequence_schema": "guide_only",
+          "sequence_length": 20,
+          "guide_definition": "20-nt guide indicated by observed schema",
+          "PAM_definition": "UNKNOWN",
+          "orientation": "UNKNOWN",
+          "activity_definition": "Workbook contains sgRNA and average log fold change IFNgamma - mock",
+          "activity_units": "screen score/log fold change/rank",
+          "continuous_status": "NOT_TARGET_COMPATIBLE_OR_UNCLEAR",
+          "experimental_status": "EXPERIMENTAL_OR_SCREEN_OUTPUT_REPORTED",
+          "organism": "human or publication-specific; row-level check deferred",
+          "cell_line_or_system": "publication-specific; see candidate record",
+          "Cas9_variant": "UNKNOWN",
+          "assay": "BioGRID ORCS Dataset 19; PubMed:26780180",
+          "compatibility_status": "INCOMPATIBLE",
+          "compatibility_reason": "Disallowed label type for thesis target: enrichment Sequence: Noncanonical source sequence requires explicit future transformation approval.",
+          "required_transformation": "REQUIRED_NOT_PERFORMED",
+          "transformation_status": "NOT_PERFORMED",
+          "provenance_confidence": "PRIMARY_FILE_SCHEMA_OBSERVED",
+          "unresolved_questions": [
+            "No label harmonization approved or performed.",
+            "No sequence transformation approved or performed.",
+            "Independence and overlap are deferred to Phase 16D."
+          ]
+        }
+      ],
+      "required_transformations": [
+        "REQUIRED_NOT_PERFORMED"
+      ],
+      "transformation_status": "NOT_PERFORMED",
+      "unresolved_questions": [
+        "Row-level label semantics not assessed.",
+        "Sequence geometry not assessed.",
+        "Subset/overlap relationship not assessed."
+      ]
+    },
+    {
+      "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+      "candidate_name": "CRISPRpred(SEQ) additional files HCT116/HEK293/HeLa/HL60",
+      "compatibility_status": "INCOMPATIBLE",
+      "compatibility_reason": "Verified files contain binary labels and 23-mer guide+PAM schema; no label harmonization or sequence transformation performed.",
+      "files": [
+        {
+          "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+          "file": "data/phase16/raw/crisprpredseq_additional_file_1.csv",
+          "observation_unit": "CSV columns sgRNA,label; observed label values are 0/1.",
+          "schema_observation": {
+            "columns": [
+              "sgRNA",
+              "label"
+            ],
+            "row_count": 4239,
+            "sgRNA_length_counts": {
+              "23": 4239
+            },
+            "label_values_observed": [
+              "0",
+              "1"
+            ]
+          },
+          "sequence_schema": "guide_plus_pam",
+          "sequence_length": 23,
+          "guide_definition": "UNKNOWN_OR_NONCANONICAL",
+          "PAM_definition": "included in 23-mer sgRNA for CRISPRpred(SEQ)",
+          "orientation": "UNKNOWN",
+          "activity_definition": "CSV columns sgRNA,label; observed label values are 0/1.",
+          "activity_units": "binary 0/1",
+          "continuous_status": "NO_BINARY",
+          "experimental_status": "EXPERIMENTAL_OR_SCREEN_OUTPUT_REPORTED",
+          "organism": "human or publication-specific; row-level check deferred",
+          "cell_line_or_system": "publication-specific; see candidate record",
+          "Cas9_variant": "UNKNOWN",
+          "assay": "BMC Bioinformatics DOI:10.1186/s12859-020-3531-9 supplementary files",
+          "compatibility_status": "INCOMPATIBLE",
+          "compatibility_reason": "Disallowed label type for thesis target: binary Sequence: Noncanonical source sequence requires explicit future transformation approval.",
+          "required_transformation": "REQUIRED_NOT_PERFORMED",
+          "transformation_status": "NOT_PERFORMED",
+          "provenance_confidence": "PRIMARY_FILE_SCHEMA_OBSERVED",
+          "unresolved_questions": [
+            "No label harmonization approved or performed.",
+            "No sequence transformation approved or performed.",
+            "Independence and overlap are deferred to Phase 16D."
+          ]
+        },
+        {
+          "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+          "file": "data/phase16/raw/crisprpredseq_additional_file_2.csv",
+          "observation_unit": "CSV columns sgRNA,label; observed label values are 0/1.",
+          "schema_observation": {
+            "columns": [
+              "sgRNA",
+              "label"
+            ],
+            "row_count": 2333,
+            "sgRNA_length_counts": {
+              "23": 2333
+            },
+            "label_values_observed": [
+              "0",
+              "1"
+            ]
+          },
+          "sequence_schema": "guide_plus_pam",
+          "sequence_length": 23,
+          "guide_definition": "UNKNOWN_OR_NONCANONICAL",
+          "PAM_definition": "included in 23-mer sgRNA for CRISPRpred(SEQ)",
+          "orientation": "UNKNOWN",
+          "activity_definition": "CSV columns sgRNA,label; observed label values are 0/1.",
+          "activity_units": "binary 0/1",
+          "continuous_status": "NO_BINARY",
+          "experimental_status": "EXPERIMENTAL_OR_SCREEN_OUTPUT_REPORTED",
+          "organism": "human or publication-specific; row-level check deferred",
+          "cell_line_or_system": "publication-specific; see candidate record",
+          "Cas9_variant": "UNKNOWN",
+          "assay": "BMC Bioinformatics DOI:10.1186/s12859-020-3531-9 supplementary files",
+          "compatibility_status": "INCOMPATIBLE",
+          "compatibility_reason": "Disallowed label type for thesis target: binary Sequence: Noncanonical source sequence requires explicit future transformation approval.",
+          "required_transformation": "REQUIRED_NOT_PERFORMED",
+          "transformation_status": "NOT_PERFORMED",
+          "provenance_confidence": "PRIMARY_FILE_SCHEMA_OBSERVED",
+          "unresolved_questions": [
+            "No label harmonization approved or performed.",
+            "No sequence transformation approved or performed.",
+            "Independence and overlap are deferred to Phase 16D."
+          ]
+        },
+        {
+          "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+          "file": "data/phase16/raw/crisprpredseq_additional_file_3.csv",
+          "observation_unit": "CSV columns sgRNA,label; observed label values are 0/1.",
+          "schema_observation": {
+            "columns": [
+              "sgRNA",
+              "label"
+            ],
+            "row_count": 8101,
+            "sgRNA_length_counts": {
+              "23": 8101
+            },
+            "label_values_observed": [
+              "0",
+              "1"
+            ]
+          },
+          "sequence_schema": "guide_plus_pam",
+          "sequence_length": 23,
+          "guide_definition": "UNKNOWN_OR_NONCANONICAL",
+          "PAM_definition": "included in 23-mer sgRNA for CRISPRpred(SEQ)",
+          "orientation": "UNKNOWN",
+          "activity_definition": "CSV columns sgRNA,label; observed label values are 0/1.",
+          "activity_units": "binary 0/1",
+          "continuous_status": "NO_BINARY",
+          "experimental_status": "EXPERIMENTAL_OR_SCREEN_OUTPUT_REPORTED",
+          "organism": "human or publication-specific; row-level check deferred",
+          "cell_line_or_system": "publication-specific; see candidate record",
+          "Cas9_variant": "UNKNOWN",
+          "assay": "BMC Bioinformatics DOI:10.1186/s12859-020-3531-9 supplementary files",
+          "compatibility_status": "INCOMPATIBLE",
+          "compatibility_reason": "Disallowed label type for thesis target: binary Sequence: Noncanonical source sequence requires explicit future transformation approval.",
+          "required_transformation": "REQUIRED_NOT_PERFORMED",
+          "transformation_status": "NOT_PERFORMED",
+          "provenance_confidence": "PRIMARY_FILE_SCHEMA_OBSERVED",
+          "unresolved_questions": [
+            "No label harmonization approved or performed.",
+            "No sequence transformation approved or performed.",
+            "Independence and overlap are deferred to Phase 16D."
+          ]
+        },
+        {
+          "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+          "file": "data/phase16/raw/crisprpredseq_additional_file_4.csv",
+          "observation_unit": "CSV columns sgRNA,label; observed label values are 0/1.",
+          "schema_observation": {
+            "columns": [
+              "sgRNA",
+              "label"
+            ],
+            "row_count": 2076,
+            "sgRNA_length_counts": {
+              "23": 2076
+            },
+            "label_values_observed": [
+              "0",
+              "1"
+            ]
+          },
+          "sequence_schema": "guide_plus_pam",
+          "sequence_length": 23,
+          "guide_definition": "UNKNOWN_OR_NONCANONICAL",
+          "PAM_definition": "included in 23-mer sgRNA for CRISPRpred(SEQ)",
+          "orientation": "UNKNOWN",
+          "activity_definition": "CSV columns sgRNA,label; observed label values are 0/1.",
+          "activity_units": "binary 0/1",
+          "continuous_status": "NO_BINARY",
+          "experimental_status": "EXPERIMENTAL_OR_SCREEN_OUTPUT_REPORTED",
+          "organism": "human or publication-specific; row-level check deferred",
+          "cell_line_or_system": "publication-specific; see candidate record",
+          "Cas9_variant": "UNKNOWN",
+          "assay": "BMC Bioinformatics DOI:10.1186/s12859-020-3531-9 supplementary files",
+          "compatibility_status": "INCOMPATIBLE",
+          "compatibility_reason": "Disallowed label type for thesis target: binary Sequence: Noncanonical source sequence requires explicit future transformation approval.",
+          "required_transformation": "REQUIRED_NOT_PERFORMED",
+          "transformation_status": "NOT_PERFORMED",
+          "provenance_confidence": "PRIMARY_FILE_SCHEMA_OBSERVED",
+          "unresolved_questions": [
+            "No label harmonization approved or performed.",
+            "No sequence transformation approved or performed.",
+            "Independence and overlap are deferred to Phase 16D."
+          ]
+        }
+      ],
+      "required_transformations": [
+        "REQUIRED_NOT_PERFORMED"
+      ],
+      "transformation_status": "NOT_PERFORMED",
+      "unresolved_questions": [
+        "Whether files are primary experimental data or processed reuse remains unresolved.",
+        "Original upstream source relationship requires verification.",
+        "Label and sequence definitions deferred to Phase 16C."
+      ]
+    },
+    {
+      "candidate_id": "crispron_2021_rth_tools",
+      "candidate_name": "CRISPRon 2021 sgRNA efficiency data",
+      "compatibility_status": "INSUFFICIENT_PROVENANCE",
+      "compatibility_reason": "Phase 16C evidence does not resolve this candidate beyond Phase 16B.",
+      "files": [],
+      "required_transformations": [],
+      "transformation_status": "NOT_PERFORMED",
+      "unresolved_questions": [
+        "Actual primary experimental data filename unresolved.",
+        "Repository archive appears to contain model artifacts/test output rather than raw study table."
+      ]
+    },
+    {
+      "candidate_id": "deep_hf_2019_public_data_listing",
+      "candidate_name": "DeepHF on-target activity data",
+      "compatibility_status": "INSUFFICIENT_PROVENANCE",
+      "compatibility_reason": "Phase 16C evidence does not resolve this candidate beyond Phase 16B.",
+      "files": [],
+      "required_transformations": [],
+      "transformation_status": "NOT_PERFORMED",
+      "unresolved_questions": [
+        "Primary file unavailable in current Phase 16B acquisition.",
+        "Role requires supervisor decision because DeepHF is prior evidence, not new discovery."
+      ]
+    },
+    {
+      "candidate_id": "sgdesigner_2020_public_data_listing",
+      "candidate_name": "SgDesigner / unique plasmid library sgRNA potency data",
+      "compatibility_status": "INSUFFICIENT_PROVENANCE",
+      "compatibility_reason": "Phase 16C evidence does not resolve this candidate beyond Phase 16B.",
+      "files": [],
+      "required_transformations": [],
+      "transformation_status": "NOT_PERFORMED",
+      "unresolved_questions": [
+        "Primary repository URL and original data file unresolved.",
+        "Publication identity requires primary-source confirmation."
+      ]
+    }
+  ],
+  "non_modeling_guards": {
+    "no_model_training": true,
+    "no_model_evaluation": true,
+    "no_dataset_pooling": true,
+    "no_overlap_analysis": true,
+    "no_rc_overlap_analysis": true,
+    "no_distribution_analysis": true,
+    "no_moreno_raw_data_accessed": true,
+    "label_harmonization_performed": false,
+    "sequence_transformation_performed": false
+  },
+  "timestamp": "2026-09-08T15:23:57.304586",
+  "git": {
+    "head": "75ce53e731ed5355b5c3ce2041ead59014cc721a",
+    "status_before_output": "?? data/phase16/\n?? docs/phase16a_dataset_landscape_report.md\n?? docs/phase16b_primary_file_verification_report.md\n?? results/phase16a_dataset_inventory_20260908_150236.json\n?? results/phase16a_dataset_inventory_20260908_150359.json\n?? results/phase16a_provenance_audit_20260908_150236.json\n?? results/phase16a_provenance_audit_20260908_150359.json\n?? results/phase16b_primary_file_verification_20260908_151501.json\n?? scripts/run_phase16_dataset_landscape.py\n?? scripts/run_phase16b_primary_file_verification.py\n?? scripts/run_phase16c_compatibility_audit.py\n?? src/dataset_landscape/\n?? tests/test_phase16_dataset_landscape.py\n?? tests/test_phase16b_primary_file_verification.py\n?? tests/test_phase16c_compatibility.py"
+  },
+  "artifacts": {
+    "compatibility_json": "results\\phase16c_compatibility_audit_20260908_152340.json",
+    "report_md": "docs\\phase16c_compatibility_audit_report.md"
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "phase": "16B",
+  "scope": "primary_file_verification_only",
+  "status": "PRIMARY_FILE_VERIFICATION_RECORDED",
+  "access_date": "2026-09-08",
+  "candidate_count": 5,
+  "records": [
+    {
+      "candidate_id": "doench_2016_orcs_publication_screens",
+      "candidate_name": "Doench 2016 published CRISPR screens",
+      "source_study_id": "doench_2016_nbt_3437",
+      "source_publication": "Doench JG et al. 2016. Optimized sgRNA design to maximize activity and minimize off-target effects of CRISPR-Cas9. Nature Biotechnology 34:184-191.",
+      "primary_source_or_accession": "BioGRID ORCS Dataset 19; PubMed:26780180",
+      "primary_file_status": "PRIMARY_SUPPLEMENTARY_FILES_OBTAINED",
+      "candidate_status_after_16b": "PENDING_PRIMARY_VERIFICATION",
+      "files": [
+        {
+          "original_filename": "doench2016_orcs_STable_06_Vem_STARSOutputs.xlsx",
+          "source_url": "https://orcs.thebiogrid.org/uploads/processed/5aeb49259de3c/STable_06_Vem_STARSOutputs.xlsx",
+          "local_raw_path": "data/phase16/raw/doench2016_orcs_STable_06_Vem_STARSOutputs.xlsx",
+          "file_format": "xlsx",
+          "sha256": "3FA01C4ADAD9DD624B67D5EACB982FC8F7448461E6A2FEBE8FAEFE5E7EEFE7B8",
+          "size_bytes": 1177546,
+          "verified_local_file": true,
+          "provenance_role": "publisher/ORCS-hosted publication supplementary file"
+        },
+        {
+          "original_filename": "doench2016_orcs_STable_09_Sel_STARSOutput.xlsx",
+          "source_url": "https://orcs.thebiogrid.org/uploads/processed/5e4d50e13c7d6/STable%2009%20Sel_STARSOutput.xlsx",
+          "local_raw_path": "data/phase16/raw/doench2016_orcs_STable_09_Sel_STARSOutput.xlsx",
+          "file_format": "xlsx",
+          "sha256": "88FF9066C2F6F93CF2917A83C8BFD10A26378AF60853358DDA3442ADE24C9030",
+          "size_bytes": 862342,
+          "verified_local_file": true,
+          "provenance_role": "publisher/ORCS-hosted publication supplementary file"
+        },
+        {
+          "original_filename": "doench2016_orcs_STable_12_NegativeSelection_individual_STARS.xlsx",
+          "source_url": "https://orcs.thebiogrid.org/uploads/processed/5af0c639e9d96/STable%2012%20NegativeSelection_individual_STARS.xlsx",
+          "local_raw_path": "data/phase16/raw/doench2016_orcs_STable_12_NegativeSelection_individual_STARS.xlsx",
+          "file_format": "xlsx",
+          "sha256": "2A7018E31F9E6ABD2AC5355B7D8C900C9F979E133DB22F638197EE908FD7F399",
+          "size_bytes": 2084283,
+          "verified_local_file": true,
+          "provenance_role": "publisher/ORCS-hosted publication supplementary file"
+        },
+        {
+          "original_filename": "doench2016_orcs_STable_15_IFNg_data_STARS.xlsx",
+          "source_url": "https://orcs.thebiogrid.org/uploads/processed/5afb153562639/STable_15_IFNg_data_STARS.xlsx",
+          "local_raw_path": "data/phase16/raw/doench2016_orcs_STable_15_IFNg_data_STARS.xlsx",
+          "file_format": "xlsx",
+          "sha256": "9D00508EA5F8AF2AC809B0646497EF7A56E484AA4E3B99D779E89CDEA21EEA58",
+          "size_bytes": 2884151,
+          "verified_local_file": true,
+          "provenance_role": "publisher/ORCS-hosted publication supplementary file"
+        }
+      ],
+      "provenance_relationship": "Multiple supplementary screen tables from the same original Doench 2016 study; independence from canonical data is not assessed in Phase 16B.",
+      "unresolved_issues": [
+        "Row-level label semantics not assessed.",
+        "Sequence geometry not assessed.",
+        "Subset/overlap relationship not assessed."
+      ]
+    },
+    {
+      "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+      "candidate_name": "CRISPRpred(SEQ) additional files HCT116/HEK293/HeLa/HL60",
+      "source_study_id": "rafid_2020_crisprpredseq",
+      "source_publication": "Rafid AHM et al. 2020. CRISPRpred(SEQ): a sequence-based method for sgRNA on target activity prediction using traditional machine learning. BMC Bioinformatics.",
+      "primary_source_or_accession": "BMC Bioinformatics DOI:10.1186/s12859-020-3531-9 supplementary files",
+      "primary_file_status": "OFFICIAL_SUPPLEMENTARY_FILES_OBTAINED",
+      "candidate_status_after_16b": "PENDING_PRIMARY_VERIFICATION",
+      "files": [
+        {
+          "original_filename": "crisprpredseq_additional_file_1.csv",
+          "source_url": "https://static-content.springer.com/esm/art%3A10.1186%2Fs12859-020-3531-9/MediaObjects/12859_2020_3531_MOESM1_ESM.csv",
+          "local_raw_path": "data/phase16/raw/crisprpredseq_additional_file_1.csv",
+          "file_format": "csv",
+          "sha256": "F6DA050009616E5BB50A8E66E9429830E89B59E607D0C740CEBC364066F34A93",
+          "size_bytes": 114466,
+          "verified_local_file": true,
+          "provenance_role": "publisher-hosted supplementary file"
+        },
+        {
+          "original_filename": "crisprpredseq_additional_file_2.csv",
+          "source_url": "https://static-content.springer.com/esm/art%3A10.1186%2Fs12859-020-3531-9/MediaObjects/12859_2020_3531_MOESM2_ESM.csv",
+          "local_raw_path": "data/phase16/raw/crisprpredseq_additional_file_2.csv",
+          "file_format": "csv",
+          "sha256": "6DBD8C62A9E1E93D2A6B265DE13E5EA6B287E9C605186223611A2BE8C7968357",
+          "size_bytes": 63004,
+          "verified_local_file": true,
+          "provenance_role": "publisher-hosted supplementary file"
+        },
+        {
+          "original_filename": "crisprpredseq_additional_file_3.csv",
+          "source_url": "https://static-content.springer.com/esm/art%3A10.1186%2Fs12859-020-3531-9/MediaObjects/12859_2020_3531_MOESM3_ESM.csv",
+          "local_raw_path": "data/phase16/raw/crisprpredseq_additional_file_3.csv",
+          "file_format": "csv",
+          "sha256": "466813EFDAF0DCCA7CBD6C4690A99BE9CA47593671174F3D72D87FEF669E204D",
+          "size_bytes": 218740,
+          "verified_local_file": true,
+          "provenance_role": "publisher-hosted supplementary file"
+        },
+        {
+          "original_filename": "crisprpredseq_additional_file_4.csv",
+          "source_url": "https://static-content.springer.com/esm/art%3A10.1186%2Fs12859-020-3531-9/MediaObjects/12859_2020_3531_MOESM4_ESM.csv",
+          "local_raw_path": "data/phase16/raw/crisprpredseq_additional_file_4.csv",
+          "file_format": "csv",
+          "sha256": "9B19CA010304B15AAB9F2E58962D00B811B0C6C368B2E6B2847DA8DC65A00A47",
+          "size_bytes": 56065,
+          "verified_local_file": true,
+          "provenance_role": "publisher-hosted supplementary file"
+        }
+      ],
+      "provenance_relationship": "Article reports HCT116, HEK293, HeLa, and HL60 files as data used by previous DeepCRISPR/Haeussler work; independent identity cannot be assumed.",
+      "unresolved_issues": [
+        "Whether files are primary experimental data or processed reuse remains unresolved.",
+        "Original upstream source relationship requires verification.",
+        "Label and sequence definitions deferred to Phase 16C."
+      ]
+    },
+    {
+      "candidate_id": "crispron_2021_rth_tools",
+      "candidate_name": "CRISPRon 2021 sgRNA efficiency data",
+      "source_study_id": "xu_2021_crispron",
+      "source_publication": "Xu F et al. 2021. Enhancing CRISPR-Cas9 gRNA efficiency prediction by data integration and deep learning.",
+      "primary_source_or_accession": "RTH-tools/crispron GitHub repository",
+      "primary_file_status": "SOURCE_ARCHIVE_OBTAINED_PRIMARY_EXPERIMENTAL_FILE_UNRESOLVED",
+      "candidate_status_after_16b": "INSUFFICIENT_PROVENANCE",
+      "files": [
+        {
+          "original_filename": "crispron_main.zip",
+          "source_url": "https://github.com/RTH-tools/crispron/archive/refs/heads/main.zip",
+          "local_raw_path": "data/phase16/raw/crispron_main.zip",
+          "file_format": "zip",
+          "sha256": "3FA17A7CB3DE043703EC3090505C96340E6DA13F23ACDA8FD7F7268A3F572A9B",
+          "size_bytes": 16262993,
+          "verified_local_file": true,
+          "provenance_role": "official repository source archive; raw experimental table not identified in 16B"
+        }
+      ],
+      "provenance_relationship": "Official repository archive was obtained, but the primary experimental sgRNA training table was not located from this archive during Phase 16B.",
+      "unresolved_issues": [
+        "Actual primary experimental data filename unresolved.",
+        "Repository archive appears to contain model artifacts/test output rather than raw study table."
+      ]
+    },
+    {
+      "candidate_id": "deep_hf_2019_public_data_listing",
+      "candidate_name": "DeepHF on-target activity data",
+      "source_study_id": "wang_2019_deephf",
+      "source_publication": "Wang et al. 2019. Optimized CRISPR guide RNA design for two high-fidelity Cas9 variants by deep learning.",
+      "primary_source_or_accession": "DeepHF publication/source links; prior Phase 10-12 project records",
+      "primary_file_status": "PRIMARY_FILE_NOT_OBTAINED_IN_16B_PRIOR_EVIDENCE_EXISTS",
+      "candidate_status_after_16b": "PENDING_PRIMARY_VERIFICATION",
+      "files": [],
+      "provenance_relationship": "DeepHF was already analyzed in Phases 10-12 and must not be counted as a new independent dataset merely because it was rediscovered. Phase 16B did not restore the primary DeepHF file in data/phase16/raw.",
+      "unresolved_issues": [
+        "Primary file unavailable in current Phase 16B acquisition.",
+        "Role requires supervisor decision because DeepHF is prior evidence, not new discovery."
+      ]
+    },
+    {
+      "candidate_id": "sgdesigner_2020_public_data_listing",
+      "candidate_name": "SgDesigner / unique plasmid library sgRNA potency data",
+      "source_study_id": "sgdesigner_2020",
+      "source_publication": "SgDesigner 2020 source publication listed by public_data_crisprCas9",
+      "primary_source_or_accession": "public_data_crisprCas9 catalog link only",
+      "primary_file_status": "INSUFFICIENT_PRIMARY_SOURCE_VERIFICATION",
+      "candidate_status_after_16b": "INSUFFICIENT_PROVENANCE",
+      "files": [],
+      "provenance_relationship": "Only catalog-level source-link evidence was retained in Phase 16B; no official primary file was obtained.",
+      "unresolved_issues": [
+        "Primary repository URL and original data file unresolved.",
+        "Publication identity requires primary-source confirmation."
+      ]
+    }
+  ],
+  "non_modeling_guards": {
+    "no_model_training": true,
+    "no_model_evaluation": true,
+    "no_label_compatibility_decision": true,
+    "no_sequence_transformation": true,
+    "no_overlap_analysis": true,
+    "no_distribution_analysis": true,
+    "no_moreno_raw_data_accessed": true
+  },
+  "timestamp": "2026-09-08T15:15:01.550918",
+  "git": {
+    "head": "75ce53e731ed5355b5c3ce2041ead59014cc721a",
+    "status_before_output": "?? data/phase16/\n?? docs/phase16a_dataset_landscape_report.md\n?? results/phase16a_dataset_inventory_20260908_150236.json\n?? results/phase16a_dataset_inventory_20260908_150359.json\n?? results/phase16a_provenance_audit_20260908_150236.json\n?? results/phase16a_provenance_audit_20260908_150359.json\n?? scripts/run_phase16_dataset_landscape.py\n?? scripts/run_phase16b_primary_file_verification.py\n?? src/dataset_landscape/\n?? tests/test_phase16_dataset_landscape.py\n?? tests/test_phase16b_primary_file_verification.py"
+  },
+  "artifacts": {
+    "verification_json": "results\\phase16b_primary_file_verification_20260908_151501.json",
+    "report_md": "docs\\phase16b_primary_file_verification_report.md"
+  }
+}
