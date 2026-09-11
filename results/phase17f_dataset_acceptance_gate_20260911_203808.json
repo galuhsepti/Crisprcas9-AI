@@ -1,0 +1,328 @@
+{
+  "phase": "17F",
+  "protocol_version": "phase17f-final-dataset-acceptance-gate-v1",
+  "timestamp": "2026-09-11T20:38:08.041047",
+  "scope": "final_dataset_acceptance_gate_only_no_integration",
+  "source_artifacts": {
+    "phase17a": "results/phase17a_dataset_recovery_20260911_140154.json",
+    "phase17b": "results/phase17b_primary_file_verification_20260911_143300.json",
+    "phase17c": "results/phase17c_sequence_label_compatibility_20260911_144924.json",
+    "phase17d": "results/phase17d_independence_overlap_20260911_145754.json",
+    "phase17e": "results/phase17e_distribution_information_value_20260911_190523.json"
+  },
+  "candidate_decisions": [
+    {
+      "candidate_id": "crispron_2021_rth_tools",
+      "provenance_status": "PRIMARY_EXPERIMENTAL_TABLE_NOT_IDENTIFIED",
+      "experimental_status": "NOT_ESTABLISHED",
+      "sequence_status": "SEQUENCE_INSUFFICIENT_EVIDENCE",
+      "label_status": "LABEL_INSUFFICIENT_EVIDENCE",
+      "independence_status": "INSUFFICIENT_PROVENANCE",
+      "information_value_status": "INSUFFICIENT_EVIDENCE",
+      "decision_step": "primary_evidence",
+      "final_acceptance_status": "INSUFFICIENT_EVIDENCE",
+      "exact_reason": "Primary experimental training table was not identified; sequence and label evidence remain insufficient.",
+      "missing_future_evidence": [
+        "primary file identity",
+        "experimental status",
+        "sequence geometry",
+        "label semantics",
+        "independence"
+      ],
+      "normalized_evidence": {
+        "candidate_id": "crispron_2021_rth_tools",
+        "already_analyzed_not_new": false,
+        "primary_evidence": false,
+        "experimental_measurement": false,
+        "sequence_compatible": false,
+        "sequence_failure_status": "REJECTED_FOR_CURRENT_TARGET",
+        "label_compatible": false,
+        "independence_established": false,
+        "requires_prohibited_transformation": false,
+        "phase17a_status": null,
+        "phase17b_status": "PRIMARY_EXPERIMENTAL_TABLE_NOT_IDENTIFIED",
+        "phase17c_sequence_status": "SEQUENCE_INSUFFICIENT_EVIDENCE",
+        "phase17c_label_status": "LABEL_INSUFFICIENT_EVIDENCE",
+        "phase17d_independence_status": "INSUFFICIENT_PROVENANCE",
+        "phase17e_information_value_status": "INSUFFICIENT_EVIDENCE"
+      }
+    },
+    {
+      "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+      "provenance_status": "DERIVED_OR_PROCESSED",
+      "experimental_status": "ESTABLISHED_SCREEN_OR_OBSERVATION_NOT_NECESSARILY_COMPATIBLE",
+      "sequence_status": "SEQUENCE_INCOMPATIBLE",
+      "label_status": "LABEL_INCOMPATIBLE",
+      "independence_status": "DERIVED_OR_PROCESSED_RELATIONSHIP",
+      "information_value_status": "LIMITED_INFORMATION_VALUE",
+      "decision_step": "sequence_compatibility",
+      "final_acceptance_status": "REJECTED_FOR_CURRENT_TARGET",
+      "exact_reason": "Observed 23-mer guide+PAM records have binary labels and processed/derived relationship; accepting would require prohibited label and sequence rescue.",
+      "missing_future_evidence": [],
+      "normalized_evidence": {
+        "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+        "already_analyzed_not_new": false,
+        "primary_evidence": true,
+        "experimental_measurement": true,
+        "sequence_compatible": false,
+        "sequence_failure_status": "REJECTED_FOR_CURRENT_TARGET",
+        "label_compatible": false,
+        "independence_established": false,
+        "requires_prohibited_transformation": true,
+        "phase17a_status": null,
+        "phase17b_status": "DERIVED_OR_PROCESSED",
+        "phase17c_sequence_status": "SEQUENCE_INCOMPATIBLE",
+        "phase17c_label_status": "LABEL_INCOMPATIBLE",
+        "phase17d_independence_status": "DERIVED_OR_PROCESSED_RELATIONSHIP",
+        "phase17e_information_value_status": "LIMITED_INFORMATION_VALUE"
+      }
+    },
+    {
+      "candidate_id": "deep_hf_2019_public_data_listing",
+      "provenance_status": "PRIMARY_FILE_NOT_RECOVERED",
+      "experimental_status": "NOT_ESTABLISHED",
+      "sequence_status": "SEQUENCE_INSUFFICIENT_EVIDENCE",
+      "label_status": "LABEL_INSUFFICIENT_EVIDENCE",
+      "independence_status": "INSUFFICIENT_PROVENANCE",
+      "information_value_status": "INSUFFICIENT_EVIDENCE",
+      "decision_step": "already_analyzed",
+      "final_acceptance_status": "ALREADY_ANALYZED_NOT_NEW",
+      "exact_reason": "DeepHF was already analyzed in Phases 10-12 and no new Phase 17 primary local file established it as a new independent dataset.",
+      "missing_future_evidence": [
+        "new Phase 17 primary evidence, if future reuse is proposed"
+      ],
+      "normalized_evidence": {
+        "candidate_id": "deep_hf_2019_public_data_listing",
+        "already_analyzed_not_new": true,
+        "primary_evidence": false,
+        "experimental_measurement": false,
+        "sequence_compatible": false,
+        "sequence_failure_status": "REJECTED_FOR_CURRENT_TARGET",
+        "label_compatible": false,
+        "independence_established": false,
+        "requires_prohibited_transformation": false,
+        "phase17a_status": null,
+        "phase17b_status": "PRIMARY_FILE_NOT_RECOVERED",
+        "phase17c_sequence_status": "SEQUENCE_INSUFFICIENT_EVIDENCE",
+        "phase17c_label_status": "LABEL_INSUFFICIENT_EVIDENCE",
+        "phase17d_independence_status": "INSUFFICIENT_PROVENANCE",
+        "phase17e_information_value_status": "INSUFFICIENT_EVIDENCE"
+      }
+    },
+    {
+      "candidate_id": "doench_2016_orcs_publication_screens",
+      "provenance_status": "PRIMARY_VERIFIED_WITH_METADATA_GAPS",
+      "experimental_status": "ESTABLISHED_SCREEN_OR_OBSERVATION_NOT_NECESSARILY_COMPATIBLE",
+      "sequence_status": "SEQUENCE_INCOMPATIBLE",
+      "label_status": "LABEL_INCOMPATIBLE",
+      "independence_status": "SHARED_SOURCE_STUDY",
+      "information_value_status": "LIMITED_INFORMATION_VALUE",
+      "decision_step": "sequence_compatibility",
+      "final_acceptance_status": "REJECTED_FOR_CURRENT_TARGET",
+      "exact_reason": "Guide-only screen files expose STARS/rank/enrichment/log-fold-change style values, not compatible continuous activity labels; same-study relationships remain unresolved.",
+      "missing_future_evidence": [],
+      "normalized_evidence": {
+        "candidate_id": "doench_2016_orcs_publication_screens",
+        "already_analyzed_not_new": false,
+        "primary_evidence": true,
+        "experimental_measurement": true,
+        "sequence_compatible": false,
+        "sequence_failure_status": "REJECTED_FOR_CURRENT_TARGET",
+        "label_compatible": false,
+        "independence_established": false,
+        "requires_prohibited_transformation": true,
+        "phase17a_status": null,
+        "phase17b_status": "PRIMARY_VERIFIED_WITH_METADATA_GAPS",
+        "phase17c_sequence_status": "SEQUENCE_INCOMPATIBLE",
+        "phase17c_label_status": "LABEL_INCOMPATIBLE",
+        "phase17d_independence_status": "SHARED_SOURCE_STUDY",
+        "phase17e_information_value_status": "LIMITED_INFORMATION_VALUE"
+      }
+    },
+    {
+      "candidate_id": "sgdesigner_2020_public_data_listing",
+      "provenance_status": "PRIMARY_FILE_NOT_RECOVERED",
+      "experimental_status": "NOT_ESTABLISHED",
+      "sequence_status": "SEQUENCE_INSUFFICIENT_EVIDENCE",
+      "label_status": "LABEL_INSUFFICIENT_EVIDENCE",
+      "independence_status": "INSUFFICIENT_PROVENANCE",
+      "information_value_status": "INSUFFICIENT_EVIDENCE",
+      "decision_step": "primary_evidence",
+      "final_acceptance_status": "INSUFFICIENT_EVIDENCE",
+      "exact_reason": "No verified primary file, sequence evidence, label evidence, or independence evidence was recovered.",
+      "missing_future_evidence": [
+        "primary file identity",
+        "experimental status",
+        "sequence geometry",
+        "label semantics",
+        "independence"
+      ],
+      "normalized_evidence": {
+        "candidate_id": "sgdesigner_2020_public_data_listing",
+        "already_analyzed_not_new": false,
+        "primary_evidence": false,
+        "experimental_measurement": false,
+        "sequence_compatible": false,
+        "sequence_failure_status": "REJECTED_FOR_CURRENT_TARGET",
+        "label_compatible": false,
+        "independence_established": false,
+        "requires_prohibited_transformation": false,
+        "phase17a_status": null,
+        "phase17b_status": "PRIMARY_FILE_NOT_RECOVERED",
+        "phase17c_sequence_status": "SEQUENCE_INSUFFICIENT_EVIDENCE",
+        "phase17c_label_status": "LABEL_INSUFFICIENT_EVIDENCE",
+        "phase17d_independence_status": "INSUFFICIENT_PROVENANCE",
+        "phase17e_information_value_status": "INSUFFICIENT_EVIDENCE"
+      }
+    },
+    {
+      "candidate_id": "corsi_2022_free_energy_pam_context",
+      "provenance_status": "DISCOVERY_ONLY",
+      "experimental_status": "NOT_ESTABLISHED",
+      "sequence_status": "SEQUENCE_INSUFFICIENT_EVIDENCE",
+      "label_status": "LABEL_INSUFFICIENT_EVIDENCE",
+      "independence_status": "INSUFFICIENT_PROVENANCE",
+      "information_value_status": "INSUFFICIENT_EVIDENCE",
+      "decision_step": "primary_evidence",
+      "final_acceptance_status": "INSUFFICIENT_EVIDENCE",
+      "exact_reason": "Discovery-only candidate with no recovered primary file and no verified sequence or label evidence.",
+      "missing_future_evidence": [
+        "primary file identity",
+        "experimental status",
+        "sequence geometry",
+        "label semantics",
+        "independence"
+      ],
+      "normalized_evidence": {
+        "candidate_id": "corsi_2022_free_energy_pam_context",
+        "already_analyzed_not_new": false,
+        "primary_evidence": false,
+        "experimental_measurement": false,
+        "sequence_compatible": false,
+        "sequence_failure_status": "REJECTED_FOR_CURRENT_TARGET",
+        "label_compatible": false,
+        "independence_established": false,
+        "requires_prohibited_transformation": false,
+        "phase17a_status": null,
+        "phase17b_status": "DISCOVERY_ONLY",
+        "phase17c_sequence_status": "SEQUENCE_INSUFFICIENT_EVIDENCE",
+        "phase17c_label_status": "LABEL_INSUFFICIENT_EVIDENCE",
+        "phase17d_independence_status": "INSUFFICIENT_PROVENANCE",
+        "phase17e_information_value_status": "INSUFFICIENT_EVIDENCE"
+      }
+    }
+  ],
+  "accepted_for_future_pipeline": [],
+  "accepted_candidate_count": 0,
+  "acceptance_status_vocabulary": [
+    "ACCEPTED_FOR_FUTURE_PIPELINE",
+    "ALREADY_ANALYZED_NOT_NEW",
+    "CONDITIONAL_NEEDS_COMPATIBILITY",
+    "CONDITIONAL_NEEDS_INDEPENDENCE",
+    "CONDITIONAL_NEEDS_PROVENANCE",
+    "INSUFFICIENT_EVIDENCE",
+    "REJECTED_FOR_CURRENT_TARGET"
+  ],
+  "canonical_population_distinction": {
+    "deepsp_phase16e_distribution_n": 12832,
+    "deepsp_canonical_modeling_n": 10117,
+    "train_n": 8599,
+    "validation_n": 1518
+  },
+  "phase17e_information_value_interpretation": {
+    "no_candidate_with_verified_compatible_continuous_activity": "NO_CANDIDATE_AVAILABLE_FOR_ACTIVITY_DISTRIBUTION_ANALYSIS",
+    "potential_information_value_does_not_justify_acceptance": true,
+    "sequence_diversity_without_compatible_activity_not_sufficient": true
+  },
+  "canonical_integrity": {
+    "before": {
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "matches_expected": null
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": null
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true
+      },
+      "data/raw/Moreno-Mateos.csv": {
+        "exists": true,
+        "sha256": "NOT_COMPUTED_MORENO_LOCKED",
+        "matches_expected": null,
+        "git_diff_clean": true
+      }
+    },
+    "after": {
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "matches_expected": null
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": null
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true
+      },
+      "data/raw/Moreno-Mateos.csv": {
+        "exists": true,
+        "sha256": "NOT_COMPUTED_MORENO_LOCKED",
+        "matches_expected": null,
+        "git_diff_clean": true
+      }
+    },
+    "unchanged": true
+  },
+  "scope_confirmation": {
+    "no_model_training": true,
+    "no_model_evaluation": true,
+    "no_hyperparameter_tuning": true,
+    "no_moreno_raw_data_accessed": true,
+    "no_dataset_pooling": true,
+    "no_combined_training_dataset": true,
+    "no_new_training_split": true,
+    "no_label_transformation": true,
+    "no_label_harmonization": true,
+    "no_sequence_transformation": true,
+    "no_30mer_construction": true,
+    "no_reverse_complement_assumption": true,
+    "no_near_duplicate_or_similarity_threshold_analysis": true,
+    "no_dataset_construction": true,
+    "no_accepted_dataset_integrated": true,
+    "no_continual_learning": true,
+    "no_phase18": true,
+    "no_canonical_artifact_modifications": true,
+    "no_model_improvement_claim": true,
+    "no_generalization_claim": true
+  },
+  "git": {
+    "status": "?? data/phase17/\n?? docs/phase17a_dataset_recovery_report.md\n?? docs/phase17b_primary_file_verification_report.md\n?? docs/phase17c_sequence_label_compatibility_report.md\n?? docs/phase17d_independence_overlap_report.md\n?? docs/phase17e_distribution_information_value_report.md\n?? results/phase17a_dataset_recovery_20260911_140154.json\n?? results/phase17a_provenance_20260911_140154.json\n?? results/phase17b_primary_file_verification_20260911_143300.json\n?? results/phase17c_sequence_label_compatibility_20260911_144924.json\n?? results/phase17d_independence_overlap_20260911_145754.json\n?? results/phase17e_distribution_information_value_20260911_190523.json\n?? scripts/run_phase17a_dataset_recovery.py\n?? scripts/run_phase17b_primary_file_verification.py\n?? scripts/run_phase17c_compatibility_audit.py\n?? scripts/run_phase17d_independence_overlap_audit.py\n?? scripts/run_phase17e_distribution_audit.py\n?? scripts/run_phase17f_dataset_acceptance_gate.py\n?? src/dataset_recovery/\n?? tests/test_phase17a_dataset_recovery.py\n?? tests/test_phase17b_primary_file_verification.py\n?? tests/test_phase17c_compatibility.py\n?? tests/test_phase17d_independence_overlap.py\n?? tests/test_phase17e_distribution.py\n?? tests/test_phase17f_dataset_acceptance_gate.py",
+    "diff_stat": "",
+    "diff_name_only": "",
+    "log_2": "e49cdfe audit Phase 16 dataset landscape and reproducibility closure\n0853b66 docs: add project master handover"
+  },
+  "artifacts": {
+    "acceptance_gate_json": "results/phase17f_dataset_acceptance_gate_20260911_203808.json",
+    "report_md": "docs/phase17f_dataset_acceptance_gate_report.md"
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "phase": "17A",
+  "protocol_version": "phase17a-public-dataset-recovery-v1",
+  "access_date": "2026-09-11",
+  "records": [
+    {
+      "candidate_id": "crispron_2021_rth_tools",
+      "source_study_id": "xu_2021_crispron",
+      "publication": "Xu F et al. 2021. Enhancing CRISPR-Cas9 gRNA efficiency prediction by data integration and deep learning.",
+      "doi_or_pubmed": "DOI:10.1038/s41467-021-23576-0",
+      "repository": "RTH-tools/crispron GitHub repository",
+      "accession": "NOT_APPLICABLE",
+      "official_dataset_url": "https://github.com/RTH-tools/crispron/archive/refs/heads/main.zip",
+      "parent_dataset": "UNKNOWN",
+      "subset_id": "repository_source_archive",
+      "acquisition_status": "RECOVERED_PRIMARY_WITH_UNRESOLVED_METADATA",
+      "files": [
+        {
+          "original_filename": "crispron_main.zip",
+          "local_raw_path": "data/phase17/raw/crispron_2021_rth_tools_main.zip",
+          "source_url": "https://github.com/RTH-tools/crispron/archive/refs/heads/main.zip",
+          "sha256": "3fa17a7cb3de043703ec3090505c96340e6da13f23acda8fd7f7268a3f572a9b",
+          "verified_local_file": true
+        }
+      ],
+      "unresolved_items": [
+        "sequence_orientation",
+        "sequence_geometry",
+        "pam_definition",
+        "label_semantics",
+        "unit_semantics",
+        "subset_relationship",
+        "processed_or_derived_status",
+        "study_independence"
+      ]
+    },
+    {
+      "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+      "source_study_id": "rafid_2020_crisprpredseq",
+      "publication": "Rafid AHM et al. 2020. CRISPRpred(SEQ): a sequence-based method for sgRNA on target activity prediction using traditional machine learning.",
+      "doi_or_pubmed": "DOI:10.1186/s12859-020-3531-9",
+      "repository": "BMC Bioinformatics supplementary files",
+      "accession": "NOT_APPLICABLE",
+      "official_dataset_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7310273/",
+      "parent_dataset": "DeepCRISPR/Haeussler-used source relationship reported; unresolved",
+      "subset_id": "additional_files_1_to_4",
+      "acquisition_status": "RECOVERED_PRIMARY_WITH_UNRESOLVED_METADATA",
+      "files": [
+        {
+          "original_filename": "crisprpredseq_additional_file_1.csv",
+          "local_raw_path": "data/phase17/raw/crisprpredseq_2020_additional_file_1.csv",
+          "source_url": "https://static-content.springer.com/esm/art%3A10.1186%2Fs12859-020-3531-9/MediaObjects/12859_2020_3531_MOESM1_ESM.csv",
+          "sha256": "f6da050009616e5bb50a8e66e9429830e89b59e607d0c740cebc364066f34a93",
+          "verified_local_file": true
+        },
+        {
+          "original_filename": "crisprpredseq_additional_file_2.csv",
+          "local_raw_path": "data/phase17/raw/crisprpredseq_2020_additional_file_2.csv",
+          "source_url": "https://static-content.springer.com/esm/art%3A10.1186%2Fs12859-020-3531-9/MediaObjects/12859_2020_3531_MOESM2_ESM.csv",
+          "sha256": "6dbd8c62a9e1e93d2a6b265de13e5ea6b287e9c605186223611a2be8c7968357",
+          "verified_local_file": true
+        },
+        {
+          "original_filename": "crisprpredseq_additional_file_3.csv",
+          "local_raw_path": "data/phase17/raw/crisprpredseq_2020_additional_file_3.csv",
+          "source_url": "https://static-content.springer.com/esm/art%3A10.1186%2Fs12859-020-3531-9/MediaObjects/12859_2020_3531_MOESM3_ESM.csv",
+          "sha256": "466813efdaf0dcca7cbd6c4690a99be9ca47593671174f3d72d87fef669e204d",
+          "verified_local_file": true
+        },
+        {
+          "original_filename": "crisprpredseq_additional_file_4.csv",
+          "local_raw_path": "data/phase17/raw/crisprpredseq_2020_additional_file_4.csv",
+          "source_url": "https://static-content.springer.com/esm/art%3A10.1186%2Fs12859-020-3531-9/MediaObjects/12859_2020_3531_MOESM4_ESM.csv",
+          "sha256": "9b19ca010304b15aab9f2e58962d00b811b0c6c368b2e6b2847da8dc65a00a47",
+          "verified_local_file": true
+        }
+      ],
+      "unresolved_items": [
+        "sequence_orientation",
+        "sequence_geometry",
+        "pam_definition",
+        "label_semantics",
+        "unit_semantics",
+        "subset_relationship",
+        "processed_or_derived_status",
+        "study_independence"
+      ]
+    },
+    {
+      "candidate_id": "doench_2016_orcs_publication_screens",
+      "source_study_id": "doench_2016_nbt_3437",
+      "publication": "Doench JG et al. 2016. Optimized sgRNA design to maximize activity and minimize off-target effects of CRISPR-Cas9.",
+      "doi_or_pubmed": "PMID:26780180",
+      "repository": "BioGRID ORCS Dataset 19 / publication supplementary files",
+      "accession": "BioGRID ORCS Dataset 19",
+      "official_dataset_url": "https://orcs.thebiogrid.org/",
+      "parent_dataset": "same publication supplementary screen tables",
+      "subset_id": "STable_06_09_12_15",
+      "acquisition_status": "RECOVERED_PRIMARY_WITH_UNRESOLVED_METADATA",
+      "files": [
+        {
+          "original_filename": "STable_06_Vem_STARSOutputs.xlsx",
+          "local_raw_path": "data/phase17/raw/doench2016_orcs_STable_06_Vem_STARSOutputs.xlsx",
+          "source_url": "https://orcs.thebiogrid.org/uploads/processed/5aeb49259de3c/STable_06_Vem_STARSOutputs.xlsx",
+          "sha256": "3fa01c4adad9dd624b67d5eacb982fc8f7448461e6a2febe8faefe5e7eefe7b8",
+          "verified_local_file": true
+        },
+        {
+          "original_filename": "STable_09_Sel_STARSOutput.xlsx",
+          "local_raw_path": "data/phase17/raw/doench2016_orcs_STable_09_Sel_STARSOutput.xlsx",
+          "source_url": "https://orcs.thebiogrid.org/uploads/processed/5e4d50e13c7d6/STable%2009%20Sel_STARSOutput.xlsx",
+          "sha256": "88ff9066c2f6f93cf2917a83c8bfd10a26378af60853358dda3442ade24c9030",
+          "verified_local_file": true
+        },
+        {
+          "original_filename": "STable_12_NegativeSelection_individual_STARS.xlsx",
+          "local_raw_path": "data/phase17/raw/doench2016_orcs_STable_12_NegativeSelection_individual_STARS.xlsx",
+          "source_url": "https://orcs.thebiogrid.org/uploads/processed/5af0c639e9d96/STable%2012%20NegativeSelection_individual_STARS.xlsx",
+          "sha256": "2a7018e31f9e6abd2ac5355b7d8c900c9f979e133db22f638197ee908fd7f399",
+          "verified_local_file": true
+        },
+        {
+          "original_filename": "STable_15_IFNg_data_STARS.xlsx",
+          "local_raw_path": "data/phase17/raw/doench2016_orcs_STable_15_IFNg_data_STARS.xlsx",
+          "source_url": "https://orcs.thebiogrid.org/uploads/processed/5afb153562639/STable_15_IFNg_data_STARS.xlsx",
+          "sha256": "9d00508ea5f8af2ac809b0646497ef7a56e484aa4e3b99d779e89cdea21eea58",
+          "verified_local_file": true
+        }
+      ],
+      "unresolved_items": [
+        "sequence_orientation",
+        "sequence_geometry",
+        "pam_definition",
+        "label_semantics",
+        "unit_semantics",
+        "subset_relationship",
+        "processed_or_derived_status",
+        "study_independence"
+      ]
+    },
+    {
+      "candidate_id": "deep_hf_2019_public_data_listing",
+      "source_study_id": "wang_2019_deephf",
+      "publication": "Wang D et al. 2019. Optimized CRISPR guide RNA design for two high-fidelity Cas9 variants by deep learning.",
+      "doi_or_pubmed": "DOI:10.1038/s41467-019-12281-8; PMID:31537894",
+      "repository": "Nature Communications supplementary data / DeepHF web server",
+      "accession": "NOT_APPLICABLE",
+      "official_dataset_url": "https://www.nature.com/articles/s41467-019-12281-8",
+      "parent_dataset": "Phase 10-12 prior project evidence exists",
+      "subset_id": "Supplementary Data 2 candidate",
+      "acquisition_status": "PRIMARY_FILE_NOT_FOUND",
+      "files": [],
+      "unresolved_items": [
+        "sequence_orientation",
+        "sequence_geometry",
+        "pam_definition",
+        "label_semantics",
+        "unit_semantics",
+        "subset_relationship",
+        "processed_or_derived_status",
+        "study_independence"
+      ]
+    },
+    {
+      "candidate_id": "sgdesigner_2020_public_data_listing",
+      "source_study_id": "sgdesigner_2020",
+      "publication": "SgDesigner / unique plasmid library sgRNA potency data; primary publication identity unresolved in project records",
+      "doi_or_pubmed": "UNKNOWN",
+      "repository": "public_data_crisprCas9 catalogue only",
+      "accession": "UNKNOWN",
+      "official_dataset_url": "UNKNOWN",
+      "parent_dataset": "UNKNOWN",
+      "subset_id": "UNKNOWN",
+      "acquisition_status": "INSUFFICIENT_PROVENANCE",
+      "files": [],
+      "unresolved_items": [
+        "sequence_orientation",
+        "sequence_geometry",
+        "pam_definition",
+        "label_semantics",
+        "unit_semantics",
+        "subset_relationship",
+        "processed_or_derived_status",
+        "study_independence"
+      ]
+    },
+    {
+      "candidate_id": "corsi_2022_free_energy_pam_context",
+      "source_study_id": "corsi_2022_natcomm_3006",
+      "publication": "Corsi GI et al. 2022. CRISPR/Cas9 gRNA activity depends on free energy changes and on the target PAM context.",
+      "doi_or_pubmed": "DOI:10.1038/s41467-022-30515-0",
+      "repository": "Nature Communications supplementary data",
+      "accession": "NOT_APPLICABLE",
+      "official_dataset_url": "https://www.nature.com/articles/s41467-022-30515-0",
+      "parent_dataset": "UNKNOWN",
+      "subset_id": "Supplementary data candidate",
+      "acquisition_status": "DISCOVERY_ONLY",
+      "files": [],
+      "unresolved_items": [
+        "sequence_orientation",
+        "sequence_geometry",
+        "pam_definition",
+        "label_semantics",
+        "unit_semantics",
+        "subset_relationship",
+        "processed_or_derived_status",
+        "study_independence"
+      ]
+    }
+  ]
+}

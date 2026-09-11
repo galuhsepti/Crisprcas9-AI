@@ -41,6 +41,9 @@ models/*.meta.json
 # Third-party cloned repositories
 data/external/
 
+# Phase 17 recovered public raw files; provenance and SHA-256 are stored in results JSON.
+data/phase17/raw/
+
 # Generated outputs (regenerable)
 data/processed/
 results/figures/

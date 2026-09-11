@@ -1,0 +1,862 @@
+{
+  "phase": "17A",
+  "protocol_version": "phase17a-public-dataset-recovery-v1",
+  "scope": "public_primary_file_acquisition_and_structure_audit_only",
+  "access_date": "2026-09-11",
+  "candidate_count": 6,
+  "candidates": [
+    {
+      "candidate_id": "crispron_2021_rth_tools",
+      "source_study_id": "xu_2021_crispron",
+      "publication": "Xu F et al. 2021. Enhancing CRISPR-Cas9 gRNA efficiency prediction by data integration and deep learning.",
+      "doi_or_pubmed": "DOI:10.1038/s41467-021-23576-0",
+      "repository": "RTH-tools/crispron GitHub repository",
+      "accession": "NOT_APPLICABLE",
+      "official_dataset_url": "https://github.com/RTH-tools/crispron/archive/refs/heads/main.zip",
+      "access_date": "2026-09-11",
+      "parent_dataset": "UNKNOWN",
+      "subset_id": "repository_source_archive",
+      "experimental_condition": "NOT_ESTABLISHED_FROM_RECOVERED_FILE",
+      "organism_cell_line": "NOT_ESTABLISHED_FROM_RECOVERED_FILE",
+      "nuclease": "SpCas9 described by publication; row-level file unresolved",
+      "assay_type": "publication reports integrated data and gRNA efficiency; recovered archive is source repository, not verified primary table",
+      "derived_or_processed_status": "SOURCE_ARCHIVE_PRIMARY_TABLE_UNRESOLVED",
+      "provenance_notes": "Official repository archive was recovered as in Phase 16, but the primary experimental table identity remains unresolved.",
+      "phase16_carryover": true,
+      "files": [
+        {
+          "original_filename": "crispron_main.zip",
+          "local_filename": "crispron_2021_rth_tools_main.zip",
+          "local_raw_path": "data/phase17/raw/crispron_2021_rth_tools_main.zip",
+          "source_url": "https://github.com/RTH-tools/crispron/archive/refs/heads/main.zip",
+          "file_format": "zip",
+          "provenance_role": "official repository source archive; raw experimental table not identified",
+          "verified_local_file": true,
+          "sha256": "3fa17a7cb3de043703ec3090505c96340e6da13f23acda8fd7f7268a3f572a9b",
+          "structure": {
+            "exists": true,
+            "size_bytes": 16262993,
+            "file_format": "zip",
+            "archive_member_count": 53,
+            "archive_members_preview": [
+              "crispron-main/",
+              "crispron-main/AUTHORS",
+              "crispron-main/COPYING",
+              "crispron-main/Changelog.md",
+              "crispron-main/LICENSE",
+              "crispron-main/README.md",
+              "crispron-main/bin/",
+              "crispron-main/bin/CRISPRon.sh",
+              "crispron-main/bin/DeepCRISPRon_eval.py",
+              "crispron-main/bin/DeepCRISPRon_train.py",
+              "crispron-main/bin/get_30mers_from_fa.py",
+              "crispron-main/bin/test.sh",
+              "crispron-main/data/",
+              "crispron-main/data/deep_models/",
+              "crispron-main/data/deep_models/best/",
+              "crispron-main/data/deep_models/best/1.model.best/",
+              "crispron-main/data/deep_models/best/1.model.best/saved_model.pb",
+              "crispron-main/data/deep_models/best/1.model.best/variables/",
+              "crispron-main/data/deep_models/best/1.model.best/variables/variables.data-00000-of-00001",
+              "crispron-main/data/deep_models/best/1.model.best/variables/variables.index",
+              "crispron-main/data/deep_models/best/2.model.best/",
+              "crispron-main/data/deep_models/best/2.model.best/saved_model.pb",
+              "crispron-main/data/deep_models/best/2.model.best/variables/",
+              "crispron-main/data/deep_models/best/2.model.best/variables/variables.data-00000-of-00001",
+              "crispron-main/data/deep_models/best/2.model.best/variables/variables.index",
+              "crispron-main/data/deep_models/best/3.model.best/",
+              "crispron-main/data/deep_models/best/3.model.best/saved_model.pb",
+              "crispron-main/data/deep_models/best/3.model.best/variables/",
+              "crispron-main/data/deep_models/best/3.model.best/variables/variables.data-00000-of-00001",
+              "crispron-main/data/deep_models/best/3.model.best/variables/variables.index",
+              "crispron-main/data/deep_models/best/4.model.best/",
+              "crispron-main/data/deep_models/best/4.model.best/saved_model.pb",
+              "crispron-main/data/deep_models/best/4.model.best/variables/",
+              "crispron-main/data/deep_models/best/4.model.best/variables/variables.data-00000-of-00001",
+              "crispron-main/data/deep_models/best/4.model.best/variables/variables.index",
+              "crispron-main/data/deep_models/best/5.model.best/",
+              "crispron-main/data/deep_models/best/5.model.best/saved_model.pb",
+              "crispron-main/data/deep_models/best/5.model.best/variables/",
+              "crispron-main/data/deep_models/best/5.model.best/variables/variables.data-00000-of-00001",
+              "crispron-main/data/deep_models/best/5.model.best/variables/variables.index"
+            ],
+            "obvious_data_members": [
+              "crispron-main/test/outdir.original/CRISPRparams.tsv",
+              "crispron-main/test/outdir.original/crispron.csv"
+            ]
+          }
+        }
+      ],
+      "primary_file_located": true,
+      "acquisition_status": "RECOVERED_PRIMARY_WITH_UNRESOLVED_METADATA",
+      "stop_reason": "",
+      "unresolved_items": [
+        "sequence_orientation",
+        "sequence_geometry",
+        "pam_definition",
+        "label_semantics",
+        "unit_semantics",
+        "subset_relationship",
+        "processed_or_derived_status",
+        "study_independence"
+      ]
+    },
+    {
+      "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+      "source_study_id": "rafid_2020_crisprpredseq",
+      "publication": "Rafid AHM et al. 2020. CRISPRpred(SEQ): a sequence-based method for sgRNA on target activity prediction using traditional machine learning.",
+      "doi_or_pubmed": "DOI:10.1186/s12859-020-3531-9",
+      "repository": "BMC Bioinformatics supplementary files",
+      "accession": "NOT_APPLICABLE",
+      "official_dataset_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7310273/",
+      "access_date": "2026-09-11",
+      "parent_dataset": "DeepCRISPR/Haeussler-used source relationship reported; unresolved",
+      "subset_id": "additional_files_1_to_4",
+      "experimental_condition": "HCT116/HEK293/HeLa/HL60 file labels from publication supplement",
+      "organism_cell_line": "human cell lines named by supplementary-file context; row-level audit later",
+      "nuclease": "CRISPR/Cas9 context; exact row-level nuclease unresolved",
+      "assay_type": "binary-labelled sgRNA records in supplementary CSV files",
+      "derived_or_processed_status": "OFFICIAL_SUPPLEMENTARY_FILES_PARENT_RELATIONSHIP_UNRESOLVED",
+      "provenance_notes": "Official BMC supplementary CSV files already recovered in Phase 16; retained for Phase 17A provenance audit only.",
+      "phase16_carryover": true,
+      "files": [
+        {
+          "original_filename": "crisprpredseq_additional_file_1.csv",
+          "local_filename": "crisprpredseq_2020_additional_file_1.csv",
+          "local_raw_path": "data/phase17/raw/crisprpredseq_2020_additional_file_1.csv",
+          "source_url": "https://static-content.springer.com/esm/art%3A10.1186%2Fs12859-020-3531-9/MediaObjects/12859_2020_3531_MOESM1_ESM.csv",
+          "file_format": "csv",
+          "provenance_role": "publisher-hosted supplementary file",
+          "verified_local_file": true,
+          "sha256": "f6da050009616e5bb50a8e66e9429830e89b59e607d0c740cebc364066f34a93",
+          "structure": {
+            "exists": true,
+            "size_bytes": 114466,
+            "file_format": "csv",
+            "row_count": 4239,
+            "column_names": [
+              "sgRNA",
+              "label"
+            ],
+            "obvious_sequence_columns": [
+              "sgRNA"
+            ],
+            "obvious_label_columns": [
+              "label"
+            ],
+            "missing_cells_total": 0,
+            "duplicate_rows": 0
+          }
+        },
+        {
+          "original_filename": "crisprpredseq_additional_file_2.csv",
+          "local_filename": "crisprpredseq_2020_additional_file_2.csv",
+          "local_raw_path": "data/phase17/raw/crisprpredseq_2020_additional_file_2.csv",
+          "source_url": "https://static-content.springer.com/esm/art%3A10.1186%2Fs12859-020-3531-9/MediaObjects/12859_2020_3531_MOESM2_ESM.csv",
+          "file_format": "csv",
+          "provenance_role": "publisher-hosted supplementary file",
+          "verified_local_file": true,
+          "sha256": "6dbd8c62a9e1e93d2a6b265de13e5ea6b287e9c605186223611a2be8c7968357",
+          "structure": {
+            "exists": true,
+            "size_bytes": 63004,
+            "file_format": "csv",
+            "row_count": 2333,
+            "column_names": [
+              "sgRNA",
+              "label"
+            ],
+            "obvious_sequence_columns": [
+              "sgRNA"
+            ],
+            "obvious_label_columns": [
+              "label"
+            ],
+            "missing_cells_total": 0,
+            "duplicate_rows": 0
+          }
+        },
+        {
+          "original_filename": "crisprpredseq_additional_file_3.csv",
+          "local_filename": "crisprpredseq_2020_additional_file_3.csv",
+          "local_raw_path": "data/phase17/raw/crisprpredseq_2020_additional_file_3.csv",
+          "source_url": "https://static-content.springer.com/esm/art%3A10.1186%2Fs12859-020-3531-9/MediaObjects/12859_2020_3531_MOESM3_ESM.csv",
+          "file_format": "csv",
+          "provenance_role": "publisher-hosted supplementary file",
+          "verified_local_file": true,
+          "sha256": "466813efdaf0dcca7cbd6c4690a99be9ca47593671174f3d72d87fef669e204d",
+          "structure": {
+            "exists": true,
+            "size_bytes": 218740,
+            "file_format": "csv",
+            "row_count": 8101,
+            "column_names": [
+              "sgRNA",
+              "label"
+            ],
+            "obvious_sequence_columns": [
+              "sgRNA"
+            ],
+            "obvious_label_columns": [
+              "label"
+            ],
+            "missing_cells_total": 0,
+            "duplicate_rows": 0
+          }
+        },
+        {
+          "original_filename": "crisprpredseq_additional_file_4.csv",
+          "local_filename": "crisprpredseq_2020_additional_file_4.csv",
+          "local_raw_path": "data/phase17/raw/crisprpredseq_2020_additional_file_4.csv",
+          "source_url": "https://static-content.springer.com/esm/art%3A10.1186%2Fs12859-020-3531-9/MediaObjects/12859_2020_3531_MOESM4_ESM.csv",
+          "file_format": "csv",
+          "provenance_role": "publisher-hosted supplementary file",
+          "verified_local_file": true,
+          "sha256": "9b19ca010304b15aab9f2e58962d00b811b0c6c368b2e6b2847da8dc65a00a47",
+          "structure": {
+            "exists": true,
+            "size_bytes": 56065,
+            "file_format": "csv",
+            "row_count": 2076,
+            "column_names": [
+              "sgRNA",
+              "label"
+            ],
+            "obvious_sequence_columns": [
+              "sgRNA"
+            ],
+            "obvious_label_columns": [
+              "label"
+            ],
+            "missing_cells_total": 0,
+            "duplicate_rows": 0
+          }
+        }
+      ],
+      "primary_file_located": true,
+      "acquisition_status": "RECOVERED_PRIMARY_WITH_UNRESOLVED_METADATA",
+      "stop_reason": "",
+      "unresolved_items": [
+        "sequence_orientation",
+        "sequence_geometry",
+        "pam_definition",
+        "label_semantics",
+        "unit_semantics",
+        "subset_relationship",
+        "processed_or_derived_status",
+        "study_independence"
+      ]
+    },
+    {
+      "candidate_id": "doench_2016_orcs_publication_screens",
+      "source_study_id": "doench_2016_nbt_3437",
+      "publication": "Doench JG et al. 2016. Optimized sgRNA design to maximize activity and minimize off-target effects of CRISPR-Cas9.",
+      "doi_or_pubmed": "PMID:26780180",
+      "repository": "BioGRID ORCS Dataset 19 / publication supplementary files",
+      "accession": "BioGRID ORCS Dataset 19",
+      "official_dataset_url": "https://orcs.thebiogrid.org/",
+      "access_date": "2026-09-11",
+      "parent_dataset": "same publication supplementary screen tables",
+      "subset_id": "STable_06_09_12_15",
+      "experimental_condition": "publication screen-specific conditions",
+      "organism_cell_line": "human screens; exact row-level context deferred",
+      "nuclease": "SpCas9 publication context; row-level nuclease unresolved",
+      "assay_type": "screen/rank/enrichment/log-fold-change style outputs",
+      "derived_or_processed_status": "ORCS_HOSTED_PUBLICATION_SUPPLEMENTARY_FILES",
+      "provenance_notes": "Official ORCS-hosted supplementary files recovered in Phase 16; Phase 17A records structure only.",
+      "phase16_carryover": true,
+      "files": [
+        {
+          "original_filename": "STable_06_Vem_STARSOutputs.xlsx",
+          "local_filename": "doench2016_orcs_STable_06_Vem_STARSOutputs.xlsx",
+          "local_raw_path": "data/phase17/raw/doench2016_orcs_STable_06_Vem_STARSOutputs.xlsx",
+          "source_url": "https://orcs.thebiogrid.org/uploads/processed/5aeb49259de3c/STable_06_Vem_STARSOutputs.xlsx",
+          "file_format": "xlsx",
+          "provenance_role": "ORCS-hosted publication supplementary file",
+          "verified_local_file": true,
+          "sha256": "3fa01c4adad9dd624b67d5eacb982fc8f7448461e6a2febe8faefe5e7eefe7b8",
+          "structure": {
+            "exists": true,
+            "size_bytes": 1177546,
+            "file_format": "xlsx",
+            "sheet_count": 5,
+            "sheet_names": [
+              "STARS Vem Avana lentiCRISPRv2",
+              "STARS Vem Avana lentiGuide",
+              "STARS Vem GeCKOv1 lentiCRISPRv1",
+              "STARS Vem GeCKOv1 lentiGuide",
+              "STARS Vem GeCKOv2 lentiGuide"
+            ],
+            "sheet_previews": [
+              {
+                "sheet_name": "STARS Vem Avana lentiCRISPRv2",
+                "preview_row_count": 20,
+                "column_names": [
+                  "p-value=0 means <4.91932552027e-07, FDR=0 means <4.86603282713e-05",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8"
+                ],
+                "obvious_sequence_columns": [],
+                "obvious_label_columns": []
+              },
+              {
+                "sheet_name": "STARS Vem Avana lentiGuide",
+                "preview_row_count": 20,
+                "column_names": [
+                  "p-value=0 means <4.91932552027e-07, FDR=0 means <8.21175981491e-05",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8"
+                ],
+                "obvious_sequence_columns": [],
+                "obvious_label_columns": []
+              },
+              {
+                "sheet_name": "STARS Vem GeCKOv1 lentiCRISPRv1",
+                "preview_row_count": 20,
+                "column_names": [
+                  "p-value=0 means <1.19152302858e-06, FDR=0 means <0.000131514354279",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8"
+                ],
+                "obvious_sequence_columns": [],
+                "obvious_label_columns": []
+              },
+              {
+                "sheet_name": "STARS Vem GeCKOv1 lentiGuide",
+                "preview_row_count": 20,
+                "column_names": [
+                  "p-value=0 means <1.19152302858e-06, FDR=0 means <0.000117034039696",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "obvious_sequence_columns": [],
+                "obvious_label_columns": []
+              },
+              {
+                "sheet_name": "STARS Vem GeCKOv2 lentiGuide",
+                "preview_row_count": 20,
+                "column_names": [
+                  "p-value=0 means <4.54779459202e-07, FDR=0 means <0.000103507804914",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "obvious_sequence_columns": [],
+                "obvious_label_columns": []
+              }
+            ]
+          }
+        },
+        {
+          "original_filename": "STable_09_Sel_STARSOutput.xlsx",
+          "local_filename": "doench2016_orcs_STable_09_Sel_STARSOutput.xlsx",
+          "local_raw_path": "data/phase17/raw/doench2016_orcs_STable_09_Sel_STARSOutput.xlsx",
+          "source_url": "https://orcs.thebiogrid.org/uploads/processed/5e4d50e13c7d6/STable%2009%20Sel_STARSOutput.xlsx",
+          "file_format": "xlsx",
+          "provenance_role": "ORCS-hosted publication supplementary file",
+          "verified_local_file": true,
+          "sha256": "88ff9066c2f6f93cf2917a83c8bfd10a26378af60853358dda3442ade24c9030",
+          "structure": {
+            "exists": true,
+            "size_bytes": 862342,
+            "file_format": "xlsx",
+            "sheet_count": 2,
+            "sheet_names": [
+              "Avana Sel lentiGuide",
+              "Avana Sel lentiCRISPRv2"
+            ],
+            "sheet_previews": [
+              {
+                "sheet_name": "Avana Sel lentiGuide",
+                "preview_row_count": 20,
+                "column_names": [
+                  "p-value=0 means <4.91932552027e-07, FDR=0 means <2.92699868456e-05",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "obvious_sequence_columns": [],
+                "obvious_label_columns": []
+              },
+              {
+                "sheet_name": "Avana Sel lentiCRISPRv2",
+                "preview_row_count": 20,
+                "column_names": [
+                  "p-value=0 means <4.91932552027e-07, FDR=0 means <4.55226815453e-05",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "obvious_sequence_columns": [],
+                "obvious_label_columns": []
+              }
+            ]
+          }
+        },
+        {
+          "original_filename": "STable_12_NegativeSelection_individual_STARS.xlsx",
+          "local_filename": "doench2016_orcs_STable_12_NegativeSelection_individual_STARS.xlsx",
+          "local_raw_path": "data/phase17/raw/doench2016_orcs_STable_12_NegativeSelection_individual_STARS.xlsx",
+          "source_url": "https://orcs.thebiogrid.org/uploads/processed/5af0c639e9d96/STable%2012%20NegativeSelection_individual_STARS.xlsx",
+          "file_format": "xlsx",
+          "provenance_role": "ORCS-hosted publication supplementary file",
+          "verified_local_file": true,
+          "sha256": "2a7018e31f9e6abd2ac5355b7d8c900c9f979e133db22f638197ee908fd7f399",
+          "structure": {
+            "exists": true,
+            "size_bytes": 2084283,
+            "file_format": "xlsx",
+            "sheet_count": 5,
+            "sheet_names": [
+              "Avana6_lentiCRISPRv2_A375",
+              "Avana6_lentiGuide_A375",
+              "Avana4_lentiGuide_HT29",
+              "GeCKOv2_lentiGuide_A375",
+              "GeCKOv2_lentiGuide_HT29"
+            ],
+            "sheet_previews": [
+              {
+                "sheet_name": "Avana6_lentiCRISPRv2_A375",
+                "preview_row_count": 20,
+                "column_names": [
+                  "p-value=0 means <4.91932552027e-07, FDR=0 means <0.000396989569486",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "obvious_sequence_columns": [],
+                "obvious_label_columns": []
+              },
+              {
+                "sheet_name": "Avana6_lentiGuide_A375",
+                "preview_row_count": 20,
+                "column_names": [
+                  "p-value=0 means <4.91932552027e-07, FDR=0 means <0.000230913139921",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "obvious_sequence_columns": [],
+                "obvious_label_columns": []
+              },
+              {
+                "sheet_name": "Avana4_lentiGuide_HT29",
+                "preview_row_count": 20,
+                "column_names": [
+                  "p-value=0 means <1.03950212016e-06, FDR=0 means <0.0010493773903",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "obvious_sequence_columns": [],
+                "obvious_label_columns": []
+              },
+              {
+                "sheet_name": "GeCKOv2_lentiGuide_A375",
+                "preview_row_count": 20,
+                "column_names": [
+                  "p-value=0 means <4.54779459202e-07, FDR=0 means <0.000325508397924",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "obvious_sequence_columns": [],
+                "obvious_label_columns": []
+              },
+              {
+                "sheet_name": "GeCKOv2_lentiGuide_HT29",
+                "preview_row_count": 20,
+                "column_names": [
+                  "p-value=0 means <4.54779459202e-07, FDR=0 means <0.000152919593157",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8",
+                  "Unnamed: 9"
+                ],
+                "obvious_sequence_columns": [],
+                "obvious_label_columns": []
+              }
+            ]
+          }
+        },
+        {
+          "original_filename": "STable_15_IFNg_data_STARS.xlsx",
+          "local_filename": "doench2016_orcs_STable_15_IFNg_data_STARS.xlsx",
+          "local_raw_path": "data/phase17/raw/doench2016_orcs_STable_15_IFNg_data_STARS.xlsx",
+          "source_url": "https://orcs.thebiogrid.org/uploads/processed/5afb153562639/STable_15_IFNg_data_STARS.xlsx",
+          "file_format": "xlsx",
+          "provenance_role": "ORCS-hosted publication supplementary file",
+          "verified_local_file": true,
+          "sha256": "9d00508ea5f8af2ac809b0646497ef7a56e484aa4e3b99d779e89cdea21eea58",
+          "structure": {
+            "exists": true,
+            "size_bytes": 2884151,
+            "file_format": "xlsx",
+            "sheet_count": 2,
+            "sheet_names": [
+              "Data",
+              "STARS analysis"
+            ],
+            "sheet_previews": [
+              {
+                "sheet_name": "Data",
+                "preview_row_count": 20,
+                "column_names": [
+                  "sgRNA",
+                  "Average log fold change IFNgamma - mock"
+                ],
+                "obvious_sequence_columns": [
+                  "sgRNA"
+                ],
+                "obvious_label_columns": [
+                  "Average log fold change IFNgamma - mock"
+                ]
+              },
+              {
+                "sheet_name": "STARS analysis",
+                "preview_row_count": 20,
+                "column_names": [
+                  "p-value=0 means <3.65847412365e-06, FDR=0 means <0.000261215052428",
+                  "Unnamed: 1",
+                  "Unnamed: 2",
+                  "Unnamed: 3",
+                  "Unnamed: 4",
+                  "Unnamed: 5",
+                  "Unnamed: 6",
+                  "Unnamed: 7",
+                  "Unnamed: 8"
+                ],
+                "obvious_sequence_columns": [],
+                "obvious_label_columns": []
+              }
+            ]
+          }
+        }
+      ],
+      "primary_file_located": true,
+      "acquisition_status": "RECOVERED_PRIMARY_WITH_UNRESOLVED_METADATA",
+      "stop_reason": "",
+      "unresolved_items": [
+        "sequence_orientation",
+        "sequence_geometry",
+        "pam_definition",
+        "label_semantics",
+        "unit_semantics",
+        "subset_relationship",
+        "processed_or_derived_status",
+        "study_independence"
+      ]
+    },
+    {
+      "candidate_id": "deep_hf_2019_public_data_listing",
+      "source_study_id": "wang_2019_deephf",
+      "publication": "Wang D et al. 2019. Optimized CRISPR guide RNA design for two high-fidelity Cas9 variants by deep learning.",
+      "doi_or_pubmed": "DOI:10.1038/s41467-019-12281-8; PMID:31537894",
+      "repository": "Nature Communications supplementary data / DeepHF web server",
+      "accession": "NOT_APPLICABLE",
+      "official_dataset_url": "https://www.nature.com/articles/s41467-019-12281-8",
+      "access_date": "2026-09-11",
+      "parent_dataset": "Phase 10-12 prior project evidence exists",
+      "subset_id": "Supplementary Data 2 candidate",
+      "experimental_condition": "HEK293T high-throughput guide RNA-target screen described by publication",
+      "organism_cell_line": "human HEK293T described by publication",
+      "nuclease": "WT-SpCas9, eSpCas9(1.1), SpCas9-HF1 described by publication",
+      "assay_type": "indel rates of >50,000 gRNAs for each nuclease described by publication",
+      "derived_or_processed_status": "PRIMARY_SUPPLEMENTARY_FILE_NOT_RECOVERED_IN_17A",
+      "provenance_notes": "Nature article and supplementary link were located, but Springer media download returned browser-check HTML in this environment; no valid XLSX was preserved.",
+      "phase16_carryover": true,
+      "files": [],
+      "primary_file_located": false,
+      "acquisition_status": "PRIMARY_FILE_NOT_FOUND",
+      "stop_reason": "Official supplementary XLSX URL located but not recoverable locally due media download/browser-check response.",
+      "unresolved_items": [
+        "sequence_orientation",
+        "sequence_geometry",
+        "pam_definition",
+        "label_semantics",
+        "unit_semantics",
+        "subset_relationship",
+        "processed_or_derived_status",
+        "study_independence"
+      ]
+    },
+    {
+      "candidate_id": "sgdesigner_2020_public_data_listing",
+      "source_study_id": "sgdesigner_2020",
+      "publication": "SgDesigner / unique plasmid library sgRNA potency data; primary publication identity unresolved in project records",
+      "doi_or_pubmed": "UNKNOWN",
+      "repository": "public_data_crisprCas9 catalogue only",
+      "accession": "UNKNOWN",
+      "official_dataset_url": "UNKNOWN",
+      "access_date": "2026-09-11",
+      "parent_dataset": "UNKNOWN",
+      "subset_id": "UNKNOWN",
+      "experimental_condition": "UNKNOWN",
+      "organism_cell_line": "UNKNOWN",
+      "nuclease": "UNKNOWN",
+      "assay_type": "UNKNOWN",
+      "derived_or_processed_status": "CATALOGUE_ONLY",
+      "provenance_notes": "No official primary file or unambiguous primary publication/repository was established in bounded Phase 17A search.",
+      "phase16_carryover": true,
+      "files": [],
+      "primary_file_located": false,
+      "acquisition_status": "INSUFFICIENT_PROVENANCE",
+      "stop_reason": "Only discovery/catalogue-level evidence available in current project records.",
+      "unresolved_items": [
+        "sequence_orientation",
+        "sequence_geometry",
+        "pam_definition",
+        "label_semantics",
+        "unit_semantics",
+        "subset_relationship",
+        "processed_or_derived_status",
+        "study_independence"
+      ]
+    },
+    {
+      "candidate_id": "corsi_2022_free_energy_pam_context",
+      "source_study_id": "corsi_2022_natcomm_3006",
+      "publication": "Corsi GI et al. 2022. CRISPR/Cas9 gRNA activity depends on free energy changes and on the target PAM context.",
+      "doi_or_pubmed": "DOI:10.1038/s41467-022-30515-0",
+      "repository": "Nature Communications supplementary data",
+      "accession": "NOT_APPLICABLE",
+      "official_dataset_url": "https://www.nature.com/articles/s41467-022-30515-0",
+      "access_date": "2026-09-11",
+      "parent_dataset": "UNKNOWN",
+      "subset_id": "Supplementary data candidate",
+      "experimental_condition": "publication describes Cas9 efficiency / indel frequency data",
+      "organism_cell_line": "NOT_ESTABLISHED_IN_LOCAL_FILE",
+      "nuclease": "SpCas9 indicated by publication title/context",
+      "assay_type": "reported indel-frequency / Cas9-efficiency data",
+      "derived_or_processed_status": "DISCOVERY_PUBLICATION_ONLY_IN_17A",
+      "provenance_notes": "Bounded discovery found a new target-profile candidate, but no primary file was downloaded in Phase 17A.",
+      "phase16_carryover": false,
+      "files": [],
+      "primary_file_located": false,
+      "acquisition_status": "DISCOVERY_ONLY",
+      "stop_reason": "Discovery-only candidate; primary file acquisition deferred because direct Springer media download was not verified locally.",
+      "unresolved_items": [
+        "sequence_orientation",
+        "sequence_geometry",
+        "pam_definition",
+        "label_semantics",
+        "unit_semantics",
+        "subset_relationship",
+        "processed_or_derived_status",
+        "study_independence"
+      ]
+    }
+  ],
+  "phase16_carryover_candidate_ids": [
+    "crispron_2021_rth_tools",
+    "crisprpredseq_2020_bmc_additional_files",
+    "doench_2016_orcs_publication_screens",
+    "deep_hf_2019_public_data_listing",
+    "sgdesigner_2020_public_data_listing"
+  ],
+  "new_discovery_candidate_ids": [
+    "corsi_2022_free_energy_pam_context"
+  ],
+  "primary_files_recovered": [
+    {
+      "candidate_id": "crispron_2021_rth_tools",
+      "local_raw_path": "data/phase17/raw/crispron_2021_rth_tools_main.zip",
+      "sha256": "3fa17a7cb3de043703ec3090505c96340e6da13f23acda8fd7f7268a3f572a9b"
+    },
+    {
+      "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+      "local_raw_path": "data/phase17/raw/crisprpredseq_2020_additional_file_1.csv",
+      "sha256": "f6da050009616e5bb50a8e66e9429830e89b59e607d0c740cebc364066f34a93"
+    },
+    {
+      "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+      "local_raw_path": "data/phase17/raw/crisprpredseq_2020_additional_file_2.csv",
+      "sha256": "6dbd8c62a9e1e93d2a6b265de13e5ea6b287e9c605186223611a2be8c7968357"
+    },
+    {
+      "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+      "local_raw_path": "data/phase17/raw/crisprpredseq_2020_additional_file_3.csv",
+      "sha256": "466813efdaf0dcca7cbd6c4690a99be9ca47593671174f3d72d87fef669e204d"
+    },
+    {
+      "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+      "local_raw_path": "data/phase17/raw/crisprpredseq_2020_additional_file_4.csv",
+      "sha256": "9b19ca010304b15aab9f2e58962d00b811b0c6c368b2e6b2847da8dc65a00a47"
+    },
+    {
+      "candidate_id": "doench_2016_orcs_publication_screens",
+      "local_raw_path": "data/phase17/raw/doench2016_orcs_STable_06_Vem_STARSOutputs.xlsx",
+      "sha256": "3fa01c4adad9dd624b67d5eacb982fc8f7448461e6a2febe8faefe5e7eefe7b8"
+    },
+    {
+      "candidate_id": "doench_2016_orcs_publication_screens",
+      "local_raw_path": "data/phase17/raw/doench2016_orcs_STable_09_Sel_STARSOutput.xlsx",
+      "sha256": "88ff9066c2f6f93cf2917a83c8bfd10a26378af60853358dda3442ade24c9030"
+    },
+    {
+      "candidate_id": "doench_2016_orcs_publication_screens",
+      "local_raw_path": "data/phase17/raw/doench2016_orcs_STable_12_NegativeSelection_individual_STARS.xlsx",
+      "sha256": "2a7018e31f9e6abd2ac5355b7d8c900c9f979e133db22f638197ee908fd7f399"
+    },
+    {
+      "candidate_id": "doench_2016_orcs_publication_screens",
+      "local_raw_path": "data/phase17/raw/doench2016_orcs_STable_15_IFNg_data_STARS.xlsx",
+      "sha256": "9d00508ea5f8af2ac809b0646497ef7a56e484aa4e3b99d779e89cdea21eea58"
+    }
+  ],
+  "canonical_integrity": {
+    "before": {
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "matches_expected": null
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": null
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true
+      },
+      "data/raw/Moreno-Mateos.csv": {
+        "exists": true,
+        "sha256": "NOT_COMPUTED_MORENO_LOCKED",
+        "matches_expected": null,
+        "git_diff_clean": true
+      }
+    },
+    "after": {
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "matches_expected": null
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": null
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true
+      },
+      "data/raw/Moreno-Mateos.csv": {
+        "exists": true,
+        "sha256": "NOT_COMPUTED_MORENO_LOCKED",
+        "matches_expected": null,
+        "git_diff_clean": true
+      }
+    },
+    "unchanged": true
+  },
+  "non_modeling_guards": {
+    "no_model_training": true,
+    "no_model_evaluation": true,
+    "no_hyperparameter_tuning": true,
+    "no_moreno_raw_data_accessed": true,
+    "no_dataset_pooling": true,
+    "no_training_dataset_created": true,
+    "no_label_transformation": true,
+    "no_label_harmonization": true,
+    "no_near_duplicate_analysis": true,
+    "no_reverse_complement_matching": true,
+    "no_continual_learning": true,
+    "no_dataset_acceptance": true
+  },
+  "timestamp": "2026-09-11T14:01:54.292028",
+  "git": {
+    "head": "e49cdfe1aff284d3f80118bcf210e9fdb137fe4f",
+    "status_before_output": "?? data/phase17/\n?? docs/phase17a_dataset_recovery_report.md\n?? results/phase17a_dataset_recovery_20260911_135758.json\n?? results/phase17a_provenance_20260911_135758.json\n?? scripts/run_phase17a_dataset_recovery.py\n?? src/dataset_recovery/\n?? tests/test_phase17a_dataset_recovery.py"
+  },
+  "artifacts": {
+    "dataset_recovery_json": "results/phase17a_dataset_recovery_20260911_140154.json",
+    "provenance_json": "results/phase17a_provenance_20260911_140154.json",
+    "report_md": "docs/phase17a_dataset_recovery_report.md"
+  }
+}

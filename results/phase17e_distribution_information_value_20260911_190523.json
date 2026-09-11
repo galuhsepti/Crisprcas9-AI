@@ -1,0 +1,912 @@
+{
+  "phase": "17E",
+  "protocol_version": "phase17e-distribution-information-value-v1",
+  "scope": "distribution_and_potential_information_value_audit_only",
+  "phase17b_source": "results/phase17b_primary_file_verification_20260911_143300.json",
+  "phase17c_source": "results/phase17c_sequence_label_compatibility_20260911_144924.json",
+  "canonical_reference": {
+    "distribution_population_n": 12832,
+    "canonical_modeling_population_n": 10117,
+    "train_n": 8599,
+    "validation_n": 1518,
+    "distribution_reference": {
+      "reference": "DeepSpCas9 Phase 16E distribution population",
+      "n": 12832,
+      "canonical_modeling_n": 10117,
+      "train_n": 8599,
+      "validation_n": 1518,
+      "sequence": {
+        "total_records": 12832,
+        "records_with_valid_acgt_sequence": 12832,
+        "unique_sequences": 12832,
+        "missing_sequence_count": 0,
+        "length_distribution": {
+          "30": 12832
+        },
+        "mean_length": 30.0,
+        "median_length": 30.0,
+        "gc": {
+          "n": 12832,
+          "mean": 0.5542186201163758,
+          "median": 0.5666666666666667,
+          "std": 0.13191332953977225,
+          "min": 0.06666666666666667,
+          "max": 1.0,
+          "q01": 0.23333333333333334,
+          "q25": 0.4666666666666667,
+          "q75": 0.6333333333333333,
+          "q99": 0.9
+        },
+        "nucleotide_composition": {
+          "A": 0.22144638403990025,
+          "C": 0.25490960099750626,
+          "G": 0.2993090191188695,
+          "T": 0.22433499584372402
+        },
+        "non_acgt_records": 0,
+        "analysis_note": "Observed sequence geometry only; no 30-mer construction or sequence transformation.",
+        "kmer_2": {
+          "k": 2,
+          "top_kmers": [
+            {
+              "kmer": "GG",
+              "mean_frequency": 0.1032736047811639
+            },
+            {
+              "kmer": "TG",
+              "mean_frequency": 0.07776356522487912
+            },
+            {
+              "kmer": "GC",
+              "mean_frequency": 0.0748210293232529
+            },
+            {
+              "kmer": "AG",
+              "mean_frequency": 0.07174950554648757
+            },
+            {
+              "kmer": "CC",
+              "mean_frequency": 0.07091108435807822
+            },
+            {
+              "kmer": "CA",
+              "mean_frequency": 0.06999473299510724
+            },
+            {
+              "kmer": "CT",
+              "mean_frequency": 0.06608747527733196
+            },
+            {
+              "kmer": "GA",
+              "mean_frequency": 0.06569244990971647
+            },
+            {
+              "kmer": "TC",
+              "mean_frequency": 0.05827295984178148
+            },
+            {
+              "kmer": "GT",
+              "mean_frequency": 0.0563112692406977
+            }
+          ],
+          "mean_frequencies": {
+            "AA": 0.05082928454725668,
+            "AC": 0.05087228050563789,
+            "AG": 0.07174950554648757,
+            "AT": 0.04648131825608822,
+            "CA": 0.06999473299510724,
+            "CC": 0.07091108435807822,
+            "CG": 0.04805067073695469,
+            "CT": 0.06608747527733196,
+            "GA": 0.06569244990971647,
+            "GC": 0.0748210293232529,
+            "GG": 0.1032736047811639,
+            "GT": 0.0563112692406977,
+            "TA": 0.034646680712015404,
+            "TC": 0.05827295984178148,
+            "TG": 0.07776356522487912,
+            "TT": 0.054242088743662854
+          }
+        },
+        "kmer_3": {
+          "k": 3,
+          "top_kmers": [
+            {
+              "kmer": "TGG",
+              "mean_frequency": 0.030234124510150704
+            },
+            {
+              "kmer": "GGG",
+              "mean_frequency": 0.02957171802636129
+            },
+            {
+              "kmer": "GGC",
+              "mean_frequency": 0.028132793017454628
+            },
+            {
+              "kmer": "AGG",
+              "mean_frequency": 0.026949924296400137
+            },
+            {
+              "kmer": "CAG",
+              "mean_frequency": 0.02585611863198995
+            },
+            {
+              "kmer": "CTG",
+              "mean_frequency": 0.02571139116494335
+            },
+            {
+              "kmer": "GGA",
+              "mean_frequency": 0.02505455112219312
+            },
+            {
+              "kmer": "GCC",
+              "mean_frequency": 0.021497595297470053
+            },
+            {
+              "kmer": "GGT",
+              "mean_frequency": 0.02120535714285639
+            },
+            {
+              "kmer": "GAG",
+              "mean_frequency": 0.02088528678304195
+            }
+          ],
+          "mean_frequencies": {
+            "AAA": 0.013270395439971633,
+            "AAC": 0.010130922693267336,
+            "AAG": 0.016504497684360426,
+            "AAT": 0.01007804150338486,
+            "ACA": 0.014823432490203013,
+            "ACC": 0.015146286070537843,
+            "ACG": 0.008627983612397963,
+            "ACT": 0.012282352155326193,
+            "AGA": 0.01554428660491616,
+            "AGC": 0.01715020484503003,
+            "AGG": 0.026949924296400137,
+            "AGT": 0.01175632347702202,
+            "ATA": 0.007898779836124213,
+            "ATC": 0.011970631457071864,
+            "ATG": 0.01604526629853918,
+            "ATT": 0.010459342714642385,
+            "CAA": 0.013033821695760697,
+            "CAC": 0.01648223192019941,
+            "CAG": 0.02585611863198995,
+            "CAT": 0.014347501781261122,
+            "CCA": 0.020181131991449518,
+            "CCC": 0.017264316886355567,
+            "CCG": 0.015224216245101486,
+            "CCT": 0.018271842714641696,
+            "CGA": 0.009524180619879368,
+            "CGC": 0.013142367296045713,
+            "CGG": 0.017066708229426367,
+            "CGT": 0.008800543284645908,
+            "CTA": 0.007575926255789365,
+            "CTC": 0.01649893124332018,
+            "CTG": 0.02571139116494335,
+            "CTT": 0.016473882258638953,
+            "GAA": 0.016816218382614795,
+            "GAC": 0.013682312076950507,
+            "GAG": 0.02088528678304195,
+            "GAT": 0.013693444959031095,
+            "GCA": 0.01886745190594906,
+            "GCC": 0.021497595297470053,
+            "GCG": 0.01502104114713221,
+            "GCT": 0.019554907374420685,
+            "GGA": 0.02505455112219312,
+            "GGC": 0.028132793017454628,
+            "GGG": 0.02957171802636129,
+            "GGT": 0.02120535714285639,
+            "GTA": 0.010540056109726127,
+            "GTC": 0.014211123975774826,
+            "GTG": 0.02001413876024198,
+            "GTT": 0.01189270128250827,
+            "TAA": 0.007626024225151629,
+            "TAC": 0.010592937299608578,
+            "TAG": 0.00820493409333841,
+            "TAT": 0.008380276986106447,
+            "TCA": 0.01622617563234756,
+            "TCC": 0.016749421090131653,
+            "TCG": 0.009518614178839096,
+            "TCT": 0.01575859458496611,
+            "TGA": 0.015922804595653636,
+            "TGC": 0.01670488956180956,
+            "TGG": 0.030234124510150704,
+            "TGT": 0.014948677413608802,
+            "TTA": 0.00865024937655892,
+            "TTC": 0.015210300142500847,
+            "TTG": 0.015611083897399276,
+            "TTT": 0.014926411649447812
+          }
+        }
+      },
+      "activity": {
+        "status": "CANONICAL_REFERENCE_ONLY",
+        "descriptive": {
+          "n": 12832,
+          "mean": 0.40306726163188167,
+          "median": 0.4114107664000033,
+          "std": 0.22951876550681893,
+          "min": 0.0,
+          "max": 0.9513502579144332,
+          "q01": 0.0009510160691673811,
+          "q25": 0.21455855193613838,
+          "q75": 0.5884389978517375,
+          "q99": 0.8494630957892637
+        }
+      }
+    }
+  },
+  "candidates": [
+    {
+      "candidate_id": "corsi_2022_free_energy_pam_context",
+      "dataset_type": "INSUFFICIENT_DATA",
+      "verified_sequence_available": false,
+      "verified_continuous_activity_available": false,
+      "analysis_performed": {
+        "sequence_distribution": false,
+        "activity_distribution": false
+      },
+      "sequence_distribution": {
+        "status": "NO_SEQUENCE_AVAILABLE"
+      },
+      "sequence_comparison_to_canonical": {
+        "status": "NOT_ASSESSED"
+      },
+      "activity_distribution": {
+        "status": "NOT_ANALYZED_LABEL_NOT_COMPATIBLE",
+        "reason": "Phase 17C did not establish LABEL_COMPATIBLE."
+      },
+      "information_value_status": "INSUFFICIENT_EVIDENCE",
+      "information_value_reason": "Verified local sequence/activity evidence is insufficient."
+    },
+    {
+      "candidate_id": "crispron_2021_rth_tools",
+      "dataset_type": "INSUFFICIENT_DATA",
+      "verified_sequence_available": false,
+      "verified_continuous_activity_available": false,
+      "analysis_performed": {
+        "sequence_distribution": false,
+        "activity_distribution": false
+      },
+      "sequence_distribution": {
+        "status": "NO_SEQUENCE_AVAILABLE"
+      },
+      "sequence_comparison_to_canonical": {
+        "status": "NOT_ASSESSED"
+      },
+      "activity_distribution": {
+        "status": "NOT_ANALYZED_LABEL_NOT_COMPATIBLE",
+        "reason": "Phase 17C did not establish LABEL_COMPATIBLE."
+      },
+      "information_value_status": "INSUFFICIENT_EVIDENCE",
+      "information_value_reason": "Verified local sequence/activity evidence is insufficient."
+    },
+    {
+      "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+      "dataset_type": "INCOMPATIBLE_LABEL_DATA",
+      "verified_sequence_available": true,
+      "verified_continuous_activity_available": false,
+      "analysis_performed": {
+        "sequence_distribution": true,
+        "activity_distribution": false
+      },
+      "sequence_distribution": {
+        "total_records": 16749,
+        "records_with_valid_acgt_sequence": 16749,
+        "unique_sequences": 12465,
+        "missing_sequence_count": 0,
+        "length_distribution": {
+          "23": 16749
+        },
+        "mean_length": 23.0,
+        "median_length": 23.0,
+        "gc": {
+          "n": 16749,
+          "mean": 0.5800787587578233,
+          "median": 0.5652173913043478,
+          "std": 0.08402696552297394,
+          "min": 0.21739130434782608,
+          "max": 0.8695652173913043,
+          "q01": 0.391304347826087,
+          "q25": 0.5217391304347826,
+          "q75": 0.6521739130434783,
+          "q99": 0.7391304347826086
+        },
+        "nucleotide_composition": {
+          "A": 0.23406978223229422,
+          "C": 0.24751899529368399,
+          "G": 0.33255976346413935,
+          "T": 0.18585145900988248
+        },
+        "non_acgt_records": 0,
+        "analysis_note": "Observed sequence geometry only; no 30-mer construction or sequence transformation.",
+        "kmer_2": {
+          "k": 2,
+          "top_kmers": [
+            {
+              "kmer": "GG",
+              "mean_frequency": 0.11715489120110024
+            },
+            {
+              "kmer": "AG",
+              "mean_frequency": 0.09163640705821713
+            },
+            {
+              "kmer": "CA",
+              "mean_frequency": 0.08140241751202784
+            },
+            {
+              "kmer": "TG",
+              "mean_frequency": 0.07754872746811801
+            },
+            {
+              "kmer": "GA",
+              "mean_frequency": 0.0724955085513849
+            },
+            {
+              "kmer": "GC",
+              "mean_frequency": 0.06977892845705176
+            },
+            {
+              "kmer": "CC",
+              "mean_frequency": 0.06498624069821747
+            },
+            {
+              "kmer": "CT",
+              "mean_frequency": 0.062386356851692346
+            },
+            {
+              "kmer": "AC",
+              "mean_frequency": 0.05829113271348072
+            },
+            {
+              "kmer": "AA",
+              "mean_frequency": 0.053398031904206354
+            }
+          ],
+          "mean_frequencies": {
+            "AA": 0.053398031904206354,
+            "AC": 0.05829113271348072,
+            "AG": 0.09163640705821713,
+            "AT": 0.04138374611238328,
+            "CA": 0.08140241751202784,
+            "CC": 0.06498624069821747,
+            "CG": 0.0499948436541619,
+            "CT": 0.062386356851692346,
+            "GA": 0.0724955085513849,
+            "GC": 0.06977892845705176,
+            "GG": 0.11715489120110024,
+            "GT": 0.04279224268477033,
+            "TA": 0.026986685772285277,
+            "TC": 0.05325148312788856,
+            "TG": 0.07754872746811801,
+            "TT": 0.03651235623293502
+          }
+        },
+        "kmer_3": {
+          "k": 3,
+          "top_kmers": [
+            {
+              "kmer": "AGG",
+              "mean_frequency": 0.04042885289526312
+            },
+            {
+              "kmer": "TGG",
+              "mean_frequency": 0.03597371840251549
+            },
+            {
+              "kmer": "CAG",
+              "mean_frequency": 0.0330965032738233
+            },
+            {
+              "kmer": "CTG",
+              "mean_frequency": 0.027089037298599142
+            },
+            {
+              "kmer": "GAG",
+              "mean_frequency": 0.02704639082930063
+            },
+            {
+              "kmer": "CCA",
+              "mean_frequency": 0.024848676111435427
+            },
+            {
+              "kmer": "AAG",
+              "mean_frequency": 0.02468946262605336
+            },
+            {
+              "kmer": "GGA",
+              "mean_frequency": 0.022122145174265556
+            },
+            {
+              "kmer": "AGC",
+              "mean_frequency": 0.02198567647250944
+            },
+            {
+              "kmer": "AGA",
+              "mean_frequency": 0.021863423260519755
+            }
+          ],
+          "mean_frequencies": {
+            "AAA": 0.010269269807152533,
+            "AAC": 0.012705804753090645,
+            "AAG": 0.02468946262605336,
+            "AAT": 0.008276258141922023,
+            "ACA": 0.01894924785843511,
+            "ACC": 0.017516326489995303,
+            "ACG": 0.011511703612724262,
+            "ACT": 0.013089622976779859,
+            "AGA": 0.021863423260519755,
+            "AGC": 0.02198567647250944,
+            "AGG": 0.04042885289526312,
+            "AGT": 0.011722092861264997,
+            "ATA": 0.005981878093646221,
+            "ATC": 0.011571408669742598,
+            "ATG": 0.018770132687379936,
+            "ATT": 0.007030981238396945,
+            "CAA": 0.018019554827721117,
+            "CAC": 0.019950018337980272,
+            "CAG": 0.0330965032738233,
+            "CAT": 0.014212646668314961,
+            "CCA": 0.024848676111435427,
+            "CCC": 0.011670917098106411,
+            "CCG": 0.01475852147533968,
+            "CCT": 0.016802708903728716,
+            "CGA": 0.012083166301328165,
+            "CGC": 0.011699348077639076,
+            "CGG": 0.0213601949227939,
+            "CGT": 0.007232841193077982,
+            "CTA": 0.007013922650677422,
+            "CTC": 0.016882315646419954,
+            "CTG": 0.027089037298599142,
+            "CTT": 0.014371860153697194,
+            "GAA": 0.019958547631839876,
+            "GAC": 0.01573654717125877,
+            "GAG": 0.02704639082930063,
+            "GAT": 0.013206189992863248,
+            "GCA": 0.021428429273671785,
+            "GCC": 0.019213655968087367,
+            "GCG": 0.014747149083526794,
+            "GCT": 0.01771250024876971,
+            "GGA": 0.022122145174265556,
+            "GGC": 0.019472377881833477,
+            "GGG": 0.021047454147936264,
+            "GGT": 0.012472670720923883,
+            "GTA": 0.007693423061505106,
+            "GTC": 0.010681519010374285,
+            "GTG": 0.017999653142048436,
+            "GTT": 0.008455373312976975,
+            "TAA": 0.005336494858257574,
+            "TAC": 0.009868392995743854,
+            "TAG": 0.007571169849515192,
+            "TAT": 0.005495708343639786,
+            "TCA": 0.01619144284377925,
+            "TCC": 0.016384773504600526,
+            "TCG": 0.009151932311524048,
+            "TCT": 0.014059119378839453,
+            "TGA": 0.016450164757525258,
+            "TGC": 0.01619712903968576,
+            "TGG": 0.03597371840251549,
+            "TGT": 0.012620511814493102,
+            "TTA": 0.005745900963526143,
+            "TTC": 0.013314227715086942,
+            "TTG": 0.013385305163918212,
+            "TTT": 0.005805606020544481
+          }
+        }
+      },
+      "sequence_comparison_to_canonical": {
+        "status": "DESCRIPTIVE_ONLY",
+        "reference": "DeepSpCas9 Phase 16E distribution population (n=12,832)",
+        "gc": {
+          "status": "DESCRIPTIVE_ONLY",
+          "reference": "DeepSpCas9 Phase 16E distribution population (n=12,832)",
+          "mean_gc_delta_candidate_minus_reference": 0.02586013864144754,
+          "median_gc_delta_candidate_minus_reference": -0.0014492753623188692
+        },
+        "nucleotide_composition_jsd": 0.0021009138696562717,
+        "kmer_2_jsd": 0.004492887075598825,
+        "kmer_3_jsd": 0.01071573207074164
+      },
+      "activity_distribution": {
+        "status": "NOT_ANALYZED_LABEL_NOT_COMPATIBLE",
+        "reason": "Phase 17C did not establish LABEL_COMPATIBLE."
+      },
+      "information_value_status": "LIMITED_INFORMATION_VALUE",
+      "information_value_reason": "Sequence composition can be described, but labels are incompatible or not usable as thesis activity."
+    },
+    {
+      "candidate_id": "deep_hf_2019_public_data_listing",
+      "dataset_type": "INSUFFICIENT_DATA",
+      "verified_sequence_available": false,
+      "verified_continuous_activity_available": false,
+      "analysis_performed": {
+        "sequence_distribution": false,
+        "activity_distribution": false
+      },
+      "sequence_distribution": {
+        "status": "NO_SEQUENCE_AVAILABLE"
+      },
+      "sequence_comparison_to_canonical": {
+        "status": "NOT_ASSESSED"
+      },
+      "activity_distribution": {
+        "status": "NOT_ANALYZED_LABEL_NOT_COMPATIBLE",
+        "reason": "Phase 17C did not establish LABEL_COMPATIBLE."
+      },
+      "information_value_status": "INSUFFICIENT_EVIDENCE",
+      "information_value_reason": "Verified local sequence/activity evidence is insufficient."
+    },
+    {
+      "candidate_id": "doench_2016_orcs_publication_screens",
+      "dataset_type": "INCOMPATIBLE_LABEL_DATA",
+      "verified_sequence_available": true,
+      "verified_continuous_activity_available": false,
+      "analysis_performed": {
+        "sequence_distribution": true,
+        "activity_distribution": false
+      },
+      "sequence_distribution": {
+        "total_records": 194653,
+        "records_with_valid_acgt_sequence": 194653,
+        "unique_sequences": 157573,
+        "missing_sequence_count": 0,
+        "length_distribution": {
+          "20": 194653
+        },
+        "mean_length": 20.0,
+        "median_length": 20.0,
+        "gc": {
+          "n": 194653,
+          "mean": 0.5218229361992879,
+          "median": 0.5,
+          "std": 0.1163132676129112,
+          "min": 0.0,
+          "max": 1.0,
+          "q01": 0.25,
+          "q25": 0.45,
+          "q75": 0.6,
+          "q99": 0.8
+        },
+        "nucleotide_composition": {
+          "A": 0.2633103522678818,
+          "C": 0.2712853128387438,
+          "G": 0.25053762336054414,
+          "T": 0.2148667115328302
+        },
+        "non_acgt_records": 0,
+        "analysis_note": "Observed sequence geometry only; no 30-mer construction or sequence transformation.",
+        "kmer_2": {
+          "k": 2,
+          "top_kmers": [
+            {
+              "kmer": "CA",
+              "mean_frequency": 0.08802519571257023
+            },
+            {
+              "kmer": "AG",
+              "mean_frequency": 0.08060875939284304
+            },
+            {
+              "kmer": "CC",
+              "mean_frequency": 0.07748498204761936
+            },
+            {
+              "kmer": "GA",
+              "mean_frequency": 0.07226111133789283
+            },
+            {
+              "kmer": "CT",
+              "mean_frequency": 0.06894400751453895
+            },
+            {
+              "kmer": "TG",
+              "mean_frequency": 0.06764317718407684
+            },
+            {
+              "kmer": "GC",
+              "mean_frequency": 0.06746418120012929
+            },
+            {
+              "kmer": "TC",
+              "mean_frequency": 0.06622337671322806
+            },
+            {
+              "kmer": "AA",
+              "mean_frequency": 0.06603005023511148
+            },
+            {
+              "kmer": "AC",
+              "mean_frequency": 0.06304903705835327
+            }
+          ],
+          "mean_frequencies": {
+            "AA": 0.06603005023511148,
+            "AC": 0.06304903705835327,
+            "AG": 0.08060875939284304,
+            "AT": 0.05181663348571765,
+            "CA": 0.08802519571257023,
+            "CC": 0.07748498204761936,
+            "CG": 0.04305989037988053,
+            "CT": 0.06894400751453895,
+            "GA": 0.07226111133789283,
+            "GC": 0.06746418120012929,
+            "GG": 0.05365958911499375,
+            "GT": 0.047896026586606626,
+            "TA": 0.039876357577788124,
+            "TC": 0.06622337671322806,
+            "TG": 0.06764317718407684,
+            "TT": 0.045957624458346606
+          }
+        },
+        "kmer_3": {
+          "k": 3,
+          "top_kmers": [
+            {
+              "kmer": "CAG",
+              "mean_frequency": 0.029973565495789778
+            },
+            {
+              "kmer": "CCA",
+              "mean_frequency": 0.027496508031135205
+            },
+            {
+              "kmer": "AGA",
+              "mean_frequency": 0.025171858526625103
+            },
+            {
+              "kmer": "CTG",
+              "mean_frequency": 0.023699723211189946
+            },
+            {
+              "kmer": "TCC",
+              "mean_frequency": 0.021836293301438738
+            },
+            {
+              "kmer": "AGC",
+              "mean_frequency": 0.02164963636148167
+            },
+            {
+              "kmer": "GAA",
+              "mean_frequency": 0.021647067687995198
+            },
+            {
+              "kmer": "ACA",
+              "mean_frequency": 0.02126005421615762
+            },
+            {
+              "kmer": "AAG",
+              "mean_frequency": 0.021051135439325918
+            },
+            {
+              "kmer": "GCA",
+              "mean_frequency": 0.02101660105135313
+            }
+          ],
+          "mean_frequencies": {
+            "AAA": 0.018272972360515297,
+            "AAC": 0.014497022336627467,
+            "AAG": 0.021051135439325918,
+            "AAT": 0.011467700072559421,
+            "ACA": 0.02126005421615762,
+            "ACC": 0.019231087570666897,
+            "ACG": 0.009499810774392029,
+            "ACT": 0.014581217745323458,
+            "AGA": 0.025171858526625103,
+            "AGC": 0.02164963636148167,
+            "AGG": 0.017057704393647795,
+            "AGT": 0.01400212457839366,
+            "ATA": 0.010586074250652885,
+            "ATC": 0.015363806933949108,
+            "ATG": 0.016629592146041015,
+            "ATT": 0.010163099350017964,
+            "CAA": 0.019070402773731645,
+            "CAC": 0.020648995334739666,
+            "CAG": 0.029973565495789778,
+            "CAT": 0.017123919087944445,
+            "CCA": 0.027496508031135205,
+            "CCC": 0.018263839299234353,
+            "CCG": 0.01460947315366505,
+            "CCT": 0.01877928644535866,
+            "CGA": 0.010484183535723144,
+            "CGC": 0.010923426701766829,
+            "CGG": 0.008904449342052985,
+            "CGT": 0.007495960047425978,
+            "CTA": 0.010074908227010841,
+            "CTC": 0.02026711920987389,
+            "CTG": 0.023699723211189946,
+            "CTT": 0.01695067633174596,
+            "GAA": 0.021647067687995198,
+            "GAC": 0.014818677338662977,
+            "GAG": 0.020603330028327833,
+            "GAT": 0.014310079988505612,
+            "GCA": 0.02101660105135313,
+            "GCC": 0.01873932930224872,
+            "GCG": 0.010985645681752336,
+            "GCT": 0.01812084980853894,
+            "GGA": 0.01746840674318554,
+            "GGC": 0.01345670957494193,
+            "GGG": 0.009582579142261044,
+            "GGT": 0.010285539452833415,
+            "GTA": 0.01101104700844503,
+            "GTC": 0.012988925592390059,
+            "GTG": 0.01435488907042072,
+            "GTT": 0.010187073635883934,
+            "TAA": 0.008455787706561113,
+            "TAC": 0.013460990697418056,
+            "TAG": 0.009883684756413,
+            "TAT": 0.009161316690617023,
+            "TCA": 0.02004193216763478,
+            "TCC": 0.021836293301438738,
+            "TCG": 0.00869553056522099,
+            "TCT": 0.017802048888152552,
+            "TGA": 0.01939719512273835,
+            "TGC": 0.018045787461125194,
+            "TGG": 0.016133552755146975,
+            "TGT": 0.014832091522420215,
+            "TTA": 0.008889893525634634,
+            "TTC": 0.017481250110613907,
+            "TTG": 0.012918715183782424,
+            "TTT": 0.008135845153516081
+          }
+        }
+      },
+      "sequence_comparison_to_canonical": {
+        "status": "DESCRIPTIVE_ONLY",
+        "reference": "DeepSpCas9 Phase 16E distribution population (n=12,832)",
+        "gc": {
+          "status": "DESCRIPTIVE_ONLY",
+          "reference": "DeepSpCas9 Phase 16E distribution population (n=12,832)",
+          "mean_gc_delta_candidate_minus_reference": -0.032395683917087914,
+          "median_gc_delta_candidate_minus_reference": -0.06666666666666665
+        },
+        "nucleotide_composition_jsd": 0.0031254072570812428,
+        "kmer_2_jsd": 0.009513361112626965,
+        "kmer_3_jsd": 0.01815483407204873
+      },
+      "activity_distribution": {
+        "status": "NOT_ANALYZED_LABEL_NOT_COMPATIBLE",
+        "reason": "Phase 17C did not establish LABEL_COMPATIBLE."
+      },
+      "information_value_status": "LIMITED_INFORMATION_VALUE",
+      "information_value_reason": "Sequence composition can be described, but labels are incompatible or not usable as thesis activity."
+    },
+    {
+      "candidate_id": "sgdesigner_2020_public_data_listing",
+      "dataset_type": "INSUFFICIENT_DATA",
+      "verified_sequence_available": false,
+      "verified_continuous_activity_available": false,
+      "analysis_performed": {
+        "sequence_distribution": false,
+        "activity_distribution": false
+      },
+      "sequence_distribution": {
+        "status": "NO_SEQUENCE_AVAILABLE"
+      },
+      "sequence_comparison_to_canonical": {
+        "status": "NOT_ASSESSED"
+      },
+      "activity_distribution": {
+        "status": "NOT_ANALYZED_LABEL_NOT_COMPATIBLE",
+        "reason": "Phase 17C did not establish LABEL_COMPATIBLE."
+      },
+      "information_value_status": "INSUFFICIENT_EVIDENCE",
+      "information_value_reason": "Verified local sequence/activity evidence is insufficient."
+    }
+  ],
+  "activity_distribution_global_status": "NO_CANDIDATE_AVAILABLE_FOR_ACTIVITY_DISTRIBUTION_ANALYSIS",
+  "information_value_statuses": [
+    "INSUFFICIENT_EVIDENCE",
+    "LIMITED_INFORMATION_VALUE",
+    "NO_INFORMATION_VALUE_ESTABLISHED",
+    "POTENTIAL_INFORMATION_VALUE"
+  ],
+  "dataset_types": [
+    "COMPATIBLE_CONTINUOUS_ACTIVITY",
+    "INCOMPATIBLE_LABEL_DATA",
+    "INSUFFICIENT_DATA",
+    "SEQUENCE_ONLY_DESCRIPTIVE"
+  ],
+  "canonical_integrity": {
+    "before": {
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "matches_expected": null
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": null
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true
+      },
+      "data/raw/Moreno-Mateos.csv": {
+        "exists": true,
+        "sha256": "NOT_COMPUTED_MORENO_LOCKED",
+        "matches_expected": null,
+        "git_diff_clean": true
+      }
+    },
+    "after": {
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "matches_expected": null
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": null
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true
+      },
+      "data/raw/Moreno-Mateos.csv": {
+        "exists": true,
+        "sha256": "NOT_COMPUTED_MORENO_LOCKED",
+        "matches_expected": null,
+        "git_diff_clean": true
+      }
+    },
+    "unchanged": true
+  },
+  "non_modeling_guards": {
+    "no_model_training": true,
+    "no_model_evaluation": true,
+    "no_hyperparameter_tuning": true,
+    "no_moreno_raw_data_accessed": true,
+    "no_dataset_pooling": true,
+    "no_combined_training_dataset": true,
+    "no_retraining": true,
+    "no_calibration": true,
+    "no_adaptation_or_domain_weighting": true,
+    "no_label_transformation": true,
+    "no_label_harmonization": true,
+    "no_sequence_transformation": true,
+    "no_30mer_construction": true,
+    "no_reverse_complement": true,
+    "no_near_duplicate_analysis": true,
+    "no_continual_learning": true,
+    "no_dataset_acceptance": true
+  },
+  "safety_guards": {
+    "binary_labels_not_activity": true,
+    "rank_enrichment_logfc_not_activity": true,
+    "guide_or_23mer_not_converted_to_30mer": true,
+    "kmer_not_overlap_criterion": true,
+    "no_generalization_claim": true
+  },
+  "timestamp": "2026-09-11T19:05:23.173123",
+  "git": {
+    "head": "e49cdfe1aff284d3f80118bcf210e9fdb137fe4f",
+    "status": "?? data/phase17/\n?? docs/phase17a_dataset_recovery_report.md\n?? docs/phase17b_primary_file_verification_report.md\n?? docs/phase17c_sequence_label_compatibility_report.md\n?? docs/phase17d_independence_overlap_report.md\n?? results/phase17a_dataset_recovery_20260911_140154.json\n?? results/phase17a_provenance_20260911_140154.json\n?? results/phase17b_primary_file_verification_20260911_143300.json\n?? results/phase17c_sequence_label_compatibility_20260911_144924.json\n?? results/phase17d_independence_overlap_20260911_145754.json\n?? scripts/run_phase17a_dataset_recovery.py\n?? scripts/run_phase17b_primary_file_verification.py\n?? scripts/run_phase17c_compatibility_audit.py\n?? scripts/run_phase17d_independence_overlap_audit.py\n?? scripts/run_phase17e_distribution_audit.py\n?? src/dataset_recovery/\n?? tests/test_phase17a_dataset_recovery.py\n?? tests/test_phase17b_primary_file_verification.py\n?? tests/test_phase17c_compatibility.py\n?? tests/test_phase17d_independence_overlap.py\n?? tests/test_phase17e_distribution.py",
+    "diff_stat": "",
+    "diff_name_only": "",
+    "log_2": "e49cdfe audit Phase 16 dataset landscape and reproducibility closure\n0853b66 docs: add project master handover"
+  },
+  "figures": {
+    "gc_distribution": "results/figures/phase17e_gc_distribution_20260911_190523.png",
+    "nucleotide_composition": "results/figures/phase17e_nucleotide_composition_20260911_190523.png"
+  },
+  "artifacts": {
+    "distribution_information_value_json": "results/phase17e_distribution_information_value_20260911_190523.json",
+    "report_md": "docs/phase17e_distribution_information_value_report.md"
+  }
+}
