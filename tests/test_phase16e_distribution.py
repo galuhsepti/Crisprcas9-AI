@@ -1,5 +1,8 @@
 import ast
+import json
 from pathlib import Path
+
+import pytest
 
 from src.dataset_landscape.distribution import (
     activity_distribution,
@@ -7,6 +10,12 @@ from src.dataset_landscape.distribution import (
     fixed_activity_bins,
     sequence_distribution,
 )
+
+
+@pytest.fixture(scope="module")
+def phase16e_payload():
+    """Build the heavy Phase 16E distribution audit once for this module."""
+    return build_phase16e_distribution_audit("2026-09-08")
 
 
 def test_sequence_distribution_basic_gc_and_kmers():
@@ -28,15 +37,15 @@ def test_activity_distribution_only_for_established_continuous_labels():
     assert report["high_activity_>0.8"] == 1
 
 
-def test_phase16e_candidate_labels_not_analyzed_as_activity():
-    payload = build_phase16e_distribution_audit("2026-09-08")
+def test_phase16e_candidate_labels_not_analyzed_as_activity(phase16e_payload):
+    payload = phase16e_payload
     for record in payload["candidate_reports"]:
         assert record["record_counts"]["activity_label_analyzed"] is False
         assert record["activity"]["status"] == "NOT_ANALYZED_LABEL_SEMANTICS_NOT_ESTABLISHED_AS_CONTINUOUS_ACTIVITY"
 
 
-def test_phase16e_carries_phase16d_context_without_gate_decision():
-    payload = build_phase16e_distribution_audit("2026-09-08")
+def test_phase16e_carries_phase16d_context_without_gate_decision(phase16e_payload):
+    payload = phase16e_payload
     assert "phase16d_context" in payload
     assert payload["non_modeling_guards"]["no_gate_decision"] is True
 
@@ -67,7 +76,19 @@ def test_no_forbidden_phase16e_sources():
         assert forbidden_imports.isdisjoint(set(imports))
 
 
-def test_phase16e_deterministic_output():
-    a = build_phase16e_distribution_audit("2026-09-08")
-    b = build_phase16e_distribution_audit("2026-09-08")
-    assert a == b
+def test_phase16e_deterministic_output(phase16e_payload):
+    frozen = json.loads(
+        Path("results/phase16e_distribution_audit_20260908_170415.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    for key in [
+        "phase",
+        "scope",
+        "status",
+        "canonical_reference",
+        "candidate_reports",
+        "phase16d_context",
+        "non_modeling_guards",
+    ]:
+        assert phase16e_payload[key] == frozen[key]

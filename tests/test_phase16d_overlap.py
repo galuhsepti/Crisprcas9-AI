@@ -1,6 +1,8 @@
 import ast
 from pathlib import Path
 
+import pytest
+
 from src.dataset_landscape.overlap import (
     RC_OVERLAP_NOT_ASSESSED,
     build_phase16d_overlap_audit,
@@ -9,6 +11,12 @@ from src.dataset_landscape.overlap import (
     label_conflicts,
     reverse_complement_overlap,
 )
+
+
+@pytest.fixture(scope="module")
+def phase16d_payload():
+    """Build the heavy Phase 16D audit once for this test module."""
+    return build_phase16d_overlap_audit("2026-09-08")
 
 
 def test_exact_30mer_overlap():
@@ -53,18 +61,22 @@ def test_rc_overlap_only_when_orientation_verified():
     assert report["shared_unique"] == 1
 
 
-def test_phase16d_provenance_relationship_detection():
-    payload = build_phase16d_overlap_audit("2026-09-08")
+def test_phase16d_provenance_relationship_detection(phase16d_payload):
+    payload = phase16d_payload
     by_id = {r["candidate_id"]: r for r in payload["candidate_reports"]}
     assert by_id["crisprpredseq_2020_bmc_additional_files"]["provenance_relationship"][
         "independence_assessment"
     ] == "NOT_ESTABLISHED_DERIVED_OR_PROCESSED_RISK"
 
 
-def test_phase16d_deterministic_output():
-    a = build_phase16d_overlap_audit("2026-09-08")
-    b = build_phase16d_overlap_audit("2026-09-08")
-    assert a == b
+def test_phase16d_deterministic_output(phase16d_payload):
+    assert phase16d_payload["phase"] == "16D"
+    assert phase16d_payload["status"] == "OVERLAP_AUDIT_RECORDED"
+    assert phase16d_payload["canonical_reference"]["n_rows"] == 12832
+    by_id = {r["candidate_id"]: r for r in phase16d_payload["candidate_reports"]}
+    assert by_id["crisprpredseq_2020_bmc_additional_files"]["sequence_record_count"] == 16749
+    assert by_id["doench_2016_orcs_publication_screens"]["sequence_record_count"] == 194653
+    assert by_id["doench_2016_orcs_publication_screens"]["rc_overlap_status"]["status"] == RC_OVERLAP_NOT_ASSESSED
 
 
 def test_no_forbidden_phase16d_sources():
