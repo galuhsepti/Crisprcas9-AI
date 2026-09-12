@@ -1,0 +1,709 @@
+{
+  "phase": "17G-R1",
+  "timestamp": "2026-09-11T23:37:49.088078",
+  "basis": {
+    "original_phase17g_decision": "NO_GO",
+    "new_evidence_phases": [
+      "17H",
+      "17I"
+    ],
+    "crispron_sha256": "146f211575179fc31669dbd5eaef46434b0866013a2d03767354375a1cc5d61f",
+    "crispron_sha256_matches_expected": true,
+    "source_separation": {
+      "source_identity_recoverable": true,
+      "source_column_used": "Dataset",
+      "sequence_column": "30mer_gRNA",
+      "xiang_luo": {
+        "raw_n": 10592,
+        "unique_30mer_n": 10592,
+        "unique_spacer20_n": 10592
+      },
+      "kim": {
+        "raw_n": 13359,
+        "unique_30mer_n": 13359,
+        "unique_spacer20_n": 13352
+      },
+      "xiang_luo_exclusive": {
+        "raw_n": 10543,
+        "unique_30mer_n": 10543,
+        "unique_spacer20_n": 10543
+      },
+      "kim_exclusive": {
+        "raw_n": 13310,
+        "unique_30mer_n": 13310,
+        "unique_spacer20_n": 13303
+      },
+      "overlap_luo_kim": {
+        "raw_n": 49,
+        "unique_30mer_n": 49,
+        "unique_spacer20_n": 49
+      },
+      "other": {
+        "raw_n": 0,
+        "unique_30mer_n": 0,
+        "unique_spacer20_n": 0
+      }
+    },
+    "crispron_training_code_field_trace": {
+      "status": "FOUND_IN_OFFICIAL_SOURCE_ARCHIVE_README",
+      "archive_path": "data/phase16/raw/crispron_main.zip",
+      "sequence_field_reference": "SEQ_C=30mer_gRNA",
+      "value_field_reference": "VAL_C=Quant_norm_efficiency",
+      "recovered_workbook_contains_Quant_norm_efficiency": false,
+      "interpretation": "Official code documentation references Quant_norm_efficiency as the value column, but the recovered Luo2020_Kim2019 workbook exposes primary indel-frequency columns rather than that normalized field.",
+      "matched_lines": [
+        "export SEQ_C=30mer_gRNA",
+        "export VAL_C=Quant_norm_efficiency"
+      ]
+    }
+  },
+  "scope": {
+    "no_phase18": true,
+    "no_model_training": true,
+    "no_model_evaluation": true,
+    "no_moreno_access": true,
+    "no_label_harmonization": true,
+    "no_sequence_reconstruction": true,
+    "no_reverse_complement": true
+  },
+  "thresholds": {
+    "minimum_candidate_unique_n": 1000,
+    "recommended_candidate_unique_n": 2000,
+    "minimum_total_new_unique_n": 2000,
+    "minimum_continuous_label_unique_values": 20
+  },
+  "candidates": [
+    {
+      "candidate_id": "crispron_xiang_luo",
+      "source_component": "Dataset values containing Luo/Xiang, including explicit Overlap_Luo_Kim2019 rows for publication-aligned 10,592 count.",
+      "provenance_gate": {
+        "status": "PASS",
+        "evidence_chain": [
+          "Xiang et al. 2021 Nature Communications 12, 3238",
+          "official CRISPRon/RTH download resource",
+          "data/phase17i/raw/crispron/Luo2020_Kim2019.xlsx",
+          "Dataset component LuoSpCas92020_min200 plus Overlap_Luo_Kim2019",
+          "30mer_gRNA",
+          "HEK293T_indel_freq_avg_d8_d10"
+        ],
+        "model_generated_prediction": false
+      },
+      "task_compatibility_gate": {
+        "status": "PASS",
+        "SpCas9": true,
+        "on_target_activity": true,
+        "experimentally_measured_activity": true,
+        "sequence_level_observations": true,
+        "regression_compatible_continuous_label": true,
+        "sequence_only_relevance": true
+      },
+      "sequence_gate": {
+        "status": "PASS",
+        "raw_n": 10592,
+        "valid_sequence_n": 10592,
+        "unique_30mer_n": 10592,
+        "unique_23mer_n": 10592,
+        "unique_spacer20_n": 10592,
+        "malformed_sequence_n": 0,
+        "ambiguous_base_n": 0,
+        "sequence_length_distribution": {
+          "30": 10592
+        },
+        "PAM_distribution": {
+          "AGG": 2778,
+          "CGG": 1613,
+          "GGG": 2531,
+          "TGG": 3670
+        },
+        "geometry": "[0:4] 5' context; [4:24] 20-nt spacer; [24:27] PAM; [27:30] 3' context"
+      },
+      "label_gate": {
+        "label_name": "HEK293T_indel_freq_avg_d8_d10",
+        "classification": "PRIMARY_CONTINUOUS",
+        "phase17g_continuous_label_status": "CONTINUOUS_USABLE",
+        "n": 10592,
+        "finite_n": 10592,
+        "missing_n": 0,
+        "min": 0.0380228136882129,
+        "max": 95.8512582144575,
+        "mean": 37.16010516315937,
+        "median": 35.13975115371885,
+        "SD": 22.993814153002077,
+        "IQR": 38.11274991760083,
+        "unique_value_n": 10592,
+        "quantiles": {
+          "0": 0.0380228136882129,
+          "0.01": 1.8728122249767707,
+          "0.05": 4.988471583359487,
+          "0.1": 7.95804027677982,
+          "0.25": 16.92386391000985,
+          "0.5": 35.13975115371885,
+          "0.75": 55.03661382761068,
+          "0.9": 69.86729747338426,
+          "0.95": 77.18805619448818,
+          "0.99": 86.6179274032477,
+          "1": 95.8512582144575
+        },
+        "fraction_at_min": 9.441087613293051e-05,
+        "fraction_at_max": 9.441087613293051e-05,
+        "Quant_norm_efficiency_trace": {
+          "status": "FOUND_IN_OFFICIAL_SOURCE_ARCHIVE_README",
+          "archive_path": "data/phase16/raw/crispron_main.zip",
+          "sequence_field_reference": "SEQ_C=30mer_gRNA",
+          "value_field_reference": "VAL_C=Quant_norm_efficiency",
+          "recovered_workbook_contains_Quant_norm_efficiency": false,
+          "interpretation": "Official code documentation references Quant_norm_efficiency as the value column, but the recovered Luo2020_Kim2019 workbook exposes primary indel-frequency columns rather than that normalized field.",
+          "matched_lines": [
+            "export SEQ_C=30mer_gRNA",
+            "export VAL_C=Quant_norm_efficiency"
+          ]
+        },
+        "biological_target_assessment": "The audited label is a workbook primary HEK293T day-8/day-10 average indel-frequency measurement. Quant_norm_efficiency was not present in the recovered workbook, so no normalized transformation was reproduced or assumed."
+      },
+      "independence_gate": {
+        "status": "PASS",
+        "unique_30mer_n": 10592,
+        "overlap_30mer_n": 48,
+        "overlap_30mer_fraction": 0.004531722054380665,
+        "new_unique_30mer_n": 10544,
+        "unique_spacer20_n": 10592,
+        "overlap_spacer20_n": 48,
+        "overlap_spacer20_fraction": 0.004531722054380665,
+        "new_unique_spacer20_n": 10544
+      },
+      "quantity_gate": {
+        "status": "RECOMMENDED_QUANTITY_MET",
+        "unique_compatible_observations": 10544,
+        "minimum_candidate_unique_n": 1000,
+        "recommended_candidate_unique_n": 2000,
+        "threshold_type": "project_specific_policy_not_universal_crispr_rule"
+      },
+      "guide_diversity_gate": {
+        "status": "HIGH_GUIDE_DIVERSITY",
+        "guide_diversity_ratio": 1.0
+      },
+      "information_value_gate": {
+        "status": "HIGH",
+        "guide_gc_distribution": {
+          "n": 10592,
+          "mean": 0.5855929003021147,
+          "median": 0.6,
+          "std": 0.12208511551642305,
+          "min": 0.15,
+          "max": 0.95,
+          "q01": 0.3,
+          "q25": 0.5,
+          "q75": 0.65,
+          "q99": 0.85
+        },
+        "full_30mer_gc_distribution": {
+          "n": 10592,
+          "mean": 0.600978726082578,
+          "median": 0.6,
+          "std": 0.10721996193271101,
+          "min": 0.23333333333333334,
+          "max": 0.9,
+          "q01": 0.3333333333333333,
+          "q25": 0.5333333333333333,
+          "q75": 0.6666666666666666,
+          "q99": 0.8333333333333334
+        },
+        "canonical_full_30mer_gc_distribution": {
+          "n": 12832,
+          "mean": 0.5542186201163758,
+          "median": 0.5666666666666667,
+          "std": 0.13191332953977225,
+          "min": 0.06666666666666667,
+          "max": 1.0,
+          "q01": 0.23333333333333334,
+          "q25": 0.4666666666666667,
+          "q75": 0.6333333333333333,
+          "q99": 0.9
+        },
+        "full_30mer_gc_mean_abs_delta": 0.04676010596620217,
+        "nucleotide_composition_by_position": [
+          {
+            "A": 0.23272280966767372,
+            "C": 0.27388595166163143,
+            "G": 0.2618013595166163,
+            "T": 0.23158987915407855
+          },
+          {
+            "A": 0.19854607250755288,
+            "C": 0.3031533232628399,
+            "G": 0.30362537764350456,
+            "T": 0.19467522658610273
+          },
+          {
+            "A": 0.23177870090634442,
+            "C": 0.27709592145015105,
+            "G": 0.28615936555891236,
+            "T": 0.20496601208459214
+          },
+          {
+            "A": 0.23130664652567975,
+            "C": 0.2669939577039275,
+            "G": 0.26614425981873113,
+            "T": 0.23555513595166164
+          },
+          {
+            "A": 0.19193731117824772,
+            "C": 0.29748867069486407,
+            "G": 0.3162764350453172,
+            "T": 0.194297583081571
+          },
+          {
+            "A": 0.22516993957703926,
+            "C": 0.26029078549848944,
+            "G": 0.293523413897281,
+            "T": 0.22101586102719034
+          },
+          {
+            "A": 0.2280966767371601,
+            "C": 0.2903134441087613,
+            "G": 0.24867824773413896,
+            "T": 0.23291163141993956
+          },
+          {
+            "A": 0.13755664652567975,
+            "C": 0.44382552870090636,
+            "G": 0.2548149546827795,
+            "T": 0.16380287009063443
+          },
+          {
+            "A": 0.23961480362537765,
+            "C": 0.4563821752265861,
+            "G": 0.18089123867069487,
+            "T": 0.12311178247734139
+          },
+          {
+            "A": 0.35253021148036257,
+            "C": 0.317881419939577,
+            "G": 0.2141238670694864,
+            "T": 0.11546450151057402
+          },
+          {
+            "A": 0.26529456193353473,
+            "C": 0.3452605740181269,
+            "G": 0.3108950151057402,
+            "T": 0.07854984894259819
+          },
+          {
+            "A": 0.2705815709969788,
+            "C": 0.4012462235649547,
+            "G": 0.23281722054380666,
+            "T": 0.09535498489425982
+          },
+          {
+            "A": 0.38717900302114805,
+            "C": 0.20713746223564955,
+            "G": 0.275868580060423,
+            "T": 0.12981495468277945
+          },
+          {
+            "A": 0.24830060422960726,
+            "C": 0.21487915407854985,
+            "G": 0.3920883685800604,
+            "T": 0.14473187311178248
+          },
+          {
+            "A": 0.22148791540785498,
+            "C": 0.2691654078549849,
+            "G": 0.3009818731117825,
+            "T": 0.20836480362537765
+          },
+          {
+            "A": 0.22951283987915408,
+            "C": 0.26803247734138974,
+            "G": 0.26586102719033233,
+            "T": 0.23659365558912387
+          },
+          {
+            "A": 0.18693353474320243,
+            "C": 0.29503398791540786,
+            "G": 0.32628398791540786,
+            "T": 0.19174848942598188
+          },
+          {
+            "A": 0.23225075528700906,
+            "C": 0.26652190332326287,
+            "G": 0.2933345921450151,
+            "T": 0.207892749244713
+          },
+          {
+            "A": 0.23121223564954682,
+            "C": 0.26935422960725075,
+            "G": 0.2682212990936556,
+            "T": 0.23121223564954682
+          },
+          {
+            "A": 0.19297583081570996,
+            "C": 0.29040785498489424,
+            "G": 0.3258119335347432,
+            "T": 0.19080438066465258
+          },
+          {
+            "A": 0.22403700906344412,
+            "C": 0.2682212990936556,
+            "G": 0.29663897280966767,
+            "T": 0.21110271903323263
+          },
+          {
+            "A": 0.2252643504531722,
+            "C": 0.2847432024169184,
+            "G": 0.24830060422960726,
+            "T": 0.24169184290030213
+          },
+          {
+            "A": 0.18315709969788518,
+            "C": 0.3074962235649547,
+            "G": 0.3168429003021148,
+            "T": 0.19250377643504532
+          },
+          {
+            "A": 0.22328172205438065,
+            "C": 0.3035309667673716,
+            "G": 0.2923904833836858,
+            "T": 0.18079682779456194
+          },
+          {
+            "A": 0.262273413897281,
+            "C": 0.15228474320241692,
+            "G": 0.23895392749244712,
+            "T": 0.346487915407855
+          },
+          {
+            "A": 0.0,
+            "C": 0.0,
+            "G": 1.0,
+            "T": 0.0
+          },
+          {
+            "A": 0.0,
+            "C": 0.0,
+            "G": 1.0,
+            "T": 0.0
+          },
+          {
+            "A": 0.28106117824773413,
+            "C": 0.3001321752265861,
+            "G": 0.2338557401812689,
+            "T": 0.1849509063444109
+          },
+          {
+            "A": 0.20987537764350453,
+            "C": 0.2986216012084592,
+            "G": 0.2940898791540785,
+            "T": 0.1974131419939577
+          },
+          {
+            "A": 0.23527190332326284,
+            "C": 0.26293429003021146,
+            "G": 0.29777190332326287,
+            "T": 0.20402190332326284
+          }
+        ],
+        "nucleotide_composition_jsd": 0.0024804408555492846,
+        "PAM_distribution": {
+          "AGG": 2778,
+          "CGG": 1613,
+          "GGG": 2531,
+          "TGG": 3670
+        },
+        "PAM_distribution_jsd": 0.02896638722377095,
+        "kmer_2_jsd": 0.00777597358310716,
+        "kmer_3_jsd": 0.014884882775811906,
+        "source_gene_locus_diversity": 3599,
+        "reason": "Descriptive sequence/domain audit only; no model training or evaluation."
+      },
+      "raw_n": 10592,
+      "final_candidate_status": "ACCEPTED_READY_CANDIDATE",
+      "accepted_for_future_pipeline": true,
+      "accepted_new_unique_n": 10544,
+      "exclusion_reason": ""
+    },
+    {
+      "candidate_id": "crispron_kim",
+      "source_component": "Kim2019_Train/Kim2019_Test plus explicit overlap rows.",
+      "provenance_gate": {
+        "status": "PASS",
+        "source_relationship": "Integrated published Kim component in CRISPRon workbook."
+      },
+      "task_compatibility_gate": {
+        "status": "PASS"
+      },
+      "sequence_gate": {
+        "status": "PASS",
+        "raw_n": 13359,
+        "valid_sequence_n": 13359,
+        "unique_30mer_n": 13359,
+        "unique_23mer_n": 13354,
+        "unique_spacer20_n": 13352,
+        "malformed_sequence_n": 0,
+        "ambiguous_base_n": 0,
+        "sequence_length_distribution": {
+          "30": 13359
+        },
+        "PAM_distribution": {
+          "AGG": 4697,
+          "CGG": 2011,
+          "GGG": 1386,
+          "TGG": 5265
+        },
+        "geometry": "[0:4] 5' context; [4:24] 20-nt spacer; [24:27] PAM; [27:30] 3' context"
+      },
+      "label_gate": {
+        "label_name": "Indel_freq_HEK293T",
+        "classification": "PRIMARY_CONTINUOUS",
+        "phase17g_continuous_label_status": "CONTINUOUS_USABLE",
+        "n": 13359,
+        "finite_n": 13359,
+        "missing_n": 0,
+        "min": -4.41176470588235,
+        "max": 95.103571216819,
+        "mean": 40.19816203784552,
+        "median": 41.1166560718513,
+        "SD": 22.876231011759057,
+        "IQR": 37.163976416876096,
+        "unique_value_n": 13324,
+        "quantiles": {
+          "0": -4.41176470588235,
+          "0.01": 0.03086179647872307,
+          "0.05": 2.3697678566296134,
+          "0.1": 7.462623119512584,
+          "0.25": 21.49785891452325,
+          "0.5": 41.1166560718513,
+          "0.75": 58.661835331399345,
+          "0.9": 70.30793964715961,
+          "0.95": 76.02587273313677,
+          "0.99": 84.57629184130643,
+          "1": 95.103571216819
+        },
+        "fraction_at_min": 7.485590238790328e-05,
+        "fraction_at_max": 7.485590238790328e-05
+      },
+      "independence_gate": {
+        "status": "FAIL",
+        "unique_30mer_n": 13359,
+        "overlap_30mer_n": 12832,
+        "overlap_30mer_fraction": 0.960550939441575,
+        "new_unique_30mer_n": 527,
+        "unique_spacer20_n": 13352,
+        "overlap_spacer20_n": 12825,
+        "overlap_spacer20_fraction": 0.960530257639305,
+        "new_unique_spacer20_n": 527
+      },
+      "quantity_gate": {
+        "status": "INSUFFICIENT_QUANTITY",
+        "unique_compatible_observations": 527,
+        "minimum_candidate_unique_n": 1000,
+        "recommended_candidate_unique_n": 2000,
+        "threshold_type": "project_specific_policy_not_universal_crispr_rule"
+      },
+      "guide_diversity_gate": {
+        "status": "HIGH_GUIDE_DIVERSITY",
+        "guide_diversity_ratio": 0.9994760086832847
+      },
+      "information_value_gate": {
+        "status": "LOW",
+        "reason": "Kim component is largely already represented by canonical DeepSpCas9 exact 30-mer/spacer overlap."
+      },
+      "raw_n": 13359,
+      "final_candidate_status": "ALREADY_REPRESENTED",
+      "accepted_for_future_pipeline": false,
+      "accepted_new_unique_n": 0,
+      "exclusion_reason": "Kim component overlaps the canonical DeepSpCas9 domain and is not counted as new data."
+    },
+    {
+      "candidate_id": "corsi_2022",
+      "source_component": "Corsi 2022 Supplementary Data 1 processed_Dox-/processed_Dox+.",
+      "provenance_gate": {
+        "status": "PASS"
+      },
+      "task_compatibility_gate": {
+        "status": "CONDITIONALLY_COMPATIBLE",
+        "sequence_only_pooling_ambiguous": true
+      },
+      "sequence_gate": {
+        "status": "PASS",
+        "raw_n": 2010,
+        "valid_sequence_n": 2010,
+        "unique_30mer_n": 1022,
+        "unique_23mer_n": 256,
+        "unique_spacer20_n": 4,
+        "malformed_sequence_n": 0,
+        "ambiguous_base_n": 0,
+        "sequence_length_distribution": {
+          "30": 2010
+        }
+      },
+      "label_gate": {
+        "classification": "PRIMARY_CONTINUOUS",
+        "condition_conflict": {
+          "shared_sequence_n": 966,
+          "shared_sequence_with_label_difference_n": 939,
+          "median_absolute_label_difference": 1.029335366064878,
+          "mean_absolute_label_difference": 8.967719618830797,
+          "pooling_creates_target_ambiguity": true
+        },
+        "phase17g_continuous_label_status": "AMBIGUOUS_FOR_SEQUENCE_ONLY_POOLING"
+      },
+      "independence_gate": {
+        "status": "FAIL",
+        "reason": "1022 unique 30-mers collapse to 4 unique 20-mer spacers and Dox conditions conflict for identical sequences."
+      },
+      "quantity_gate": {
+        "status": "INSUFFICIENT_QUANTITY",
+        "unique_compatible_observations": 0,
+        "minimum_candidate_unique_n": 1000,
+        "recommended_candidate_unique_n": 2000,
+        "threshold_type": "project_specific_policy_not_universal_crispr_rule"
+      },
+      "guide_diversity_gate": {
+        "status": "LOW_GUIDE_DIVERSITY",
+        "guide_diversity_ratio": 0.003913894324853229
+      },
+      "information_value_gate": {
+        "status": "LOW",
+        "reason": "Useful auxiliary PAM/context perturbation evidence, but not independent guide-diverse training data."
+      },
+      "raw_n": 2010,
+      "final_candidate_status": "AUXILIARY_ONLY",
+      "accepted_for_future_pipeline": false,
+      "accepted_new_unique_n": 0,
+      "exclusion_reason": "AUXILIARY_ONLY due low spacer diversity and Dox condition label conflicts."
+    }
+  ],
+  "accepted_data_accounting": [
+    {
+      "candidate": "crispron_xiang_luo",
+      "raw_n": 10592,
+      "unique_30mer_n": 10592,
+      "unique_spacer20_n": 10592,
+      "DeepSpCas9_overlap_n": 48,
+      "new_unique_n": 10544,
+      "accepted_for_future_pipeline": true,
+      "accepted_new_unique_n": 10544,
+      "exclusion_reason": ""
+    },
+    {
+      "candidate": "crispron_kim",
+      "raw_n": 13359,
+      "unique_30mer_n": 13359,
+      "unique_spacer20_n": 13352,
+      "DeepSpCas9_overlap_n": 12832,
+      "new_unique_n": 527,
+      "accepted_for_future_pipeline": false,
+      "accepted_new_unique_n": 0,
+      "exclusion_reason": "Kim component overlaps the canonical DeepSpCas9 domain and is not counted as new data."
+    },
+    {
+      "candidate": "corsi_2022",
+      "raw_n": 2010,
+      "unique_30mer_n": 1022,
+      "unique_spacer20_n": 4,
+      "DeepSpCas9_overlap_n": 0,
+      "new_unique_n": 0,
+      "accepted_for_future_pipeline": false,
+      "accepted_new_unique_n": 0,
+      "exclusion_reason": "AUXILIARY_ONLY due low spacer diversity and Dox condition label conflicts."
+    }
+  ],
+  "accepted_candidates": [
+    "crispron_xiang_luo"
+  ],
+  "aggregate": {
+    "accepted_candidate_count": 1,
+    "total_new_unique_compatible_observations": 10544,
+    "minimum_required": 2000,
+    "surplus_or_deficit": 8544
+  },
+  "final_decision": "GO",
+  "decision_reasons": [
+    "CRISPRon Xiang/Luo passes provenance, task, sequence, label, independence, diversity, quantity, and information-value gates under existing Phase 17G thresholds."
+  ],
+  "canonical_integrity": {
+    "before": {
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "git_diff_clean": true
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": null
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true
+      },
+      "data/raw/Moreno-Mateos.csv": {
+        "exists": true,
+        "sha256": "NOT_COMPUTED_LOCKED",
+        "git_diff_clean": true
+      },
+      "models": {
+        "git_diff_clean": true
+      },
+      "results/experiments": {
+        "git_diff_clean": true
+      },
+      "results/predictions": {
+        "git_diff_clean": true
+      }
+    },
+    "after": {
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "git_diff_clean": true
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": null
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true
+      },
+      "data/raw/Moreno-Mateos.csv": {
+        "exists": true,
+        "sha256": "NOT_COMPUTED_LOCKED",
+        "git_diff_clean": true
+      },
+      "models": {
+        "git_diff_clean": true
+      },
+      "results/experiments": {
+        "git_diff_clean": true
+      },
+      "results/predictions": {
+        "git_diff_clean": true
+      }
+    },
+    "unchanged": true
+  },
+  "git": {
+    "head": "a7a7e8298d601d61c58ecab4c2a824a56f1f5dd5",
+    "status": "M config.yaml\n?? data/phase17h/\n?? data/phase17i/\n?? docs/phase17g_data_sufficiency_report.md\n?? docs/phase17g_r1_data_sufficiency_reassessment_report.md\n?? docs/phase17h_primary_dataset_acquisition_report.md\n?? docs/phase17i_biological_independence_crispron_recovery_report.md\n?? results/phase17g_data_sufficiency_20260911_222112.json\n?? results/phase17g_r1_data_sufficiency_reassessment_20260911_233322.json\n?? results/phase17h_primary_dataset_acquisition_20260911_223854.json\n?? results/phase17i_biological_independence_crispron_recovery_20260911_232332.json\n?? results/phase17i_biological_independence_crispron_recovery_20260911_232536.json\n?? results/phase17i_biological_independence_crispron_recovery_20260911_232634.json\n?? scripts/run_phase17g_data_sufficiency_audit.py\n?? scripts/run_phase17g_r1_data_sufficiency_reassessment.py\n?? scripts/run_phase17h_primary_dataset_acquisition.py\n?? scripts/run_phase17i_biological_independence_crispron_recovery.py\n?? src/dataset_recovery/biological_independence_crispron.py\n?? src/dataset_recovery/data_sufficiency.py\n?? src/dataset_recovery/data_sufficiency_reassessment.py\n?? src/dataset_recovery/primary_acquisition.py\n?? src/dataset_recovery/provenance_chain.py\n?? tests/test_phase17g_data_sufficiency.py\n?? tests/test_phase17g_r1_data_sufficiency_reassessment.py\n?? tests/test_phase17h_primary_dataset_acquisition.py\n?? tests/test_phase17i_biological_independence_crispron.py",
+    "diff_stat": "config.yaml | 8 ++++++++\n 1 file changed, 8 insertions(+)"
+  },
+  "artifacts": {
+    "json": "results/phase17g_r1_data_sufficiency_reassessment_20260911_233749.json",
+    "report": "docs/phase17g_r1_data_sufficiency_reassessment_report.md"
+  }
+}
