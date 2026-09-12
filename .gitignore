@@ -44,6 +44,17 @@ data/external/
 # Phase 17 recovered public raw files; provenance and SHA-256 are stored in results JSON.
 data/phase17/raw/
 
+# Phase 17 recovered third-party raw datasets stay local.
+# Final Phase 17 reports, manifests, tests, scripts, and selected result JSON files are version-controlled.
+data/phase17h/raw/
+data/phase17i/raw/
+
+# Phase 17 intermediate audit outputs stay local.
+# Final Phase 17 reassessment/audit outputs remain version-controlled via exact committed files.
+results/phase17g_r1_data_sufficiency_reassessment_20260911_233322.json
+results/phase17i_biological_independence_crispron_recovery_20260911_232332.json
+results/phase17i_biological_independence_crispron_recovery_20260911_232536.json
+
 # Generated outputs (regenerable)
 data/processed/
 results/figures/
