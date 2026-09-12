@@ -1,0 +1,314 @@
+{
+  "phase": "17H",
+  "objective": "Targeted primary dataset acquisition and provenance recovery for future Phase 17G re-evaluation.",
+  "canonical_protection": {
+    "no_moreno_access": true,
+    "no_model_training": true,
+    "no_model_evaluation": true,
+    "no_label_transformation": true,
+    "no_sequence_reconstruction": true,
+    "no_phase18": true
+  },
+  "previous_phase": {
+    "phase": "17G",
+    "decision": "NO_GO",
+    "accepted_candidate_count": 0,
+    "additional_required": 2000
+  },
+  "sources_investigated": [
+    {
+      "search_source": "Phase 17 carryover + GitHub/Nature/publication search",
+      "search_terms": [
+        "CRISPRon",
+        "10,592 SpCas9 gRNAs",
+        "s41467-021-23576-0"
+      ],
+      "candidate_publication": "Xiang/Xu et al. 2021 CRISPRon",
+      "doi": "10.1038/s41467-021-23576-0",
+      "primary_experimental_data_exist": "PUBLICATION_REPORTS_GENERATION_OF_10592_SPCAS9_GRNAS",
+      "row_level_guide_sequences_exist": "NOT_RECOVERED_IN_PHASE17H",
+      "continuous_on_target_activity_exists": "LIKELY_PUBLICATION_LEVEL_NOT_FILE_VERIFIED",
+      "approximate_n": 10592,
+      "exclusion_reason": "Primary experimental table not identified in recovered repository archive; no new table recovered in Phase 17H.",
+      "next_action": "Locate official Supplementary Data or author-deposited table with row-level gRNA activity."
+    },
+    {
+      "search_source": "Nature article supplementary files",
+      "search_terms": [
+        "Corsi 2022",
+        "Supplementary Data 1",
+        "Indel frequency",
+        "30mer_gRNA"
+      ],
+      "candidate_publication": "Corsi et al. 2022 PAM-context SpCas9 cleavage efficiency",
+      "doi": "10.1038/s41467-022-30515-0",
+      "primary_experimental_data_exist": true,
+      "row_level_guide_sequences_exist": true,
+      "continuous_on_target_activity_exists": true,
+      "approximate_n": 1022,
+      "exclusion_reason": null,
+      "next_action": "Send through Phase 17G re-evaluation with explicit provenance and independence checks."
+    },
+    {
+      "search_source": "Phase 17 carryover / prior reports",
+      "search_terms": [
+        "sgDesigner",
+        "sgRNA Designer",
+        "on-target activity"
+      ],
+      "candidate_publication": "sgDesigner / Broad sgRNA Designer lineage",
+      "doi": "NOT_ESTABLISHED",
+      "primary_experimental_data_exist": "NOT_ESTABLISHED",
+      "row_level_guide_sequences_exist": "NOT_RECOVERED",
+      "continuous_on_target_activity_exists": "NOT_FILE_VERIFIED",
+      "approximate_n": null,
+      "exclusion_reason": "No primary experimental file recovered; possible overlap with already assessed Doench/Rule Set records.",
+      "next_action": "Manual primary-source tracing required before further audit."
+    },
+    {
+      "search_source": "Phase 17 carryover",
+      "search_terms": [
+        "CRISPRpred",
+        "binary label",
+        "BMC supplementary"
+      ],
+      "candidate_publication": "CRISPRpred(SEQ) 2020",
+      "doi": "10.1186/s12859-020-3531-9",
+      "primary_experimental_data_exist": "PROCESSED_SUPPLEMENTARY_FILES_ONLY",
+      "row_level_guide_sequences_exist": true,
+      "continuous_on_target_activity_exists": false,
+      "approximate_n": 16749,
+      "exclusion_reason": "Known incompatible binary labels and 23-mer geometry; not re-rescued.",
+      "next_action": "None unless primary continuous experimental source is discovered."
+    },
+    {
+      "search_source": "Phase 17 carryover",
+      "search_terms": [
+        "Doench ORCS",
+        "STARS",
+        "rank",
+        "screen"
+      ],
+      "candidate_publication": "Doench et al. 2016 ORCS screens",
+      "doi": "PMID:26780180",
+      "primary_experimental_data_exist": true,
+      "row_level_guide_sequences_exist": true,
+      "continuous_on_target_activity_exists": false,
+      "approximate_n": 194653,
+      "exclusion_reason": "Known incompatible screen/rank/enrichment/log-fold-change target; not re-rescued.",
+      "next_action": "None for current continuous editing-activity target."
+    }
+  ],
+  "investigated_source_registry": {
+    "duplicates": [],
+    "unique_source_count": 5,
+    "record_count": 5
+  },
+  "files_recovered": [
+    {
+      "path": "data/phase17h/raw/corsi_2022_supplementary_data_1.xlsx",
+      "sha256": "87540fc4e22bd95dce95f39efb1b54cc3a761026ed3e2faeafbc34e3ba8549fd",
+      "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-022-30515-0/MediaObjects/41467_2022_30515_MOESM3_ESM.xlsx",
+      "candidate_id": "corsi_2022_pam_context_supplementary_data_1"
+    }
+  ],
+  "candidate_datasets": [
+    {
+      "candidate_id": "corsi_2022_pam_context_supplementary_data_1",
+      "name": "Corsi 2022 PAM-context SpCas9 cleavage-efficiency supplementary data",
+      "primary_publication": "Corsi et al. 2022. CRISPR/Cas9 gRNA activity depends on free energy changes and on the target PAM context.",
+      "doi": "10.1038/s41467-022-30515-0",
+      "publication_year": 2022,
+      "Cas_system": "SpCas9",
+      "organism": "human cell context / publication-level evidence",
+      "cell_type": "NOT_FULLY_RESOLVED_FILE_LEVEL",
+      "assay_type": "targeted SpCas9 cleavage / indel measurement",
+      "experimental_measurement": "Indel frequency (% avg D6-D10)",
+      "label_name": "Indel frequency (% avg D6-D10)",
+      "label_definition": "continuous indel frequency percentage averaged across day 6 and day 10; no rescaling performed",
+      "label_units_or_scale": "percent, 0-100 observed",
+      "sequence_column": "30mer_gRNA",
+      "sequence_length": 30,
+      "PAM_information": "PAM and PAM(4bp) columns present",
+      "guide_count_raw": 2010,
+      "guide_count_unique": 1022,
+      "primary_file": "data/phase17h/raw/corsi_2022_supplementary_data_1.xlsx",
+      "primary_file_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-022-30515-0/MediaObjects/41467_2022_30515_MOESM3_ESM.xlsx",
+      "repository_url": null,
+      "supplementary_file_name": "Supplementary Data 1",
+      "file_format": "xlsx",
+      "file_sha256": "87540fc4e22bd95dce95f39efb1b54cc3a761026ed3e2faeafbc34e3ba8549fd",
+      "retrieval_status": "RECOVERED",
+      "retrieval_date": "2026-09-11",
+      "provenance_status": "VERIFIED_PRIMARY",
+      "compatibility_status": "POTENTIALLY_COMPATIBLE_REQUIRES_PHASE17G_REEVALUATION",
+      "preliminary_status": "PROMISING",
+      "blocking_reasons": [
+        "Requires formal Phase 17G re-evaluation before any acceptance.",
+        "Potential unique observations remain below total 2000 threshold without another compatible dataset.",
+        "Cell/experiment metadata require full provenance review."
+      ],
+      "evidence": {
+        "provenance_chain": {
+          "status": "VERIFIED_PRIMARY",
+          "missing": [],
+          "chain_complete": true
+        },
+        "file_inspection": {
+          "path": "data/phase17h/raw/corsi_2022_supplementary_data_1.xlsx",
+          "file_sha256": "87540fc4e22bd95dce95f39efb1b54cc3a761026ed3e2faeafbc34e3ba8549fd",
+          "status": "INSPECTED",
+          "tables": [
+            {
+              "status": "INSPECTED",
+              "row_count": 978,
+              "sequence_column": "30mer_gRNA",
+              "label_column": "Indel frequency (% avg D6-D10)",
+              "sequence": {
+                "raw_sequence_n": 978,
+                "valid_sequence_n": 978,
+                "malformed_sequence_n": 0,
+                "unique_sequence_n": 967,
+                "sequence_length_distribution": {
+                  "30": 978
+                }
+              },
+              "label": {
+                "label_status": "CONTINUOUS_EXPERIMENTAL_CANDIDATE",
+                "n_labels": 978,
+                "finite_labels": 978,
+                "missing_labels": 0,
+                "unique_label_values": 930,
+                "min": 0.0,
+                "max": 93.7182382834557
+              },
+              "sheet_name": "processed_Dox-"
+            },
+            {
+              "status": "INSPECTED",
+              "row_count": 1032,
+              "sequence_column": "30mer_gRNA",
+              "label_column": "Indel frequency (% avg D6-D10)",
+              "sequence": {
+                "raw_sequence_n": 1032,
+                "valid_sequence_n": 1032,
+                "malformed_sequence_n": 0,
+                "unique_sequence_n": 1021,
+                "sequence_length_distribution": {
+                  "30": 1032
+                }
+              },
+              "label": {
+                "label_status": "CONTINUOUS_EXPERIMENTAL_CANDIDATE",
+                "n_labels": 1032,
+                "finite_labels": 1032,
+                "missing_labels": 0,
+                "unique_label_values": 961,
+                "min": 0.0,
+                "max": 100.0
+              },
+              "sheet_name": "processed_Dox+"
+            }
+          ],
+          "union_unique_sequence_n": 1022
+        },
+        "failed_or_non_primary_downloads": [
+          {
+            "path": "data/phase17h/raw/corsi_2022_supplementary_data_2.xlsx",
+            "size": 3038,
+            "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+            "status": "HTML_ERROR_OR_NOT_VALID_XLSX"
+          },
+          {
+            "path": "data/phase17h/raw/corsi_2022_source_data.xlsx",
+            "size": 3038,
+            "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+            "status": "HTML_ERROR_OR_NOT_VALID_XLSX"
+          }
+        ]
+      }
+    }
+  ],
+  "potential_total_unique_observations": 1022,
+  "phase17g_minimum_total_new_unique_n": 2000,
+  "remaining_deficit_relative_to_2000": 978,
+  "promising_candidates": [
+    "corsi_2022_pam_context_supplementary_data_1"
+  ],
+  "blocked_candidates": [
+    "Xiang/Xu et al. 2021 CRISPRon",
+    "sgDesigner / Broad sgRNA Designer lineage",
+    "CRISPRpred(SEQ) 2020",
+    "Doench et al. 2016 ORCS screens"
+  ],
+  "next_action": "Run a supervisor-approved Phase 17G re-evaluation only after additional compatible primary datasets are recovered or Corsi evidence is fully reviewed.",
+  "canonical_integrity": {
+    "before": {
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "matches_expected": null
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": null
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true
+      },
+      "data/raw/Moreno-Mateos.csv": {
+        "exists": true,
+        "sha256": "NOT_COMPUTED_MORENO_LOCKED",
+        "matches_expected": null,
+        "git_diff_clean": true
+      }
+    },
+    "after": {
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "matches_expected": null
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": null
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true
+      },
+      "data/raw/Moreno-Mateos.csv": {
+        "exists": true,
+        "sha256": "NOT_COMPUTED_MORENO_LOCKED",
+        "matches_expected": null,
+        "git_diff_clean": true
+      }
+    },
+    "unchanged": true
+  },
+  "timestamp": "2026-09-11T22:38:54.781247",
+  "git": {
+    "head": "a7a7e8298d601d61c58ecab4c2a824a56f1f5dd5",
+    "status": "M config.yaml\n?? data/phase17h/\n?? docs/phase17g_data_sufficiency_report.md\n?? results/phase17g_data_sufficiency_20260911_222112.json\n?? scripts/run_phase17g_data_sufficiency_audit.py\n?? scripts/run_phase17h_primary_dataset_acquisition.py\n?? src/dataset_recovery/data_sufficiency.py\n?? src/dataset_recovery/primary_acquisition.py\n?? src/dataset_recovery/provenance_chain.py\n?? tests/test_phase17g_data_sufficiency.py\n?? tests/test_phase17h_primary_dataset_acquisition.py",
+    "diff_stat": "config.yaml | 8 ++++++++\n 1 file changed, 8 insertions(+)"
+  },
+  "artifacts": {
+    "primary_acquisition_json": "results/phase17h_primary_dataset_acquisition_20260911_223854.json",
+    "report_md": "docs/phase17h_primary_dataset_acquisition_report.md"
+  }
+}

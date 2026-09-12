@@ -1,0 +1,86 @@
+{
+  "sources_investigated": [
+    {
+      "search_source": "Phase 17 carryover + GitHub/Nature/publication search",
+      "search_terms": [
+        "CRISPRon",
+        "10,592 SpCas9 gRNAs",
+        "s41467-021-23576-0"
+      ],
+      "candidate_publication": "Xiang/Xu et al. 2021 CRISPRon",
+      "doi": "10.1038/s41467-021-23576-0",
+      "primary_experimental_data_exist": "PUBLICATION_REPORTS_GENERATION_OF_10592_SPCAS9_GRNAS",
+      "row_level_guide_sequences_exist": "NOT_RECOVERED_IN_PHASE17H",
+      "continuous_on_target_activity_exists": "LIKELY_PUBLICATION_LEVEL_NOT_FILE_VERIFIED",
+      "approximate_n": 10592,
+      "exclusion_reason": "Primary experimental table not identified in recovered repository archive; no new table recovered in Phase 17H.",
+      "next_action": "Locate official Supplementary Data or author-deposited table with row-level gRNA activity."
+    },
+    {
+      "search_source": "Nature article supplementary files",
+      "search_terms": [
+        "Corsi 2022",
+        "Supplementary Data 1",
+        "Indel frequency",
+        "30mer_gRNA"
+      ],
+      "candidate_publication": "Corsi et al. 2022 PAM-context SpCas9 cleavage efficiency",
+      "doi": "10.1038/s41467-022-30515-0",
+      "primary_experimental_data_exist": true,
+      "row_level_guide_sequences_exist": true,
+      "continuous_on_target_activity_exists": true,
+      "approximate_n": 1022,
+      "exclusion_reason": null,
+      "next_action": "Send through Phase 17G re-evaluation with explicit provenance and independence checks."
+    },
+    {
+      "search_source": "Phase 17 carryover / prior reports",
+      "search_terms": [
+        "sgDesigner",
+        "sgRNA Designer",
+        "on-target activity"
+      ],
+      "candidate_publication": "sgDesigner / Broad sgRNA Designer lineage",
+      "doi": "NOT_ESTABLISHED",
+      "primary_experimental_data_exist": "NOT_ESTABLISHED",
+      "row_level_guide_sequences_exist": "NOT_RECOVERED",
+      "continuous_on_target_activity_exists": "NOT_FILE_VERIFIED",
+      "approximate_n": null,
+      "exclusion_reason": "No primary experimental file recovered; possible overlap with already assessed Doench/Rule Set records.",
+      "next_action": "Manual primary-source tracing required before further audit."
+    },
+    {
+      "search_source": "Phase 17 carryover",
+      "search_terms": [
+        "CRISPRpred",
+        "binary label",
+        "BMC supplementary"
+      ],
+      "candidate_publication": "CRISPRpred(SEQ) 2020",
+      "doi": "10.1186/s12859-020-3531-9",
+      "primary_experimental_data_exist": "PROCESSED_SUPPLEMENTARY_FILES_ONLY",
+      "row_level_guide_sequences_exist": true,
+      "continuous_on_target_activity_exists": false,
+      "approximate_n": 16749,
+      "exclusion_reason": "Known incompatible binary labels and 23-mer geometry; not re-rescued.",
+      "next_action": "None unless primary continuous experimental source is discovered."
+    },
+    {
+      "search_source": "Phase 17 carryover",
+      "search_terms": [
+        "Doench ORCS",
+        "STARS",
+        "rank",
+        "screen"
+      ],
+      "candidate_publication": "Doench et al. 2016 ORCS screens",
+      "doi": "PMID:26780180",
+      "primary_experimental_data_exist": true,
+      "row_level_guide_sequences_exist": true,
+      "continuous_on_target_activity_exists": false,
+      "approximate_n": 194653,
+      "exclusion_reason": "Known incompatible screen/rank/enrichment/log-fold-change target; not re-rescued.",
+      "next_action": "None for current continuous editing-activity target."
+    }
+  ]
+}
