@@ -129,6 +129,14 @@ evaluation:
   cv_folds: 5
   cv_random_seed: 42
 
+# Phase 17G data-readiness thresholds.
+# These are project-specific go/no-go criteria, not universal CRISPR biology rules.
+data_readiness:
+  minimum_candidate_unique_n: 1000
+  recommended_candidate_unique_n: 2000
+  minimum_total_new_unique_n: 2000
+  minimum_continuous_label_unique_values: 20
+
 # Experiment tracking
 experiments:
   output_dir: "results/experiments"

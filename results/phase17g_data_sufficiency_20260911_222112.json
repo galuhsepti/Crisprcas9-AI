@@ -1,0 +1,491 @@
+{
+  "phase": "17G",
+  "timestamp": "2026-09-11T22:21:12.236641",
+  "scope": {
+    "type": "data_sufficiency_and_readiness_assessment_only",
+    "no_model_training": true,
+    "no_model_evaluation": true,
+    "no_moreno_access": true,
+    "no_pooling": true,
+    "no_label_transformation": true,
+    "no_sequence_transformation": true,
+    "no_phase18": true
+  },
+  "thresholds": {
+    "minimum_candidate_unique_n": 1000,
+    "recommended_candidate_unique_n": 2000,
+    "minimum_total_new_unique_n": 2000,
+    "minimum_continuous_label_unique_values": 20
+  },
+  "canonical_reference": {
+    "dataset": "DeepSpCas9",
+    "phase16e_distribution_population_n": 12832,
+    "canonical_modeling_population_n": 10117,
+    "train_n": 8599,
+    "validation_n": 1518,
+    "locked_external_dataset": "LOCKED_EXTERNAL_DATASET_NOT_ACCESSED"
+  },
+  "candidates": [
+    {
+      "candidate_id": "corsi_2022_free_energy_pam_context",
+      "provenance_gate": {
+        "status": "INSUFFICIENT_EVIDENCE"
+      },
+      "task_compatibility_gate": {
+        "status": "INSUFFICIENT_EVIDENCE"
+      },
+      "independence_gate": {
+        "status": "INSUFFICIENT_EVIDENCE",
+        "evidence_status": "INSUFFICIENT_PROVENANCE"
+      },
+      "sequence_gate": {
+        "status": "INSUFFICIENT_EVIDENCE",
+        "raw_n": 0,
+        "valid_sequence_n": 0,
+        "unique_sequence_n": 0,
+        "sequence_length_distribution": {},
+        "no_30mer_construction": true
+      },
+      "label_gate": {
+        "status": "UNKNOWN_SCALE",
+        "compatible_label_n": 0,
+        "unique_label_values": 0,
+        "canonical_0_1_scale_directly_established": false,
+        "reason": "Phase evidence did not establish compatible continuous activity labels."
+      },
+      "quantity_gate": {
+        "status": "INSUFFICIENT_QUANTITY",
+        "unique_compatible_observations": 0,
+        "minimum_candidate_unique_n": 1000,
+        "recommended_candidate_unique_n": 2000,
+        "threshold_type": "project_specific_policy_not_universal_crispr_rule"
+      },
+      "information_value_gate": {
+        "status": "INSUFFICIENT_EVIDENCE",
+        "phase17e_status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Sequence-only descriptive value is not enough without compatible labels and provenance."
+      },
+      "raw_n": 0,
+      "valid_sequence_n": 0,
+      "unique_sequence_n": 0,
+      "compatible_label_n": 0,
+      "unique_label_values": 0,
+      "exact_deepsp_overlap_n": 0,
+      "exact_deepsp_overlap_fraction": 0.0,
+      "metadata_coverage": {
+        "distinct_genes": "NOT_ESTABLISHED",
+        "distinct_loci": "NOT_ESTABLISHED",
+        "cell_types": "NOT_ESTABLISHED_OR_FILE_LEVEL_ONLY",
+        "experiments": "NOT_ESTABLISHED_OR_FILE_LEVEL_ONLY",
+        "publications_or_source_screens": 0
+      },
+      "final_candidate_status": "NOT_READY",
+      "phase17f_acceptance_status": "INSUFFICIENT_EVIDENCE",
+      "reasons": [
+        "Provenance gate did not pass.",
+        "Biological/task compatibility gate did not pass.",
+        "Compatible continuous label quality was not established.",
+        "Independence/leakage gate did not pass.",
+        "Project-specific unique compatible observation threshold was not met."
+      ]
+    },
+    {
+      "candidate_id": "crispron_2021_rth_tools",
+      "provenance_gate": {
+        "status": "INSUFFICIENT_EVIDENCE"
+      },
+      "task_compatibility_gate": {
+        "status": "INSUFFICIENT_EVIDENCE"
+      },
+      "independence_gate": {
+        "status": "INSUFFICIENT_EVIDENCE",
+        "evidence_status": "INSUFFICIENT_PROVENANCE"
+      },
+      "sequence_gate": {
+        "status": "INSUFFICIENT_EVIDENCE",
+        "raw_n": 0,
+        "valid_sequence_n": 0,
+        "unique_sequence_n": 0,
+        "sequence_length_distribution": {},
+        "no_30mer_construction": true
+      },
+      "label_gate": {
+        "status": "UNKNOWN_SCALE",
+        "compatible_label_n": 0,
+        "unique_label_values": 0,
+        "canonical_0_1_scale_directly_established": false,
+        "reason": "Phase evidence did not establish compatible continuous activity labels."
+      },
+      "quantity_gate": {
+        "status": "INSUFFICIENT_QUANTITY",
+        "unique_compatible_observations": 0,
+        "minimum_candidate_unique_n": 1000,
+        "recommended_candidate_unique_n": 2000,
+        "threshold_type": "project_specific_policy_not_universal_crispr_rule"
+      },
+      "information_value_gate": {
+        "status": "INSUFFICIENT_EVIDENCE",
+        "phase17e_status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Sequence-only descriptive value is not enough without compatible labels and provenance."
+      },
+      "raw_n": 0,
+      "valid_sequence_n": 0,
+      "unique_sequence_n": 0,
+      "compatible_label_n": 0,
+      "unique_label_values": 0,
+      "exact_deepsp_overlap_n": 0,
+      "exact_deepsp_overlap_fraction": 0.0,
+      "metadata_coverage": {
+        "distinct_genes": "NOT_ESTABLISHED",
+        "distinct_loci": "NOT_ESTABLISHED",
+        "cell_types": "NOT_ESTABLISHED_OR_FILE_LEVEL_ONLY",
+        "experiments": "NOT_ESTABLISHED_OR_FILE_LEVEL_ONLY",
+        "publications_or_source_screens": 0
+      },
+      "final_candidate_status": "NOT_READY",
+      "phase17f_acceptance_status": "INSUFFICIENT_EVIDENCE",
+      "reasons": [
+        "Provenance gate did not pass.",
+        "Biological/task compatibility gate did not pass.",
+        "Compatible continuous label quality was not established.",
+        "Independence/leakage gate did not pass.",
+        "Project-specific unique compatible observation threshold was not met."
+      ]
+    },
+    {
+      "candidate_id": "crisprpredseq_2020_bmc_additional_files",
+      "provenance_gate": {
+        "status": "PASS"
+      },
+      "task_compatibility_gate": {
+        "status": "INCOMPATIBLE"
+      },
+      "independence_gate": {
+        "status": "FAIL",
+        "evidence_status": "DERIVED_OR_PROCESSED_RELATIONSHIP"
+      },
+      "sequence_gate": {
+        "status": "PASS",
+        "raw_n": 16749,
+        "valid_sequence_n": 16749,
+        "unique_sequence_n": 12465,
+        "sequence_length_distribution": {
+          "23": 16749
+        },
+        "no_30mer_construction": true
+      },
+      "label_gate": {
+        "status": "INCOMPATIBLE_TARGET",
+        "compatible_label_n": 0,
+        "unique_label_values": 0,
+        "canonical_0_1_scale_directly_established": false,
+        "reason": "Phase evidence did not establish compatible continuous activity labels."
+      },
+      "quantity_gate": {
+        "status": "INSUFFICIENT_QUANTITY",
+        "unique_compatible_observations": 0,
+        "minimum_candidate_unique_n": 1000,
+        "recommended_candidate_unique_n": 2000,
+        "threshold_type": "project_specific_policy_not_universal_crispr_rule"
+      },
+      "information_value_gate": {
+        "status": "LOW",
+        "phase17e_status": "LIMITED_INFORMATION_VALUE",
+        "reason": "Sequence-only descriptive value is not enough without compatible labels and provenance."
+      },
+      "raw_n": 16749,
+      "valid_sequence_n": 16749,
+      "unique_sequence_n": 12465,
+      "compatible_label_n": 0,
+      "unique_label_values": 0,
+      "exact_deepsp_overlap_n": 0,
+      "exact_deepsp_overlap_fraction": 0.0,
+      "metadata_coverage": {
+        "distinct_genes": "NOT_ESTABLISHED",
+        "distinct_loci": "NOT_ESTABLISHED",
+        "cell_types": "NOT_ESTABLISHED_OR_FILE_LEVEL_ONLY",
+        "experiments": "NOT_ESTABLISHED_OR_FILE_LEVEL_ONLY",
+        "publications_or_source_screens": 1
+      },
+      "final_candidate_status": "NOT_READY",
+      "phase17f_acceptance_status": "REJECTED_FOR_CURRENT_TARGET",
+      "reasons": [
+        "Biological/task compatibility gate did not pass.",
+        "Compatible continuous label quality was not established.",
+        "Independence/leakage gate did not pass.",
+        "Project-specific unique compatible observation threshold was not met."
+      ]
+    },
+    {
+      "candidate_id": "deep_hf_2019_public_data_listing",
+      "provenance_gate": {
+        "status": "FAIL"
+      },
+      "task_compatibility_gate": {
+        "status": "INSUFFICIENT_EVIDENCE"
+      },
+      "independence_gate": {
+        "status": "INSUFFICIENT_EVIDENCE",
+        "evidence_status": "INSUFFICIENT_PROVENANCE"
+      },
+      "sequence_gate": {
+        "status": "INSUFFICIENT_EVIDENCE",
+        "raw_n": 0,
+        "valid_sequence_n": 0,
+        "unique_sequence_n": 0,
+        "sequence_length_distribution": {},
+        "no_30mer_construction": true
+      },
+      "label_gate": {
+        "status": "UNKNOWN_SCALE",
+        "compatible_label_n": 0,
+        "unique_label_values": 0,
+        "canonical_0_1_scale_directly_established": false,
+        "reason": "Phase evidence did not establish compatible continuous activity labels."
+      },
+      "quantity_gate": {
+        "status": "INSUFFICIENT_QUANTITY",
+        "unique_compatible_observations": 0,
+        "minimum_candidate_unique_n": 1000,
+        "recommended_candidate_unique_n": 2000,
+        "threshold_type": "project_specific_policy_not_universal_crispr_rule"
+      },
+      "information_value_gate": {
+        "status": "INSUFFICIENT_EVIDENCE",
+        "phase17e_status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Sequence-only descriptive value is not enough without compatible labels and provenance."
+      },
+      "raw_n": 0,
+      "valid_sequence_n": 0,
+      "unique_sequence_n": 0,
+      "compatible_label_n": 0,
+      "unique_label_values": 0,
+      "exact_deepsp_overlap_n": 0,
+      "exact_deepsp_overlap_fraction": 0.0,
+      "metadata_coverage": {
+        "distinct_genes": "NOT_ESTABLISHED",
+        "distinct_loci": "NOT_ESTABLISHED",
+        "cell_types": "NOT_ESTABLISHED_OR_FILE_LEVEL_ONLY",
+        "experiments": "NOT_ESTABLISHED_OR_FILE_LEVEL_ONLY",
+        "publications_or_source_screens": 0
+      },
+      "final_candidate_status": "NOT_READY",
+      "phase17f_acceptance_status": "ALREADY_ANALYZED_NOT_NEW",
+      "reasons": [
+        "Provenance gate did not pass.",
+        "Biological/task compatibility gate did not pass.",
+        "Compatible continuous label quality was not established.",
+        "Independence/leakage gate did not pass.",
+        "Project-specific unique compatible observation threshold was not met."
+      ]
+    },
+    {
+      "candidate_id": "doench_2016_orcs_publication_screens",
+      "provenance_gate": {
+        "status": "PASS"
+      },
+      "task_compatibility_gate": {
+        "status": "INCOMPATIBLE"
+      },
+      "independence_gate": {
+        "status": "FAIL",
+        "evidence_status": "SHARED_SOURCE_STUDY"
+      },
+      "sequence_gate": {
+        "status": "PASS",
+        "raw_n": 194653,
+        "valid_sequence_n": 194653,
+        "unique_sequence_n": 157573,
+        "sequence_length_distribution": {
+          "20": 194653
+        },
+        "no_30mer_construction": true
+      },
+      "label_gate": {
+        "status": "INCOMPATIBLE_TARGET",
+        "compatible_label_n": 0,
+        "unique_label_values": 0,
+        "canonical_0_1_scale_directly_established": false,
+        "reason": "Phase evidence did not establish compatible continuous activity labels."
+      },
+      "quantity_gate": {
+        "status": "INSUFFICIENT_QUANTITY",
+        "unique_compatible_observations": 0,
+        "minimum_candidate_unique_n": 1000,
+        "recommended_candidate_unique_n": 2000,
+        "threshold_type": "project_specific_policy_not_universal_crispr_rule"
+      },
+      "information_value_gate": {
+        "status": "LOW",
+        "phase17e_status": "LIMITED_INFORMATION_VALUE",
+        "reason": "Sequence-only descriptive value is not enough without compatible labels and provenance."
+      },
+      "raw_n": 194653,
+      "valid_sequence_n": 194653,
+      "unique_sequence_n": 157573,
+      "compatible_label_n": 0,
+      "unique_label_values": 0,
+      "exact_deepsp_overlap_n": 0,
+      "exact_deepsp_overlap_fraction": 0.0,
+      "metadata_coverage": {
+        "distinct_genes": "NOT_ESTABLISHED",
+        "distinct_loci": "NOT_ESTABLISHED",
+        "cell_types": "NOT_ESTABLISHED_OR_FILE_LEVEL_ONLY",
+        "experiments": "NOT_ESTABLISHED_OR_FILE_LEVEL_ONLY",
+        "publications_or_source_screens": 1
+      },
+      "final_candidate_status": "NOT_READY",
+      "phase17f_acceptance_status": "REJECTED_FOR_CURRENT_TARGET",
+      "reasons": [
+        "Biological/task compatibility gate did not pass.",
+        "Compatible continuous label quality was not established.",
+        "Independence/leakage gate did not pass.",
+        "Project-specific unique compatible observation threshold was not met."
+      ]
+    },
+    {
+      "candidate_id": "sgdesigner_2020_public_data_listing",
+      "provenance_gate": {
+        "status": "INSUFFICIENT_EVIDENCE"
+      },
+      "task_compatibility_gate": {
+        "status": "INSUFFICIENT_EVIDENCE"
+      },
+      "independence_gate": {
+        "status": "INSUFFICIENT_EVIDENCE",
+        "evidence_status": "INSUFFICIENT_PROVENANCE"
+      },
+      "sequence_gate": {
+        "status": "INSUFFICIENT_EVIDENCE",
+        "raw_n": 0,
+        "valid_sequence_n": 0,
+        "unique_sequence_n": 0,
+        "sequence_length_distribution": {},
+        "no_30mer_construction": true
+      },
+      "label_gate": {
+        "status": "UNKNOWN_SCALE",
+        "compatible_label_n": 0,
+        "unique_label_values": 0,
+        "canonical_0_1_scale_directly_established": false,
+        "reason": "Phase evidence did not establish compatible continuous activity labels."
+      },
+      "quantity_gate": {
+        "status": "INSUFFICIENT_QUANTITY",
+        "unique_compatible_observations": 0,
+        "minimum_candidate_unique_n": 1000,
+        "recommended_candidate_unique_n": 2000,
+        "threshold_type": "project_specific_policy_not_universal_crispr_rule"
+      },
+      "information_value_gate": {
+        "status": "INSUFFICIENT_EVIDENCE",
+        "phase17e_status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Sequence-only descriptive value is not enough without compatible labels and provenance."
+      },
+      "raw_n": 0,
+      "valid_sequence_n": 0,
+      "unique_sequence_n": 0,
+      "compatible_label_n": 0,
+      "unique_label_values": 0,
+      "exact_deepsp_overlap_n": 0,
+      "exact_deepsp_overlap_fraction": 0.0,
+      "metadata_coverage": {
+        "distinct_genes": "NOT_ESTABLISHED",
+        "distinct_loci": "NOT_ESTABLISHED",
+        "cell_types": "NOT_ESTABLISHED_OR_FILE_LEVEL_ONLY",
+        "experiments": "NOT_ESTABLISHED_OR_FILE_LEVEL_ONLY",
+        "publications_or_source_screens": 0
+      },
+      "final_candidate_status": "NOT_READY",
+      "phase17f_acceptance_status": "INSUFFICIENT_EVIDENCE",
+      "reasons": [
+        "Provenance gate did not pass.",
+        "Biological/task compatibility gate did not pass.",
+        "Compatible continuous label quality was not established.",
+        "Independence/leakage gate did not pass.",
+        "Project-specific unique compatible observation threshold was not met."
+      ]
+    }
+  ],
+  "aggregate": {
+    "final_decision": "NO_GO",
+    "accepted_candidate_count": 0,
+    "total_new_unique_compatible_observations": 0,
+    "decision_reasons": [
+      "No Phase 17 candidate satisfies provenance, compatibility, label, independence, quantity, and information-value gates."
+    ]
+  },
+  "final_decision": "NO_GO",
+  "decision_reasons": [
+    "No Phase 17 candidate satisfies provenance, compatibility, label, independence, quantity, and information-value gates."
+  ],
+  "additional_compatible_unique_observations_required": 2000,
+  "canonical_integrity": {
+    "before": {
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "matches_expected": null
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": null
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true
+      },
+      "data/raw/Moreno-Mateos.csv": {
+        "exists": true,
+        "sha256": "NOT_COMPUTED_MORENO_LOCKED",
+        "matches_expected": null,
+        "git_diff_clean": true
+      }
+    },
+    "after": {
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "matches_expected": null
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": null
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true
+      },
+      "data/raw/Moreno-Mateos.csv": {
+        "exists": true,
+        "sha256": "NOT_COMPUTED_MORENO_LOCKED",
+        "matches_expected": null,
+        "git_diff_clean": true
+      }
+    },
+    "unchanged": true
+  },
+  "git": {
+    "head": "a7a7e8298d601d61c58ecab4c2a824a56f1f5dd5",
+    "status": "M config.yaml\n?? scripts/run_phase17g_data_sufficiency_audit.py\n?? src/dataset_recovery/data_sufficiency.py\n?? tests/test_phase17g_data_sufficiency.py",
+    "diff_stat": "config.yaml | 8 ++++++++\n 1 file changed, 8 insertions(+)"
+  },
+  "artifacts": {
+    "data_sufficiency_json": "results/phase17g_data_sufficiency_20260911_222112.json",
+    "report_md": "docs/phase17g_data_sufficiency_report.md"
+  }
+}
