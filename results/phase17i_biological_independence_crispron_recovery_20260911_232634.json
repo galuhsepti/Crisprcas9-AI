@@ -1,0 +1,382 @@
+{
+  "phase": "17I",
+  "timestamp": "2026-09-11T23:26:34.363819",
+  "scope": {
+    "no_phase18": true,
+    "no_model_training": true,
+    "no_moreno_access": true,
+    "no_phase17g_rerun": true,
+    "no_label_harmonization": true
+  },
+  "corsi": {
+    "raw_n": 2010,
+    "corsi_raw_observation_n": 2010,
+    "corsi_unique_30mer_n": 1022,
+    "corsi_unique_23mer_n": 256,
+    "corsi_unique_spacer20_n": 4,
+    "corsi_unique_spacer_condition_pairs_n": 8,
+    "unique_30mer_n": 1022,
+    "unique_23mer_n": 256,
+    "unique_spacer20_n": 4,
+    "effective_guide_diversity_ratio": 0.003913894324853229,
+    "processed_Dox_minus": {
+      "raw_row_count": 978,
+      "valid_30mer_count": 978,
+      "unique_30mer_count": 967,
+      "unique_23mer_target_pam_count": 255,
+      "unique_20mer_spacer_count": 4,
+      "observations_per_20mer_frequency_distribution": {
+        "202": 1,
+        "251": 1,
+        "260": 1,
+        "265": 1
+      },
+      "pam_context_diversity_per_spacer": {
+        "median_unique_30mer_per_spacer": 253.5,
+        "max_unique_30mer_per_spacer": 261,
+        "median_unique_pam_context_per_spacer": 16.0,
+        "max_unique_pam_context_per_spacer": 16
+      },
+      "gene_or_locus_column": "gRNA_ID",
+      "unique_genes_loci_if_explicitly_available": 4
+    },
+    "processed_Dox_plus": {
+      "raw_row_count": 1032,
+      "valid_30mer_count": 1032,
+      "unique_30mer_count": 1021,
+      "unique_23mer_target_pam_count": 256,
+      "unique_20mer_spacer_count": 4,
+      "observations_per_20mer_frequency_distribution": {
+        "249": 1,
+        "256": 1,
+        "262": 1,
+        "265": 1
+      },
+      "pam_context_diversity_per_spacer": {
+        "median_unique_30mer_per_spacer": 257.0,
+        "max_unique_30mer_per_spacer": 261,
+        "median_unique_pam_context_per_spacer": 16.0,
+        "max_unique_pam_context_per_spacer": 16
+      },
+      "gene_or_locus_column": "gRNA_ID",
+      "unique_genes_loci_if_explicitly_available": 4
+    },
+    "joint": {
+      "raw_row_count": 2010,
+      "valid_30mer_count": 2010,
+      "unique_30mer_count": 1022,
+      "unique_23mer_target_pam_count": 256,
+      "unique_20mer_spacer_count": 4,
+      "observations_per_20mer_frequency_distribution": {
+        "451": 1,
+        "507": 1,
+        "522": 1,
+        "530": 1
+      },
+      "pam_context_diversity_per_spacer": {
+        "median_unique_30mer_per_spacer": 257.0,
+        "max_unique_30mer_per_spacer": 261,
+        "median_unique_pam_context_per_spacer": 16.0,
+        "max_unique_pam_context_per_spacer": 16
+      },
+      "gene_or_locus_column": "gRNA_ID",
+      "unique_genes_loci_if_explicitly_available": 4
+    },
+    "shared_20mer_spacers_between_conditions": 4,
+    "identical_30mers_shared_between_conditions": 966,
+    "condition_conflict": {
+      "shared_sequence_n": 966,
+      "shared_sequence_with_label_difference_n": 939,
+      "median_absolute_label_difference": 1.029335366064878,
+      "mean_absolute_label_difference": 8.967719618830797,
+      "pooling_creates_target_ambiguity": true
+    },
+    "pam_context_variant_conclusion": "Unique 30-mers are primarily PAM/context variants over a small spacer set.",
+    "training_suitability": "AUXILIARY_ONLY",
+    "training_suitability_reason": "Sequence-only pooling would assign different labels to identical 30-mers across Dox conditions, and the 30-mer count substantially overstates independent spacer diversity."
+  },
+  "crispron": {
+    "retrieval_status": "RECOVERED",
+    "file_sha256": "146f211575179fc31669dbd5eaef46434b0866013a2d03767354375a1cc5d61f",
+    "source_url": "https://rth.dk/resources/crispr/crispron/downloads//Luo2020_Kim2019.xlsx",
+    "file_size_bytes": 1544158,
+    "http_content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "publication_relationship": "Official CRISPRon/RTH training-data download associated with Xiang et al. 2021 Nature Communications 12, 3238.",
+    "sources": {
+      "source_identity_recoverable": true,
+      "source_column_used": "Dataset",
+      "sequence_column": "30mer_gRNA",
+      "xiang_luo": {
+        "raw_n": 10592,
+        "unique_30mer_n": 10592,
+        "unique_spacer20_n": 10592
+      },
+      "kim": {
+        "raw_n": 13359,
+        "unique_30mer_n": 13359,
+        "unique_spacer20_n": 13352
+      },
+      "xiang_luo_exclusive": {
+        "raw_n": 10543,
+        "unique_30mer_n": 10543,
+        "unique_spacer20_n": 10543
+      },
+      "kim_exclusive": {
+        "raw_n": 13310,
+        "unique_30mer_n": 13310,
+        "unique_spacer20_n": 13303
+      },
+      "overlap_luo_kim": {
+        "raw_n": 49,
+        "unique_30mer_n": 49,
+        "unique_spacer20_n": 49
+      },
+      "other": {
+        "raw_n": 0,
+        "unique_30mer_n": 0,
+        "unique_spacer20_n": 0
+      }
+    },
+    "workbook_inventory": {
+      "sheet_names": [
+        "README_first",
+        "Luo2020_Kim2019"
+      ],
+      "sheets": [
+        {
+          "sheet_name": "README_first",
+          "row_count": 0,
+          "column_names": [],
+          "sequence_columns": [],
+          "label_columns": [],
+          "dataset_source_columns": [],
+          "partition_columns": [],
+          "has_30mer_gRNA": false,
+          "has_Quant_norm_efficiency": false
+        },
+        {
+          "sheet_name": "Luo2020_Kim2019",
+          "row_count": 23902,
+          "column_names": [
+            "gRNA+PAM",
+            "Dataset",
+            "Gene",
+            "Transcript",
+            "HEK293T_indel_freq_avg_d8_d10",
+            "HEK293T_indel_freq_d8",
+            "HEK293T_indel_freq_d10",
+            "30mer_gRNA",
+            "Indel_freq_HEK293T"
+          ],
+          "sequence_columns": [
+            "gRNA+PAM",
+            "30mer_gRNA"
+          ],
+          "label_columns": [
+            "HEK293T_indel_freq_avg_d8_d10",
+            "HEK293T_indel_freq_d8",
+            "HEK293T_indel_freq_d10",
+            "Indel_freq_HEK293T"
+          ],
+          "dataset_source_columns": [
+            "Dataset"
+          ],
+          "partition_columns": [],
+          "has_30mer_gRNA": true,
+          "has_Quant_norm_efficiency": false
+        }
+      ]
+    },
+    "xiang_luo": {
+      "raw_n": 10592,
+      "unique_30mer_n": 10592,
+      "unique_spacer20_n": 10592
+    },
+    "kim": {
+      "raw_n": 13359,
+      "unique_30mer_n": 13359,
+      "unique_spacer20_n": 13352
+    },
+    "overlap_luo_kim": {
+      "raw_n": 49,
+      "unique_30mer_n": 49,
+      "unique_spacer20_n": 49
+    },
+    "other": {
+      "raw_n": 0,
+      "unique_30mer_n": 0,
+      "unique_spacer20_n": 0
+    },
+    "overlap_with_deepspcas9": {
+      "all_recoverable": {
+        "raw_n": 23902,
+        "unique_30mer_n": 23902,
+        "exact_deepspcas9_overlap_n": 12832,
+        "exact_deepspcas9_overlap_fraction": 0.536858840264413,
+        "new_unique_30mer_n": 11070,
+        "unique_spacer20_n": 23895,
+        "spacer20_overlap_with_deepspcas9_n": 12825,
+        "new_unique_spacer20_n": 11070
+      },
+      "xiang_luo": {
+        "raw_n": 10592,
+        "unique_30mer_n": 10592,
+        "exact_deepspcas9_overlap_n": 48,
+        "exact_deepspcas9_overlap_fraction": 0.004531722054380665,
+        "new_unique_30mer_n": 10544,
+        "unique_spacer20_n": 10592,
+        "spacer20_overlap_with_deepspcas9_n": 48,
+        "new_unique_spacer20_n": 10544
+      },
+      "kim": {
+        "raw_n": 13359,
+        "unique_30mer_n": 13359,
+        "exact_deepspcas9_overlap_n": 12832,
+        "exact_deepspcas9_overlap_fraction": 0.960550939441575,
+        "new_unique_30mer_n": 527,
+        "unique_spacer20_n": 13352,
+        "spacer20_overlap_with_deepspcas9_n": 12825,
+        "new_unique_spacer20_n": 527
+      },
+      "xiang_luo_exclusive": {
+        "raw_n": 10543,
+        "unique_30mer_n": 10543,
+        "exact_deepspcas9_overlap_n": 0,
+        "exact_deepspcas9_overlap_fraction": 0.0,
+        "new_unique_30mer_n": 10543,
+        "unique_spacer20_n": 10543,
+        "spacer20_overlap_with_deepspcas9_n": 0,
+        "new_unique_spacer20_n": 10543
+      },
+      "kim_exclusive": {
+        "raw_n": 13310,
+        "unique_30mer_n": 13310,
+        "exact_deepspcas9_overlap_n": 12784,
+        "exact_deepspcas9_overlap_fraction": 0.9604808414725771,
+        "new_unique_30mer_n": 526,
+        "unique_spacer20_n": 13303,
+        "spacer20_overlap_with_deepspcas9_n": 12777,
+        "new_unique_spacer20_n": 526
+      },
+      "overlap_luo_kim": {
+        "raw_n": 49,
+        "unique_30mer_n": 49,
+        "exact_deepspcas9_overlap_n": 48,
+        "exact_deepspcas9_overlap_fraction": 0.9795918367346939,
+        "new_unique_30mer_n": 1,
+        "unique_spacer20_n": 49,
+        "spacer20_overlap_with_deepspcas9_n": 48,
+        "new_unique_spacer20_n": 1
+      },
+      "other": {
+        "raw_n": 0,
+        "unique_30mer_n": 0,
+        "exact_deepspcas9_overlap_n": 0,
+        "exact_deepspcas9_overlap_fraction": 0.0,
+        "new_unique_30mer_n": 0,
+        "unique_spacer20_n": 0,
+        "spacer20_overlap_with_deepspcas9_n": 0,
+        "new_unique_spacer20_n": 0
+      }
+    },
+    "label_audit": {
+      "label_name": "HEK293T_indel_freq_avg_d8_d10",
+      "label_definition": "Workbook-native SpCas9 on-target indel-frequency/efficiency label; inspected without rescaling.",
+      "experimental_measurement": "Experimentally measured HEK293T indel frequency for the Luo/Xiang component; Kim rows are integrated published data and remain source-separated.",
+      "scale": "percent-like numeric scale in the workbook",
+      "minimum": 0.0380228136882129,
+      "maximum": 95.8512582144575,
+      "mean": 37.16010516315937,
+      "median": 35.13975115371885,
+      "SD": 22.993814153002077,
+      "IQR": 38.11274991760083,
+      "quantiles": {
+        "0": 0.0380228136882129,
+        "0.01": 1.8728122249767707,
+        "0.05": 4.988471583359487,
+        "0.1": 7.95804027677982,
+        "0.25": 16.92386391000985,
+        "0.5": 35.13975115371885,
+        "0.75": 55.03661382761068,
+        "0.9": 69.86729747338426,
+        "0.95": 77.18805619448818,
+        "0.99": 86.6179274032477,
+        "1": 95.8512582144575
+      },
+      "number_of_unique_values": 10592,
+      "missing_values": 13310,
+      "classification": "PRIMARY_CONTINUOUS",
+      "Quant_norm_efficiency_present": false,
+      "derivation_assessment": "Quant_norm_efficiency is not present in the recovered workbook. The available average day-8/day-10 indel-frequency field is treated as a primary continuous measurement for audit purposes only."
+    },
+    "preliminary_status": "PROMISING_FOR_17G"
+  },
+  "canonical_integrity": {
+    "before": {
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "matches_expected": null
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": null
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true
+      },
+      "data/raw/Moreno-Mateos.csv": {
+        "exists": true,
+        "sha256": "NOT_COMPUTED_MORENO_LOCKED",
+        "matches_expected": null,
+        "git_diff_clean": true
+      }
+    },
+    "after": {
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "matches_expected": null
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": null
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true
+      },
+      "data/raw/Moreno-Mateos.csv": {
+        "exists": true,
+        "sha256": "NOT_COMPUTED_MORENO_LOCKED",
+        "matches_expected": null,
+        "git_diff_clean": true
+      }
+    },
+    "unchanged": true
+  },
+  "git": {
+    "head": "a7a7e8298d601d61c58ecab4c2a824a56f1f5dd5",
+    "status": "M config.yaml\n?? data/phase17h/\n?? data/phase17i/\n?? docs/phase17g_data_sufficiency_report.md\n?? docs/phase17h_primary_dataset_acquisition_report.md\n?? docs/phase17i_biological_independence_crispron_recovery_report.md\n?? results/phase17g_data_sufficiency_20260911_222112.json\n?? results/phase17h_primary_dataset_acquisition_20260911_223854.json\n?? results/phase17i_biological_independence_crispron_recovery_20260911_232332.json\n?? results/phase17i_biological_independence_crispron_recovery_20260911_232536.json\n?? scripts/run_phase17g_data_sufficiency_audit.py\n?? scripts/run_phase17h_primary_dataset_acquisition.py\n?? scripts/run_phase17i_biological_independence_crispron_recovery.py\n?? src/dataset_recovery/biological_independence_crispron.py\n?? src/dataset_recovery/data_sufficiency.py\n?? src/dataset_recovery/primary_acquisition.py\n?? src/dataset_recovery/provenance_chain.py\n?? tests/test_phase17g_data_sufficiency.py\n?? tests/test_phase17h_primary_dataset_acquisition.py\n?? tests/test_phase17i_biological_independence_crispron.py",
+    "diff_stat": "config.yaml | 8 ++++++++\n 1 file changed, 8 insertions(+)"
+  },
+  "artifacts": {
+    "json": "results/phase17i_biological_independence_crispron_recovery_20260911_232634.json",
+    "report": "docs/phase17i_biological_independence_crispron_recovery_report.md"
+  }
+}

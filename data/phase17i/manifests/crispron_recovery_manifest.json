@@ -1,0 +1,11 @@
+{
+  "retrieval_status": "RECOVERED",
+  "source_url": "https://rth.dk/resources/crispr/crispron/downloads//Luo2020_Kim2019.xlsx",
+  "retrieval_timestamp": "2026-09-11T23:26:34.363819",
+  "original_filename": "Luo2020_Kim2019.xlsx",
+  "local_path": "data/phase17i/raw/crispron/Luo2020_Kim2019.xlsx",
+  "file_size_bytes": 1544158,
+  "file_sha256": "146f211575179fc31669dbd5eaef46434b0866013a2d03767354375a1cc5d61f",
+  "http_content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "publication_relationship": "Official CRISPRon/RTH training-data download associated with Xiang et al. 2021 Nature Communications 12, 3238."
+}
