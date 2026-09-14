@@ -1,0 +1,4033 @@
+{
+  "phase": "18A",
+  "protocol_version": "phase18a-cross-dataset-label-compatibility-v1",
+  "timestamp": "2026-09-12T16:03:13.276009",
+  "scope": {
+    "audit_only": true,
+    "no_model_training": true,
+    "no_model_retraining": true,
+    "no_model_evaluation": true,
+    "no_moreno_access": true,
+    "no_label_normalization": true,
+    "no_label_transformation": true,
+    "no_harmonization_fit": true,
+    "no_training_dataset_created": true
+  },
+  "datasets": {
+    "deepspcas9": {
+      "path": "data/raw/DeepSpCas9.csv",
+      "label_column": "activity",
+      "sequence_column": "sequence_30mer",
+      "raw_n": 12832,
+      "canonical_modeling_n": 10117,
+      "geometry": "[0:4] upstream; [4:24] spacer20; [24:27] PAM; [27:30] downstream"
+    },
+    "crispron_xiang_luo": {
+      "path": "data/phase17i/raw/crispron/Luo2020_Kim2019.xlsx",
+      "sheet": "Luo2020_Kim2019",
+      "source_components": [
+        "LuoSpCas92020_min200",
+        "Overlap_Luo_Kim2019"
+      ],
+      "label_column": "HEK293T_indel_freq_avg_d8_d10",
+      "sequence_column": "30mer_gRNA",
+      "raw_n": 10592,
+      "unique_30mer_n": 10592,
+      "new_nonoverlapping_n": 10544
+    }
+  },
+  "label_semantics": {
+    "deepspcas9": {
+      "original_publication": "Kim et al. 2019, Science Advances 5:eaax9249",
+      "doi": "10.1126/sciadv.aax9249",
+      "primary_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6834390/",
+      "local_source_trace": "Benchmark derivative modFreq renamed unchanged to activity by scripts/prepare_data.py",
+      "experimental_assay": "Pooled lentiviral guide-plus-integrated-surrogate-target library followed by targeted deep sequencing",
+      "cell_types": [
+        "HEK293T"
+      ],
+      "target_system": "Integrated 30-nt surrogate target paired with its sgRNA; not an endogenous-locus training measurement",
+      "cas_nuclease": "SpCas9",
+      "activity_definition": "Fraction of reads with an insertion or deletion in the 8-nt window centered on the expected cleavage site",
+      "label_name": "activity (source derivative: modFreq)",
+      "raw_biological_measurement": "Day-2.9 indel reads divided by total reads",
+      "normalization": "Local values equal the source table's uncorrected indel percentage divided by 100; the publication separately describes background-corrected indel frequency",
+      "numerical_unit": "fraction",
+      "higher_means_greater_editing_efficiency": true,
+      "direct_primary_measurement": true,
+      "original_author_transformations": "Publication background-correction formula exists, but the project-local activity column traces to the uncorrected indel-frequency field rather than that corrected field",
+      "measurement_timing": "2.9 days after SpCas9 lentiviral transduction",
+      "evidence_chain": [
+        "Kim et al. 2019 primary publication and Table S1 (HT_Cas9_Train)",
+        "third-party Benchmarking-CRISPR-on-tools DeepSpCas9 (Library) derivative",
+        "scripts/prepare_data.py renames modFreq to activity without label transformation",
+        "data/raw/DeepSpCas9.csv activity"
+      ],
+      "evidence_caveat": "The exact response column used by the original authors' final model is not fully established from the published training code; this audit describes the repository-local label actually used by this thesis pipeline."
+    },
+    "crispron_xiang_luo": {
+      "original_publication": "Xiang et al. 2021, Nature Communications 12:3238",
+      "doi": "10.1038/s41467-021-23576-0",
+      "primary_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8163799/",
+      "official_resource_url": "https://rth.dk/resources/crispr/crispron/download",
+      "experimental_assay": "Pooled lentiviral 37-bp surrogate-target library followed by targeted amplicon deep sequencing",
+      "cell_types": [
+        "HEK293T-SpCas9 stable line",
+        "wild-type HEK293T background control"
+      ],
+      "target_system": "Randomly integrated 37-bp surrogate target containing 10-nt upstream, spacer, PAM, and 4-nt downstream context",
+      "cas_nuclease": "Human-codon-optimized SpCas9",
+      "activity_definition": "Mean Dox-free total indel efficiency at days 8 and 10 after guide/surrogate transduction",
+      "label_name": "HEK293T_indel_freq_avg_d8_d10",
+      "raw_biological_measurement": "Percentage of amplicon reads classified as CRISPR-induced indels after removing background sequence variants, averaged across days 8 and 10",
+      "normalization": "No Phase 18A normalization; workbook-native raw day-8/day-10 average is audited. The publication later linearly rescales Xiang/Luo values for its own Kim-integrated training dataset.",
+      "numerical_unit": "percent",
+      "higher_means_greater_editing_efficiency": true,
+      "direct_primary_measurement": true,
+      "original_author_transformations": "Arithmetic day-8/day-10 averaging for this field; low-read filtering and background-variant removal. A separate integrated-label field applies linear cross-study rescaling and is not used here.",
+      "measurement_timing": "8 and 10 days after guide/surrogate transduction, Dox-free, with puromycin selection from day 2",
+      "evidence_chain": [
+        "Xiang et al. 2021 primary publication and Supplementary Data 1",
+        "official CRISPRon/RTH Luo2020_Kim2019.xlsx download",
+        "Dataset values LuoSpCas92020_min200 plus Overlap_Luo_Kim2019",
+        "30mer_gRNA",
+        "HEK293T_indel_freq_avg_d8_d10"
+      ],
+      "evidence_caveat": "Official training documentation references Quant_norm_efficiency, which is absent from the recovered workbook; no identity or transformation for that field is assumed."
+    },
+    "underlying_concept_assessment": {
+      "same_underlying_biological_concept": true,
+      "concept": "Sequence-linked SpCas9 on-target indel efficiency in HEK293T surrogate-target assays",
+      "operationally_equivalent_endpoints": false,
+      "reason": "Units, timing, selection, Cas9 expression context, and background handling differ materially."
+    }
+  },
+  "label_distribution_comparison": {
+    "no_values_transformed": true,
+    "numerical_scales_directly_comparable": false,
+    "deepspcas9_canonical_modeling_population": {
+      "n": 10117,
+      "finite_n": 10117,
+      "missing_n": 0,
+      "min": 0.0,
+      "max": 0.9513502579144332,
+      "mean": 0.4256523392175946,
+      "median": 0.4361267527878988,
+      "SD": 0.22041354807836108,
+      "IQR": 0.35302892903496363,
+      "unique_value_n": 10097,
+      "quantiles_percent": {
+        "0": 0.0,
+        "1": 0.009055735838607429,
+        "5": 0.060594559850416535,
+        "10": 0.11595328477344137,
+        "25": 0.2495426665231895,
+        "50": 0.4361267527878988,
+        "75": 0.6025715955581531,
+        "90": 0.714389167872391,
+        "95": 0.7709589891067963,
+        "99": 0.8539031871862918,
+        "100": 0.9513502579144332
+      },
+      "skewness": -0.06206534187436802,
+      "fraction_at_min": 0.0013838094296728279,
+      "fraction_at_max": 9.884353069091628e-05,
+      "empirical_cdf": {
+        "n_points": 21,
+        "x": [
+          0.0,
+          0.0605920176099171,
+          0.1158581935377241,
+          0.1636872998932764,
+          0.2060359837492745,
+          0.2495426665231895,
+          0.2882379758377023,
+          0.326184802753508,
+          0.3627697310079811,
+          0.3991957594589654,
+          0.4361267527878988,
+          0.4710825132475397,
+          0.5030020013342228,
+          0.5369774919614148,
+          0.5689492548575741,
+          0.6025715955581531,
+          0.6346396965865992,
+          0.6713197969543149,
+          0.714346439957492,
+          0.7709424083769634,
+          0.9513502579144332
+        ],
+        "probability": [
+          9.884353069091628e-05,
+          0.05001482652960364,
+          0.10002965305920727,
+          0.15004447958881093,
+          0.20005930611841455,
+          0.2500741326480182,
+          0.2999901156469309,
+          0.35000494217653455,
+          0.4000197687061382,
+          0.4500345952357418,
+          0.5000494217653455,
+          0.5499654047642581,
+          0.5999802312938618,
+          0.6499950578234654,
+          0.7000098843530691,
+          0.7500247108826728,
+          0.7999406938815854,
+          0.849955520411189,
+          0.8999703469407927,
+          0.9499851734703963,
+          1.0
+        ]
+      }
+    },
+    "crispron_xiang_luo": {
+      "n": 10592,
+      "finite_n": 10592,
+      "missing_n": 0,
+      "min": 0.0380228136882129,
+      "max": 95.8512582144575,
+      "mean": 37.16010516315937,
+      "median": 35.13975115371885,
+      "SD": 22.993814153002077,
+      "IQR": 38.11274991760083,
+      "unique_value_n": 10592,
+      "quantiles_percent": {
+        "0": 0.0380228136882129,
+        "1": 1.8728122249767707,
+        "5": 4.988471583359487,
+        "10": 7.95804027677982,
+        "25": 16.92386391000985,
+        "50": 35.13975115371885,
+        "75": 55.03661382761068,
+        "90": 69.86729747338426,
+        "95": 77.18805619448818,
+        "99": 86.6179274032477,
+        "100": 95.8512582144575
+      },
+      "skewness": 0.30530233984644317,
+      "fraction_at_min": 9.441087613293051e-05,
+      "fraction_at_max": 9.441087613293051e-05,
+      "empirical_cdf": {
+        "n_points": 21,
+        "x": [
+          0.0380228136882129,
+          4.9883585984185,
+          7.95778561919164,
+          10.7160470764058,
+          13.8083538083538,
+          16.9214939235028,
+          20.2895680060366,
+          23.7185897841635,
+          27.5465779804591,
+          31.4352347166694,
+          35.1367736675412,
+          38.9768002039542,
+          43.0453903991407,
+          47.1299172605663,
+          51.0556191496715,
+          55.0341711982553,
+          59.5543184150779,
+          64.3018279372695,
+          69.8594782219237,
+          77.1795412858928,
+          95.8512582144575
+        ],
+        "probability": [
+          9.441087613293051e-05,
+          0.05003776435045317,
+          0.10007552870090634,
+          0.15001888217522658,
+          0.20005664652567975,
+          0.25,
+          0.30003776435045315,
+          0.3499811178247734,
+          0.4000188821752266,
+          0.44996223564954685,
+          0.5,
+          0.5500377643504532,
+          0.5999811178247734,
+          0.6500188821752266,
+          0.6999622356495468,
+          0.75,
+          0.7999433534743202,
+          0.8499811178247734,
+          0.8999244712990937,
+          0.9499622356495468,
+          1.0
+        ]
+      }
+    },
+    "interpretation": "Different numeric ranges do not imply biological incompatibility, but the unit and endpoint differences prevent treating values as exchangeable regression targets without a controlled study."
+  },
+  "shared_sequence_bridge": {
+    "n": 48,
+    "finite_pair_n": 48,
+    "missing_pair_n": 0,
+    "matching": "exact forward 30-mer only",
+    "diagnostic_only": true,
+    "pearson": {
+      "coefficient": 0.6753584278571305,
+      "p_value": 1.3970962904481948e-07,
+      "status": "COMPUTED"
+    },
+    "spearman": {
+      "coefficient": 0.687798523664785,
+      "p_value": 6.63048144794204e-08,
+      "status": "COMPUTED"
+    },
+    "kendall": {
+      "coefficient": 0.5035460992907802,
+      "p_value": 4.455094277041431e-07,
+      "status": "COMPUTED"
+    },
+    "monotonic_relationship": "MODERATE_POSITIVE_MONOTONIC_ASSOCIATION",
+    "rank_agreement": {
+      "mean_absolute_percentile_rank_disagreement": 0.1773049645390071,
+      "median_absolute_percentile_rank_disagreement": 0.148936170212766,
+      "maximum_absolute_percentile_rank_disagreement": 0.6382978723404255,
+      "same_quartile_fraction": 0.5,
+      "top_quartile_overlap_n": 6,
+      "top_quartile_jaccard": 0.3333333333333333
+    },
+    "absolute_disagreement": {
+      "raw_numeric_MAE": 39.478565324990065,
+      "raw_numeric_median": 36.46719204156604,
+      "interpretation": "Not directly interpretable because the original labels use different units and endpoints; no conversion was applied."
+    },
+    "linear_regression": {
+      "status": "COMPUTED_DIAGNOSTIC_ONLY",
+      "direction": "crispron_xiang_luo_label ~ deepspcas9_label",
+      "slope": 78.58518483686746,
+      "intercept": 3.8602560855905566,
+      "r_value": 0.6753584278571306,
+      "r_squared": 0.4561090060776551,
+      "p_value": 1.3970962904481874e-07,
+      "slope_standard_error": 12.652704725882385,
+      "intercept_standard_error": 6.369046960038537,
+      "residual_SD": 17.9047348640326,
+      "residual_MAE": 14.515116862969274
+    },
+    "robust_regression": {
+      "status": "COMPUTED_DIAGNOSTIC_ONLY",
+      "method": "Theil-Sen",
+      "slope": 85.49027802490457,
+      "intercept": -0.06284319871414823,
+      "slope_95pct_CI": [
+        57.03184781508216,
+        111.3547621070975
+      ]
+    },
+    "outlier_n": 0,
+    "rows": [
+      {
+        "sequence_30mer": "AAATTGGAGGCCAAAGCCTTAATCTGGACT",
+        "deepspcas9_label": 0.1972477064220183,
+        "crispron_xiang_luo_label": 7.72345101036641,
+        "raw_numeric_absolute_disagreement": 7.526203303944391,
+        "deepspcas9_percentile_rank": 0.06382978723404255,
+        "crispron_percentile_rank": 0.06382978723404255,
+        "absolute_percentile_rank_disagreement": 0.0,
+        "linear_outlier": false,
+        "linear_residual": -11.637552543046624,
+        "robust_residual_z": -0.5776111691146306
+      },
+      {
+        "sequence_30mer": "AACGTCTTGCTCGAGATGTGATGAAGGAGA",
+        "deepspcas9_label": 0.6575663026521061,
+        "crispron_xiang_luo_label": 38.8466295609153,
+        "raw_numeric_absolute_disagreement": 38.18906325826319,
+        "deepspcas9_percentile_rank": 0.8085106382978723,
+        "crispron_percentile_rank": 0.5106382978723404,
+        "absolute_percentile_rank_disagreement": 0.2978723404255319,
+        "linear_outlier": false,
+        "linear_residual": -16.68859596108655,
+        "robust_residual_z": -0.8921563742045286
+      },
+      {
+        "sequence_30mer": "AAGAGGAACCAGTGCCGCTACTGCAGGCTC",
+        "deepspcas9_label": 0.5349922239502333,
+        "crispron_xiang_luo_label": 78.2111657111658,
+        "raw_numeric_absolute_disagreement": 77.67617348721558,
+        "deepspcas9_percentile_rank": 0.6382978723404256,
+        "crispron_percentile_rank": 0.9361702127659575,
+        "absolute_percentile_rank_disagreement": 0.2978723404255319,
+        "linear_outlier": false,
+        "linear_residual": 32.30844682015938,
+        "robust_residual_z": 2.159051781199945
+      },
+      {
+        "sequence_30mer": "AAGCTCACAGACAGGTGATGCACTTGGAAA",
+        "deepspcas9_label": 0.4279279279279279,
+        "crispron_xiang_luo_label": 19.9726837299806,
+        "raw_numeric_absolute_disagreement": 19.54475580205267,
+        "deepspcas9_percentile_rank": 0.46808510638297873,
+        "crispron_percentile_rank": 0.2553191489361702,
+        "absolute_percentile_rank_disagreement": 0.21276595744680854,
+        "linear_outlier": false,
+        "linear_residual": -17.516367668683866,
+        "robust_residual_z": -0.9437044604086363
+      },
+      {
+        "sequence_30mer": "AAGTTGTTCCAGATCCAGTTCAACCGGAGT",
+        "deepspcas9_label": 0.2303413520966055,
+        "crispron_xiang_luo_label": 14.6943085433021,
+        "raw_numeric_absolute_disagreement": 14.463967191205494,
+        "deepspcas9_percentile_rank": 0.14893617021276595,
+        "crispron_percentile_rank": 0.2127659574468085,
+        "absolute_percentile_rank_disagreement": 0.06382978723404256,
+        "linear_outlier": false,
+        "linear_residual": -7.2673652723741675,
+        "robust_residual_z": -0.30546513163939626
+      },
+      {
+        "sequence_30mer": "AATGAGCCAGGCAGCCCGCATCACAGGCAC",
+        "deepspcas9_label": 0.402324120603015,
+        "crispron_xiang_luo_label": 24.257742619592,
+        "raw_numeric_absolute_disagreement": 23.855418498988985,
+        "deepspcas9_percentile_rank": 0.40425531914893614,
+        "crispron_percentile_rank": 0.3191489361702128,
+        "absolute_percentile_rank_disagreement": 0.08510638297872336,
+        "linear_outlier": false,
+        "linear_residual": -11.219228847916646,
+        "robust_residual_z": -0.5515607669326427
+      },
+      {
+        "sequence_30mer": "ACCAACTGAGCCAACATGTGACCGTGGACG",
+        "deepspcas9_label": 0.8070995670995671,
+        "crispron_xiang_luo_label": 64.5379996070627,
+        "raw_numeric_absolute_disagreement": 63.73090003996313,
+        "deepspcas9_percentile_rank": 0.9787234042553191,
+        "crispron_percentile_rank": 0.8085106382978723,
+        "absolute_percentile_rank_disagreement": 0.17021276595744683,
+        "linear_outlier": false,
+        "linear_residual": -2.7483251408030327,
+        "robust_residual_z": -0.024049533444812192
+      },
+      {
+        "sequence_30mer": "ACGCTATCGCCCAGGGCGGGGAGGAGGAGT",
+        "deepspcas9_label": 0.1945274984144242,
+        "crispron_xiang_luo_label": 10.2846913978127,
+        "raw_numeric_absolute_disagreement": 10.090163899398277,
+        "deepspcas9_percentile_rank": 0.0425531914893617,
+        "crispron_percentile_rank": 0.10638297872340426,
+        "absolute_percentile_rank_disagreement": 0.06382978723404256,
+        "linear_outlier": false,
+        "linear_residual": -8.862544106528823,
+        "robust_residual_z": -0.40480220163016434
+      },
+      {
+        "sequence_30mer": "ACGCTTCCAGAACGCCTGCCGCGACGGCCG",
+        "deepspcas9_label": 0.5404178878699064,
+        "crispron_xiang_luo_label": 54.9282069757631,
+        "raw_numeric_absolute_disagreement": 54.387789087893196,
+        "deepspcas9_percentile_rank": 0.6808510638297872,
+        "crispron_percentile_rank": 0.7021276595744681,
+        "absolute_percentile_rank_disagreement": 0.021276595744680882,
+        "linear_outlier": false,
+        "linear_residual": 8.599111282766444,
+        "robust_residual_z": 0.6825929207357364
+      },
+      {
+        "sequence_30mer": "ACGTCCTCTACCCACATGTGCATACGGAGG",
+        "deepspcas9_label": 0.2076923076923077,
+        "crispron_xiang_luo_label": 9.5756706133295,
+        "raw_numeric_absolute_disagreement": 9.367978305637193,
+        "deepspcas9_percentile_rank": 0.0851063829787234,
+        "crispron_percentile_rank": 0.0851063829787234,
+        "absolute_percentile_rank_disagreement": 0.0,
+        "linear_outlier": false,
+        "linear_residual": -10.606123861456606,
+        "robust_residual_z": -0.5133806885316243
+      },
+      {
+        "sequence_30mer": "ACTTGGTACAATGGACCCGACACATGGAGG",
+        "deepspcas9_label": 0.4703347364201243,
+        "crispron_xiang_luo_label": 48.2150575661126,
+        "raw_numeric_absolute_disagreement": 47.74472282969247,
+        "deepspcas9_percentile_rank": 0.5319148936170213,
+        "crispron_percentile_rank": 0.574468085106383,
+        "absolute_percentile_rank_disagreement": 0.042553191489361764,
+        "linear_outlier": false,
+        "linear_residual": 7.393459283747241,
+        "robust_residual_z": 0.6075129770662554
+      },
+      {
+        "sequence_30mer": "AGCCCTTGTGCCAGTTGCTCTTGCAGGTGT",
+        "deepspcas9_label": 0.2571301247771836,
+        "crispron_xiang_luo_label": 2.6032483618128,
+        "raw_numeric_absolute_disagreement": 2.346118237035616,
+        "deepspcas9_percentile_rank": 0.2127659574468085,
+        "crispron_percentile_rank": 0.0,
+        "absolute_percentile_rank_disagreement": 0.2127659574468085,
+        "linear_outlier": false,
+        "linear_residual": -21.463626106519524,
+        "robust_residual_z": -1.1895133185224815
+      },
+      {
+        "sequence_30mer": "CAACAACTTCCAGGGGCGCTACGATGGCAA",
+        "deepspcas9_label": 0.5130100076982294,
+        "crispron_xiang_luo_label": 57.1007630467366,
+        "raw_numeric_absolute_disagreement": 56.587753039038375,
+        "deepspcas9_percentile_rank": 0.6170212765957447,
+        "crispron_percentile_rank": 0.723404255319149,
+        "absolute_percentile_rank_disagreement": 0.1063829787234043,
+        "linear_outlier": false,
+        "linear_residual": 12.925520683017893,
+        "robust_residual_z": 0.9520127652068097
+      },
+      {
+        "sequence_30mer": "CAGCTGACAACCAGGAGAAGATCGGGGGTG",
+        "deepspcas9_label": 0.7875150966183575,
+        "crispron_xiang_luo_label": 67.3371873525248,
+        "raw_numeric_absolute_disagreement": 66.54967225590643,
+        "deepspcas9_percentile_rank": 0.9361702127659575,
+        "crispron_percentile_rank": 0.851063829787234,
+        "absolute_percentile_rank_disagreement": 0.08510638297872342,
+        "linear_outlier": false,
+        "linear_residual": 1.5899118373570786,
+        "robust_residual_z": 0.2461068534811743
+      },
+      {
+        "sequence_30mer": "CAGCTGCTACACAATTAGGACTGAAGGAGA",
+        "deepspcas9_label": 0.3593186733958183,
+        "crispron_xiang_luo_label": 22.7443729858601,
+        "raw_numeric_absolute_disagreement": 22.38505431246428,
+        "deepspcas9_percentile_rank": 0.3829787234042553,
+        "crispron_percentile_rank": 0.2978723404255319,
+        "absolute_percentile_rank_disagreement": 0.08510638297872342,
+        "linear_outlier": false,
+        "linear_residual": -9.35300746387885,
+        "robust_residual_z": -0.4353449795393295
+      },
+      {
+        "sequence_30mer": "CAGGAGCCCAGCAATTTGTGGCAAAGGATC",
+        "deepspcas9_label": 0.3110456553755523,
+        "crispron_xiang_luo_label": 16.3425800141281,
+        "raw_numeric_absolute_disagreement": 16.03153435875255,
+        "deepspcas9_percentile_rank": 0.2765957446808511,
+        "crispron_percentile_rank": 0.23404255319148937,
+        "absolute_percentile_rank_disagreement": 0.04255319148936171,
+        "linear_outlier": false,
+        "linear_residual": -11.96125639185481,
+        "robust_residual_z": -0.5977692800404067
+      },
+      {
+        "sequence_30mer": "CAGGATTAGCCGATCGTTACCTCAAGGGAG",
+        "deepspcas9_label": 0.6346775565764846,
+        "crispron_xiang_luo_label": 63.9863921499223,
+        "raw_numeric_absolute_disagreement": 63.35171459334582,
+        "deepspcas9_percentile_rank": 0.7872340425531915,
+        "crispron_percentile_rank": 0.7872340425531915,
+        "absolute_percentile_rank_disagreement": 0.0,
+        "linear_outlier": false,
+        "linear_residual": 10.249882968957301,
+        "robust_residual_z": 0.7853919417726599
+      },
+      {
+        "sequence_30mer": "CCAGGAAACAGGGGCTGGTGGCATGGGTGG",
+        "deepspcas9_label": 0.1301438608230177,
+        "crispron_xiang_luo_label": 51.9699354810102,
+        "raw_numeric_absolute_disagreement": 51.83979162018718,
+        "deepspcas9_percentile_rank": 0.02127659574468085,
+        "crispron_percentile_rank": 0.6595744680851063,
+        "absolute_percentile_rank_disagreement": 0.6382978723404255,
+        "linear_outlier": false,
+        "linear_residual": 37.88230003725924,
+        "robust_residual_z": 2.5061540842710217
+      },
+      {
+        "sequence_30mer": "CCATGAAGCAGTTTCTGCTGTACTTGGATG",
+        "deepspcas9_label": 0.2189410177026276,
+        "crispron_xiang_luo_label": 13.0668853593087,
+        "raw_numeric_absolute_disagreement": 12.847944341606071,
+        "deepspcas9_percentile_rank": 0.10638297872340426,
+        "crispron_percentile_rank": 0.19148936170212766,
+        "absolute_percentile_rank_disagreement": 0.0851063829787234,
+        "linear_outlier": false,
+        "linear_residual": -7.998891070814718,
+        "robust_residual_z": -0.35101966626826797
+      },
+      {
+        "sequence_30mer": "CCTATTTCAGACACAGTTAAGCTCTGGAAC",
+        "deepspcas9_label": 0.6938195595548189,
+        "crispron_xiang_luo_label": 50.6259071586114,
+        "raw_numeric_absolute_disagreement": 49.93208759905658,
+        "deepspcas9_percentile_rank": 0.851063829787234,
+        "crispron_percentile_rank": 0.6170212765957447,
+        "absolute_percentile_rank_disagreement": 0.23404255319148937,
+        "linear_outlier": false,
+        "linear_residual": -7.758287258028567,
+        "robust_residual_z": -0.336036469852269
+      },
+      {
+        "sequence_30mer": "CCTGACCTGTCAGGTGAAGTTCGCTGGAGC",
+        "deepspcas9_label": 0.2478507941133615,
+        "crispron_xiang_luo_label": 27.4633178102908,
+        "raw_numeric_absolute_disagreement": 27.21546701617744,
+        "deepspcas9_percentile_rank": 0.19148936170212766,
+        "crispron_percentile_rank": 0.40425531914893614,
+        "absolute_percentile_rank_disagreement": 0.21276595744680848,
+        "linear_outlier": false,
+        "linear_residual": 4.125661257337349,
+        "robust_residual_z": 0.4040163694666454
+      },
+      {
+        "sequence_30mer": "CTGAGCAGCAGGCTGCACTCCTGCTGGCAT",
+        "deepspcas9_label": 0.3528273593576162,
+        "crispron_xiang_luo_label": 32.6010304887767,
+        "raw_numeric_absolute_disagreement": 32.24820312941908,
+        "deepspcas9_percentile_rank": 0.3617021276595745,
+        "crispron_percentile_rank": 0.44680851063829785,
+        "absolute_percentile_rank_disagreement": 0.08510638297872336,
+        "linear_outlier": false,
+        "linear_residual": 1.0137711525640185,
+        "robust_residual_z": 0.21022866458823639
+      },
+      {
+        "sequence_30mer": "CTGCAGTTCTACGAATCCGTTCAGTGGAGG",
+        "deepspcas9_label": 0.7355836849507736,
+        "crispron_xiang_luo_label": 52.6849236825851,
+        "raw_numeric_absolute_disagreement": 51.949339997634326,
+        "deepspcas9_percentile_rank": 0.8723404255319149,
+        "crispron_percentile_rank": 0.6808510638297872,
+        "absolute_percentile_rank_disagreement": 0.19148936170212771,
+        "linear_outlier": false,
+        "linear_residual": -8.981312247846077,
+        "robust_residual_z": -0.41219828720633594
+      },
+      {
+        "sequence_30mer": "CTTCCCACTCGAGGCCAGCTTGAAGGGAGA",
+        "deepspcas9_label": 0.2707841682961365,
+        "crispron_xiang_luo_label": 5.73822159864983,
+        "raw_numeric_absolute_disagreement": 5.467437430353694,
+        "deepspcas9_percentile_rank": 0.23404255319148937,
+        "crispron_percentile_rank": 0.0425531914893617,
+        "absolute_percentile_rank_disagreement": 0.19148936170212766,
+        "linear_outlier": false,
+        "linear_residual": -19.401658403390037,
+        "robust_residual_z": -1.061107759434792
+      },
+      {
+        "sequence_30mer": "GACAGATCCAGATCCAGGGTGGACAGGCTG",
+        "deepspcas9_label": 0.4989499122529416,
+        "crispron_xiang_luo_label": 26.3734571709166,
+        "raw_numeric_absolute_disagreement": 25.874507258663655,
+        "deepspcas9_percentile_rank": 0.574468085106383,
+        "crispron_percentile_rank": 0.3617021276595745,
+        "absolute_percentile_rank_disagreement": 0.21276595744680854,
+        "linear_outlier": false,
+        "linear_residual": -16.69686999341017,
+        "robust_residual_z": -0.892671625604835
+      },
+      {
+        "sequence_30mer": "GACGACCCCAGGGTAACTCCCGGCAGGTGG",
+        "deepspcas9_label": 0.3480486244401791,
+        "crispron_xiang_luo_label": 62.1362215856607,
+        "raw_numeric_absolute_disagreement": 61.78817296122052,
+        "deepspcas9_percentile_rank": 0.3404255319148936,
+        "crispron_percentile_rank": 0.7659574468085106,
+        "absolute_percentile_rank_disagreement": 0.425531914893617,
+        "linear_outlier": false,
+        "linear_residual": 30.924500016221206,
+        "robust_residual_z": 2.0728688294313047
+      },
+      {
+        "sequence_30mer": "GAGGTCGGTGCAGCTCCACGACTCTGGAAA",
+        "deepspcas9_label": 0.7479674796747967,
+        "crispron_xiang_luo_label": 24.9145299145299,
+        "raw_numeric_absolute_disagreement": 24.166562434855106,
+        "deepspcas9_percentile_rank": 0.8936170212765957,
+        "crispron_percentile_rank": 0.3404255319148936,
+        "absolute_percentile_rank_disagreement": 0.553191489361702,
+        "linear_outlier": false,
+        "linear_residual": -37.724888813270454,
+        "robust_residual_z": -2.202156012277139
+      },
+      {
+        "sequence_30mer": "GAGGTTCCAGGAGCCCCCGCCTGGAGGAGC",
+        "deepspcas9_label": 0.4832892522240923,
+        "crispron_xiang_luo_label": 60.8310966375691,
+        "raw_numeric_absolute_disagreement": 60.34780738534501,
+        "deepspcas9_percentile_rank": 0.5531914893617021,
+        "crispron_percentile_rank": 0.7446808510638298,
+        "absolute_percentile_rank_disagreement": 0.1914893617021276,
+        "linear_outlier": false,
+        "linear_residual": 18.99146533627679,
+        "robust_residual_z": 1.3297592320474572
+      },
+      {
+        "sequence_30mer": "GCAACGAGCAGCGCACGCTCATCAAGGCCT",
+        "deepspcas9_label": 0.3203447727994916,
+        "crispron_xiang_luo_label": 10.6483509729123,
+        "raw_numeric_absolute_disagreement": 10.328006200112808,
+        "deepspcas9_percentile_rank": 0.3191489361702128,
+        "crispron_percentile_rank": 0.1276595744680851,
+        "absolute_percentile_rank_disagreement": 0.1914893617021277,
+        "linear_outlier": false,
+        "linear_residual": -18.386258294650613,
+        "robust_residual_z": -0.9978754311774184
+      },
+      {
+        "sequence_30mer": "GCAATGCTTTCCAACATTGATGAGTGGATT",
+        "deepspcas9_label": 0.8058188950637464,
+        "crispron_xiang_luo_label": 44.2004562561221,
+        "raw_numeric_absolute_disagreement": 43.39463736105836,
+        "deepspcas9_percentile_rank": 0.9574468085106383,
+        "crispron_percentile_rank": 0.5319148936170213,
+        "absolute_percentile_rank_disagreement": 0.4255319148936171,
+        "linear_outlier": false,
+        "linear_residual": -22.985226643093263,
+        "robust_residual_z": -1.2842684241967093
+      },
+      {
+        "sequence_30mer": "GCAGCTGACAACCAGGAGAAGATCGGGGGT",
+        "deepspcas9_label": 0.4345631743821789,
+        "crispron_xiang_luo_label": 26.4626380171347,
+        "raw_numeric_absolute_disagreement": 26.02807484275252,
+        "deepspcas9_percentile_rank": 0.5106382978723404,
+        "crispron_percentile_rank": 0.3829787234042553,
+        "absolute_percentile_rank_disagreement": 0.12765957446808507,
+        "linear_outlier": false,
+        "linear_residual": -11.547845450575245,
+        "robust_residual_z": -0.572024811314052
+      },
+      {
+        "sequence_30mer": "GCCGGGGCAGCCGGTGCCCGAAATTGGGCT",
+        "deepspcas9_label": 0.0224582172701949,
+        "crispron_xiang_luo_label": 5.63664494962205,
+        "raw_numeric_absolute_disagreement": 5.614186732351855,
+        "deepspcas9_percentile_rank": 0.0,
+        "crispron_percentile_rank": 0.02127659574468085,
+        "absolute_percentile_rank_disagreement": 0.02127659574468085,
+        "linear_outlier": false,
+        "linear_residual": 0.011505708746698318,
+        "robust_residual_z": 0.1478142754237945
+      },
+      {
+        "sequence_30mer": "GCTAGCAAGCGAAGCTACCAGTTCTGGGAT",
+        "deepspcas9_label": 0.2788126071787594,
+        "crispron_xiang_luo_label": 12.369006886687,
+        "raw_numeric_absolute_disagreement": 12.09019427950824,
+        "deepspcas9_percentile_rank": 0.2553191489361702,
+        "crispron_percentile_rank": 0.14893617021276595,
+        "absolute_percentile_rank_disagreement": 0.10638297872340424,
+        "linear_outlier": false,
+        "linear_residual": -13.40178946889528,
+        "robust_residual_z": -0.6874760464756691
+      },
+      {
+        "sequence_30mer": "GGAGCAAGAGCCGATCTCCTCACAAGGGAG",
+        "deepspcas9_label": 0.5116136383556841,
+        "crispron_xiang_luo_label": 51.3054889418443,
+        "raw_numeric_absolute_disagreement": 50.79387530348862,
+        "deepspcas9_percentile_rank": 0.5957446808510638,
+        "crispron_percentile_rank": 0.6382978723404256,
+        "absolute_percentile_rank_disagreement": 0.042553191489361764,
+        "linear_outlier": false,
+        "linear_residual": 7.239980521010054,
+        "robust_residual_z": 0.5979553461162435
+      },
+      {
+        "sequence_30mer": "GGCACAGGCCAGGTCATCAAGGGCTGGGAC",
+        "deepspcas9_label": 0.2459636497831903,
+        "crispron_xiang_luo_label": 28.4368428774023,
+        "raw_numeric_absolute_disagreement": 28.19087922761911,
+        "deepspcas9_percentile_rank": 0.1702127659574468,
+        "crispron_percentile_rank": 0.425531914893617,
+        "absolute_percentile_rank_disagreement": 0.25531914893617025,
+        "linear_outlier": false,
+        "linear_residual": 5.247487910449198,
+        "robust_residual_z": 0.47387623117722066
+      },
+      {
+        "sequence_30mer": "GGCCAAAGCCACAAGAATCCGCACAGGGTT",
+        "deepspcas9_label": 0.6253640455387874,
+        "crispron_xiang_luo_label": 69.037200779626,
+        "raw_numeric_absolute_disagreement": 68.41183673408722,
+        "deepspcas9_percentile_rank": 0.7446808510638298,
+        "crispron_percentile_rank": 0.8723404255319149,
+        "absolute_percentile_rank_disagreement": 0.12765957446808518,
+        "linear_outlier": false,
+        "linear_residual": 16.032595585038642,
+        "robust_residual_z": 1.1455006114595827
+      },
+      {
+        "sequence_30mer": "GGGGCATCCAGGCGCACACTGCCGAGGAGG",
+        "deepspcas9_label": 0.6927902808205537,
+        "crispron_xiang_luo_label": 66.6425034601891,
+        "raw_numeric_absolute_disagreement": 65.94971317936854,
+        "deepspcas9_percentile_rank": 0.8297872340425532,
+        "crispron_percentile_rank": 0.8297872340425532,
+        "absolute_percentile_rank_disagreement": 0.0,
+        "linear_outlier": false,
+        "linear_residual": 8.339195103130024,
+        "robust_residual_z": 0.6664070792642636
+      },
+      {
+        "sequence_30mer": "GTACTTCCAGACCGTGACTGACTATGGCAA",
+        "deepspcas9_label": 0.225674373795761,
+        "crispron_xiang_luo_label": 13.003791613734,
+        "raw_numeric_absolute_disagreement": 12.77811723993824,
+        "deepspcas9_percentile_rank": 0.1276595744680851,
+        "crispron_percentile_rank": 0.1702127659574468,
+        "absolute_percentile_rank_disagreement": 0.04255319148936171,
+        "linear_outlier": false,
+        "linear_residual": -8.591126849540752,
+        "robust_residual_z": -0.38790014997498773
+      },
+      {
+        "sequence_30mer": "GTCTCCTTCCGAAAACACTACCCTTGGGTC",
+        "deepspcas9_label": 0.5379088579611114,
+        "crispron_xiang_luo_label": 22.5774997065059,
+        "raw_numeric_absolute_disagreement": 22.03959084854479,
+        "deepspcas9_percentile_rank": 0.6595744680851063,
+        "crispron_percentile_rank": 0.2765957446808511,
+        "absolute_percentile_rank_disagreement": 0.38297872340425526,
+        "linear_outlier": false,
+        "linear_residual": -23.554423407346878,
+        "robust_residual_z": -1.3197141921561015
+      },
+      {
+        "sequence_30mer": "TCCAGGAAACAGGGGCTGGTGGCATGGGTG",
+        "deepspcas9_label": 0.3172322525758578,
+        "crispron_xiang_luo_label": 34.5412616182016,
+        "raw_numeric_absolute_disagreement": 34.224029365625746,
+        "deepspcas9_percentile_rank": 0.2978723404255319,
+        "crispron_percentile_rank": 0.46808510638297873,
+        "absolute_percentile_rank_disagreement": 0.17021276595744683,
+        "linear_outlier": false,
+        "linear_residual": 5.75125032772144,
+        "robust_residual_z": 0.5052471856005286
+      },
+      {
+        "sequence_30mer": "TGAGAAGCAGAACTTACTATCCGTTGGCGA",
+        "deepspcas9_label": 0.6101069715971966,
+        "crispron_xiang_luo_label": 76.317144458074,
+        "raw_numeric_absolute_disagreement": 75.7070374864768,
+        "deepspcas9_percentile_rank": 0.7021276595744681,
+        "crispron_percentile_rank": 0.8936170212765957,
+        "absolute_percentile_rank_disagreement": 0.1914893617021276,
+        "linear_outlier": false,
+        "linear_residual": 24.5115192392563,
+        "robust_residual_z": 1.6735112736194464
+      },
+      {
+        "sequence_30mer": "TGAGGACTGCCACGGCGTACTCTGAGGAGT",
+        "deepspcas9_label": 0.40803971425112,
+        "crispron_xiang_luo_label": 79.1807095343681,
+        "raw_numeric_absolute_disagreement": 78.77266982011699,
+        "deepspcas9_percentile_rank": 0.425531914893617,
+        "crispron_percentile_rank": 0.9574468085106383,
+        "absolute_percentile_rank_disagreement": 0.5319148936170213,
+        "linear_outlier": false,
+        "linear_residual": 43.2545770835707,
+        "robust_residual_z": 2.8407035714713382
+      },
+      {
+        "sequence_30mer": "TGCCAGCACCAGTTCCGCGGCCGCCGGTGG",
+        "deepspcas9_label": 0.6321007616697162,
+        "crispron_xiang_luo_label": 80.6491195301394,
+        "raw_numeric_absolute_disagreement": 80.01701876846968,
+        "deepspcas9_percentile_rank": 0.7659574468085106,
+        "crispron_percentile_rank": 1.0,
+        "absolute_percentile_rank_disagreement": 0.23404255319148937,
+        "linear_outlier": false,
+        "linear_residual": 27.1151082532095,
+        "robust_residual_z": 1.8356453858384834
+      },
+      {
+        "sequence_30mer": "TGGACCGGCACCAGTACAACTACGTGGACG",
+        "deepspcas9_label": 0.8536923931149362,
+        "crispron_xiang_luo_label": 76.7395340824257,
+        "raw_numeric_absolute_disagreement": 75.88584168931077,
+        "deepspcas9_percentile_rank": 1.0,
+        "crispron_percentile_rank": 0.9148936170212766,
+        "absolute_percentile_rank_disagreement": 0.08510638297872342,
+        "linear_outlier": false,
+        "linear_residual": 5.7917034900701765,
+        "robust_residual_z": 0.5077663380200214
+      },
+      {
+        "sequence_30mer": "TGGTCAGGCAGTATAATCCAAAGATGGTCA",
+        "deepspcas9_label": 0.7756158145311531,
+        "crispron_xiang_luo_label": 44.7778734110169,
+        "raw_numeric_absolute_disagreement": 44.00225759648575,
+        "deepspcas9_percentile_rank": 0.9148936170212766,
+        "crispron_percentile_rank": 0.5531914893617021,
+        "absolute_percentile_rank_disagreement": 0.36170212765957444,
+        "linear_outlier": false,
+        "linear_residual": -20.034294821901838,
+        "robust_residual_z": -1.1005041248070289
+      },
+      {
+        "sequence_30mer": "TGGTGCTTCCAGCGGGTCTGTATGTGGGGA",
+        "deepspcas9_label": 0.4235474006116208,
+        "crispron_xiang_luo_label": 35.1688682254805,
+        "raw_numeric_absolute_disagreement": 34.745320824868884,
+        "deepspcas9_percentile_rank": 0.44680851063829785,
+        "crispron_percentile_rank": 0.48936170212765956,
+        "absolute_percentile_rank_disagreement": 0.04255319148936171,
+        "linear_outlier": false,
+        "linear_residual": -1.9759386243490198,
+        "robust_residual_z": 0.024049533444812192
+      },
+      {
+        "sequence_30mer": "TGTGTCCCAGACGCAGCACGCCAGTGGTCA",
+        "deepspcas9_label": 0.6204448651206815,
+        "crispron_xiang_luo_label": 79.9327077416965,
+        "raw_numeric_absolute_disagreement": 79.31226287657583,
+        "deepspcas9_percentile_rank": 0.723404255319149,
+        "crispron_percentile_rank": 0.9787234042553191,
+        "absolute_percentile_rank_disagreement": 0.25531914893617014,
+        "linear_outlier": false,
+        "linear_residual": 27.314677249511888,
+        "robust_residual_z": 1.8480732083052875
+      },
+      {
+        "sequence_30mer": "TTATGCTTCAGACTCTCAACGATGAGGTTC",
+        "deepspcas9_label": 0.4326837909654561,
+        "crispron_xiang_luo_label": 49.6119653384116,
+        "raw_numeric_absolute_disagreement": 49.179281547446145,
+        "deepspcas9_percentile_rank": 0.48936170212765956,
+        "crispron_percentile_rank": 0.5957446808510638,
+        "absolute_percentile_rank_disagreement": 0.10638297872340424,
+        "linear_outlier": false,
+        "linear_residual": 11.749173563884156,
+        "robust_residual_z": 0.8787577334794409
+      }
+    ],
+    "diagnostics": [
+      "Bridge observations are diagnostic only and were not used to derive a harmonization transform.",
+      "Raw absolute differences mix fraction and percentage units and are not biological effect sizes.",
+      "Correlation and regression cannot remove timing, selection, expression, or assay-context differences."
+    ],
+    "deepspcas9_population": {
+      "name": "raw provenance population",
+      "n": 12832,
+      "reason": "The primary diagnostic bridge covers all exact overlaps established by Phase 17G-R1 before canonical modeling eligibility filtering."
+    },
+    "canonical_modeling_population_sensitivity": {
+      "deepspcas9_n": 10117,
+      "shared_30mer_n": 41,
+      "finite_pair_n": 41,
+      "pearson": {
+        "coefficient": 0.7443084153133432,
+        "p_value": 2.431264394058751e-08,
+        "status": "COMPUTED"
+      },
+      "spearman": {
+        "coefficient": 0.7466898954703833,
+        "p_value": 2.074266652866671e-08,
+        "status": "COMPUTED"
+      },
+      "kendall": {
+        "coefficient": 0.5536585365853659,
+        "p_value": 3.4091203385522033e-07,
+        "status": "COMPUTED"
+      },
+      "monotonic_relationship": "STRONG_POSITIVE_MONOTONIC_ASSOCIATION",
+      "interpretation": "Sensitivity analysis only; it does not replace the all-overlap provenance bridge or authorize label harmonization."
+    }
+  },
+  "biological_domain_comparison": {
+    "differences": [
+      {
+        "factor": "cell_type",
+        "deepspcas9": "HEK293T",
+        "crispron_xiang_luo": "Stable HEK293T-SpCas9 line plus wild-type HEK293T background control",
+        "classification": "MODERATE"
+      },
+      {
+        "factor": "assay_protocol",
+        "deepspcas9": "Paired guide/30-nt target lentiviral library; Cas9 delivered after cell-library generation",
+        "crispron_xiang_luo": "Paired guide/37-bp surrogate lentiviral library transduced into stable Cas9 cells",
+        "classification": "MAJOR"
+      },
+      {
+        "factor": "Cas9_expression_context",
+        "deepspcas9": "SpCas9 lentivirus, MOI 5, blasticidin selection",
+        "crispron_xiang_luo": "PiggyBac-integrated TRE-SpCas9 stable line; basal Dox-free expression",
+        "classification": "MAJOR"
+      },
+      {
+        "factor": "experimental_platform",
+        "deepspcas9": "Lentiviral integrated surrogate and targeted deep sequencing",
+        "crispron_xiang_luo": "Lentiviral integrated surrogate and targeted amplicon sequencing",
+        "classification": "MINOR"
+      },
+      {
+        "factor": "gene_target_composition",
+        "deepspcas9": "GeCKOv1, selected human/mouse genes, drug-resistance genes, synthetic extreme-GC targets, and laboratory targets",
+        "crispron_xiang_luo": "Early coding exons from approximately 3,832-3,834 human protein-coding genes after off-target/library filters",
+        "classification": "MAJOR"
+      },
+      {
+        "factor": "measurement_timing",
+        "deepspcas9": "Day 2.9 after Cas9 delivery",
+        "crispron_xiang_luo": "Mean of Dox-free days 8 and 10 after guide/surrogate delivery",
+        "classification": "MAJOR"
+      },
+      {
+        "factor": "sequence_library_construction",
+        "deepspcas9": "15,656 designed 30-nt targets in paired guide-target oligos",
+        "crispron_xiang_luo": "12K oligo pool with 37-bp surrogate targets and third-generation lentiviral vector",
+        "classification": "MODERATE"
+      },
+      {
+        "factor": "target_locus_composition",
+        "deepspcas9": "Human-derived, mouse-derived, and synthetic target sequences measured at integrated surrogates",
+        "crispron_xiang_luo": "Human coding-exon-derived sequences measured at randomly integrated surrogates",
+        "classification": "MAJOR"
+      },
+      {
+        "factor": "endogenous_vs_synthetic_context",
+        "deepspcas9": "Training labels from integrated surrogate targets",
+        "crispron_xiang_luo": "Training labels from randomly integrated surrogate targets",
+        "classification": "MINOR"
+      },
+      {
+        "factor": "background_handling",
+        "deepspcas9": "Project-local label traces to uncorrected indel fraction; publication also reports a background-corrected endpoint",
+        "crispron_xiang_luo": "Wild-type controls used to remove background variants before total-indel estimation",
+        "classification": "MAJOR"
+      }
+    ],
+    "classification_counts": {
+      "MAJOR": 6,
+      "MINOR": 2,
+      "MODERATE": 2
+    },
+    "major_domain_differences": [
+      "assay_protocol",
+      "Cas9_expression_context",
+      "gene_target_composition",
+      "measurement_timing",
+      "target_locus_composition",
+      "background_handling"
+    ],
+    "unknown_metadata": [
+      "Exact DeepSpCas9 Cas9-vector promoter and expression level in the assayed cells",
+      "Exact equivalence between CRISPRon Quant_norm_efficiency and any recovered workbook field"
+    ],
+    "interpretation": "Both assays target the same broad molecular concept, but major operational domain differences can shift observed label scale and ranking."
+  },
+  "sequence_domain_comparison": {
+    "status": "DESCRIPTIVE_DIFFERENCE_NOT_A_GATE",
+    "deepspcas9": {
+      "n": 10117,
+      "valid_30mer_n": 10117,
+      "unique_30mer_n": 10117,
+      "full_30mer_gc": {
+        "n": 10117,
+        "finite_n": 10117,
+        "missing_n": 0,
+        "min": 0.06666666666666667,
+        "max": 1.0,
+        "mean": 0.5509208922276037,
+        "median": 0.5666666666666667,
+        "SD": 0.11518887834403,
+        "IQR": 0.16666666666666663,
+        "unique_value_n": 29,
+        "quantiles_percent": {
+          "0": 0.06666666666666667,
+          "1": 0.3,
+          "5": 0.36666666666666664,
+          "10": 0.4,
+          "25": 0.4666666666666667,
+          "50": 0.5666666666666667,
+          "75": 0.6333333333333333,
+          "90": 0.7,
+          "95": 0.7333333333333333,
+          "99": 0.8666666666666667,
+          "100": 1.0
+        },
+        "skewness": 0.17683609421884625,
+        "fraction_at_min": 9.884353069091628e-05,
+        "fraction_at_max": 0.00029653059207274883,
+        "empirical_cdf": {
+          "n_points": 21,
+          "x": [
+            0.06666666666666667,
+            0.36666666666666664,
+            0.4,
+            0.43333333333333335,
+            0.4666666666666667,
+            0.4666666666666667,
+            0.5,
+            0.5,
+            0.5333333333333333,
+            0.5333333333333333,
+            0.5666666666666667,
+            0.5666666666666667,
+            0.5666666666666667,
+            0.6,
+            0.6,
+            0.6333333333333333,
+            0.6333333333333333,
+            0.6666666666666666,
+            0.7,
+            0.7333333333333333,
+            1.0
+          ],
+          "probability": [
+            9.884353069091628e-05,
+            0.05001482652960364,
+            0.10002965305920727,
+            0.15004447958881093,
+            0.20005930611841455,
+            0.2500741326480182,
+            0.2999901156469309,
+            0.35000494217653455,
+            0.4000197687061382,
+            0.4500345952357418,
+            0.5000494217653455,
+            0.5499654047642581,
+            0.5999802312938618,
+            0.6499950578234654,
+            0.7000098843530691,
+            0.7500247108826728,
+            0.7999406938815854,
+            0.849955520411189,
+            0.8999703469407927,
+            0.9499851734703963,
+            1.0
+          ]
+        }
+      },
+      "spacer_gc": {
+        "n": 10117,
+        "finite_n": 10117,
+        "missing_n": 0,
+        "min": 0.0,
+        "max": 1.0,
+        "mean": 0.5318819808243551,
+        "median": 0.55,
+        "SD": 0.1263730313363591,
+        "IQR": 0.14999999999999997,
+        "unique_value_n": 21,
+        "quantiles_percent": {
+          "0": 0.0,
+          "1": 0.25,
+          "5": 0.35,
+          "10": 0.4,
+          "25": 0.45,
+          "50": 0.55,
+          "75": 0.6,
+          "90": 0.7,
+          "95": 0.75,
+          "99": 0.85,
+          "100": 1.0
+        },
+        "skewness": 0.13655106112677826,
+        "fraction_at_min": 0.0006919047148364139,
+        "fraction_at_max": 0.0026687753286547397,
+        "empirical_cdf": {
+          "n_points": 21,
+          "x": [
+            0.0,
+            0.35,
+            0.4,
+            0.4,
+            0.45,
+            0.45,
+            0.45,
+            0.5,
+            0.5,
+            0.5,
+            0.55,
+            0.55,
+            0.55,
+            0.6,
+            0.6,
+            0.6,
+            0.65,
+            0.65,
+            0.7,
+            0.75,
+            1.0
+          ],
+          "probability": [
+            9.884353069091628e-05,
+            0.05001482652960364,
+            0.10002965305920727,
+            0.15004447958881093,
+            0.20005930611841455,
+            0.2500741326480182,
+            0.2999901156469309,
+            0.35000494217653455,
+            0.4000197687061382,
+            0.4500345952357418,
+            0.5000494217653455,
+            0.5499654047642581,
+            0.5999802312938618,
+            0.6499950578234654,
+            0.7000098843530691,
+            0.7500247108826728,
+            0.7999406938815854,
+            0.849955520411189,
+            0.8999703469407927,
+            0.9499851734703963,
+            1.0
+          ]
+        }
+      },
+      "positional_nucleotide_frequencies": [
+        {
+          "position_0_based": 0,
+          "region": "upstream_context",
+          "frequencies": {
+            "A": 0.230206582979144,
+            "C": 0.25847583275674607,
+            "G": 0.2523475338539093,
+            "T": 0.25897005041020066
+          }
+        },
+        {
+          "position_0_based": 1,
+          "region": "upstream_context",
+          "frequencies": {
+            "A": 0.20816447563506968,
+            "C": 0.26312147869921915,
+            "G": 0.29840861915587624,
+            "T": 0.23030542650983493
+          }
+        },
+        {
+          "position_0_based": 2,
+          "region": "upstream_context",
+          "frequencies": {
+            "A": 0.2180488287041613,
+            "C": 0.2557082138974004,
+            "G": 0.30562419689631315,
+            "T": 0.22061876050212514
+          }
+        },
+        {
+          "position_0_based": 3,
+          "region": "upstream_context",
+          "frequencies": {
+            "A": 0.24661460907383612,
+            "C": 0.25353365622220025,
+            "G": 0.24206780666205396,
+            "T": 0.25778392804190964
+          }
+        },
+        {
+          "position_0_based": 4,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.21024018977957892,
+            "C": 0.28803004843333,
+            "G": 0.2693486211327469,
+            "T": 0.23238114065434418
+          }
+        },
+        {
+          "position_0_based": 5,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.2307008006325986,
+            "C": 0.26994168231689236,
+            "G": 0.26806365523376496,
+            "T": 0.2312938618167441
+          }
+        },
+        {
+          "position_0_based": 6,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.24404467727587228,
+            "C": 0.2799248789166749,
+            "G": 0.2319857665315805,
+            "T": 0.24404467727587228
+          }
+        },
+        {
+          "position_0_based": 7,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.22091529109419789,
+            "C": 0.2847682119205298,
+            "G": 0.2641099140061283,
+            "T": 0.230206582979144
+          }
+        },
+        {
+          "position_0_based": 8,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.2282297123653257,
+            "C": 0.2712266482158743,
+            "G": 0.2580804586339824,
+            "T": 0.24246318078481763
+          }
+        },
+        {
+          "position_0_based": 9,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.23831175249579914,
+            "C": 0.2701393693782742,
+            "G": 0.23208461006227143,
+            "T": 0.25946426806365525
+          }
+        },
+        {
+          "position_0_based": 10,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.22032222991005238,
+            "C": 0.29336759909063953,
+            "G": 0.25857467628743697,
+            "T": 0.2277354947118711
+          }
+        },
+        {
+          "position_0_based": 11,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.23030542650983493,
+            "C": 0.27409311060591085,
+            "G": 0.2629237916378373,
+            "T": 0.23267767124641692
+          }
+        },
+        {
+          "position_0_based": 12,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.2476030443807453,
+            "C": 0.27241277058416524,
+            "G": 0.22506671938321637,
+            "T": 0.25491746565187307
+          }
+        },
+        {
+          "position_0_based": 13,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.21874073341899772,
+            "C": 0.2926756943758031,
+            "G": 0.25946426806365525,
+            "T": 0.22911930414154394
+          }
+        },
+        {
+          "position_0_based": 14,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.23208461006227143,
+            "C": 0.28644855194227536,
+            "G": 0.25857467628743697,
+            "T": 0.2228921617080162
+          }
+        },
+        {
+          "position_0_based": 15,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.2478007314421271,
+            "C": 0.27409311060591085,
+            "G": 0.22565978056736186,
+            "T": 0.2524463773846002
+          }
+        },
+        {
+          "position_0_based": 16,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.21775229811208857,
+            "C": 0.2871404566571118,
+            "G": 0.2616388257388554,
+            "T": 0.23346841949194425
+          }
+        },
+        {
+          "position_0_based": 17,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.24681229613521796,
+            "C": 0.2596619551250371,
+            "G": 0.2552139962439458,
+            "T": 0.23831175249579914
+          }
+        },
+        {
+          "position_0_based": 18,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.25294059503805477,
+            "C": 0.26855787288721955,
+            "G": 0.21617080162103391,
+            "T": 0.2623307304536918
+          }
+        },
+        {
+          "position_0_based": 19,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.21636848868241573,
+            "C": 0.29840861915587624,
+            "G": 0.2564001186122368,
+            "T": 0.2288227735494712
+          }
+        },
+        {
+          "position_0_based": 20,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.2282297123653257,
+            "C": 0.28200059306118413,
+            "G": 0.2508648808935455,
+            "T": 0.23890481367994465
+          }
+        },
+        {
+          "position_0_based": 21,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.24542848670554512,
+            "C": 0.297519027379658,
+            "G": 0.19294257190866856,
+            "T": 0.2641099140061283
+          }
+        },
+        {
+          "position_0_based": 22,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.2226944746466344,
+            "C": 0.29554215676583967,
+            "G": 0.24335277256103588,
+            "T": 0.23841059602649006
+          }
+        },
+        {
+          "position_0_based": 23,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.21706039339725214,
+            "C": 0.36334881881980824,
+            "G": 0.23781753484234458,
+            "T": 0.18177325294059504
+          }
+        },
+        {
+          "position_0_based": 24,
+          "region": "PAM",
+          "frequencies": {
+            "A": 0.35870317287733516,
+            "C": 0.148759513689829,
+            "G": 0.08530196698626075,
+            "T": 0.40723534644657505
+          }
+        },
+        {
+          "position_0_based": 25,
+          "region": "PAM",
+          "frequencies": {
+            "A": 0.0,
+            "C": 0.0,
+            "G": 1.0,
+            "T": 0.0
+          }
+        },
+        {
+          "position_0_based": 26,
+          "region": "PAM",
+          "frequencies": {
+            "A": 0.0,
+            "C": 0.0,
+            "G": 1.0,
+            "T": 0.0
+          }
+        },
+        {
+          "position_0_based": 27,
+          "region": "downstream_context",
+          "frequencies": {
+            "A": 0.27962834832460215,
+            "C": 0.25037066324009094,
+            "G": 0.2270435899970347,
+            "T": 0.24295739843827222
+          }
+        },
+        {
+          "position_0_based": 28,
+          "region": "downstream_context",
+          "frequencies": {
+            "A": 0.2574873974498369,
+            "C": 0.24137590194721756,
+            "G": 0.282198280122566,
+            "T": 0.21893842048037956
+          }
+        },
+        {
+          "position_0_based": 29,
+          "region": "downstream_context",
+          "frequencies": {
+            "A": 0.26687753286547394,
+            "C": 0.25214984679252744,
+            "G": 0.27350004942176537,
+            "T": 0.20747257092023327
+          }
+        }
+      ],
+      "PAM_distribution": {
+        "counts": {
+          "AGG": 3629,
+          "CGG": 1505,
+          "GGG": 863,
+          "TGG": 4120
+        },
+        "frequencies": {
+          "AGG": 0.35870317287733516,
+          "CGG": 0.148759513689829,
+          "GGG": 0.08530196698626075,
+          "TGG": 0.40723534644657505
+        }
+      },
+      "spacer_sequence_complexity": {
+        "nucleotide_entropy": {
+          "n": 10117,
+          "finite_n": 10117,
+          "missing_n": 0,
+          "min": 0.8112781244591328,
+          "max": 2.0,
+          "mean": 1.8643920678759485,
+          "median": 1.903701696057348,
+          "SD": 0.12781219803333713,
+          "IQR": 0.13774437510817328,
+          "unique_value_n": 122,
+          "quantiles_percent": {
+            "0": 0.8112781244591328,
+            "1": 1.395461844238322,
+            "5": 1.6477309221191607,
+            "10": 1.7344977967946407,
+            "25": 1.8149798205164813,
+            "50": 1.903701696057348,
+            "75": 1.9527241956246546,
+            "90": 1.9709505944546688,
+            "95": 1.9854752972273344,
+            "99": 1.9854752972273344,
+            "100": 2.0
+          },
+          "skewness": -2.8199918995117312,
+          "fraction_at_min": 0.0004942176534545814,
+          "fraction_at_max": 0.00929129188494613,
+          "empirical_cdf": {
+            "n_points": 21,
+            "x": [
+              0.8112781244591328,
+              1.6477309221191607,
+              1.7344977967946407,
+              1.765957320949175,
+              1.7883763717345074,
+              1.8149798205164813,
+              1.8464393446710154,
+              1.8577174691301483,
+              1.8709505944546685,
+              1.8833830982290134,
+              1.903701696057348,
+              1.9037016960573483,
+              1.9261207468426804,
+              1.9261207468426806,
+              1.9406454496153462,
+              1.9527241956246546,
+              1.9527241956246548,
+              1.9588718484453602,
+              1.9709505944546688,
+              1.9854752972273344,
+              2.0
+            ],
+            "probability": [
+              9.884353069091628e-05,
+              0.05001482652960364,
+              0.10002965305920727,
+              0.15004447958881093,
+              0.20005930611841455,
+              0.2500741326480182,
+              0.2999901156469309,
+              0.35000494217653455,
+              0.4000197687061382,
+              0.4500345952357418,
+              0.5000494217653455,
+              0.5499654047642581,
+              0.5999802312938618,
+              0.6499950578234654,
+              0.7000098843530691,
+              0.7500247108826728,
+              0.7999406938815854,
+              0.849955520411189,
+              0.8999703469407927,
+              0.9499851734703963,
+              1.0
+            ]
+          }
+        },
+        "kmer_2_entropy": {
+          "n": 10117,
+          "finite_n": 10117,
+          "missing_n": 0,
+          "min": 1.4713544870139295,
+          "max": 3.9321380397593737,
+          "mean": 3.280508126625612,
+          "median": 3.3263604079526936,
+          "SD": 0.2570156137400333,
+          "IQR": 0.31578947368420973,
+          "unique_value_n": 364,
+          "quantiles_percent": {
+            "0": 1.4713544870139295,
+            "1": 2.5048003829823355,
+            "5": 2.860320777833044,
+            "10": 2.970840013101985,
+            "25": 3.1555650133297184,
+            "50": 3.3263604079526936,
+            "75": 3.471354487013928,
+            "90": 3.5766176449086653,
+            "95": 3.616348566075164,
+            "99": 3.7216117239699007,
+            "100": 3.9321380397593737
+          },
+          "skewness": -1.455607311981933,
+          "fraction_at_min": 9.884353069091628e-05,
+          "fraction_at_max": 9.884353069091628e-05,
+          "empirical_cdf": {
+            "n_points": 21,
+            "x": [
+              1.4713544870139295,
+              2.860320777833044,
+              2.970840013101985,
+              3.0503018554349812,
+              3.1158340921632197,
+              3.1555650133297184,
+              3.1813663288914587,
+              3.221097250057957,
+              3.260828171224455,
+              3.2866294867861954,
+              3.3263604079526936,
+              3.326360407952694,
+              3.3660913291191923,
+              3.40582225028569,
+              3.4316235658474303,
+              3.471354487013928,
+              3.471354487013929,
+              3.5110854081804277,
+              3.5766176449086653,
+              3.616348566075164,
+              3.9321380397593737
+            ],
+            "probability": [
+              9.884353069091628e-05,
+              0.05001482652960364,
+              0.10002965305920727,
+              0.15004447958881093,
+              0.20005930611841455,
+              0.2500741326480182,
+              0.2999901156469309,
+              0.35000494217653455,
+              0.4000197687061382,
+              0.4500345952357418,
+              0.5000494217653455,
+              0.5499654047642581,
+              0.5999802312938618,
+              0.6499950578234654,
+              0.7000098843530691,
+              0.7500247108826728,
+              0.7999406938815854,
+              0.849955520411189,
+              0.8999703469407927,
+              0.9499851734703963,
+              1.0
+            ]
+          }
+        },
+        "kmer_3_entropy": {
+          "n": 10117,
+          "finite_n": 10117,
+          "missing_n": 0,
+          "min": 1.8016366412706075,
+          "max": 4.169925001442312,
+          "mean": 3.8838662097037515,
+          "median": 3.94770277922009,
+          "SD": 0.22882237626298824,
+          "IQR": 0.26416041678685964,
+          "unique_value_n": 102,
+          "quantiles_percent": {
+            "0": 1.8016366412706075,
+            "1": 3.169925001442312,
+            "5": 3.503258334775645,
+            "10": 3.6143694458867563,
+            "25": 3.794653473544342,
+            "50": 3.94770277922009,
+            "75": 4.058813890331201,
+            "90": 4.169925001442312,
+            "95": 4.169925001442312,
+            "99": 4.169925001442312,
+            "100": 4.169925001442312
+          },
+          "skewness": -2.3187657601496525,
+          "fraction_at_min": 0.00029653059207274883,
+          "fraction_at_max": 0.1008204013047346,
+          "empirical_cdf": {
+            "n_points": 21,
+            "x": [
+              1.8016366412706075,
+              3.503258334775645,
+              3.6143694458867563,
+              3.6835423624332306,
+              3.7254805569978675,
+              3.794653473544342,
+              3.8365916681089787,
+              3.8365916681089787,
+              3.8365916681089787,
+              3.94770277922009,
+              3.94770277922009,
+              3.94770277922009,
+              3.94770277922009,
+              3.94770277922009,
+              4.058813890331201,
+              4.058813890331201,
+              4.058813890331201,
+              4.058813890331201,
+              4.169925001442312,
+              4.169925001442312,
+              4.169925001442312
+            ],
+            "probability": [
+              9.884353069091628e-05,
+              0.05001482652960364,
+              0.10002965305920727,
+              0.15004447958881093,
+              0.20005930611841455,
+              0.2500741326480182,
+              0.2999901156469309,
+              0.35000494217653455,
+              0.4000197687061382,
+              0.4500345952357418,
+              0.5000494217653455,
+              0.5499654047642581,
+              0.5999802312938618,
+              0.6499950578234654,
+              0.7000098843530691,
+              0.7500247108826728,
+              0.7999406938815854,
+              0.849955520411189,
+              0.8999703469407927,
+              0.9499851734703963,
+              1.0
+            ]
+          }
+        },
+        "kmer_2_complexity": {
+          "n": 10117,
+          "finite_n": 10117,
+          "missing_n": 0,
+          "min": 0.1875,
+          "max": 1.0,
+          "mean": 0.6862273895423544,
+          "median": 0.6875,
+          "SD": 0.0992691462570918,
+          "IQR": 0.125,
+          "unique_value_n": 14,
+          "quantiles_percent": {
+            "0": 0.1875,
+            "1": 0.4375,
+            "5": 0.5,
+            "10": 0.5625,
+            "25": 0.625,
+            "50": 0.6875,
+            "75": 0.75,
+            "90": 0.8125,
+            "95": 0.8125,
+            "99": 0.875,
+            "100": 1.0
+          },
+          "skewness": -0.5998488845716992,
+          "fraction_at_min": 0.0013838094296728279,
+          "fraction_at_max": 0.00019768706138183255,
+          "empirical_cdf": {
+            "n_points": 21,
+            "x": [
+              0.1875,
+              0.5,
+              0.5625,
+              0.5625,
+              0.625,
+              0.625,
+              0.625,
+              0.625,
+              0.6875,
+              0.6875,
+              0.6875,
+              0.6875,
+              0.6875,
+              0.75,
+              0.75,
+              0.75,
+              0.75,
+              0.8125,
+              0.8125,
+              0.8125,
+              1.0
+            ],
+            "probability": [
+              9.884353069091628e-05,
+              0.05001482652960364,
+              0.10002965305920727,
+              0.15004447958881093,
+              0.20005930611841455,
+              0.2500741326480182,
+              0.2999901156469309,
+              0.35000494217653455,
+              0.4000197687061382,
+              0.4500345952357418,
+              0.5000494217653455,
+              0.5499654047642581,
+              0.5999802312938618,
+              0.6499950578234654,
+              0.7000098843530691,
+              0.7500247108826728,
+              0.7999406938815854,
+              0.849955520411189,
+              0.8999703469407927,
+              0.9499851734703963,
+              1.0
+            ]
+          }
+        },
+        "kmer_3_complexity": {
+          "n": 10117,
+          "finite_n": 10117,
+          "missing_n": 0,
+          "min": 0.0625,
+          "max": 0.28125,
+          "mean": 0.24275816694672334,
+          "median": 0.25,
+          "SD": 0.027738739677264704,
+          "IQR": 0.03125,
+          "unique_value_n": 15,
+          "quantiles_percent": {
+            "0": 0.0625,
+            "1": 0.15625,
+            "5": 0.1875,
+            "10": 0.203125,
+            "25": 0.234375,
+            "50": 0.25,
+            "75": 0.265625,
+            "90": 0.28125,
+            "95": 0.28125,
+            "99": 0.28125,
+            "100": 0.28125
+          },
+          "skewness": -1.3441819072531764,
+          "fraction_at_min": 0.001087278837600079,
+          "fraction_at_max": 0.1008204013047346,
+          "empirical_cdf": {
+            "n_points": 21,
+            "x": [
+              0.0625,
+              0.1875,
+              0.203125,
+              0.21875,
+              0.21875,
+              0.234375,
+              0.234375,
+              0.234375,
+              0.234375,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.265625,
+              0.265625,
+              0.265625,
+              0.265625,
+              0.28125,
+              0.28125,
+              0.28125
+            ],
+            "probability": [
+              9.884353069091628e-05,
+              0.05001482652960364,
+              0.10002965305920727,
+              0.15004447958881093,
+              0.20005930611841455,
+              0.2500741326480182,
+              0.2999901156469309,
+              0.35000494217653455,
+              0.4000197687061382,
+              0.4500345952357418,
+              0.5000494217653455,
+              0.5499654047642581,
+              0.5999802312938618,
+              0.6499950578234654,
+              0.7000098843530691,
+              0.7500247108826728,
+              0.7999406938815854,
+              0.849955520411189,
+              0.8999703469407927,
+              0.9499851734703963,
+              1.0
+            ]
+          }
+        }
+      },
+      "kmer_distributions": {
+        "full_30mer": {
+          "2": {
+            "k": 2,
+            "top_kmers": [
+              {
+                "kmer": "GG",
+                "mean_frequency": 0.09525789640517345
+              },
+              {
+                "kmer": "TG",
+                "mean_frequency": 0.08092558445498885
+              },
+              {
+                "kmer": "GC",
+                "mean_frequency": 0.07544828949566686
+              },
+              {
+                "kmer": "AG",
+                "mean_frequency": 0.07405084647555386
+              },
+              {
+                "kmer": "CA",
+                "mean_frequency": 0.07288176609531297
+              },
+              {
+                "kmer": "CT",
+                "mean_frequency": 0.06911548673622728
+              },
+              {
+                "kmer": "GA",
+                "mean_frequency": 0.0679804903320867
+              },
+              {
+                "kmer": "CC",
+                "mean_frequency": 0.06472547061450536
+              },
+              {
+                "kmer": "TC",
+                "mean_frequency": 0.06066266066334764
+              },
+              {
+                "kmer": "GT",
+                "mean_frequency": 0.058600580109278336
+              }
+            ],
+            "mean_frequencies": {
+              "AA": 0.046378066279702417,
+              "AC": 0.05345049132051981,
+              "AG": 0.07405084647555386,
+              "AT": 0.04734264280334207,
+              "CA": 0.07288176609531297,
+              "CC": 0.06472547061450536,
+              "CG": 0.04778232609503558,
+              "CT": 0.06911548673622728,
+              "GA": 0.0679804903320867,
+              "GC": 0.07544828949566686,
+              "GG": 0.09525789640517345,
+              "GT": 0.058600580109278336,
+              "TA": 0.03524623968533841,
+              "TC": 0.06066266066334764,
+              "TG": 0.08092558445498885,
+              "TT": 0.050151162434007676
+            }
+          },
+          "3": {
+            "k": 3,
+            "top_kmers": [
+              {
+                "kmer": "TGG",
+                "mean_frequency": 0.030210819130458005
+              },
+              {
+                "kmer": "CTG",
+                "mean_frequency": 0.026878380095736433
+              },
+              {
+                "kmer": "CAG",
+                "mean_frequency": 0.0267760064389494
+              },
+              {
+                "kmer": "AGG",
+                "mean_frequency": 0.0267054039170272
+              },
+              {
+                "kmer": "GGC",
+                "mean_frequency": 0.02650065660345327
+              },
+              {
+                "kmer": "GGA",
+                "mean_frequency": 0.024922690238494943
+              },
+              {
+                "kmer": "GGG",
+                "mean_frequency": 0.02312232592948221
+              },
+              {
+                "kmer": "GAG",
+                "mean_frequency": 0.02157260057329237
+              },
+              {
+                "kmer": "GGT",
+                "mean_frequency": 0.02123370846806628
+              },
+              {
+                "kmer": "GTG",
+                "mean_frequency": 0.02085598497578329
+              }
+            ],
+            "mean_frequencies": {
+              "AAA": 0.008666459565935833,
+              "AAC": 0.010304438074528391,
+              "AAG": 0.016803400217455904,
+              "AAT": 0.009637244242364614,
+              "ACA": 0.015638458605741666,
+              "ACC": 0.015546675327242963,
+              "ACG": 0.009224219489120418,
+              "ACT": 0.013086177438258701,
+              "AGA": 0.016524520255863706,
+              "AGC": 0.018046004603284493,
+              "AGG": 0.0267054039170272,
+              "AGT": 0.01248605600192103,
+              "ATA": 0.007889831824792871,
+              "ATC": 0.012620200793572978,
+              "ATG": 0.016697496434572807,
+              "ATT": 0.010050268995608869,
+              "CAA": 0.013188551095045678,
+              "CAC": 0.01756237732811827,
+              "CAG": 0.0267760064389494,
+              "CAT": 0.015140710826191013,
+              "CCA": 0.020315875683079333,
+              "CCC": 0.011264632372668774,
+              "CCG": 0.01443468560697022,
+              "CCT": 0.018519041500162467,
+              "CGA": 0.010011437608551742,
+              "CGC": 0.013403888786907854,
+              "CGG": 0.015493723435801396,
+              "CGT": 0.009421906550502256,
+              "CTA": 0.008034566994733159,
+              "CTC": 0.01755884720202226,
+              "CTG": 0.026878380095736433,
+              "CTT": 0.01696931614397285,
+              "GAA": 0.01713523207048971,
+              "GAC": 0.014349962580663782,
+              "GAG": 0.02157260057329237,
+              "GAT": 0.014335842076279349,
+              "GCA": 0.01998757395614166,
+              "GCC": 0.020531213374941716,
+              "GCG": 0.014505288128892284,
+              "GCT": 0.020619466527344185,
+              "GGA": 0.024922690238494943,
+              "GGC": 0.02650065660345327,
+              "GGG": 0.02312232592948221,
+              "GGT": 0.02123370846806628,
+              "GTA": 0.011183439472458428,
+              "GTC": 0.014674734181505346,
+              "GTG": 0.02085598497578329,
+              "GTT": 0.012295429192731386,
+              "TAA": 0.007229698244821323,
+              "TAC": 0.011292873381437711,
+              "TAG": 0.008613507674494302,
+              "TAT": 0.008292266199748781,
+              "TCA": 0.017156412827066328,
+              "TCC": 0.01684929185670534,
+              "TCG": 0.009944365212725745,
+              "TCT": 0.016739857947726096,
+              "TGA": 0.01693754500910791,
+              "TGC": 0.0179083296855364,
+              "TGG": 0.030210819130458005,
+              "TGT": 0.015963230206583225,
+              "TTA": 0.008175772038577339,
+              "TTC": 0.015557265705531294,
+              "TTG": 0.01616444739406115,
+              "TTT": 0.010237365678702351
+            }
+          }
+        },
+        "spacer20": {
+          "2": {
+            "k": 2,
+            "top_kmers": [
+              {
+                "kmer": "CA",
+                "mean_frequency": 0.08033898128735295
+              },
+              {
+                "kmer": "GC",
+                "mean_frequency": 0.07751933951711829
+              },
+              {
+                "kmer": "TG",
+                "mean_frequency": 0.07555287348547753
+              },
+              {
+                "kmer": "CT",
+                "mean_frequency": 0.07480374356866223
+              },
+              {
+                "kmer": "CC",
+                "mean_frequency": 0.07275924317068723
+              },
+              {
+                "kmer": "TC",
+                "mean_frequency": 0.07136502915883654
+              },
+              {
+                "kmer": "AG",
+                "mean_frequency": 0.06742169251337825
+              },
+              {
+                "kmer": "GA",
+                "mean_frequency": 0.06389453915503929
+              },
+              {
+                "kmer": "AC",
+                "mean_frequency": 0.06368644751147935
+              },
+              {
+                "kmer": "GT",
+                "mean_frequency": 0.05668416370569124
+              }
+            ],
+            "mean_frequencies": {
+              "AA": 0.04730443287223344,
+              "AC": 0.06368644751147935,
+              "AG": 0.06742169251337825,
+              "AT": 0.05314140347408539,
+              "CA": 0.08033898128735295,
+              "CC": 0.07275924317068723,
+              "CG": 0.05346394552160346,
+              "CT": 0.07480374356866223,
+              "GA": 0.06389453915503929,
+              "GC": 0.07751933951711829,
+              "GG": 0.04877147895933023,
+              "GT": 0.05668416370569124,
+              "TA": 0.04037498114169169,
+              "TC": 0.07136502915883654,
+              "TG": 0.07555287348547753,
+              "TT": 0.05291770495725922
+            }
+          },
+          "3": {
+            "k": 3,
+            "top_kmers": [
+              {
+                "kmer": "CAG",
+                "mean_frequency": 0.025792670203066834
+              },
+              {
+                "kmer": "CTG",
+                "mean_frequency": 0.025040361108363888
+              },
+              {
+                "kmer": "CCA",
+                "mean_frequency": 0.022657133757261003
+              },
+              {
+                "kmer": "TGC",
+                "mean_frequency": 0.022086037802158003
+              },
+              {
+                "kmer": "CAC",
+                "mean_frequency": 0.02158632884144304
+              },
+              {
+                "kmer": "AGC",
+                "mean_frequency": 0.021542398383358037
+              },
+              {
+                "kmer": "GCC",
+                "mean_frequency": 0.021322746092933893
+              },
+              {
+                "kmer": "CTC",
+                "mean_frequency": 0.020883441512085533
+              },
+              {
+                "kmer": "CCT",
+                "mean_frequency": 0.020669280528921776
+              },
+              {
+                "kmer": "TCC",
+                "mean_frequency": 0.02044413693123689
+              }
+            ],
+            "mean_frequencies": {
+              "AAA": 0.008000834678703779,
+              "AAC": 0.012772780688170907,
+              "AAG": 0.015463521245867601,
+              "AAT": 0.011092440666425295,
+              "ACA": 0.01784674859697046,
+              "ACC": 0.019411771166243007,
+              "ACG": 0.010746488309007087,
+              "ACT": 0.015271325491746425,
+              "AGA": 0.01796206604944321,
+              "AGC": 0.021542398383358037,
+              "AGG": 0.013223067883540569,
+              "AGT": 0.014656299078558584,
+              "ATA": 0.009725105158534244,
+              "ATC": 0.01593028236301907,
+              "ATG": 0.01680340021745536,
+              "ATT": 0.011597640934401108,
+              "CAA": 0.01528779941352822,
+              "CAC": 0.02158632884144304,
+              "CAG": 0.025792670203066834,
+              "CAT": 0.018038944351091615,
+              "CCA": 0.022657133757261003,
+              "CCC": 0.01155920178357687,
+              "CCG": 0.0161279694244009,
+              "CCT": 0.020669280528921776,
+              "CGA": 0.012822202453516349,
+              "CGC": 0.01740744401612212,
+              "CGG": 0.011163827660813164,
+              "CGT": 0.011767871459479915,
+              "CTA": 0.010054583594170654,
+              "CTC": 0.020883441512085533,
+              "CTG": 0.025040361108363888,
+              "CTT": 0.019719284372837,
+              "GAA": 0.016413517401952342,
+              "GAC": 0.01531525594983123,
+              "GAG": 0.017456865781467483,
+              "GAT": 0.014661790385819193,
+              "GCA": 0.01998286712134601,
+              "GCC": 0.021322746092933893,
+              "GCG": 0.014952829670631348,
+              "GCT": 0.0200707280375157,
+              "GGA": 0.01333838533601329,
+              "GGC": 0.0165617826979888,
+              "GGG": 0.007676847550327986,
+              "GGT": 0.011921628062776893,
+              "GTA": 0.010966140599431354,
+              "GTC": 0.016084038966315998,
+              "GTG": 0.0178247833679281,
+              "GTT": 0.012514689246922417,
+              "TAA": 0.007687830164849198,
+              "TAC": 0.014304855413879835,
+              "TAG": 0.009033200443697827,
+              "TAT": 0.00982943999648577,
+              "TCA": 0.019818127903527816,
+              "TCC": 0.02044413693123689,
+              "TCG": 0.011542727861795046,
+              "TCT": 0.018571601155370446,
+              "TGA": 0.019609458227624863,
+              "TGC": 0.022086037802158003,
+              "TGG": 0.015386642944219167,
+              "TGT": 0.018494722853721945,
+              "TTA": 0.009807474767443352,
+              "TTC": 0.018972466585394577,
+              "TTG": 0.015705138765334237,
+              "TTT": 0.009016726521916001
+            }
+          }
+        }
+      }
+    },
+    "crispron_xiang_luo": {
+      "n": 10592,
+      "valid_30mer_n": 10592,
+      "unique_30mer_n": 10592,
+      "full_30mer_gc": {
+        "n": 10592,
+        "finite_n": 10592,
+        "missing_n": 0,
+        "min": 0.23333333333333334,
+        "max": 0.9,
+        "mean": 0.600978726082578,
+        "median": 0.6,
+        "SD": 0.10721996193271101,
+        "IQR": 0.1333333333333333,
+        "unique_value_n": 21,
+        "quantiles_percent": {
+          "0": 0.23333333333333334,
+          "1": 0.3333333333333333,
+          "5": 0.43333333333333335,
+          "10": 0.4666666666666667,
+          "25": 0.5333333333333333,
+          "50": 0.6,
+          "75": 0.6666666666666666,
+          "90": 0.7333333333333333,
+          "95": 0.7666666666666667,
+          "99": 0.8333333333333334,
+          "100": 0.9
+        },
+        "skewness": -0.13308908676597717,
+        "fraction_at_min": 0.00018882175226586103,
+        "fraction_at_max": 0.0016993957703927492,
+        "empirical_cdf": {
+          "n_points": 21,
+          "x": [
+            0.23333333333333334,
+            0.43333333333333335,
+            0.4666666666666667,
+            0.5,
+            0.5,
+            0.5333333333333333,
+            0.5333333333333333,
+            0.5666666666666667,
+            0.5666666666666667,
+            0.6,
+            0.6,
+            0.6333333333333333,
+            0.6333333333333333,
+            0.6333333333333333,
+            0.6666666666666666,
+            0.6666666666666666,
+            0.7,
+            0.7,
+            0.7333333333333333,
+            0.7666666666666667,
+            0.9
+          ],
+          "probability": [
+            9.441087613293051e-05,
+            0.05003776435045317,
+            0.10007552870090634,
+            0.15001888217522658,
+            0.20005664652567975,
+            0.25,
+            0.30003776435045315,
+            0.3499811178247734,
+            0.4000188821752266,
+            0.44996223564954685,
+            0.5,
+            0.5500377643504532,
+            0.5999811178247734,
+            0.6500188821752266,
+            0.6999622356495468,
+            0.75,
+            0.7999433534743202,
+            0.8499811178247734,
+            0.8999244712990937,
+            0.9499622356495468,
+            1.0
+          ]
+        }
+      },
+      "spacer_gc": {
+        "n": 10592,
+        "finite_n": 10592,
+        "missing_n": 0,
+        "min": 0.15,
+        "max": 0.95,
+        "mean": 0.5855929003021147,
+        "median": 0.6,
+        "SD": 0.12208511551642305,
+        "IQR": 0.15000000000000002,
+        "unique_value_n": 17,
+        "quantiles_percent": {
+          "0": 0.15,
+          "1": 0.3,
+          "5": 0.4,
+          "10": 0.4,
+          "25": 0.5,
+          "50": 0.6,
+          "75": 0.65,
+          "90": 0.75,
+          "95": 0.8,
+          "99": 0.85,
+          "100": 0.95
+        },
+        "skewness": -0.2032777288835156,
+        "fraction_at_min": 0.00018882175226586103,
+        "fraction_at_max": 0.0004720543806646526,
+        "empirical_cdf": {
+          "n_points": 21,
+          "x": [
+            0.15,
+            0.4,
+            0.4,
+            0.45,
+            0.5,
+            0.5,
+            0.5,
+            0.55,
+            0.55,
+            0.6,
+            0.6,
+            0.6,
+            0.6,
+            0.65,
+            0.65,
+            0.65,
+            0.7,
+            0.7,
+            0.75,
+            0.8,
+            0.95
+          ],
+          "probability": [
+            9.441087613293051e-05,
+            0.05003776435045317,
+            0.10007552870090634,
+            0.15001888217522658,
+            0.20005664652567975,
+            0.25,
+            0.30003776435045315,
+            0.3499811178247734,
+            0.4000188821752266,
+            0.44996223564954685,
+            0.5,
+            0.5500377643504532,
+            0.5999811178247734,
+            0.6500188821752266,
+            0.6999622356495468,
+            0.75,
+            0.7999433534743202,
+            0.8499811178247734,
+            0.8999244712990937,
+            0.9499622356495468,
+            1.0
+          ]
+        }
+      },
+      "positional_nucleotide_frequencies": [
+        {
+          "position_0_based": 0,
+          "region": "upstream_context",
+          "frequencies": {
+            "A": 0.23272280966767372,
+            "C": 0.27388595166163143,
+            "G": 0.2618013595166163,
+            "T": 0.23158987915407855
+          }
+        },
+        {
+          "position_0_based": 1,
+          "region": "upstream_context",
+          "frequencies": {
+            "A": 0.19854607250755288,
+            "C": 0.3031533232628399,
+            "G": 0.30362537764350456,
+            "T": 0.19467522658610273
+          }
+        },
+        {
+          "position_0_based": 2,
+          "region": "upstream_context",
+          "frequencies": {
+            "A": 0.23177870090634442,
+            "C": 0.27709592145015105,
+            "G": 0.28615936555891236,
+            "T": 0.20496601208459214
+          }
+        },
+        {
+          "position_0_based": 3,
+          "region": "upstream_context",
+          "frequencies": {
+            "A": 0.23130664652567975,
+            "C": 0.2669939577039275,
+            "G": 0.26614425981873113,
+            "T": 0.23555513595166164
+          }
+        },
+        {
+          "position_0_based": 4,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.19193731117824772,
+            "C": 0.29748867069486407,
+            "G": 0.3162764350453172,
+            "T": 0.194297583081571
+          }
+        },
+        {
+          "position_0_based": 5,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.22516993957703926,
+            "C": 0.26029078549848944,
+            "G": 0.293523413897281,
+            "T": 0.22101586102719034
+          }
+        },
+        {
+          "position_0_based": 6,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.2280966767371601,
+            "C": 0.2903134441087613,
+            "G": 0.24867824773413896,
+            "T": 0.23291163141993956
+          }
+        },
+        {
+          "position_0_based": 7,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.13755664652567975,
+            "C": 0.44382552870090636,
+            "G": 0.2548149546827795,
+            "T": 0.16380287009063443
+          }
+        },
+        {
+          "position_0_based": 8,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.23961480362537765,
+            "C": 0.4563821752265861,
+            "G": 0.18089123867069487,
+            "T": 0.12311178247734139
+          }
+        },
+        {
+          "position_0_based": 9,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.35253021148036257,
+            "C": 0.317881419939577,
+            "G": 0.2141238670694864,
+            "T": 0.11546450151057402
+          }
+        },
+        {
+          "position_0_based": 10,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.26529456193353473,
+            "C": 0.3452605740181269,
+            "G": 0.3108950151057402,
+            "T": 0.07854984894259819
+          }
+        },
+        {
+          "position_0_based": 11,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.2705815709969788,
+            "C": 0.4012462235649547,
+            "G": 0.23281722054380666,
+            "T": 0.09535498489425982
+          }
+        },
+        {
+          "position_0_based": 12,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.38717900302114805,
+            "C": 0.20713746223564955,
+            "G": 0.275868580060423,
+            "T": 0.12981495468277945
+          }
+        },
+        {
+          "position_0_based": 13,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.24830060422960726,
+            "C": 0.21487915407854985,
+            "G": 0.3920883685800604,
+            "T": 0.14473187311178248
+          }
+        },
+        {
+          "position_0_based": 14,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.22148791540785498,
+            "C": 0.2691654078549849,
+            "G": 0.3009818731117825,
+            "T": 0.20836480362537765
+          }
+        },
+        {
+          "position_0_based": 15,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.22951283987915408,
+            "C": 0.26803247734138974,
+            "G": 0.26586102719033233,
+            "T": 0.23659365558912387
+          }
+        },
+        {
+          "position_0_based": 16,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.18693353474320243,
+            "C": 0.29503398791540786,
+            "G": 0.32628398791540786,
+            "T": 0.19174848942598188
+          }
+        },
+        {
+          "position_0_based": 17,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.23225075528700906,
+            "C": 0.26652190332326287,
+            "G": 0.2933345921450151,
+            "T": 0.207892749244713
+          }
+        },
+        {
+          "position_0_based": 18,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.23121223564954682,
+            "C": 0.26935422960725075,
+            "G": 0.2682212990936556,
+            "T": 0.23121223564954682
+          }
+        },
+        {
+          "position_0_based": 19,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.19297583081570996,
+            "C": 0.29040785498489424,
+            "G": 0.3258119335347432,
+            "T": 0.19080438066465258
+          }
+        },
+        {
+          "position_0_based": 20,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.22403700906344412,
+            "C": 0.2682212990936556,
+            "G": 0.29663897280966767,
+            "T": 0.21110271903323263
+          }
+        },
+        {
+          "position_0_based": 21,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.2252643504531722,
+            "C": 0.2847432024169184,
+            "G": 0.24830060422960726,
+            "T": 0.24169184290030213
+          }
+        },
+        {
+          "position_0_based": 22,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.18315709969788518,
+            "C": 0.3074962235649547,
+            "G": 0.3168429003021148,
+            "T": 0.19250377643504532
+          }
+        },
+        {
+          "position_0_based": 23,
+          "region": "spacer",
+          "frequencies": {
+            "A": 0.22328172205438065,
+            "C": 0.3035309667673716,
+            "G": 0.2923904833836858,
+            "T": 0.18079682779456194
+          }
+        },
+        {
+          "position_0_based": 24,
+          "region": "PAM",
+          "frequencies": {
+            "A": 0.262273413897281,
+            "C": 0.15228474320241692,
+            "G": 0.23895392749244712,
+            "T": 0.346487915407855
+          }
+        },
+        {
+          "position_0_based": 25,
+          "region": "PAM",
+          "frequencies": {
+            "A": 0.0,
+            "C": 0.0,
+            "G": 1.0,
+            "T": 0.0
+          }
+        },
+        {
+          "position_0_based": 26,
+          "region": "PAM",
+          "frequencies": {
+            "A": 0.0,
+            "C": 0.0,
+            "G": 1.0,
+            "T": 0.0
+          }
+        },
+        {
+          "position_0_based": 27,
+          "region": "downstream_context",
+          "frequencies": {
+            "A": 0.28106117824773413,
+            "C": 0.3001321752265861,
+            "G": 0.2338557401812689,
+            "T": 0.1849509063444109
+          }
+        },
+        {
+          "position_0_based": 28,
+          "region": "downstream_context",
+          "frequencies": {
+            "A": 0.20987537764350453,
+            "C": 0.2986216012084592,
+            "G": 0.2940898791540785,
+            "T": 0.1974131419939577
+          }
+        },
+        {
+          "position_0_based": 29,
+          "region": "downstream_context",
+          "frequencies": {
+            "A": 0.23527190332326284,
+            "C": 0.26293429003021146,
+            "G": 0.29777190332326287,
+            "T": 0.20402190332326284
+          }
+        }
+      ],
+      "PAM_distribution": {
+        "counts": {
+          "AGG": 2778,
+          "CGG": 1613,
+          "GGG": 2531,
+          "TGG": 3670
+        },
+        "frequencies": {
+          "AGG": 0.262273413897281,
+          "CGG": 0.15228474320241692,
+          "GGG": 0.23895392749244712,
+          "TGG": 0.346487915407855
+        }
+      },
+      "spacer_sequence_complexity": {
+        "nucleotide_entropy": {
+          "n": 10592,
+          "finite_n": 10592,
+          "missing_n": 0,
+          "min": 1.0540157730728,
+          "max": 2.0,
+          "mean": 1.8492975583051852,
+          "median": 1.8812908992306925,
+          "SD": 0.11708722021871744,
+          "IQR": 0.1522690778808391,
+          "unique_value_n": 109,
+          "quantiles_percent": {
+            "0": 1.0540157730728,
+            "1": 1.4411535278793055,
+            "5": 1.595461844238322,
+            "10": 1.6854752972273344,
+            "25": 1.7883763717345071,
+            "50": 1.8812908992306925,
+            "75": 1.9406454496153462,
+            "90": 1.9588718484453602,
+            "95": 1.9854752972273344,
+            "99": 1.9854752972273344,
+            "100": 2.0
+          },
+          "skewness": -1.4755230965556367,
+          "fraction_at_min": 9.441087613293051e-05,
+          "fraction_at_max": 0.00538141993957704,
+          "empirical_cdf": {
+            "n_points": 21,
+            "x": [
+              1.0540157730728,
+              1.595461844238322,
+              1.6854752972273344,
+              1.7393538721672006,
+              1.765957320949175,
+              1.7883763717345071,
+              1.8149798205164813,
+              1.8464393446710154,
+              1.8567796494470394,
+              1.8609640474436813,
+              1.8812908992306925,
+              1.8833830982290136,
+              1.903701696057348,
+              1.9037016960573483,
+              1.9261207468426804,
+              1.9406454496153462,
+              1.9527241956246546,
+              1.9527241956246548,
+              1.9588718484453602,
+              1.9854752972273344,
+              2.0
+            ],
+            "probability": [
+              9.441087613293051e-05,
+              0.05003776435045317,
+              0.10007552870090634,
+              0.15001888217522658,
+              0.20005664652567975,
+              0.25,
+              0.30003776435045315,
+              0.3499811178247734,
+              0.4000188821752266,
+              0.44996223564954685,
+              0.5,
+              0.5500377643504532,
+              0.5999811178247734,
+              0.6500188821752266,
+              0.6999622356495468,
+              0.75,
+              0.7999433534743202,
+              0.8499811178247734,
+              0.8999244712990937,
+              0.9499622356495468,
+              1.0
+            ]
+          }
+        },
+        "kmer_2_entropy": {
+          "n": 10592,
+          "finite_n": 10592,
+          "missing_n": 0,
+          "min": 2.034572365811466,
+          "max": 3.8268748818646374,
+          "mean": 3.23786073680014,
+          "median": 3.260828171224455,
+          "SD": 0.23949557944373207,
+          "IQR": 0.295244235496674,
+          "unique_value_n": 371,
+          "quantiles_percent": {
+            "0": 2.034572365811466,
+            "1": 2.582059910580257,
+            "5": 2.80004461847901,
+            "10": 2.925853014561283,
+            "25": 3.1105780147890165,
+            "50": 3.260828171224455,
+            "75": 3.4058222502856905,
+            "90": 3.5368867237421666,
+            "95": 3.5766176449086657,
+            "99": 3.7216117239699003,
+            "100": 3.8268748818646374
+          },
+          "skewness": -0.5970469305084197,
+          "fraction_at_min": 9.441087613293051e-05,
+          "fraction_at_max": 0.00037764350453172205,
+          "empirical_cdf": {
+            "n_points": 21,
+            "x": [
+              2.034572365811466,
+              2.8000446184790095,
+              2.925853014561283,
+              3.00531485689428,
+              3.0503018554349817,
+              3.1105780147890165,
+              3.14163540772496,
+              3.176110251517254,
+              3.181366328891459,
+              3.2210972500579573,
+              3.260828171224455,
+              3.2866294867861954,
+              3.3263604079526936,
+              3.326360407952694,
+              3.3660913291191923,
+              3.4058222502856905,
+              3.4316235658474303,
+              3.471354487013929,
+              3.5368867237421666,
+              3.5766176449086657,
+              3.8268748818646374
+            ],
+            "probability": [
+              9.441087613293051e-05,
+              0.05003776435045317,
+              0.10007552870090634,
+              0.15001888217522658,
+              0.20005664652567975,
+              0.25,
+              0.30003776435045315,
+              0.3499811178247734,
+              0.4000188821752266,
+              0.44996223564954685,
+              0.5,
+              0.5500377643504532,
+              0.5999811178247734,
+              0.6500188821752266,
+              0.6999622356495468,
+              0.75,
+              0.7999433534743202,
+              0.8499811178247734,
+              0.8999244712990937,
+              0.9499622356495468,
+              1.0
+            ]
+          }
+        },
+        "kmer_3_entropy": {
+          "n": 10592,
+          "finite_n": 10592,
+          "missing_n": 0,
+          "min": 2.710777084415067,
+          "max": 4.169925001442312,
+          "mean": 3.8560356379571847,
+          "median": 3.8365916681089787,
+          "SD": 0.20781198835312917,
+          "IQR": 0.3333333333333339,
+          "unique_value_n": 82,
+          "quantiles_percent": {
+            "0": 2.710777084415067,
+            "1": 3.2390979179887864,
+            "5": 3.4613201402110083,
+            "10": 3.5724312513221195,
+            "25": 3.7254805569978675,
+            "50": 3.8365916681089787,
+            "75": 4.058813890331201,
+            "90": 4.058813890331201,
+            "95": 4.169925001442312,
+            "99": 4.169925001442312,
+            "100": 4.169925001442312
+          },
+          "skewness": -0.9276392688557107,
+          "fraction_at_min": 9.441087613293051e-05,
+          "fraction_at_max": 0.07156344410876132,
+          "empirical_cdf": {
+            "n_points": 21,
+            "x": [
+              2.710777084415067,
+              3.4613201402110083,
+              3.5724312513221195,
+              3.68354236243323,
+              3.6835423624332306,
+              3.7254805569978675,
+              3.7946534735443413,
+              3.8365916681089787,
+              3.8365916681089787,
+              3.8365916681089787,
+              3.8365916681089787,
+              3.94770277922009,
+              3.94770277922009,
+              3.94770277922009,
+              3.94770277922009,
+              4.058813890331201,
+              4.058813890331201,
+              4.058813890331201,
+              4.058813890331201,
+              4.169925001442312,
+              4.169925001442312
+            ],
+            "probability": [
+              9.441087613293051e-05,
+              0.05003776435045317,
+              0.10007552870090634,
+              0.15001888217522658,
+              0.20005664652567975,
+              0.25,
+              0.30003776435045315,
+              0.3499811178247734,
+              0.4000188821752266,
+              0.44996223564954685,
+              0.5,
+              0.5500377643504532,
+              0.5999811178247734,
+              0.6500188821752266,
+              0.6999622356495468,
+              0.75,
+              0.7999433534743202,
+              0.8499811178247734,
+              0.8999244712990937,
+              0.9499622356495468,
+              1.0
+            ]
+          }
+        },
+        "kmer_2_complexity": {
+          "n": 10592,
+          "finite_n": 10592,
+          "missing_n": 0,
+          "min": 0.375,
+          "max": 0.9375,
+          "mean": 0.671090209592145,
+          "median": 0.6875,
+          "SD": 0.09344476315549897,
+          "IQR": 0.125,
+          "unique_value_n": 10,
+          "quantiles_percent": {
+            "0": 0.375,
+            "1": 0.4375,
+            "5": 0.5,
+            "10": 0.5625,
+            "25": 0.625,
+            "50": 0.6875,
+            "75": 0.75,
+            "90": 0.8125,
+            "95": 0.8125,
+            "99": 0.875,
+            "100": 0.9375
+          },
+          "skewness": -0.14928924301505203,
+          "fraction_at_min": 0.004154078549848943,
+          "fraction_at_max": 0.0030211480362537764,
+          "empirical_cdf": {
+            "n_points": 21,
+            "x": [
+              0.375,
+              0.5,
+              0.5625,
+              0.5625,
+              0.625,
+              0.625,
+              0.625,
+              0.625,
+              0.625,
+              0.6875,
+              0.6875,
+              0.6875,
+              0.6875,
+              0.6875,
+              0.75,
+              0.75,
+              0.75,
+              0.75,
+              0.8125,
+              0.8125,
+              0.9375
+            ],
+            "probability": [
+              9.441087613293051e-05,
+              0.05003776435045317,
+              0.10007552870090634,
+              0.15001888217522658,
+              0.20005664652567975,
+              0.25,
+              0.30003776435045315,
+              0.3499811178247734,
+              0.4000188821752266,
+              0.44996223564954685,
+              0.5,
+              0.5500377643504532,
+              0.5999811178247734,
+              0.6500188821752266,
+              0.6999622356495468,
+              0.75,
+              0.7999433534743202,
+              0.8499811178247734,
+              0.8999244712990937,
+              0.9499622356495468,
+              1.0
+            ]
+          }
+        },
+        "kmer_3_complexity": {
+          "n": 10592,
+          "finite_n": 10592,
+          "missing_n": 0,
+          "min": 0.125,
+          "max": 0.28125,
+          "mean": 0.23909849414652568,
+          "median": 0.234375,
+          "SD": 0.026181407468174833,
+          "IQR": 0.046875,
+          "unique_value_n": 11,
+          "quantiles_percent": {
+            "0": 0.125,
+            "1": 0.171875,
+            "5": 0.1875,
+            "10": 0.203125,
+            "25": 0.21875,
+            "50": 0.234375,
+            "75": 0.265625,
+            "90": 0.265625,
+            "95": 0.28125,
+            "99": 0.28125,
+            "100": 0.28125
+          },
+          "skewness": -0.6247026699317043,
+          "fraction_at_min": 0.0006608761329305136,
+          "fraction_at_max": 0.07156344410876132,
+          "empirical_cdf": {
+            "n_points": 21,
+            "x": [
+              0.125,
+              0.1875,
+              0.203125,
+              0.21875,
+              0.21875,
+              0.21875,
+              0.234375,
+              0.234375,
+              0.234375,
+              0.234375,
+              0.234375,
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.265625,
+              0.265625,
+              0.265625,
+              0.265625,
+              0.28125,
+              0.28125
+            ],
+            "probability": [
+              9.441087613293051e-05,
+              0.05003776435045317,
+              0.10007552870090634,
+              0.15001888217522658,
+              0.20005664652567975,
+              0.25,
+              0.30003776435045315,
+              0.3499811178247734,
+              0.4000188821752266,
+              0.44996223564954685,
+              0.5,
+              0.5500377643504532,
+              0.5999811178247734,
+              0.6500188821752266,
+              0.6999622356495468,
+              0.75,
+              0.7999433534743202,
+              0.8499811178247734,
+              0.8999244712990937,
+              0.9499622356495468,
+              1.0
+            ]
+          }
+        }
+      },
+      "kmer_distributions": {
+        "full_30mer": {
+          "2": {
+            "k": 2,
+            "top_kmers": [
+              {
+                "kmer": "GG",
+                "mean_frequency": 0.12062128867591927
+              },
+              {
+                "kmer": "AG",
+                "mean_frequency": 0.09286123554538078
+              },
+              {
+                "kmer": "GC",
+                "mean_frequency": 0.09017215334931741
+              },
+              {
+                "kmer": "CA",
+                "mean_frequency": 0.08841741327222657
+              },
+              {
+                "kmer": "CC",
+                "mean_frequency": 0.08486886654860762
+              },
+              {
+                "kmer": "TG",
+                "mean_frequency": 0.07356235024482526
+              },
+              {
+                "kmer": "GA",
+                "mean_frequency": 0.06811581935618989
+              },
+              {
+                "kmer": "CT",
+                "mean_frequency": 0.05700463589957804
+              },
+              {
+                "kmer": "TC",
+                "mean_frequency": 0.050213563912911555
+              },
+              {
+                "kmer": "GT",
+                "mean_frequency": 0.05003125325555149
+              }
+            ],
+            "mean_frequencies": {
+              "AA": 0.04309042608605278,
+              "AC": 0.04779469215543673,
+              "AG": 0.09286123554538078,
+              "AT": 0.03501015730805471,
+              "CA": 0.08841741327222657,
+              "CC": 0.08486886654860762,
+              "CG": 0.043136003750393316,
+              "CT": 0.05700463589957804,
+              "GA": 0.06811581935618989,
+              "GC": 0.09017215334931741,
+              "GG": 0.12062128867591927,
+              "GT": 0.05003125325555149,
+              "TA": 0.0192207521616834,
+              "TC": 0.050213563912911555,
+              "TG": 0.07356235024482526,
+              "TT": 0.03587938847796795
+            }
+          },
+          "3": {
+            "k": 3,
+            "top_kmers": [
+              {
+                "kmer": "CAG",
+                "mean_frequency": 0.04651421558048747
+              },
+              {
+                "kmer": "GGG",
+                "mean_frequency": 0.03684384441087416
+              },
+              {
+                "kmer": "GGC",
+                "mean_frequency": 0.03525571860163775
+              },
+              {
+                "kmer": "CCA",
+                "mean_frequency": 0.03513096137246195
+              },
+              {
+                "kmer": "AGG",
+                "mean_frequency": 0.03456112429865979
+              },
+              {
+                "kmer": "TGG",
+                "mean_frequency": 0.03270662494604893
+              },
+              {
+                "kmer": "GCC",
+                "mean_frequency": 0.029152729823045936
+              },
+              {
+                "kmer": "GGA",
+                "mean_frequency": 0.029088665299955616
+              },
+              {
+                "kmer": "AGC",
+                "mean_frequency": 0.02633726262408218
+              },
+              {
+                "kmer": "CTG",
+                "mean_frequency": 0.026290057186015778
+              }
+            ],
+            "mean_frequencies": {
+              "AAA": 0.009299471299093814,
+              "AAC": 0.009828846568839398,
+              "AAG": 0.016768045964609474,
+              "AAT": 0.0071145338800173005,
+              "ACA": 0.013743526111351248,
+              "ACC": 0.015800334484246992,
+              "ACG": 0.00798446266724228,
+              "ACT": 0.010297529132499381,
+              "AGA": 0.01874055891238664,
+              "AGC": 0.02633726262408218,
+              "AGG": 0.03456112429865979,
+              "AGT": 0.01374015429434654,
+              "ATA": 0.00404955222270172,
+              "ATC": 0.00990977017695334,
+              "ATG": 0.014181862321968492,
+              "ATT": 0.006716659473457042,
+              "CAA": 0.014771930297799154,
+              "CAC": 0.01578684721622807,
+              "CAG": 0.04651421558048747,
+              "CAT": 0.011073047043591366,
+              "CCA": 0.03513096137246195,
+              "CCC": 0.021134548985757416,
+              "CCG": 0.013284958998705697,
+              "CCT": 0.015382229175658409,
+              "CGA": 0.00913088044885661,
+              "CGC": 0.01027729823047078,
+              "CGG": 0.01790772011221406,
+              "CGT": 0.005748947993094421,
+              "CTA": 0.004632876564523022,
+              "CTC": 0.014070592360811745,
+              "CTG": 0.026290057186015778,
+              "CTT": 0.011389997842037595,
+              "GAA": 0.016100426197669573,
+              "GAC": 0.014724724859732674,
+              "GAG": 0.025025625809235872,
+              "GAT": 0.012330734786362235,
+              "GCA": 0.026006824557616964,
+              "GCC": 0.029152729823045936,
+              "GCG": 0.014910174794993734,
+              "GCT": 0.020382633793698635,
+              "GGA": 0.029088665299955616,
+              "GGC": 0.03525571860163775,
+              "GGG": 0.03684384441087416,
+              "GGT": 0.020267992015537053,
+              "GTA": 0.006676197669400063,
+              "GTC": 0.012583621061718318,
+              "GTG": 0.021488589771255732,
+              "GTT": 0.009346676737160432,
+              "TAA": 0.002899762624082846,
+              "TAC": 0.0071819702201122585,
+              "TAG": 0.004511491152352117,
+              "TAT": 0.004326041217091012,
+              "TCA": 0.013989668752697831,
+              "TCC": 0.018477557186016347,
+              "TCG": 0.007067328441950829,
+              "TCT": 0.010665057186016791,
+              "TGA": 0.011781128614588418,
+              "TGC": 0.018514647173068523,
+              "TGG": 0.03270662494604893,
+              "TGT": 0.010435773629693943,
+              "TTA": 0.0035269205869658737,
+              "TTC": 0.01293766184721671,
+              "TTG": 0.011083162494605588,
+              "TTT": 0.008109219896417844
+            }
+          }
+        },
+        "spacer20": {
+          "2": {
+            "k": 2,
+            "top_kmers": [
+              {
+                "kmer": "CA",
+                "mean_frequency": 0.10444824296389421
+              },
+              {
+                "kmer": "CC",
+                "mean_frequency": 0.09894756718078566
+              },
+              {
+                "kmer": "AG",
+                "mean_frequency": 0.09756618699315367
+              },
+              {
+                "kmer": "GC",
+                "mean_frequency": 0.09308912386706292
+              },
+              {
+                "kmer": "GG",
+                "mean_frequency": 0.07759580219430283
+              },
+              {
+                "kmer": "GA",
+                "mean_frequency": 0.06524288440133102
+              },
+              {
+                "kmer": "TG",
+                "mean_frequency": 0.06427393067259862
+              },
+              {
+                "kmer": "CT",
+                "mean_frequency": 0.05789871203688562
+              },
+              {
+                "kmer": "TC",
+                "mean_frequency": 0.05704901415168914
+              },
+              {
+                "kmer": "AC",
+                "mean_frequency": 0.05405768007631928
+              }
+            ],
+            "mean_frequencies": {
+              "AA": 0.04739425981872755,
+              "AC": 0.05405768007631928,
+              "AG": 0.09756618699315367,
+              "AT": 0.03640781523294373,
+              "CA": 0.10444824296389421,
+              "CC": 0.09894756718078566,
+              "CG": 0.04153084751152445,
+              "CT": 0.05789871203688562,
+              "GA": 0.06524288440133102,
+              "GC": 0.09308912386706292,
+              "GG": 0.07759580219430283,
+              "GT": 0.04629611225949616,
+              "TA": 0.019990260772778358,
+              "TC": 0.05704901415168914,
+              "TG": 0.06427393067259862,
+              "TT": 0.038211559866431294
+            }
+          },
+          "3": {
+            "k": 3,
+            "top_kmers": [
+              {
+                "kmer": "CAG",
+                "mean_frequency": 0.0571657854984816
+              },
+              {
+                "kmer": "CCA",
+                "mean_frequency": 0.044965802282639536
+              },
+              {
+                "kmer": "AGC",
+                "mean_frequency": 0.03334277442094346
+              },
+              {
+                "kmer": "GCC",
+                "mean_frequency": 0.03161190835850672
+              },
+              {
+                "kmer": "GCA",
+                "mean_frequency": 0.02853306478683883
+              },
+              {
+                "kmer": "AGG",
+                "mean_frequency": 0.027583710976835575
+              },
+              {
+                "kmer": "GGC",
+                "mean_frequency": 0.02614656764014571
+              },
+              {
+                "kmer": "CCC",
+                "mean_frequency": 0.0253650553877129
+              },
+              {
+                "kmer": "CTG",
+                "mean_frequency": 0.02387546156428183
+              },
+              {
+                "kmer": "TCC",
+                "mean_frequency": 0.023156889895936773
+              }
+            ],
+            "mean_frequencies": {
+              "AAA": 0.01090970124202774,
+              "AAC": 0.012226208459214759,
+              "AAG": 0.016684499832157963,
+              "AAT": 0.007967228935884694,
+              "ACA": 0.015892497482376262,
+              "ACC": 0.019396189996642214,
+              "ACG": 0.007647280966767533,
+              "ACT": 0.011355530379322189,
+              "AGA": 0.02230719201074061,
+              "AGC": 0.03334277442094346,
+              "AGG": 0.027583710976835575,
+              "AGT": 0.016375041960388845,
+              "ATA": 0.004358635448137028,
+              "ATC": 0.012116062437059696,
+              "ATG": 0.012645812353138853,
+              "ATT": 0.00752139979859029,
+              "CAA": 0.01780169519973076,
+              "CAC": 0.018892665323933387,
+              "CAG": 0.0571657854984816,
+              "CAT": 0.01173317388385392,
+              "CCA": 0.044965802282639536,
+              "CCC": 0.0253650553877129,
+              "CCG": 0.01329619838872112,
+              "CCT": 0.015179170862705321,
+              "CGA": 0.011255874454515202,
+              "CGC": 0.01190101544142356,
+              "CGG": 0.011874790198053313,
+              "CGT": 0.00558073178919111,
+              "CTA": 0.005040491775763771,
+              "CTC": 0.016380287009063053,
+              "CTG": 0.02387546156428183,
+              "CTT": 0.012257678751259063,
+              "GAA": 0.015960683115138933,
+              "GAC": 0.015011329305135676,
+              "GAG": 0.02148371936891467,
+              "GAT": 0.01208459214501539,
+              "GCA": 0.02853306478683883,
+              "GCC": 0.03161190835850672,
+              "GCG": 0.013647616649882502,
+              "GCT": 0.019097222222221356,
+              "GGA": 0.01937520980194598,
+              "GGC": 0.02614656764014571,
+              "GGG": 0.017990516951996938,
+              "GGT": 0.013028700906344517,
+              "GTA": 0.006514350453172337,
+              "GTC": 0.013322423632091376,
+              "GTG": 0.0172667002349776,
+              "GTT": 0.009226040617657139,
+              "TAA": 0.002937227257468984,
+              "TAC": 0.008601879825444969,
+              "TAG": 0.003855110775428054,
+              "TAT": 0.004526477005706688,
+              "TCA": 0.01620720040281934,
+              "TCC": 0.023156889895936773,
+              "TCG": 0.006629741524001479,
+              "TCT": 0.011140483383686057,
+              "TGA": 0.011927240684793838,
+              "TGC": 0.022202291037259486,
+              "TGG": 0.018782519301778225,
+              "TGT": 0.010657938905673285,
+              "TTA": 0.0037502098019470157,
+              "TTC": 0.015850537092983882,
+              "TTG": 0.009839711312521204,
+              "TTT": 0.008738251090970286
+            }
+          }
+        }
+      }
+    },
+    "comparison": {
+      "full_30mer_gc_mean_delta_xiang_minus_deep": 0.05005783385497431,
+      "spacer_gc_mean_delta_xiang_minus_deep": 0.05371091947775963,
+      "PAM_JSD_bits": 0.034549342147156666,
+      "positional_nucleotide_JSD": [
+        {
+          "position_0_based": 0,
+          "region": "upstream_context",
+          "JSD_bits": 0.0007800098021667479
+        },
+        {
+          "position_0_based": 1,
+          "region": "upstream_context",
+          "JSD_bits": 0.002198584479096542
+        },
+        {
+          "position_0_based": 2,
+          "region": "upstream_context",
+          "JSD_bits": 0.0008995507544935144
+        },
+        {
+          "position_0_based": 3,
+          "region": "upstream_context",
+          "JSD_bits": 0.0010753400929003568
+        },
+        {
+          "position_0_based": 4,
+          "region": "spacer",
+          "JSD_bits": 0.0029410230388300772
+        },
+        {
+          "position_0_based": 5,
+          "region": "spacer",
+          "JSD_bits": 0.000588247114879795
+        },
+        {
+          "position_0_based": 6,
+          "region": "spacer",
+          "JSD_bits": 0.0005654517142623253
+        },
+        {
+          "position_0_based": 7,
+          "region": "spacer",
+          "JSD_bits": 0.023796753752779596
+        },
+        {
+          "position_0_based": 8,
+          "region": "spacer",
+          "JSD_bits": 0.036517757808011114
+        },
+        {
+          "position_0_based": 9,
+          "region": "spacer",
+          "JSD_bits": 0.03014390326793881
+        },
+        {
+          "position_0_based": 10,
+          "region": "spacer",
+          "JSD_bits": 0.03212089227633979
+        },
+        {
+          "position_0_based": 11,
+          "region": "spacer",
+          "JSD_bits": 0.03190210592870512
+        },
+        {
+          "position_0_based": 12,
+          "region": "spacer",
+          "JSD_bits": 0.031178136364490315
+        },
+        {
+          "position_0_based": 13,
+          "region": "spacer",
+          "JSD_bits": 0.021727893571011084
+        },
+        {
+          "position_0_based": 14,
+          "region": "spacer",
+          "JSD_bits": 0.0016200599624659438
+        },
+        {
+          "position_0_based": 15,
+          "region": "spacer",
+          "JSD_bits": 0.0016498303924956468
+        },
+        {
+          "position_0_based": 16,
+          "region": "spacer",
+          "JSD_bits": 0.004933542568603098
+        },
+        {
+          "position_0_based": 17,
+          "region": "spacer",
+          "JSD_bits": 0.001896691578210586
+        },
+        {
+          "position_0_based": 18,
+          "region": "spacer",
+          "JSD_bits": 0.0030815726366188595
+        },
+        {
+          "position_0_based": 19,
+          "region": "spacer",
+          "JSD_bits": 0.004757474015788065
+        },
+        {
+          "position_0_based": 20,
+          "region": "spacer",
+          "JSD_bits": 0.0021402903497634365
+        },
+        {
+          "position_0_based": 21,
+          "region": "spacer",
+          "JSD_bits": 0.003282807423328239
+        },
+        {
+          "position_0_based": 22,
+          "region": "spacer",
+          "JSD_bits": 0.006731409320486676
+        },
+        {
+          "position_0_based": 23,
+          "region": "spacer",
+          "JSD_bits": 0.003999983637187688
+        },
+        {
+          "position_0_based": 24,
+          "region": "PAM",
+          "JSD_bits": 0.034549342147156666
+        },
+        {
+          "position_0_based": 25,
+          "region": "PAM",
+          "JSD_bits": 0.0
+        },
+        {
+          "position_0_based": 26,
+          "region": "PAM",
+          "JSD_bits": 0.0
+        },
+        {
+          "position_0_based": 27,
+          "region": "downstream_context",
+          "JSD_bits": 0.004507014710099521
+        },
+        {
+          "position_0_based": 28,
+          "region": "downstream_context",
+          "JSD_bits": 0.004435451666535461
+        },
+        {
+          "position_0_based": 29,
+          "region": "downstream_context",
+          "JSD_bits": 0.0011818930422118022
+        }
+      ],
+      "mean_positional_JSD_bits": 0.00984010044722856,
+      "max_positional_JSD_bits": 0.036517757808011114,
+      "kmer": {
+        "full_30mer": {
+          "k2": {
+            "JSD_bits": 0.008480315909265663,
+            "largest_absolute_frequency_deltas": [
+              {
+                "kmer": "GG",
+                "deepspcas9": 0.09525789640517345,
+                "crispron_xiang_luo": 0.12062128867591927,
+                "delta": 0.025363392270745827
+              },
+              {
+                "kmer": "CC",
+                "deepspcas9": 0.06472547061450536,
+                "crispron_xiang_luo": 0.08486886654860762,
+                "delta": 0.020143395934102262
+              },
+              {
+                "kmer": "AG",
+                "deepspcas9": 0.07405084647555386,
+                "crispron_xiang_luo": 0.09286123554538078,
+                "delta": 0.01881038906982692
+              },
+              {
+                "kmer": "TA",
+                "deepspcas9": 0.03524623968533841,
+                "crispron_xiang_luo": 0.0192207521616834,
+                "delta": -0.01602548752365501
+              },
+              {
+                "kmer": "CA",
+                "deepspcas9": 0.07288176609531297,
+                "crispron_xiang_luo": 0.08841741327222657,
+                "delta": 0.015535647176913608
+              },
+              {
+                "kmer": "GC",
+                "deepspcas9": 0.07544828949566686,
+                "crispron_xiang_luo": 0.09017215334931741,
+                "delta": 0.014723863853650557
+              },
+              {
+                "kmer": "TT",
+                "deepspcas9": 0.050151162434007676,
+                "crispron_xiang_luo": 0.03587938847796795,
+                "delta": -0.014271773956039728
+              },
+              {
+                "kmer": "AT",
+                "deepspcas9": 0.04734264280334207,
+                "crispron_xiang_luo": 0.03501015730805471,
+                "delta": -0.012332485495287364
+              },
+              {
+                "kmer": "CT",
+                "deepspcas9": 0.06911548673622728,
+                "crispron_xiang_luo": 0.05700463589957804,
+                "delta": -0.012110850836649235
+              },
+              {
+                "kmer": "TC",
+                "deepspcas9": 0.06066266066334764,
+                "crispron_xiang_luo": 0.050213563912911555,
+                "delta": -0.010449096750436086
+              }
+            ]
+          },
+          "k3": {
+            "JSD_bits": 0.01664769136044231,
+            "largest_absolute_frequency_deltas": [
+              {
+                "kmer": "CAG",
+                "deepspcas9": 0.0267760064389494,
+                "crispron_xiang_luo": 0.04651421558048747,
+                "delta": 0.01973820914153807
+              },
+              {
+                "kmer": "CCA",
+                "deepspcas9": 0.020315875683079333,
+                "crispron_xiang_luo": 0.03513096137246195,
+                "delta": 0.014815085689382619
+              },
+              {
+                "kmer": "GGG",
+                "deepspcas9": 0.02312232592948221,
+                "crispron_xiang_luo": 0.03684384441087416,
+                "delta": 0.013721518481391953
+              },
+              {
+                "kmer": "CCC",
+                "deepspcas9": 0.011264632372668774,
+                "crispron_xiang_luo": 0.021134548985757416,
+                "delta": 0.009869916613088642
+              },
+              {
+                "kmer": "GGC",
+                "deepspcas9": 0.02650065660345327,
+                "crispron_xiang_luo": 0.03525571860163775,
+                "delta": 0.008755061998184481
+              },
+              {
+                "kmer": "GCC",
+                "deepspcas9": 0.020531213374941716,
+                "crispron_xiang_luo": 0.029152729823045936,
+                "delta": 0.00862151644810422
+              },
+              {
+                "kmer": "AGC",
+                "deepspcas9": 0.018046004603284493,
+                "crispron_xiang_luo": 0.02633726262408218,
+                "delta": 0.008291258020797686
+              },
+              {
+                "kmer": "AGG",
+                "deepspcas9": 0.0267054039170272,
+                "crispron_xiang_luo": 0.03456112429865979,
+                "delta": 0.00785572038163259
+              },
+              {
+                "kmer": "TCT",
+                "deepspcas9": 0.016739857947726096,
+                "crispron_xiang_luo": 0.010665057186016791,
+                "delta": -0.006074800761709305
+              },
+              {
+                "kmer": "GCA",
+                "deepspcas9": 0.01998757395614166,
+                "crispron_xiang_luo": 0.026006824557616964,
+                "delta": 0.006019250601475304
+              }
+            ]
+          }
+        },
+        "spacer20": {
+          "k2": {
+            "JSD_bits": 0.014907906306065278,
+            "largest_absolute_frequency_deltas": [
+              {
+                "kmer": "AG",
+                "deepspcas9": 0.06742169251337825,
+                "crispron_xiang_luo": 0.09756618699315367,
+                "delta": 0.03014449447977542
+              },
+              {
+                "kmer": "GG",
+                "deepspcas9": 0.04877147895933023,
+                "crispron_xiang_luo": 0.07759580219430283,
+                "delta": 0.028824323234972596
+              },
+              {
+                "kmer": "CC",
+                "deepspcas9": 0.07275924317068723,
+                "crispron_xiang_luo": 0.09894756718078566,
+                "delta": 0.026188324010098435
+              },
+              {
+                "kmer": "CA",
+                "deepspcas9": 0.08033898128735295,
+                "crispron_xiang_luo": 0.10444824296389421,
+                "delta": 0.02410926167654126
+              },
+              {
+                "kmer": "TA",
+                "deepspcas9": 0.04037498114169169,
+                "crispron_xiang_luo": 0.019990260772778358,
+                "delta": -0.020384720368913332
+              },
+              {
+                "kmer": "CT",
+                "deepspcas9": 0.07480374356866223,
+                "crispron_xiang_luo": 0.05789871203688562,
+                "delta": -0.016905031531776617
+              },
+              {
+                "kmer": "AT",
+                "deepspcas9": 0.05314140347408539,
+                "crispron_xiang_luo": 0.03640781523294373,
+                "delta": -0.016733588241141663
+              },
+              {
+                "kmer": "GC",
+                "deepspcas9": 0.07751933951711829,
+                "crispron_xiang_luo": 0.09308912386706292,
+                "delta": 0.015569784349944632
+              },
+              {
+                "kmer": "TT",
+                "deepspcas9": 0.05291770495725922,
+                "crispron_xiang_luo": 0.038211559866431294,
+                "delta": -0.014706145090827925
+              },
+              {
+                "kmer": "TC",
+                "deepspcas9": 0.07136502915883654,
+                "crispron_xiang_luo": 0.05704901415168914,
+                "delta": -0.014316015007147395
+              }
+            ]
+          },
+          "k3": {
+            "JSD_bits": 0.030293778953422303,
+            "largest_absolute_frequency_deltas": [
+              {
+                "kmer": "CAG",
+                "deepspcas9": 0.025792670203066834,
+                "crispron_xiang_luo": 0.0571657854984816,
+                "delta": 0.03137311529541477
+              },
+              {
+                "kmer": "CCA",
+                "deepspcas9": 0.022657133757261003,
+                "crispron_xiang_luo": 0.044965802282639536,
+                "delta": 0.022308668525378533
+              },
+              {
+                "kmer": "AGG",
+                "deepspcas9": 0.013223067883540569,
+                "crispron_xiang_luo": 0.027583710976835575,
+                "delta": 0.014360643093295006
+              },
+              {
+                "kmer": "CCC",
+                "deepspcas9": 0.01155920178357687,
+                "crispron_xiang_luo": 0.0253650553877129,
+                "delta": 0.013805853604136031
+              },
+              {
+                "kmer": "AGC",
+                "deepspcas9": 0.021542398383358037,
+                "crispron_xiang_luo": 0.03334277442094346,
+                "delta": 0.011800376037585422
+              },
+              {
+                "kmer": "GGG",
+                "deepspcas9": 0.007676847550327986,
+                "crispron_xiang_luo": 0.017990516951996938,
+                "delta": 0.010313669401668953
+              },
+              {
+                "kmer": "GCC",
+                "deepspcas9": 0.021322746092933893,
+                "crispron_xiang_luo": 0.03161190835850672,
+                "delta": 0.010289162265572825
+              },
+              {
+                "kmer": "GGC",
+                "deepspcas9": 0.0165617826979888,
+                "crispron_xiang_luo": 0.02614656764014571,
+                "delta": 0.00958478494215691
+              },
+              {
+                "kmer": "GCA",
+                "deepspcas9": 0.01998286712134601,
+                "crispron_xiang_luo": 0.02853306478683883,
+                "delta": 0.00855019766549282
+              },
+              {
+                "kmer": "TGT",
+                "deepspcas9": 0.018494722853721945,
+                "crispron_xiang_luo": 0.010657938905673285,
+                "delta": -0.00783678394804866
+              }
+            ]
+          }
+        }
+      },
+      "interpretation": "Sequence distributions differ descriptively; these differences are not treated as biological incompatibility or a PASS/FAIL gate."
+    }
+  },
+  "integration_strategies": {
+    "direct_pooling": {
+      "classification": "NOT_RECOMMENDED",
+      "scientific_defensibility": "Low under current evidence because equal numeric targets would imply endpoint and unit equivalence not established by this audit.",
+      "label_assumptions": "Requires a common calibrated response scale and exchangeable assay domains.",
+      "risk_of_information_loss": "LOW",
+      "risk_of_artificial_harmonization": "HIGH",
+      "leakage_risk": "MODERATE; 48 exact overlaps require group-aware allocation before any future split.",
+      "interpretability": "HIGH only if label equivalence is real; otherwise misleading.",
+      "reproducibility": "Technically high, scientifically weak without a pre-registered scale protocol.",
+      "canonical_pipeline_compatibility": "Low; current pipeline assumes one 0-1 canonical endpoint."
+    },
+    "normalization_then_pooling": {
+      "classification": "POSSIBLE_WITH_CAUTION",
+      "scientific_defensibility": "Can remove dataset-level location/scale differences but cannot remove biological timing or assay effects.",
+      "label_assumptions": "Assumes within-dataset relative distances have comparable meaning after normalization.",
+      "risk_of_information_loss": "MODERATE",
+      "risk_of_artificial_harmonization": "HIGH",
+      "leakage_risk": "HIGH unless normalization parameters are estimated within each training fold only.",
+      "interpretability": "Reduced; outputs cease to be direct indel fractions/percentages.",
+      "reproducibility": "Possible with an explicit fold-local transformation protocol.",
+      "canonical_pipeline_compatibility": "Requires a new experimental target definition; not a silent extension."
+    },
+    "rank_based": {
+      "classification": "POSSIBLE_WITH_CAUTION",
+      "scientific_defensibility": "Defensible for guide prioritization if relative ordering is the declared target.",
+      "label_assumptions": "Assumes within-dataset percentile ranks are comparable across library compositions.",
+      "risk_of_information_loss": "HIGH; absolute efficiency and interval information are discarded.",
+      "risk_of_artificial_harmonization": "MODERATE",
+      "leakage_risk": "HIGH unless ranks/ECDFs are derived within training folds.",
+      "interpretability": "Good for relative prioritization, poor for absolute activity.",
+      "reproducibility": "High with a pre-registered fold-local ranking rule.",
+      "canonical_pipeline_compatibility": "Changes the target and therefore requires a separate experimental branch."
+    },
+    "multi_domain": {
+      "classification": "RECOMMENDED",
+      "scientific_defensibility": "Best preserves both observed endpoints while explicitly representing assay identity.",
+      "label_assumptions": "Assumes shared sequence signal exists but permits domain-specific offsets/scales or losses.",
+      "risk_of_information_loss": "LOW",
+      "risk_of_artificial_harmonization": "LOW",
+      "leakage_risk": "MODERATE; exact overlaps must remain in one split group across domains.",
+      "interpretability": "High if domain-specific outputs/effects are reported separately.",
+      "reproducibility": "High with fixed domain labels, grouped splits, and pre-registered objectives.",
+      "canonical_pipeline_compatibility": "Requires a new experimental architecture but leaves the canonical pipeline untouched."
+    },
+    "transfer_learning": {
+      "classification": "POSSIBLE_WITH_CAUTION",
+      "scientific_defensibility": "Plausible because both domains assay SpCas9 indels, but adaptation direction and validation policy must be pre-registered.",
+      "label_assumptions": "Requires transferable sequence representations, not identical raw label scales.",
+      "risk_of_information_loss": "LOW_TO_MODERATE",
+      "risk_of_artificial_harmonization": "LOW",
+      "leakage_risk": "MODERATE; overlap and adaptation validation must be grouped and isolated.",
+      "interpretability": "Moderate; performance depends on direction and frozen/adapted components.",
+      "reproducibility": "High if initialization, frozen layers, splits, and adaptation criteria are fixed.",
+      "canonical_pipeline_compatibility": "Separate experimental branch; must not overwrite canonical artifacts."
+    },
+    "external_development_domain": {
+      "classification": "RECOMMENDED",
+      "scientific_defensibility": "Strong conservative comparator that tests cross-domain development without asserting label exchangeability.",
+      "label_assumptions": "Only assumes higher values reflect greater editing within each domain.",
+      "risk_of_information_loss": "LOW",
+      "risk_of_artificial_harmonization": "LOW",
+      "leakage_risk": "LOW if the 48 shared sequences are excluded or explicitly grouped for any future evaluation.",
+      "interpretability": "High for domain-specific generalization, but it does not exploit all data jointly.",
+      "reproducibility": "High.",
+      "canonical_pipeline_compatibility": "High as a separate development domain; the locked external test remains untouched."
+    }
+  },
+  "immediate_pooling_justified": false,
+  "controlled_integration_experiments_justified": true,
+  "recommended_strategy": "MULTI_DOMAIN_EXPERIMENT_RECOMMENDED",
+  "decision_reasons": [
+    "Phase 17G-R1 GO establishes sufficient accepted new data, not direct label exchangeability.",
+    "Both labels measure sequence-linked SpCas9 indel efficiency in HEK293T integrated-surrogate assays.",
+    "DeepSpCas9 activity is a day-2.9 fraction while Xiang/Luo is a Dox-free day-8/day-10 mean percentage.",
+    "Cas9 expression, selection duration, background handling, and library/target composition differ materially.",
+    "The raw-population bridge contains all 48 exact shared 30-mers; the canonical-population sensitivity contains 41. Neither authorizes a harmonization transform in Phase 18A.",
+    "Multi-domain experiments can preserve original labels and dataset identity while testing shared versus domain-specific signal.",
+    "A separate Xiang/Luo development-domain arm should be retained as a conservative comparator."
+  ],
+  "canonical_integrity": {
+    "before": {
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "expected_sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "matches_expected": true
+      },
+      "data/phase17i/raw/crispron/Luo2020_Kim2019.xlsx": {
+        "exists": true,
+        "sha256": "146f211575179fc31669dbd5eaef46434b0866013a2d03767354375a1cc5d61f",
+        "expected_sha256": "146f211575179fc31669dbd5eaef46434b0866013a2d03767354375a1cc5d61f",
+        "matches_expected": true
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "expected_sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": true
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "expected_sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "expected_sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true
+      }
+    },
+    "after": {
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "expected_sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "matches_expected": true
+      },
+      "data/phase17i/raw/crispron/Luo2020_Kim2019.xlsx": {
+        "exists": true,
+        "sha256": "146f211575179fc31669dbd5eaef46434b0866013a2d03767354375a1cc5d61f",
+        "expected_sha256": "146f211575179fc31669dbd5eaef46434b0866013a2d03767354375a1cc5d61f",
+        "matches_expected": true
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "expected_sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": true
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "expected_sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "expected_sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true
+      }
+    },
+    "unchanged": true,
+    "all_expected_hashes_match": true,
+    "canonical_data_modified": false,
+    "canonical_model_code_modified": false,
+    "canonical_artifacts_modified": false,
+    "locked_external_data_accessed": false
+  },
+  "artifacts": {
+    "json": "results/phase18a_cross_dataset_compatibility_20260912_160313.json",
+    "report": "docs/phase18a_cross_dataset_compatibility_report.md"
+  }
+}

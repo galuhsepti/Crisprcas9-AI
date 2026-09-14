@@ -251,3 +251,30 @@ geometry, CNN architecture, hyperparameters, split ratio, or random seed:
 - Regenerated experiment `results/experiments/cnn_baseline_*.json` with the
   same data/split/seed/architecture/hyperparameters (numbers unchanged;
   `best_epoch`, `total_epochs_run`, `best_val_loss` now consistent).
+
+---
+
+## D-008: Preserve assay domains for post-recovery integration research
+
+**Date:** 2026-09-12
+**Status:** Applied to Phase 18A audit; Phase 18B not started
+
+### Decision
+The recovered CRISPRon Xiang/Luo dataset is sufficient for controlled research,
+but its percentage-scale day-8/day-10 endpoint is not exchangeable with the
+DeepSpCas9 fraction-scale day-2.9 endpoint. Direct pooling is therefore not
+authorized. The preferred next research design is a separate multi-domain
+experiment that preserves original labels and dataset identity, with a separate
+external-development-domain arm as a conservative comparator.
+
+The 48 exact cross-domain 30-mer overlaps are evaluated as a diagnostic bridge
+over the raw DeepSpCas9 provenance population. A canonical-modeling sensitivity
+analysis contains 41 overlaps. All cross-domain overlaps must be group-isolated
+in any future split. Neither bridge may be used to fit a label transformation
+without a separately approved protocol.
+
+### Constraints
+- Moreno-Mateos remains locked during development.
+- Canonical models, data geometry, artifacts, and results remain unchanged.
+- Phase 18A performs no training, normalization, calibration, or harmonization.
+- Phase 18B requires a separate pre-registered protocol before implementation.

@@ -34,11 +34,17 @@ The local runtime copies were verified against the recovered source files by raw
 
 | Model | Local size | Authoritative SHA-256 | Actual local SHA-256 | Source identical |
 |---|---:|---|---|---|
-| RF | 53,056,052 bytes | `1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285740280b6` | `1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285740280b6` | yes |
+| RF | 53,056,052 bytes | `1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6` | `1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6` | yes |
 | XGBoost | 477,707 bytes | `129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd` | `129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd` | yes |
 | CNN | 78,101 bytes | `76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616` | `76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616` | yes |
 
 The authoritative values are read from the existing Phase 14 configuration/provenance lineage, not manually substituted.
+
+Correction recorded 2026-09-12: the original addendum table and its historical
+JSON transcribed the RF digest with three missing characters (`...a285740...`).
+The table above now matches the 64-character Phase 14 configuration value and
+the unchanged binary's recomputed digest (`...a285750740...`). This is a record
+correction only; the model artifact was not modified.
 
 ## 3. Portability Recovery
 

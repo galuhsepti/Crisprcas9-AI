@@ -37,7 +37,7 @@
 
 | Artifact | Role | SHA-256 |
 |---|---|---|
-| `models/rf_baseline_fixed_20260905_001107.pkl` | Canonical Random Forest baseline artifact used for Phase 6 and later audits. | `1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285740280b6` |
+| `models/rf_baseline_fixed_20260905_001107.pkl` | Canonical Random Forest baseline artifact used for Phase 6 and later audits. | `1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6` |
 | `models/xgboost_baseline_20260905_002839.pkl` | Canonical XGBoost baseline artifact used for Phase 6 and later audits. | `129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd` |
 | `models/cnn_baseline_20260905_011720.pt` | Canonical CNN primary-model artifact used for Phase 6 and later audits. | `76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616` |
 
@@ -70,6 +70,10 @@ The hashes above are established in `docs/phase15_reproducibility_recovery_adden
 | Phase 16C | Compatibility audit. | Doench and CRISPRpred(SEQ) found incompatible with continuous canonical activity target; other candidates insufficient provenance. | No label harmonization or sequence transformation. | PASS. |
 | Phase 16D | Exact overlap / independence audit. | 30-mer overlap not assessable for candidates lacking 30-mers; guide overlaps, duplicates, and conflicts documented for CRISPRpred(SEQ) and Doench; RC not assessed. | PASS WITH MINOR CLARIFICATION. | PASS WITH MINOR CLARIFICATION. |
 | Phase 16E | Distribution / composition audit. | GC summaries recorded for DeepSpCas9, CRISPRpred(SEQ), and Doench; candidate labels not treated as activity. | Descriptive distribution audit only; no Phase 16F gate. | PASS. |
+| Phase 16F | Final dataset landscape gate. | No candidate was accepted from the Phase 16 evidence. | NO_GO pending primary compatible data. | Completed. |
+| Phase 17A-17I | Dataset recovery, verification, compatibility, independence, and acquisition. | Official CRISPRon Xiang/Luo data recovered and traced to primary evidence. | Candidate advanced to formal sufficiency reassessment. | Completed. |
+| Phase 17G-R1 | Data sufficiency reassessment. | 10,544 new non-overlapping compatible observations passed the existing gates. | GO for controlled integration research; not authorization for direct pooling. | Completed. |
+| Phase 18A | Cross-dataset label compatibility audit. | Same broad concept but non-equivalent units/endpoints and major domain differences; raw bridge n=48, canonical sensitivity n=41. | Direct pooling not justified; multi-domain experiment recommended. | Completed; Phase 18B requires a separate protocol. |
 
 ## 6. Locked Scientific Decisions
 
@@ -159,18 +163,16 @@ The following require explicit supervisor approval or are currently prohibited:
 
 ## 12. Current Project Status
 
-- Phase 16A = PASS
-- Phase 16B = PASS
-- Phase 16C = PASS
-- Phase 16D = PASS WITH MINOR CLARIFICATION
-- Phase 16E = PASS
-- Phase 16F = UNLOCKED
+- Phase 16A-16F = COMPLETED
+- Phase 17A-17I = COMPLETED
+- Phase 17G-R1 = GO
+- Phase 18A = COMPLETED
 
 Current immediate next step:
 
-**PHASE 16F - FINAL DATASET LANDSCAPE GATE**
+**PHASE 18B - CONTROLLED MULTI-DOMAIN EXPERIMENT PROTOCOL**
 
-Phase 16F has NOT yet been implemented.
+Phase 18B has not been started. It requires a pre-registered protocol that preserves original labels and domain identity, groups all exact cross-domain overlaps within the same split, keeps canonical artifacts untouched, and does not access Moreno during development.
 
 ## 13. Open Scientific Questions
 
@@ -250,9 +252,9 @@ This document is a project handover and decision record, not a replacement for t
 - A single formal thesis title beyond the repository/project title is NOT ESTABLISHED / NOT AVAILABLE IN CURRENT PROJECT RECORD.
 - Wet-lab validation results for predicted guides are NOT ESTABLISHED / NOT AVAILABLE IN CURRENT PROJECT RECORD.
 - Clinical, therapeutic, safety, or off-target validation is NOT ESTABLISHED / NOT AVAILABLE IN CURRENT PROJECT RECORD.
-- Primary experimental CRISPRon training table identity is NOT ESTABLISHED / NOT AVAILABLE IN CURRENT PROJECT RECORD.
+- The exact identity/transformation of CRISPRon's documented `Quant_norm_efficiency` field is NOT ESTABLISHED / NOT AVAILABLE IN CURRENT PROJECT RECORD; Phase 18A uses the recovered workbook-native `HEK293T_indel_freq_avg_d8_d10` field without transformation.
 - Phase 16 primary DeepHF file restoration is NOT ESTABLISHED / NOT AVAILABLE IN CURRENT PROJECT RECORD.
 - Phase 16 sgDesigner primary file identity and publication linkage are NOT ESTABLISHED / NOT AVAILABLE IN CURRENT PROJECT RECORD.
 - Reverse-complement overlap for Phase 16 candidates is NOT ESTABLISHED / NOT AVAILABLE IN CURRENT PROJECT RECORD.
 - Near-duplicate thresholds for Phase 16 are NOT ESTABLISHED / NOT AVAILABLE IN CURRENT PROJECT RECORD.
-- Accepted Phase 16 candidate dataset for pipeline inclusion is NOT ESTABLISHED / NOT AVAILABLE IN CURRENT PROJECT RECORD.
+- Phase 18B's final model architecture, objective, split protocol, and acceptance thresholds are NOT ESTABLISHED / NOT AVAILABLE IN CURRENT PROJECT RECORD.

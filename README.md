@@ -37,7 +37,7 @@ independent external test set:
 - **Reproducibility** — fixed seeds (42); CNN training is deterministic run to
   run; all experiments, decisions and metrics are recorded under
   `docs/` and `results/experiments/`.
-- Decision log: `docs/decisions.md` (D-001 … D-007).
+- Decision log: `docs/decisions.md` (D-001 through D-008).
 
 ## Repository layout
 
@@ -49,9 +49,12 @@ independent external test set:
       evaluation/                  # metrics, comparison (paired tests, percentile CI)
       ablation/                    # sequence-region ablation (Phase 7)
       interpretability/            # CNN attribution + tabular importance (Phase 8)
+      dataset_landscape/           # candidate discovery and acceptance audits
+      dataset_recovery/            # primary-data recovery and verification
+      dataset_integration/         # cross-dataset compatibility audits
     scripts/                       # one entry-point per pipeline phase
     notebooks/                     # exploratory notebooks
-    tests/                         # unit tests (169 passing)
+    tests/                         # unit and integration regression tests
     docs/                          # phase reports + decisions log
     results/experiments/           # reproducible experiment JSONs
     models/                        # saved model artifacts (gitignored)
@@ -68,6 +71,10 @@ independent external test set:
 | 6 | Evaluation & statistical comparison | `scripts/evaluate_models_phase6.py` |
 | 7 | Sequence-region ablation | `scripts/run_ablation_region_phase7.py` |
 | 8 | Interpretability | `scripts/run_interpretability_phase8.py` |
+| 9-15 | Generalization diagnostics and controlled audits | `docs/phase9d_final_generalization_audit_report.md`, `docs/phase15_data_feasibility_report.md` |
+| 16 | Public-dataset landscape and acceptance gate | `src/dataset_landscape/`, `docs/phase16f_dataset_gate_report.md` |
+| 17 | Primary-dataset recovery and sufficiency reassessment | `src/dataset_recovery/`, `docs/phase17g_r1_data_sufficiency_reassessment_report.md` |
+| 18A | Cross-dataset label compatibility audit | `src/dataset_integration/`, `docs/phase18a_cross_dataset_compatibility_report.md` |
 
 ## Canonical results (Moreno-Mateos external test, n = 810)
 
@@ -99,7 +106,7 @@ agree the 20 bp guide `[4:24]` carries ~70% of the predictive signal;
 ```bash
 pip install -r requirements.txt
 
-python -m pytest                  # run the test suite (169 tests)
+python -m pytest                  # run the full test suite
 
 python scripts/train_cnn.py       # train / reproduce the primary CNN
 python scripts/evaluate_models_phase6.py     # consolidated evaluation
@@ -107,8 +114,9 @@ python scripts/run_ablation_region_phase7.py # region ablation
 python scripts/run_interpretability_phase8.py # attribution analysis
 ```
 
-Model artifacts are gitignored (regenerable); every experiment JSON is
-committed for reproducibility.
+Canonical model artifacts are protected and must not be silently regenerated,
+overwritten, converted, or promoted. Experiment JSONs are retained for
+reproducibility.
 
 ## Reports
 
@@ -117,4 +125,4 @@ committed for reproducibility.
 - `docs/phase6_evaluation_report.md` — cross-model statistical comparison
 - `docs/phase7_region_ablation_report.md` — sequence-region importance
 - `docs/phase8_interpretability_report.md` — attribution and feature importance
-- `docs/decisions.md` — methodology decisions D-001 … D-007
+- `docs/decisions.md` - methodology decisions D-001 through D-008
