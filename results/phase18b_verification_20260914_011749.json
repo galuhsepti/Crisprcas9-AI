@@ -1,0 +1,83 @@
+{
+  "phase": "18B",
+  "verification_timestamp_local": "2026-09-14T01:17:49",
+  "final_decision": "READY_FOR_PHASE18C",
+  "protocol_artifact": "results/phase18b_multidomain_protocol_20260913_180731.json",
+  "protocol_sha256": "79ec4f03fe7314bc54a337c0d235c4f40e93b441aa40633828e1a50a3ee4d49b",
+  "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+  "checks": [
+    {
+      "name": "phase18b_focused_tests",
+      "command": ".venv\\Scripts\\python.exe -m pytest tests/test_phase18b_multidomain_protocol.py -q",
+      "result": "PASS",
+      "passed": 39,
+      "failed": 0
+    },
+    {
+      "name": "phase18a_and_relevant_phase17_regressions",
+      "command": ".venv\\Scripts\\python.exe -m pytest tests/test_phase18a_label_compatibility.py tests/test_phase17g_data_sufficiency.py tests/test_phase17g_r1_data_sufficiency_reassessment.py tests/test_phase17h_primary_dataset_acquisition.py tests/test_phase17i_biological_independence_crispron.py -q",
+      "result": "PASS",
+      "passed": 54,
+      "failed": 0
+    },
+    {
+      "name": "relevant_no_training_regressions",
+      "command": ".venv\\Scripts\\python.exe -m pytest tests/test_bioinformatics.py tests/test_validation.py tests/test_evaluation.py tests/test_evaluation_comparison.py tests/test_diagnostics.py tests/test_domain_weighting.py tests/test_sequence_regions.py tests/test_phase9d_audit.py tests/test_phase10_multidataset.py tests/test_phase11_dataset_analysis.py tests/test_phase12_coverage_ablation.py -q",
+      "result": "PASS",
+      "passed": 247,
+      "failed": 0,
+      "warnings": 2,
+      "warning_detail": "Expected scipy ConstantInputWarning coverage in test_phase9d_audit.py"
+    },
+    {
+      "name": "broader_no_training_subset_attempt",
+      "result": "TIMEOUT",
+      "timeout_seconds": 600,
+      "progress_before_timeout": "53 percent shown; no failure shown",
+      "interpretation": "Not counted as a completed test result"
+    },
+    {
+      "name": "full_suite",
+      "result": "NOT_RUN_PHASE18B_PROHIBITION",
+      "reason": "The existing full suite executes CNN, Random Forest, XGBoost, calibration, and attribution gradient operations; Phase 18B forbids model training and calibration."
+    },
+    {
+      "name": "compileall",
+      "command": ".venv\\Scripts\\python.exe -m compileall -q src scripts tests",
+      "result": "PASS"
+    },
+    {
+      "name": "flake8_new_implementation",
+      "command": ".venv\\Scripts\\python.exe -m flake8 --max-line-length=99 src/experiment_protocols scripts/run_phase18b_multidomain_protocol.py tests/test_phase18b_multidomain_protocol.py",
+      "result": "PASS"
+    },
+    {
+      "name": "git_diff_check",
+      "command": "git diff --check",
+      "result": "PASS",
+      "notes": "Git emitted existing LF-to-CRLF conversion warnings only."
+    },
+    {
+      "name": "locked_protocol_preflight",
+      "result": "PASS",
+      "validated": [
+        "approved protocol digest",
+        "canonical and accepted-input SHA-256 hashes",
+        "protected source hashes",
+        "label fingerprints",
+        "split reconstruction",
+        "split leakage",
+        "bridge holding",
+        "partition counts"
+      ]
+    }
+  ],
+  "completed_test_totals": {
+    "passed": 340,
+    "failed": 0
+  },
+  "canonical_integrity": "PASS",
+  "moreno_accessed": false,
+  "model_training_occurred": false,
+  "phase18c_started": false
+}
