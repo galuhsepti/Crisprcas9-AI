@@ -278,3 +278,27 @@ without a separately approved protocol.
 - Canonical models, data geometry, artifacts, and results remain unchanged.
 - Phase 18A performs no training, normalization, calibration, or harmonization.
 - Phase 18B requires a separate pre-registered protocol before implementation.
+
+---
+
+## Operational incident: Phase 18C preflight attempt 1
+
+**Date:** 2026-09-14
+**Status:** Aborted before implementation or training
+
+During allowlist preparation, a delegated recursive repository search
+inadvertently surfaced content from the locked external CSV. The attempt was
+stopped immediately under the access fail-fast rule.
+
+- `training_started = false`
+- `completed_runs = 0`
+- `generated_model_artifacts = 0`
+- `generated_prediction_artifacts = 0`
+- No scientific Phase 18C classification was assigned.
+- This is an operational preflight incident, not a modeling result.
+- The exposed agent session must not be reused for Phase 18C.
+- A fresh agent session is required after repository search hardening.
+
+Phase 18C exploration must use the allowlisted inspection and explicit search
+exclusions documented in `docs/phase18c_search_safety_policy.md`. The locked
+Phase 18B scientific protocol and experiment matrix remain unchanged.
