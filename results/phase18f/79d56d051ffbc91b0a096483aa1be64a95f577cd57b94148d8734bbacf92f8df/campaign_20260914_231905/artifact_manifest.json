@@ -1,0 +1,238 @@
+{
+  "analysis_recovery": {
+    "additional_fits": 0,
+    "additional_predictions": 0,
+    "bootstrap_equivalence": "Same sorted group order, PCG64(42) stream, paired draws, rank-based Spearman, RMSE, and percentile quantiles; chunked vectorization changes execution strategy only.",
+    "reason": "Tool timeout during post-fit bootstrap analysis",
+    "script": "scripts/complete_phase18f_feature_ablation.py",
+    "script_sha256": "8760fe754534ad2179ff3e20cbc372e346bb05468f13b21381118e7817828d40"
+  },
+  "bootstrap": {
+    "bytes": 3412221,
+    "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/bootstrap/paired_effect_distributions.npz",
+    "sha256": "60eb3dd3619a19d4ccd5cda01d2b43a630f48ca678155fac1b2847de63fce0e4"
+  },
+  "model_count": 18,
+  "models": [
+    {
+      "bytes": 472781,
+      "experiment_id": "18F_XGB_A_FULL",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_FULL.pkl",
+      "sha256": "2b511c7da6933a99347f360f15083933ad6e2b3dc735a71d4c9491ab82129eab"
+    },
+    {
+      "bytes": 465704,
+      "experiment_id": "18F_XGB_A_DROP_GC_AND_SKEW",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_GC_AND_SKEW.pkl",
+      "sha256": "4e8b2f9c23fd74e8ff07838dde918f186dafa732bf48fc4605f7c809c2682900"
+    },
+    {
+      "bytes": 472554,
+      "experiment_id": "18F_XGB_A_DROP_NUCLEOTIDE_COMPOSITION",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_NUCLEOTIDE_COMPOSITION.pkl",
+      "sha256": "83c40ebcb8e0c5c3cdd2ded73749d753599ef8e30e76199687d945afd513fcd4"
+    },
+    {
+      "bytes": 472605,
+      "experiment_id": "18F_XGB_A_DROP_DINUCLEOTIDE_FREQUENCY",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_DINUCLEOTIDE_FREQUENCY.pkl",
+      "sha256": "e16e8ee2773ccf7b1ab8eada7c5a9d3cff42f1638445de759cfa82d9c03b823e"
+    },
+    {
+      "bytes": 481537,
+      "experiment_id": "18F_XGB_A_DROP_GLOBAL_KMER",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_GLOBAL_KMER.pkl",
+      "sha256": "2eb785cb0fa05d69aea1af86d98a2c15b679a6f6dfdc96c524d7b4ff58cac22a"
+    },
+    {
+      "bytes": 467486,
+      "experiment_id": "18F_XGB_A_DROP_ENTROPY_COMPLEXITY",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_ENTROPY_COMPLEXITY.pkl",
+      "sha256": "8b09d6b7e197db0daf91652971223607487e1637564e4aa689b08b9d2046daf4"
+    },
+    {
+      "bytes": 406969,
+      "experiment_id": "18F_XGB_A_DROP_POSITION_SPECIFIC_NUCLEOTIDE",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_POSITION_SPECIFIC_NUCLEOTIDE.pkl",
+      "sha256": "379b5ca12c6abd45654dabf972f9aa30fe34c7998fa288511bfa4d040967e18c"
+    },
+    {
+      "bytes": 502533,
+      "experiment_id": "18F_XGB_A_ONLY_POSITION_SPECIFIC_NUCLEOTIDE",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_ONLY_POSITION_SPECIFIC_NUCLEOTIDE.pkl",
+      "sha256": "4dbaa3b47b859da6be51cf9edf54bbaed5f14b4fa2ae33e70e6f57762ee7e39f"
+    },
+    {
+      "bytes": 397360,
+      "experiment_id": "18F_XGB_A_ONLY_GLOBAL_KMER",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_ONLY_GLOBAL_KMER.pkl",
+      "sha256": "4add177e313949edc31e9601ce46dd0741f40d545dab4757360977145294ff50"
+    },
+    {
+      "bytes": 481284,
+      "experiment_id": "18F_XGB_B_FULL",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_FULL.pkl",
+      "sha256": "9bb479627bca7c8ec19c50f9660008c459db912441de2c2799470df0bd90221a"
+    },
+    {
+      "bytes": 466928,
+      "experiment_id": "18F_XGB_B_DROP_GC_AND_SKEW",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_GC_AND_SKEW.pkl",
+      "sha256": "04352d923cd1f59ccc94da65536be5714095959f6f482bdd4ba3c6ab4c3c2427"
+    },
+    {
+      "bytes": 470712,
+      "experiment_id": "18F_XGB_B_DROP_NUCLEOTIDE_COMPOSITION",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_NUCLEOTIDE_COMPOSITION.pkl",
+      "sha256": "77bbc51983327197d727a15ab3659838a601f0dc88e68fca80cd3d05bc8b25b8"
+    },
+    {
+      "bytes": 481108,
+      "experiment_id": "18F_XGB_B_DROP_DINUCLEOTIDE_FREQUENCY",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_DINUCLEOTIDE_FREQUENCY.pkl",
+      "sha256": "30cd304b59427c3ea5dbddf3c9da4c33feed5bdf5f535fbf43647dd39fe67348"
+    },
+    {
+      "bytes": 477450,
+      "experiment_id": "18F_XGB_B_DROP_GLOBAL_KMER",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_GLOBAL_KMER.pkl",
+      "sha256": "6758a9771b44da2f66bbd7f7b8de67a163ca76a1f319578d733b6e762c226786"
+    },
+    {
+      "bytes": 477212,
+      "experiment_id": "18F_XGB_B_DROP_ENTROPY_COMPLEXITY",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_ENTROPY_COMPLEXITY.pkl",
+      "sha256": "eadc840a3f738e7bfa6f8784058b1b1ed5b8cbea7c343e9596f98ed63083a6f9"
+    },
+    {
+      "bytes": 406893,
+      "experiment_id": "18F_XGB_B_DROP_POSITION_SPECIFIC_NUCLEOTIDE",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_POSITION_SPECIFIC_NUCLEOTIDE.pkl",
+      "sha256": "a5e515f219ff058fa1ebbe0e0c01176b3b9fc1a3b1dcde7b295dd10cc8120edb"
+    },
+    {
+      "bytes": 499133,
+      "experiment_id": "18F_XGB_B_ONLY_POSITION_SPECIFIC_NUCLEOTIDE",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_ONLY_POSITION_SPECIFIC_NUCLEOTIDE.pkl",
+      "sha256": "00b2a678babd53b7e31e7c226f27f7338516921666907a36272e1085eee7e85d"
+    },
+    {
+      "bytes": 379189,
+      "experiment_id": "18F_XGB_B_ONLY_GLOBAL_KMER",
+      "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_ONLY_GLOBAL_KMER.pkl",
+      "sha256": "650523a4cb44d9226681956af1f5fe970684e4fa95edb52780cf6826aa5b6c69"
+    }
+  ],
+  "phase": "18F",
+  "prediction_count": 18,
+  "predictions": [
+    {
+      "bytes": 105790,
+      "experiment_id": "18F_XGB_A_FULL",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_FULL.npz",
+      "sha256": "bdbb53546d65507fbeaab728d6882444175e5a01969c1af472635ac08905d099"
+    },
+    {
+      "bytes": 105734,
+      "experiment_id": "18F_XGB_A_DROP_GC_AND_SKEW",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_GC_AND_SKEW.npz",
+      "sha256": "c4dc51f66aec50d13421437a2399d2ab40f77db1f39184c85d749091edd703db"
+    },
+    {
+      "bytes": 105761,
+      "experiment_id": "18F_XGB_A_DROP_NUCLEOTIDE_COMPOSITION",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_NUCLEOTIDE_COMPOSITION.npz",
+      "sha256": "0ed9d88ad6ae2d75ec81e159d897760e65a0b37a37eb6b555003b2b98388e48c"
+    },
+    {
+      "bytes": 105765,
+      "experiment_id": "18F_XGB_A_DROP_DINUCLEOTIDE_FREQUENCY",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_DINUCLEOTIDE_FREQUENCY.npz",
+      "sha256": "bdbe37feb135033cf5679f3e8c43fa8512c8dd3ce1d0089851e1cc4b2d859b2d"
+    },
+    {
+      "bytes": 105575,
+      "experiment_id": "18F_XGB_A_DROP_GLOBAL_KMER",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_GLOBAL_KMER.npz",
+      "sha256": "5e23a1f196cf8559fa090f117f34f4f1be21128d0e32d8e68e967ca84b559f9e"
+    },
+    {
+      "bytes": 105799,
+      "experiment_id": "18F_XGB_A_DROP_ENTROPY_COMPLEXITY",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_ENTROPY_COMPLEXITY.npz",
+      "sha256": "c08bae7f6e64ada7044495dc3a543a10ab2f0013c7ac7c963e619c9511c934cd"
+    },
+    {
+      "bytes": 105440,
+      "experiment_id": "18F_XGB_A_DROP_POSITION_SPECIFIC_NUCLEOTIDE",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_POSITION_SPECIFIC_NUCLEOTIDE.npz",
+      "sha256": "320fe04d6765e1f69f4bf6e4647f9d104b4e7b36151c5963b6e9e4695b3f7cfd"
+    },
+    {
+      "bytes": 105267,
+      "experiment_id": "18F_XGB_A_ONLY_POSITION_SPECIFIC_NUCLEOTIDE",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_ONLY_POSITION_SPECIFIC_NUCLEOTIDE.npz",
+      "sha256": "31b136ed64050390cc88709a92f90b574b6975d4822727206d644858c203176d"
+    },
+    {
+      "bytes": 105052,
+      "experiment_id": "18F_XGB_A_ONLY_GLOBAL_KMER",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_ONLY_GLOBAL_KMER.npz",
+      "sha256": "3d78e20881fdb759a54dca614b55c53ee3522dcbbaa4aac4074a1e2b01e2807b"
+    },
+    {
+      "bytes": 108125,
+      "experiment_id": "18F_XGB_B_FULL",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_FULL.npz",
+      "sha256": "2fbae11cf186e416918a2c06f902a18e624164ce435babde1ddc3fe50fb26061"
+    },
+    {
+      "bytes": 108034,
+      "experiment_id": "18F_XGB_B_DROP_GC_AND_SKEW",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_GC_AND_SKEW.npz",
+      "sha256": "6130ece65cd002cfd112e23a118a42cb778971cee9d26bbbcdfdd85229c87d47"
+    },
+    {
+      "bytes": 108074,
+      "experiment_id": "18F_XGB_B_DROP_NUCLEOTIDE_COMPOSITION",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_NUCLEOTIDE_COMPOSITION.npz",
+      "sha256": "ab51f3c05244bca9ce8e5e41ce5ac6de050ccd245c04a1926fc50b0468566753"
+    },
+    {
+      "bytes": 108099,
+      "experiment_id": "18F_XGB_B_DROP_DINUCLEOTIDE_FREQUENCY",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_DINUCLEOTIDE_FREQUENCY.npz",
+      "sha256": "5e53c399aefee6c1d1a5d7675a815533064841f2f962b24834cf2adf1ef66b11"
+    },
+    {
+      "bytes": 107896,
+      "experiment_id": "18F_XGB_B_DROP_GLOBAL_KMER",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_GLOBAL_KMER.npz",
+      "sha256": "28e7b9fd4a180f70ddab314461e5e83d2ab83672aad4606c13e751c2500ecd75"
+    },
+    {
+      "bytes": 108117,
+      "experiment_id": "18F_XGB_B_DROP_ENTROPY_COMPLEXITY",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_ENTROPY_COMPLEXITY.npz",
+      "sha256": "2f9f417f230f6e07077086f1128a0e1b1f25e294c57c3385c060cea3861b400c"
+    },
+    {
+      "bytes": 107744,
+      "experiment_id": "18F_XGB_B_DROP_POSITION_SPECIFIC_NUCLEOTIDE",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_POSITION_SPECIFIC_NUCLEOTIDE.npz",
+      "sha256": "4305cc420aeca38ef44fdc2696c991890c2eaf50774db48c9579e78680f6db22"
+    },
+    {
+      "bytes": 107599,
+      "experiment_id": "18F_XGB_B_ONLY_POSITION_SPECIFIC_NUCLEOTIDE",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_ONLY_POSITION_SPECIFIC_NUCLEOTIDE.npz",
+      "sha256": "10aebcedfc34c65f730503cf6e586e28983e36f0abc978fd34f07222c94e1172"
+    },
+    {
+      "bytes": 107371,
+      "experiment_id": "18F_XGB_B_ONLY_GLOBAL_KMER",
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_ONLY_GLOBAL_KMER.npz",
+      "sha256": "d7c7ba7d4dbd6a81bc6aa9a23b4591ec8f0987b091cf34bcdaeb5841a1aed7c4"
+    }
+  ]
+}

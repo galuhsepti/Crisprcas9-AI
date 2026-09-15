@@ -1,0 +1,2059 @@
+{
+  "analysis_recovery": {
+    "additional_fits": 0,
+    "additional_predictions": 0,
+    "bootstrap_equivalence": "Same sorted group order, PCG64(42) stream, paired draws, rank-based Spearman, RMSE, and percentile quantiles; chunked vectorization changes execution strategy only.",
+    "reason": "Tool timeout during post-fit bootstrap analysis",
+    "script": "scripts/complete_phase18f_feature_ablation.py",
+    "script_sha256": "8760fe754534ad2179ff3e20cbc372e346bb05468f13b21381118e7817828d40"
+  },
+  "artifact_manifest": {
+    "analysis_recovery": {
+      "additional_fits": 0,
+      "additional_predictions": 0,
+      "bootstrap_equivalence": "Same sorted group order, PCG64(42) stream, paired draws, rank-based Spearman, RMSE, and percentile quantiles; chunked vectorization changes execution strategy only.",
+      "reason": "Tool timeout during post-fit bootstrap analysis",
+      "script": "scripts/complete_phase18f_feature_ablation.py",
+      "script_sha256": "8760fe754534ad2179ff3e20cbc372e346bb05468f13b21381118e7817828d40"
+    },
+    "bootstrap": {
+      "bytes": 3412221,
+      "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/bootstrap/paired_effect_distributions.npz",
+      "sha256": "60eb3dd3619a19d4ccd5cda01d2b43a630f48ca678155fac1b2847de63fce0e4"
+    },
+    "model_count": 18,
+    "models": [
+      {
+        "bytes": 472781,
+        "experiment_id": "18F_XGB_A_FULL",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_FULL.pkl",
+        "sha256": "2b511c7da6933a99347f360f15083933ad6e2b3dc735a71d4c9491ab82129eab"
+      },
+      {
+        "bytes": 465704,
+        "experiment_id": "18F_XGB_A_DROP_GC_AND_SKEW",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_GC_AND_SKEW.pkl",
+        "sha256": "4e8b2f9c23fd74e8ff07838dde918f186dafa732bf48fc4605f7c809c2682900"
+      },
+      {
+        "bytes": 472554,
+        "experiment_id": "18F_XGB_A_DROP_NUCLEOTIDE_COMPOSITION",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_NUCLEOTIDE_COMPOSITION.pkl",
+        "sha256": "83c40ebcb8e0c5c3cdd2ded73749d753599ef8e30e76199687d945afd513fcd4"
+      },
+      {
+        "bytes": 472605,
+        "experiment_id": "18F_XGB_A_DROP_DINUCLEOTIDE_FREQUENCY",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_DINUCLEOTIDE_FREQUENCY.pkl",
+        "sha256": "e16e8ee2773ccf7b1ab8eada7c5a9d3cff42f1638445de759cfa82d9c03b823e"
+      },
+      {
+        "bytes": 481537,
+        "experiment_id": "18F_XGB_A_DROP_GLOBAL_KMER",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_GLOBAL_KMER.pkl",
+        "sha256": "2eb785cb0fa05d69aea1af86d98a2c15b679a6f6dfdc96c524d7b4ff58cac22a"
+      },
+      {
+        "bytes": 467486,
+        "experiment_id": "18F_XGB_A_DROP_ENTROPY_COMPLEXITY",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_ENTROPY_COMPLEXITY.pkl",
+        "sha256": "8b09d6b7e197db0daf91652971223607487e1637564e4aa689b08b9d2046daf4"
+      },
+      {
+        "bytes": 406969,
+        "experiment_id": "18F_XGB_A_DROP_POSITION_SPECIFIC_NUCLEOTIDE",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_POSITION_SPECIFIC_NUCLEOTIDE.pkl",
+        "sha256": "379b5ca12c6abd45654dabf972f9aa30fe34c7998fa288511bfa4d040967e18c"
+      },
+      {
+        "bytes": 502533,
+        "experiment_id": "18F_XGB_A_ONLY_POSITION_SPECIFIC_NUCLEOTIDE",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_ONLY_POSITION_SPECIFIC_NUCLEOTIDE.pkl",
+        "sha256": "4dbaa3b47b859da6be51cf9edf54bbaed5f14b4fa2ae33e70e6f57762ee7e39f"
+      },
+      {
+        "bytes": 397360,
+        "experiment_id": "18F_XGB_A_ONLY_GLOBAL_KMER",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_ONLY_GLOBAL_KMER.pkl",
+        "sha256": "4add177e313949edc31e9601ce46dd0741f40d545dab4757360977145294ff50"
+      },
+      {
+        "bytes": 481284,
+        "experiment_id": "18F_XGB_B_FULL",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_FULL.pkl",
+        "sha256": "9bb479627bca7c8ec19c50f9660008c459db912441de2c2799470df0bd90221a"
+      },
+      {
+        "bytes": 466928,
+        "experiment_id": "18F_XGB_B_DROP_GC_AND_SKEW",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_GC_AND_SKEW.pkl",
+        "sha256": "04352d923cd1f59ccc94da65536be5714095959f6f482bdd4ba3c6ab4c3c2427"
+      },
+      {
+        "bytes": 470712,
+        "experiment_id": "18F_XGB_B_DROP_NUCLEOTIDE_COMPOSITION",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_NUCLEOTIDE_COMPOSITION.pkl",
+        "sha256": "77bbc51983327197d727a15ab3659838a601f0dc88e68fca80cd3d05bc8b25b8"
+      },
+      {
+        "bytes": 481108,
+        "experiment_id": "18F_XGB_B_DROP_DINUCLEOTIDE_FREQUENCY",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_DINUCLEOTIDE_FREQUENCY.pkl",
+        "sha256": "30cd304b59427c3ea5dbddf3c9da4c33feed5bdf5f535fbf43647dd39fe67348"
+      },
+      {
+        "bytes": 477450,
+        "experiment_id": "18F_XGB_B_DROP_GLOBAL_KMER",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_GLOBAL_KMER.pkl",
+        "sha256": "6758a9771b44da2f66bbd7f7b8de67a163ca76a1f319578d733b6e762c226786"
+      },
+      {
+        "bytes": 477212,
+        "experiment_id": "18F_XGB_B_DROP_ENTROPY_COMPLEXITY",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_ENTROPY_COMPLEXITY.pkl",
+        "sha256": "eadc840a3f738e7bfa6f8784058b1b1ed5b8cbea7c343e9596f98ed63083a6f9"
+      },
+      {
+        "bytes": 406893,
+        "experiment_id": "18F_XGB_B_DROP_POSITION_SPECIFIC_NUCLEOTIDE",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_POSITION_SPECIFIC_NUCLEOTIDE.pkl",
+        "sha256": "a5e515f219ff058fa1ebbe0e0c01176b3b9fc1a3b1dcde7b295dd10cc8120edb"
+      },
+      {
+        "bytes": 499133,
+        "experiment_id": "18F_XGB_B_ONLY_POSITION_SPECIFIC_NUCLEOTIDE",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_ONLY_POSITION_SPECIFIC_NUCLEOTIDE.pkl",
+        "sha256": "00b2a678babd53b7e31e7c226f27f7338516921666907a36272e1085eee7e85d"
+      },
+      {
+        "bytes": 379189,
+        "experiment_id": "18F_XGB_B_ONLY_GLOBAL_KMER",
+        "path": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_ONLY_GLOBAL_KMER.pkl",
+        "sha256": "650523a4cb44d9226681956af1f5fe970684e4fa95edb52780cf6826aa5b6c69"
+      }
+    ],
+    "phase": "18F",
+    "prediction_count": 18,
+    "predictions": [
+      {
+        "bytes": 105790,
+        "experiment_id": "18F_XGB_A_FULL",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_FULL.npz",
+        "sha256": "bdbb53546d65507fbeaab728d6882444175e5a01969c1af472635ac08905d099"
+      },
+      {
+        "bytes": 105734,
+        "experiment_id": "18F_XGB_A_DROP_GC_AND_SKEW",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_GC_AND_SKEW.npz",
+        "sha256": "c4dc51f66aec50d13421437a2399d2ab40f77db1f39184c85d749091edd703db"
+      },
+      {
+        "bytes": 105761,
+        "experiment_id": "18F_XGB_A_DROP_NUCLEOTIDE_COMPOSITION",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_NUCLEOTIDE_COMPOSITION.npz",
+        "sha256": "0ed9d88ad6ae2d75ec81e159d897760e65a0b37a37eb6b555003b2b98388e48c"
+      },
+      {
+        "bytes": 105765,
+        "experiment_id": "18F_XGB_A_DROP_DINUCLEOTIDE_FREQUENCY",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_DINUCLEOTIDE_FREQUENCY.npz",
+        "sha256": "bdbe37feb135033cf5679f3e8c43fa8512c8dd3ce1d0089851e1cc4b2d859b2d"
+      },
+      {
+        "bytes": 105575,
+        "experiment_id": "18F_XGB_A_DROP_GLOBAL_KMER",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_GLOBAL_KMER.npz",
+        "sha256": "5e23a1f196cf8559fa090f117f34f4f1be21128d0e32d8e68e967ca84b559f9e"
+      },
+      {
+        "bytes": 105799,
+        "experiment_id": "18F_XGB_A_DROP_ENTROPY_COMPLEXITY",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_ENTROPY_COMPLEXITY.npz",
+        "sha256": "c08bae7f6e64ada7044495dc3a543a10ab2f0013c7ac7c963e619c9511c934cd"
+      },
+      {
+        "bytes": 105440,
+        "experiment_id": "18F_XGB_A_DROP_POSITION_SPECIFIC_NUCLEOTIDE",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_POSITION_SPECIFIC_NUCLEOTIDE.npz",
+        "sha256": "320fe04d6765e1f69f4bf6e4647f9d104b4e7b36151c5963b6e9e4695b3f7cfd"
+      },
+      {
+        "bytes": 105267,
+        "experiment_id": "18F_XGB_A_ONLY_POSITION_SPECIFIC_NUCLEOTIDE",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_ONLY_POSITION_SPECIFIC_NUCLEOTIDE.npz",
+        "sha256": "31b136ed64050390cc88709a92f90b574b6975d4822727206d644858c203176d"
+      },
+      {
+        "bytes": 105052,
+        "experiment_id": "18F_XGB_A_ONLY_GLOBAL_KMER",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_ONLY_GLOBAL_KMER.npz",
+        "sha256": "3d78e20881fdb759a54dca614b55c53ee3522dcbbaa4aac4074a1e2b01e2807b"
+      },
+      {
+        "bytes": 108125,
+        "experiment_id": "18F_XGB_B_FULL",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_FULL.npz",
+        "sha256": "2fbae11cf186e416918a2c06f902a18e624164ce435babde1ddc3fe50fb26061"
+      },
+      {
+        "bytes": 108034,
+        "experiment_id": "18F_XGB_B_DROP_GC_AND_SKEW",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_GC_AND_SKEW.npz",
+        "sha256": "6130ece65cd002cfd112e23a118a42cb778971cee9d26bbbcdfdd85229c87d47"
+      },
+      {
+        "bytes": 108074,
+        "experiment_id": "18F_XGB_B_DROP_NUCLEOTIDE_COMPOSITION",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_NUCLEOTIDE_COMPOSITION.npz",
+        "sha256": "ab51f3c05244bca9ce8e5e41ce5ac6de050ccd245c04a1926fc50b0468566753"
+      },
+      {
+        "bytes": 108099,
+        "experiment_id": "18F_XGB_B_DROP_DINUCLEOTIDE_FREQUENCY",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_DINUCLEOTIDE_FREQUENCY.npz",
+        "sha256": "5e53c399aefee6c1d1a5d7675a815533064841f2f962b24834cf2adf1ef66b11"
+      },
+      {
+        "bytes": 107896,
+        "experiment_id": "18F_XGB_B_DROP_GLOBAL_KMER",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_GLOBAL_KMER.npz",
+        "sha256": "28e7b9fd4a180f70ddab314461e5e83d2ab83672aad4606c13e751c2500ecd75"
+      },
+      {
+        "bytes": 108117,
+        "experiment_id": "18F_XGB_B_DROP_ENTROPY_COMPLEXITY",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_ENTROPY_COMPLEXITY.npz",
+        "sha256": "2f9f417f230f6e07077086f1128a0e1b1f25e294c57c3385c060cea3861b400c"
+      },
+      {
+        "bytes": 107744,
+        "experiment_id": "18F_XGB_B_DROP_POSITION_SPECIFIC_NUCLEOTIDE",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_POSITION_SPECIFIC_NUCLEOTIDE.npz",
+        "sha256": "4305cc420aeca38ef44fdc2696c991890c2eaf50774db48c9579e78680f6db22"
+      },
+      {
+        "bytes": 107599,
+        "experiment_id": "18F_XGB_B_ONLY_POSITION_SPECIFIC_NUCLEOTIDE",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_ONLY_POSITION_SPECIFIC_NUCLEOTIDE.npz",
+        "sha256": "10aebcedfc34c65f730503cf6e586e28983e36f0abc978fd34f07222c94e1172"
+      },
+      {
+        "bytes": 107371,
+        "experiment_id": "18F_XGB_B_ONLY_GLOBAL_KMER",
+        "path": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_ONLY_GLOBAL_KMER.npz",
+        "sha256": "d7c7ba7d4dbd6a81bc6aa9a23b4591ec8f0987b091cf34bcdaeb5841a1aed7c4"
+      }
+    ]
+  },
+  "biological_causality_claimed": false,
+  "bootstrap_policy": {
+    "interval": "percentile with linear quantiles",
+    "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+    "method": "paired percentile bootstrap over internal-test spacer groups",
+    "nominal_confidence": 0.95,
+    "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+    "replicates": 10000,
+    "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+    "rng": "numpy.random.Generator(PCG64(42))",
+    "seed": 42
+  },
+  "bridge_excluded": true,
+  "canonical_integrity": {
+    "after": {
+      "data/phase17i/raw/crispron/Luo2020_Kim2019.xlsx": {
+        "exists": true,
+        "expected_sha256": "146f211575179fc31669dbd5eaef46434b0866013a2d03767354375a1cc5d61f",
+        "matches_expected": true,
+        "sha256": "146f211575179fc31669dbd5eaef46434b0866013a2d03767354375a1cc5d61f"
+      },
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "expected_sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "matches_expected": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df"
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "expected_sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616"
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "expected_sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6"
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "expected_sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd"
+      }
+    },
+    "before": {
+      "data/phase17i/raw/crispron/Luo2020_Kim2019.xlsx": {
+        "exists": true,
+        "expected_sha256": "146f211575179fc31669dbd5eaef46434b0866013a2d03767354375a1cc5d61f",
+        "matches_expected": true,
+        "sha256": "146f211575179fc31669dbd5eaef46434b0866013a2d03767354375a1cc5d61f"
+      },
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "expected_sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "matches_expected": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df"
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "expected_sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616"
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "expected_sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6"
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "expected_sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd"
+      }
+    },
+    "unchanged": true
+  },
+  "completed_fits": 18,
+  "completion_status": "COMPLETED",
+  "domain_consistency": {
+    "DINUCLEOTIDE_FREQUENCY": "WEAK_IN_BOTH",
+    "ENTROPY_COMPLEXITY": "WEAK_IN_BOTH",
+    "GC_AND_SKEW": "WEAK_IN_BOTH",
+    "GLOBAL_KMER": "WEAK_IN_BOTH",
+    "NUCLEOTIDE_COMPOSITION": "WEAK_IN_BOTH",
+    "POSITION_SPECIFIC_NUCLEOTIDE": "CROSS_DOMAIN_CONSISTENT"
+  },
+  "drop_one_effects": {
+    "crispron_xiang_luo": {
+      "DINUCLEOTIDE_FREQUENCY": {
+        "adjusted_99_7916667_ci": {
+          "delta_rmse": [
+            0.0,
+            0.0034696602062938265
+          ],
+          "delta_spearman": [
+            -0.00022315226258284442,
+            4.674564706366777e-06
+          ]
+        },
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 42,
+        "contribution_classification": "LITTLE_UNIQUE_CONTRIBUTION",
+        "delta_rmse": 0.0007761848909737523,
+        "delta_spearman": -3.8127075429938984e-05,
+        "invalid_bootstrap_n": 0,
+        "nominal_95_ci": {
+          "delta_rmse": [
+            0.0,
+            0.002271122006730674
+          ],
+          "delta_spearman": [
+            -0.00013326428828673852,
+            6.968914651711543e-07
+          ],
+          "relative_rmse_degradation": [
+            0.0,
+            0.00014678412605274301
+          ]
+        },
+        "relative_rmse_degradation": 5.0014229793370936e-05
+      },
+      "ENTROPY_COMPLEXITY": {
+        "adjusted_99_7916667_ci": {
+          "delta_rmse": [
+            -0.26011073487441144,
+            0.2307357921259116
+          ],
+          "delta_spearman": [
+            -0.009808523781912446,
+            0.012087177695905145
+          ]
+        },
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 42,
+        "contribution_classification": "LITTLE_UNIQUE_CONTRIBUTION",
+        "delta_rmse": -0.013751645221965703,
+        "delta_spearman": 0.0007618321087423663,
+        "invalid_bootstrap_n": 0,
+        "nominal_95_ci": {
+          "delta_rmse": [
+            -0.17062167800668696,
+            0.14245693229247774
+          ],
+          "delta_spearman": [
+            -0.005955576651337826,
+            0.007739986071597931
+          ],
+          "relative_rmse_degradation": [
+            -0.010902044351279538,
+            0.009270374101108519
+          ]
+        },
+        "relative_rmse_degradation": -0.0008861006599928292
+      },
+      "GC_AND_SKEW": {
+        "adjusted_99_7916667_ci": {
+          "delta_rmse": [
+            -0.17400386331234863,
+            0.46268686574003065
+          ],
+          "delta_spearman": [
+            -0.02263342174258877,
+            0.006138466157508353
+          ]
+        },
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 42,
+        "contribution_classification": "LITTLE_UNIQUE_CONTRIBUTION",
+        "delta_rmse": 0.1535670339328714,
+        "delta_spearman": -0.008181014521605134,
+        "invalid_bootstrap_n": 0,
+        "nominal_95_ci": {
+          "delta_rmse": [
+            -0.05160557888038774,
+            0.35829438129560415
+          ],
+          "delta_spearman": [
+            -0.017470434350529102,
+            0.0009735500415589829
+          ],
+          "relative_rmse_degradation": [
+            -0.003299379647362873,
+            0.023191542472261645
+          ]
+        },
+        "relative_rmse_degradation": 0.009895241472904102
+      },
+      "GLOBAL_KMER": {
+        "adjusted_99_7916667_ci": {
+          "delta_rmse": [
+            -0.45852227097631526,
+            0.2731022018110204
+          ],
+          "delta_spearman": [
+            -0.010803294486951637,
+            0.019543585593637527
+          ]
+        },
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 42,
+        "contribution_classification": "LITTLE_UNIQUE_CONTRIBUTION",
+        "delta_rmse": -0.09291155982026211,
+        "delta_spearman": 0.003885497035627017,
+        "invalid_bootstrap_n": 0,
+        "nominal_95_ci": {
+          "delta_rmse": [
+            -0.32813409178497477,
+            0.14588804267594163
+          ],
+          "delta_spearman": [
+            -0.006256839625238664,
+            0.01402486360066022
+          ],
+          "relative_rmse_degradation": [
+            -0.020956870320918215,
+            0.009484358420678674
+          ]
+        },
+        "relative_rmse_degradation": -0.005986846893504218
+      },
+      "NUCLEOTIDE_COMPOSITION": {
+        "adjusted_99_7916667_ci": {
+          "delta_rmse": [
+            -0.271886462253717,
+            0.3163230273912776
+          ],
+          "delta_spearman": [
+            -0.012523538185900341,
+            0.012858306409306606
+          ]
+        },
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 42,
+        "contribution_classification": "LITTLE_UNIQUE_CONTRIBUTION",
+        "delta_rmse": 0.019540814490724756,
+        "delta_spearman": 0.00012976633572125973,
+        "invalid_bootstrap_n": 0,
+        "nominal_95_ci": {
+          "delta_rmse": [
+            -0.16763538016437807,
+            0.20533595821639006
+          ],
+          "delta_spearman": [
+            -0.007773164728112084,
+            0.008093040968600845
+          ],
+          "relative_rmse_degradation": [
+            -0.01088906635940349,
+            0.01331386925382668
+          ]
+        },
+        "relative_rmse_degradation": 0.0012591314230075497
+      },
+      "POSITION_SPECIFIC_NUCLEOTIDE": {
+        "adjusted_99_7916667_ci": {
+          "delta_rmse": [
+            4.179898547892212,
+            5.877014185832468
+          ],
+          "delta_spearman": [
+            -0.3512996779227047,
+            -0.23596406273254988
+          ]
+        },
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 42,
+        "contribution_classification": "ESSENTIAL_OR_STRONG_CONTRIBUTOR",
+        "delta_rmse": 5.060438532675686,
+        "delta_spearman": -0.2931105460966444,
+        "invalid_bootstrap_n": 0,
+        "nominal_95_ci": {
+          "delta_rmse": [
+            4.488717431614697,
+            5.606062258601261
+          ],
+          "delta_spearman": [
+            -0.3293106097332846,
+            -0.25665917594828874
+          ],
+          "relative_rmse_degradation": [
+            0.28388746991142777,
+            0.3686172551253718
+          ]
+        },
+        "relative_rmse_degradation": 0.3260742879328081
+      }
+    },
+    "deepspcas9": {
+      "DINUCLEOTIDE_FREQUENCY": {
+        "adjusted_99_7916667_ci": {
+          "delta_rmse": [
+            0.0,
+            8.213638662510231e-05
+          ],
+          "delta_spearman": [
+            -0.00018093809525472523,
+            0.0
+          ]
+        },
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 42,
+        "contribution_classification": "LITTLE_UNIQUE_CONTRIBUTION",
+        "delta_rmse": 1.599503614677089e-05,
+        "delta_spearman": -2.8082276602892087e-05,
+        "invalid_bootstrap_n": 0,
+        "nominal_95_ci": {
+          "delta_rmse": [
+            0.0,
+            4.930471651203097e-05
+          ],
+          "delta_spearman": [
+            -0.00010509116357283188,
+            0.0
+          ],
+          "relative_rmse_degradation": [
+            0.0,
+            0.0003268534607473297
+          ]
+        },
+        "relative_rmse_degradation": 0.00010318564858781977
+      },
+      "ENTROPY_COMPLEXITY": {
+        "adjusted_99_7916667_ci": {
+          "delta_rmse": [
+            -0.00251381780910748,
+            0.0027446596766521766
+          ],
+          "delta_spearman": [
+            -0.015155998871275148,
+            0.01426747469457634
+          ]
+        },
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 42,
+        "contribution_classification": "LITTLE_UNIQUE_CONTRIBUTION",
+        "delta_rmse": 2.2739146730316184e-05,
+        "delta_spearman": -0.0005061445391384423,
+        "invalid_bootstrap_n": 0,
+        "nominal_95_ci": {
+          "delta_rmse": [
+            -0.0016339459100914498,
+            0.0017619711093090698
+          ],
+          "delta_spearman": [
+            -0.010152138250467596,
+            0.008849883168750527
+          ],
+          "relative_rmse_degradation": [
+            -0.010499182127535693,
+            0.011385991862190737
+          ]
+        },
+        "relative_rmse_degradation": 0.00014669261026802762
+      },
+      "GC_AND_SKEW": {
+        "adjusted_99_7916667_ci": {
+          "delta_rmse": [
+            -0.0025512096531743918,
+            0.00415953118762851
+          ],
+          "delta_spearman": [
+            -0.021776650350550052,
+            0.015289943057138516
+          ]
+        },
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 42,
+        "contribution_classification": "LITTLE_UNIQUE_CONTRIBUTION",
+        "delta_rmse": 0.0006588139497586687,
+        "delta_spearman": -0.003209644488466723,
+        "invalid_bootstrap_n": 0,
+        "nominal_95_ci": {
+          "delta_rmse": [
+            -0.0014150648365303725,
+            0.002765184535309584
+          ],
+          "delta_spearman": [
+            -0.014897843205733804,
+            0.008332436872194487
+          ],
+          "relative_rmse_degradation": [
+            -0.009049937781731366,
+            0.01804413957269143
+          ]
+        },
+        "relative_rmse_degradation": 0.004250077591620541
+      },
+      "GLOBAL_KMER": {
+        "adjusted_99_7916667_ci": {
+          "delta_rmse": [
+            -0.0019166304385951015,
+            0.005364964931652646
+          ],
+          "delta_spearman": [
+            -0.03328547622741169,
+            0.007927550395047275
+          ]
+        },
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 42,
+        "contribution_classification": "LITTLE_UNIQUE_CONTRIBUTION",
+        "delta_rmse": 0.0017453928038000388,
+        "delta_spearman": -0.011793592069047731,
+        "invalid_bootstrap_n": 0,
+        "nominal_95_ci": {
+          "delta_rmse": [
+            -0.0005537380145103271,
+            0.004082603609410675
+          ],
+          "delta_spearman": [
+            -0.02486285257473729,
+            0.001134245879036455
+          ],
+          "relative_rmse_degradation": [
+            -0.0035360817279598694,
+            0.02659886249691789
+          ]
+        },
+        "relative_rmse_degradation": 0.011259711253417773
+      },
+      "NUCLEOTIDE_COMPOSITION": {
+        "adjusted_99_7916667_ci": {
+          "delta_rmse": [
+            -0.0028001002264045525,
+            0.0027563351060013504
+          ],
+          "delta_spearman": [
+            -0.014290845008818638,
+            0.01610640144237292
+          ]
+        },
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 42,
+        "contribution_classification": "LITTLE_UNIQUE_CONTRIBUTION",
+        "delta_rmse": -6.045460287584792e-05,
+        "delta_spearman": 0.001039736498217314,
+        "invalid_bootstrap_n": 0,
+        "nominal_95_ci": {
+          "delta_rmse": [
+            -0.0017872017718584098,
+            0.001707359279577862
+          ],
+          "delta_spearman": [
+            -0.00863665894097908,
+            0.01059862012103285
+          ],
+          "relative_rmse_degradation": [
+            -0.011426404711313272,
+            0.01111083193266395
+          ]
+        },
+        "relative_rmse_degradation": -0.00038999895659021634
+      },
+      "POSITION_SPECIFIC_NUCLEOTIDE": {
+        "adjusted_99_7916667_ci": {
+          "delta_rmse": [
+            0.03086761208422421,
+            0.04641861093868202
+          ],
+          "delta_spearman": [
+            -0.30857851722812046,
+            -0.19417314105849084
+          ]
+        },
+        "bootstrap_replicates": 10000,
+        "bootstrap_seed": 42,
+        "contribution_classification": "ESSENTIAL_OR_STRONG_CONTRIBUTOR",
+        "delta_rmse": 0.03889014965431689,
+        "delta_spearman": -0.24985137663631363,
+        "invalid_bootstrap_n": 0,
+        "nominal_95_ci": {
+          "delta_rmse": [
+            0.03374190740538414,
+            0.04392423704718557
+          ],
+          "delta_spearman": [
+            -0.2863101544871041,
+            -0.21344751928851188
+          ],
+          "relative_rmse_degradation": [
+            0.21367082567663065,
+            0.28896775869943586
+          ]
+        },
+        "relative_rmse_degradation": 0.2508844168237904
+      }
+    }
+  },
+  "failed_fits": 0,
+  "family_only": {
+    "crispron_xiang_luo": {
+      "GLOBAL_KMER": {
+        "comparison_to_full": {
+          "bootstrap_replicates": 10000,
+          "bootstrap_seed": 42,
+          "delta_rmse": 5.234971769032477,
+          "delta_spearman": -0.3044820607887758,
+          "invalid_bootstrap_n": 0,
+          "nominal_95_ci": {
+            "delta_rmse": [
+              4.648793018422756,
+              5.794945467304991
+            ],
+            "delta_spearman": [
+              -0.3418470783508437,
+              -0.26632045637766505
+            ],
+            "relative_rmse_degradation": [
+              0.2932613333183214,
+              0.3812670469702709
+            ]
+          },
+          "relative_rmse_degradation": 0.33732050708914624
+        },
+        "metrics": {
+          "mae": 17.190637019184148,
+          "pearson": 0.4609423911550391,
+          "r2": 0.20713957311184417,
+          "rmse": 20.754252865242233,
+          "spearman": 0.4512985789670183
+        },
+        "rmse_ratio_to_full": 1.3373205070891463,
+        "spearman_fraction_of_full": 0.597129054685551
+      },
+      "POSITION_SPECIFIC_NUCLEOTIDE": {
+        "comparison_to_full": {
+          "bootstrap_replicates": 10000,
+          "bootstrap_seed": 42,
+          "delta_rmse": 0.37769251910459367,
+          "delta_spearman": -0.018150920132786963,
+          "invalid_bootstrap_n": 0,
+          "nominal_95_ci": {
+            "delta_rmse": [
+              0.01586856632753364,
+              0.7339029609765549
+            ],
+            "delta_spearman": [
+              -0.034096680048458075,
+              -0.0018512741041326931
+            ],
+            "relative_rmse_degradation": [
+              0.0010023828950694686,
+              0.04787364326964412
+            ]
+          },
+          "relative_rmse_degradation": 0.024336985506167343
+        },
+        "metrics": {
+          "mae": 12.4348301523857,
+          "pearson": 0.734673361538269,
+          "r2": 0.534830275217296,
+          "rmse": 15.89697361531435,
+          "spearman": 0.7376297196230072
+        },
+        "rmse_ratio_to_full": 1.0243369855061673,
+        "spearman_fraction_of_full": 0.9759838778899499
+      }
+    },
+    "deepspcas9": {
+      "GLOBAL_KMER": {
+        "comparison_to_full": {
+          "bootstrap_replicates": 10000,
+          "bootstrap_seed": 42,
+          "delta_rmse": 0.041006262134853505,
+          "delta_spearman": -0.2666979377123274,
+          "invalid_bootstrap_n": 0,
+          "nominal_95_ci": {
+            "delta_rmse": [
+              0.035719580547256255,
+              0.0463056899706834
+            ],
+            "delta_spearman": [
+              -0.30500623878777844,
+              -0.2283894241274751
+            ],
+            "relative_rmse_degradation": [
+              0.22655753347710375,
+              0.3042486601695237
+            ]
+          },
+          "relative_rmse_degradation": 0.26453567942709705
+        },
+        "metrics": {
+          "mae": 0.16027023860481923,
+          "pearson": 0.4609988357603669,
+          "r2": 0.2124039401480019,
+          "rmse": 0.19601847910180656,
+          "spearman": 0.4413514299134943
+        },
+        "rmse_ratio_to_full": 1.264535679427097,
+        "spearman_fraction_of_full": 0.623334261837421
+      },
+      "POSITION_SPECIFIC_NUCLEOTIDE": {
+        "comparison_to_full": {
+          "bootstrap_replicates": 10000,
+          "bootstrap_seed": 42,
+          "delta_rmse": 0.0016377622417106663,
+          "delta_spearman": -0.007244187279206837,
+          "invalid_bootstrap_n": 0,
+          "nominal_95_ci": {
+            "delta_rmse": [
+              -0.0018541811107680617,
+              0.0052606926910890575
+            ],
+            "delta_spearman": [
+              -0.027087633760369437,
+              0.011833569112908006
+            ],
+            "relative_rmse_degradation": [
+              -0.01182455083831383,
+              0.034403261616079074
+            ]
+          },
+          "relative_rmse_degradation": 0.010565375257227757
+        },
+        "metrics": {
+          "mae": 0.12452438107796546,
+          "pearson": 0.7067956805165798,
+          "r2": 0.4969974490610831,
+          "rmse": 0.15664997920866372,
+          "spearman": 0.7008051803466149
+        },
+        "rmse_ratio_to_full": 1.0105653752572277,
+        "spearman_fraction_of_full": 0.9897688104665675
+      }
+    }
+  },
+  "feature_space_sha256": "9adf5c5e285338ac3cf4bfd3987b1245ae61f7a18d2cbf78f6b96d6079c84dab",
+  "full_controls": {
+    "crispron_xiang_luo": {
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_FULL",
+      "experiment_type": "FULL_CONTROL",
+      "feature_count": 197,
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": null,
+      "feature_name_sha256": "9adf5c5e285338ac3cf4bfd3987b1245ae61f7a18d2cbf78f6b96d6079c84dab",
+      "metrics": {
+        "mae": 12.154148198994974,
+        "pearson": 0.7507791034004417,
+        "r2": 0.5566714164260481,
+        "rmse": 15.519281096209756,
+        "spearman": 0.7557806397557941
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_FULL.pkl",
+      "model_sha256": "9bb479627bca7c8ec19c50f9660008c459db912441de2c2799470df0bd90221a",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_FULL.npz",
+      "prediction_sha256": "2fbae11cf186e416918a2c06f902a18e624164ce435babde1ddc3fe50fb26061",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 197,
+        "n_samples": 7465,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 1.1695027351379395,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "deepspcas9": {
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_FULL",
+      "experiment_type": "FULL_CONTROL",
+      "feature_count": 197,
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": null,
+      "feature_name_sha256": "9adf5c5e285338ac3cf4bfd3987b1245ae61f7a18d2cbf78f6b96d6079c84dab",
+      "metrics": {
+        "mae": 0.12277020808360124,
+        "pearson": 0.7145796501975424,
+        "r2": 0.507460166227008,
+        "rmse": 0.15501221696695305,
+        "spearman": 0.7080493676258217
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_FULL.pkl",
+      "model_sha256": "2b511c7da6933a99347f360f15083933ad6e2b3dc735a71d4c9491ab82129eab",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_FULL.npz",
+      "prediction_sha256": "bdbb53546d65507fbeaab728d6882444175e5a01969c1af472635ac08905d099",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 197,
+        "n_samples": 7040,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 1.9033479690551758,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    }
+  },
+  "implementation_unchanged": true,
+  "locked_external_accessed": false,
+  "multiple_comparison_policy": {
+    "confirmatory_interval_n": 24,
+    "family_only_arms": "nominal 95% descriptive intervals only; excluded from primary contribution categories",
+    "familywise_alpha": 0.05,
+    "method": "Bonferroni simultaneous percentile intervals",
+    "per_interval_alpha": 0.002083333333333335,
+    "per_interval_confidence": 0.9979166666666667,
+    "scope": "6 drop-one families x 2 domains x 2 endpoints (Spearman and RMSE)",
+    "secondary_metrics": "nominal 95% descriptive intervals only",
+    "two_sided_quantiles": [
+      0.0010416666666666675,
+      0.9989583333333333
+    ]
+  },
+  "phase": "18F",
+  "phase18e_protocol_sha256": "79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df",
+  "planned_fits": 18,
+  "quarantine_excluded": true,
+  "runs": {
+    "18F_XGB_A_DROP_DINUCLEOTIDE_FREQUENCY": {
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_DROP_DINUCLEOTIDE_FREQUENCY",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_count": 181,
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "DINUCLEOTIDE_FREQUENCY",
+      "feature_name_sha256": "27abfc6b8ea85f1cd378b90c9f0bedde69b746d93205395a7e65bd8dcd26d183",
+      "metrics": {
+        "mae": 0.12278017232213614,
+        "pearson": 0.7145076773202983,
+        "r2": 0.5073585148983929,
+        "rmse": 0.15502821200309982,
+        "spearman": 0.7080212853492188
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_DINUCLEOTIDE_FREQUENCY.pkl",
+      "model_sha256": "e16e8ee2773ccf7b1ab8eada7c5a9d3cff42f1638445de759cfa82d9c03b823e",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_DINUCLEOTIDE_FREQUENCY.npz",
+      "prediction_sha256": "bdbe37feb135033cf5679f3e8c43fa8512c8dd3ce1d0089851e1cc4b2d859b2d",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 181,
+        "n_samples": 7040,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 1.0600829124450684,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "18F_XGB_A_DROP_ENTROPY_COMPLEXITY": {
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_DROP_ENTROPY_COMPLEXITY",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_count": 193,
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "ENTROPY_COMPLEXITY",
+      "feature_name_sha256": "21bb5534a49746cca877851d369089ad774f0a287abd3668751fcdac77e81c6f",
+      "metrics": {
+        "mae": 0.12275883837007731,
+        "pearson": 0.7143797453822271,
+        "r2": 0.5073156517204258,
+        "rmse": 0.15503495611368337,
+        "spearman": 0.7075432230866833
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_ENTROPY_COMPLEXITY.pkl",
+      "model_sha256": "8b09d6b7e197db0daf91652971223607487e1637564e4aa689b08b9d2046daf4",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_ENTROPY_COMPLEXITY.npz",
+      "prediction_sha256": "c08bae7f6e64ada7044495dc3a543a10ab2f0013c7ac7c963e619c9511c934cd",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 193,
+        "n_samples": 7040,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 0.9796743392944336,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "18F_XGB_A_DROP_GC_AND_SKEW": {
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_DROP_GC_AND_SKEW",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_count": 187,
+      "feature_families_retained": [
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "GC_AND_SKEW",
+      "feature_name_sha256": "232fa7552eddf0b8f12e6862d904d58ca92aac2dd224d412e56db5bf2efbaa95",
+      "metrics": {
+        "mae": 0.12353442179857219,
+        "pearson": 0.7115874175815661,
+        "r2": 0.503264604380415,
+        "rmse": 0.15567103091671172,
+        "spearman": 0.704839723137355
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_GC_AND_SKEW.pkl",
+      "model_sha256": "4e8b2f9c23fd74e8ff07838dde918f186dafa732bf48fc4605f7c809c2682900",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_GC_AND_SKEW.npz",
+      "prediction_sha256": "c4dc51f66aec50d13421437a2399d2ab40f77db1f39184c85d749091edd703db",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 187,
+        "n_samples": 7040,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 1.1307289600372314,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "18F_XGB_A_DROP_GLOBAL_KMER": {
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_DROP_GLOBAL_KMER",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_count": 117,
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "GLOBAL_KMER",
+      "feature_name_sha256": "b631ddc446aaea7fee1f9e7df5fe36483bc0b0adc4fe4b93573fffa353641d9d",
+      "metrics": {
+        "mae": 0.12529173599922952,
+        "pearson": 0.7064434086002765,
+        "r2": 0.49630600886813414,
+        "rmse": 0.1567576097707531,
+        "spearman": 0.696255775556774
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_GLOBAL_KMER.pkl",
+      "model_sha256": "2eb785cb0fa05d69aea1af86d98a2c15b679a6f6dfdc96c524d7b4ff58cac22a",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_GLOBAL_KMER.npz",
+      "prediction_sha256": "5e23a1f196cf8559fa090f117f34f4f1be21128d0e32d8e68e967ca84b559f9e",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 117,
+        "n_samples": 7040,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 0.7679197788238525,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "18F_XGB_A_DROP_NUCLEOTIDE_COMPOSITION": {
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_DROP_NUCLEOTIDE_COMPOSITION",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_count": 190,
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "NUCLEOTIDE_COMPOSITION",
+      "feature_name_sha256": "165cbd6a586bbdd4bc42c688199a65db62d7cd65cd26eb6c1ecc79201d20b482",
+      "metrics": {
+        "mae": 0.12297113568493276,
+        "pearson": 0.7148298497097791,
+        "r2": 0.5078442713546012,
+        "rmse": 0.1549517623640772,
+        "spearman": 0.709089104124039
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_NUCLEOTIDE_COMPOSITION.pkl",
+      "model_sha256": "83c40ebcb8e0c5c3cdd2ded73749d753599ef8e30e76199687d945afd513fcd4",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_NUCLEOTIDE_COMPOSITION.npz",
+      "prediction_sha256": "0ed9d88ad6ae2d75ec81e159d897760e65a0b37a37eb6b555003b2b98388e48c",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 190,
+        "n_samples": 7040,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 1.2391624450683594,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "18F_XGB_A_DROP_POSITION_SPECIFIC_NUCLEOTIDE": {
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_DROP_POSITION_SPECIFIC_NUCLEOTIDE",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_count": 117,
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY"
+      ],
+      "feature_family_removed": "POSITION_SPECIFIC_NUCLEOTIDE",
+      "feature_name_sha256": "339e986564ee57c1e0688b46163629ad9399b744f353bc2f926a0147515dc509",
+      "metrics": {
+        "mae": 0.1586700556082861,
+        "pearson": 0.4789971786492079,
+        "r2": 0.2293170981799919,
+        "rmse": 0.19390236662126994,
+        "spearman": 0.4581979909895081
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_DROP_POSITION_SPECIFIC_NUCLEOTIDE.pkl",
+      "model_sha256": "379b5ca12c6abd45654dabf972f9aa30fe34c7998fa288511bfa4d040967e18c",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_DROP_POSITION_SPECIFIC_NUCLEOTIDE.npz",
+      "prediction_sha256": "320fe04d6765e1f69f4bf6e4647f9d104b4e7b36151c5963b6e9e4695b3f7cfd",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 117,
+        "n_samples": 7040,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 1.0045385360717773,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "18F_XGB_A_FULL": {
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_FULL",
+      "experiment_type": "FULL_CONTROL",
+      "feature_count": 197,
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": null,
+      "feature_name_sha256": "9adf5c5e285338ac3cf4bfd3987b1245ae61f7a18d2cbf78f6b96d6079c84dab",
+      "metrics": {
+        "mae": 0.12277020808360124,
+        "pearson": 0.7145796501975424,
+        "r2": 0.507460166227008,
+        "rmse": 0.15501221696695305,
+        "spearman": 0.7080493676258217
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_FULL.pkl",
+      "model_sha256": "2b511c7da6933a99347f360f15083933ad6e2b3dc735a71d4c9491ab82129eab",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_FULL.npz",
+      "prediction_sha256": "bdbb53546d65507fbeaab728d6882444175e5a01969c1af472635ac08905d099",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 197,
+        "n_samples": 7040,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 1.9033479690551758,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "18F_XGB_A_ONLY_GLOBAL_KMER": {
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_ONLY_GLOBAL_KMER",
+      "experiment_type": "FAMILY_ONLY",
+      "feature_count": 80,
+      "feature_families_retained": [
+        "GLOBAL_KMER"
+      ],
+      "feature_family_removed": null,
+      "feature_name_sha256": "f247a9c6c090c20fabb4f94eb0d90afb20dee1d62ff94c1747488509233178e4",
+      "metrics": {
+        "mae": 0.16027023860481923,
+        "pearson": 0.4609988357603669,
+        "r2": 0.2124039401480019,
+        "rmse": 0.19601847910180656,
+        "spearman": 0.4413514299134943
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_ONLY_GLOBAL_KMER.pkl",
+      "model_sha256": "4add177e313949edc31e9601ce46dd0741f40d545dab4757360977145294ff50",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_ONLY_GLOBAL_KMER.npz",
+      "prediction_sha256": "3d78e20881fdb759a54dca614b55c53ee3522dcbbaa4aac4074a1e2b01e2807b",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 80,
+        "n_samples": 7040,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 0.6237058639526367,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "18F_XGB_A_ONLY_POSITION_SPECIFIC_NUCLEOTIDE": {
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_ONLY_POSITION_SPECIFIC_NUCLEOTIDE",
+      "experiment_type": "FAMILY_ONLY",
+      "feature_count": 80,
+      "feature_families_retained": [
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": null,
+      "feature_name_sha256": "73e23152a66ec80f6e52a9d37324b4cf0bc705123d82720bcd5e3ee8ce88f939",
+      "metrics": {
+        "mae": 0.12452438107796546,
+        "pearson": 0.7067956805165798,
+        "r2": 0.4969974490610831,
+        "rmse": 0.15664997920866372,
+        "spearman": 0.7008051803466149
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_A_ONLY_POSITION_SPECIFIC_NUCLEOTIDE.pkl",
+      "model_sha256": "4dbaa3b47b859da6be51cf9edf54bbaed5f14b4fa2ae33e70e6f57762ee7e39f",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_A_ONLY_POSITION_SPECIFIC_NUCLEOTIDE.npz",
+      "prediction_sha256": "31b136ed64050390cc88709a92f90b574b6975d4822727206d644858c203176d",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 80,
+        "n_samples": 7040,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 0.4942481517791748,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "18F_XGB_B_DROP_DINUCLEOTIDE_FREQUENCY": {
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_DROP_DINUCLEOTIDE_FREQUENCY",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_count": 181,
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "DINUCLEOTIDE_FREQUENCY",
+      "feature_name_sha256": "27abfc6b8ea85f1cd378b90c9f0bedde69b746d93205395a7e65bd8dcd26d183",
+      "metrics": {
+        "mae": 12.155640105318263,
+        "pearson": 0.7507545445752364,
+        "r2": 0.5566270698417901,
+        "rmse": 15.52005728110073,
+        "spearman": 0.7557425126803642
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_DINUCLEOTIDE_FREQUENCY.pkl",
+      "model_sha256": "30cd304b59427c3ea5dbddf3c9da4c33feed5bdf5f535fbf43647dd39fe67348",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_DINUCLEOTIDE_FREQUENCY.npz",
+      "prediction_sha256": "5e53c399aefee6c1d1a5d7675a815533064841f2f962b24834cf2adf1ef66b11",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 181,
+        "n_samples": 7465,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 1.2483375072479248,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "18F_XGB_B_DROP_ENTROPY_COMPLEXITY": {
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_DROP_ENTROPY_COMPLEXITY",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_count": 193,
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "ENTROPY_COMPLEXITY",
+      "feature_name_sha256": "21bb5534a49746cca877851d369089ad774f0a287abd3668751fcdac77e81c6f",
+      "metrics": {
+        "mae": 12.178002371401133,
+        "pearson": 0.7507508806935065,
+        "r2": 0.5574567358367997,
+        "rmse": 15.50552945098779,
+        "spearman": 0.7565424718645365
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_ENTROPY_COMPLEXITY.pkl",
+      "model_sha256": "eadc840a3f738e7bfa6f8784058b1b1ed5b8cbea7c343e9596f98ed63083a6f9",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_ENTROPY_COMPLEXITY.npz",
+      "prediction_sha256": "2f9f417f230f6e07077086f1128a0e1b1f25e294c57c3385c060cea3861b400c",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 193,
+        "n_samples": 7465,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 1.126908302307129,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "18F_XGB_B_DROP_GC_AND_SKEW": {
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_DROP_GC_AND_SKEW",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_count": 187,
+      "feature_families_retained": [
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "GC_AND_SKEW",
+      "feature_name_sha256": "232fa7552eddf0b8f12e6862d904d58ca92aac2dd224d412e56db5bf2efbaa95",
+      "metrics": {
+        "mae": 12.332602167013313,
+        "pearson": 0.7439735275104092,
+        "r2": 0.5478543207788273,
+        "rmse": 15.672848130142627,
+        "spearman": 0.747599625234189
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_GC_AND_SKEW.pkl",
+      "model_sha256": "04352d923cd1f59ccc94da65536be5714095959f6f482bdd4ba3c6ab4c3c2427",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_GC_AND_SKEW.npz",
+      "prediction_sha256": "6130ece65cd002cfd112e23a118a42cb778971cee9d26bbbcdfdd85229c87d47",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 187,
+        "n_samples": 7465,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 1.1848506927490234,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "18F_XGB_B_DROP_GLOBAL_KMER": {
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_DROP_GLOBAL_KMER",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_count": 117,
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "GLOBAL_KMER",
+      "feature_name_sha256": "b631ddc446aaea7fee1f9e7df5fe36483bc0b0adc4fe4b93573fffa353641d9d",
+      "metrics": {
+        "mae": 12.110455931637023,
+        "pearson": 0.7535321872593361,
+        "r2": 0.5619638072008613,
+        "rmse": 15.426369536389494,
+        "spearman": 0.7596661367914211
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_GLOBAL_KMER.pkl",
+      "model_sha256": "6758a9771b44da2f66bbd7f7b8de67a163ca76a1f319578d733b6e762c226786",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_GLOBAL_KMER.npz",
+      "prediction_sha256": "28e7b9fd4a180f70ddab314461e5e83d2ab83672aad4606c13e751c2500ecd75",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 117,
+        "n_samples": 7465,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 0.8843047618865967,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "18F_XGB_B_DROP_NUCLEOTIDE_COMPOSITION": {
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_DROP_NUCLEOTIDE_COMPOSITION",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_count": 190,
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "NUCLEOTIDE_COMPOSITION",
+      "feature_name_sha256": "165cbd6a586bbdd4bc42c688199a65db62d7cd65cd26eb6c1ecc79201d20b482",
+      "metrics": {
+        "mae": 12.158577951105048,
+        "pearson": 0.7496111182651842,
+        "r2": 0.5555542956670274,
+        "rmse": 15.53882191070048,
+        "spearman": 0.7559104060915154
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_NUCLEOTIDE_COMPOSITION.pkl",
+      "model_sha256": "77bbc51983327197d727a15ab3659838a601f0dc88e68fca80cd3d05bc8b25b8",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_NUCLEOTIDE_COMPOSITION.npz",
+      "prediction_sha256": "ab51f3c05244bca9ce8e5e41ce5ac6de050ccd245c04a1926fc50b0468566753",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 190,
+        "n_samples": 7465,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 1.030205249786377,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "18F_XGB_B_DROP_POSITION_SPECIFIC_NUCLEOTIDE": {
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_DROP_POSITION_SPECIFIC_NUCLEOTIDE",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_count": 117,
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY"
+      ],
+      "feature_family_removed": "POSITION_SPECIFIC_NUCLEOTIDE",
+      "feature_name_sha256": "339e986564ee57c1e0688b46163629ad9399b744f353bc2f926a0147515dc509",
+      "metrics": {
+        "mae": 16.90331485011504,
+        "pearson": 0.47346828481184516,
+        "r2": 0.2204186480687268,
+        "rmse": 20.579719628885442,
+        "spearman": 0.46267009365914974
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_DROP_POSITION_SPECIFIC_NUCLEOTIDE.pkl",
+      "model_sha256": "a5e515f219ff058fa1ebbe0e0c01176b3b9fc1a3b1dcde7b295dd10cc8120edb",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_DROP_POSITION_SPECIFIC_NUCLEOTIDE.npz",
+      "prediction_sha256": "4305cc420aeca38ef44fdc2696c991890c2eaf50774db48c9579e78680f6db22",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 117,
+        "n_samples": 7465,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 0.8917636871337891,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "18F_XGB_B_FULL": {
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_FULL",
+      "experiment_type": "FULL_CONTROL",
+      "feature_count": 197,
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": null,
+      "feature_name_sha256": "9adf5c5e285338ac3cf4bfd3987b1245ae61f7a18d2cbf78f6b96d6079c84dab",
+      "metrics": {
+        "mae": 12.154148198994974,
+        "pearson": 0.7507791034004417,
+        "r2": 0.5566714164260481,
+        "rmse": 15.519281096209756,
+        "spearman": 0.7557806397557941
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_FULL.pkl",
+      "model_sha256": "9bb479627bca7c8ec19c50f9660008c459db912441de2c2799470df0bd90221a",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_FULL.npz",
+      "prediction_sha256": "2fbae11cf186e416918a2c06f902a18e624164ce435babde1ddc3fe50fb26061",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 197,
+        "n_samples": 7465,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 1.1695027351379395,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "18F_XGB_B_ONLY_GLOBAL_KMER": {
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_ONLY_GLOBAL_KMER",
+      "experiment_type": "FAMILY_ONLY",
+      "feature_count": 80,
+      "feature_families_retained": [
+        "GLOBAL_KMER"
+      ],
+      "feature_family_removed": null,
+      "feature_name_sha256": "f247a9c6c090c20fabb4f94eb0d90afb20dee1d62ff94c1747488509233178e4",
+      "metrics": {
+        "mae": 17.190637019184148,
+        "pearson": 0.4609423911550391,
+        "r2": 0.20713957311184417,
+        "rmse": 20.754252865242233,
+        "spearman": 0.4512985789670183
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_ONLY_GLOBAL_KMER.pkl",
+      "model_sha256": "650523a4cb44d9226681956af1f5fe970684e4fa95edb52780cf6826aa5b6c69",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_ONLY_GLOBAL_KMER.npz",
+      "prediction_sha256": "d7c7ba7d4dbd6a81bc6aa9a23b4591ec8f0987b091cf34bcdaeb5841a1aed7c4",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 80,
+        "n_samples": 7465,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 0.6412053108215332,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    },
+    "18F_XGB_B_ONLY_POSITION_SPECIFIC_NUCLEOTIDE": {
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_ONLY_POSITION_SPECIFIC_NUCLEOTIDE",
+      "experiment_type": "FAMILY_ONLY",
+      "feature_count": 80,
+      "feature_families_retained": [
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": null,
+      "feature_name_sha256": "73e23152a66ec80f6e52a9d37324b4cf0bc705123d82720bcd5e3ee8ce88f939",
+      "metrics": {
+        "mae": 12.4348301523857,
+        "pearson": 0.734673361538269,
+        "r2": 0.534830275217296,
+        "rmse": 15.89697361531435,
+        "spearman": 0.7376297196230072
+      },
+      "model_artifact": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/18F_XGB_B_ONLY_POSITION_SPECIFIC_NUCLEOTIDE.pkl",
+      "model_sha256": "00b2a678babd53b7e31e7c226f27f7338516921666907a36272e1085eee7e85d",
+      "prediction_artifact": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/18F_XGB_B_ONLY_POSITION_SPECIFIC_NUCLEOTIDE.npz",
+      "prediction_sha256": "10aebcedfc34c65f730503cf6e586e28983e36f0abc978fd34f07222c94e1172",
+      "seed": 42,
+      "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+      "training": {
+        "best_iteration": null,
+        "best_score": null,
+        "n_features": 80,
+        "n_samples": 7465,
+        "python_tracemalloc_peak_bytes": null,
+        "recovery_measurement_note": "The tool timeout occurred after prediction persistence; process-local wall-clock and tracemalloc values were lost. The model-retained XGBoost training_time remains exact.",
+        "training_time": 0.6368992328643799,
+        "wall_clock_fit_seconds": null
+      },
+      "xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      }
+    }
+  },
+  "skipped_fits": 0,
+  "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+  "strongest_unique_contributor": {
+    "crispron_xiang_luo": "POSITION_SPECIFIC_NUCLEOTIDE",
+    "deepspcas9": "POSITION_SPECIFIC_NUCLEOTIDE"
+  },
+  "training_implementation_sha256": "b80e77c039c12fbd4fb339740de7da3691a96fdf0b6bea17da2cf61da24840b0"
+}

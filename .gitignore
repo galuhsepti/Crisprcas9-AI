@@ -63,6 +63,10 @@ results/figures/
 results/phase18c/79ec4f03fe7314bc54a337c0d235c4f40e93b441aa40633828e1a50a3ee4d49b/campaign_20260914_141742/models/
 results/phase18c/79ec4f03fe7314bc54a337c0d235c4f40e93b441aa40633828e1a50a3ee4d49b/campaign_20260914_141742/predictions/
 
+# Phase 18F binary distributions and predictions stay local; retain campaign JSON.
+results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/bootstrap/
+results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905/predictions/
+
 # OS
 .DS_Store
 Thumbs.db

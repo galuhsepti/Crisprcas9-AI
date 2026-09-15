@@ -1,0 +1,1492 @@
+{
+  "environment": {
+    "numpy": "2.4.6",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "scikit_learn": "1.9.0",
+    "scipy": "1.17.1",
+    "xgboost": "3.2.0"
+  },
+  "feature_space_sha256": "9adf5c5e285338ac3cf4bfd3987b1245ae61f7a18d2cbf78f6b96d6079c84dab",
+  "implementation_hashes": {
+    "requirements.txt": "bd8e4dcdc6684fc923ea780a766a33da89d487a6c544c933ed0ef253dbb57070",
+    "scripts/run_phase18f_feature_ablation.py": "0963f573b61a3a6ece9c879895e9ee59367bbc981132feff4575540fd6d31116",
+    "src/evaluation/phase18c_statistics.py": "fcee6d52a017610a6ea5ba4162b1cfc9e30152f67565c5dd4e1d7ce7306c5b6f",
+    "src/experiment_protocols/phase18c_access.py": "4727fb10d0dd46a2ab2743076ba40ccc58772ec5242c5225a901d21b509a9e0f",
+    "src/experiment_protocols/phase18e_feature_ablation_protocol.py": "8b8364e17c928af4787d3b9e08de8d5556a816c0022a033f966c5ba3e14f3786",
+    "src/feature_ablation/__init__.py": "df12bc95cfa4c714339a7c6235f0fb107476682d25dfcebc7e95281db53ae0f6",
+    "src/feature_ablation/phase18f.py": "7103d54e9378d70bbb98e986269ad45410bdf345540f184175b54bccc4731789",
+    "src/models/xgboost_model.py": "7031f62dcd91a00d2773784ae1aec3ed8354101b996befb89066156314dffcec",
+    "src/multidomain/campaign.py": "c9603f7f0c6bc325316ce4e71ff76f649265b16cb0bc10a7347e7ad7cadd8e7b",
+    "src/multidomain/data.py": "9adbc0a72f64859d8df32ffccfeb54ace13a2964bf08d35a7e7296af4cb5dc72"
+  },
+  "implementation_sha256": "b80e77c039c12fbd4fb339740de7da3691a96fdf0b6bea17da2cf61da24840b0",
+  "matrix": [
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_FULL",
+      "experiment_type": "FULL_CONTROL",
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": null,
+      "fit_seed": 42,
+      "inferential_role": "corresponding within-domain control",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 197,
+      "scientific_hypothesis": "Locked full-feature within-domain reference for paired drop-one comparisons.",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    },
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_DROP_GC_AND_SKEW",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_families_retained": [
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "GC_AND_SKEW",
+      "fit_seed": 42,
+      "inferential_role": "primary paired comparison versus FULL",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 187,
+      "scientific_hypothesis": "GC and skew summaries provide predictive information not recoverable from the remaining sequence representations.",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    },
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_DROP_NUCLEOTIDE_COMPOSITION",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "NUCLEOTIDE_COMPOSITION",
+      "fit_seed": 42,
+      "inferential_role": "primary paired comparison versus FULL",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 190,
+      "scientific_hypothesis": "Global nucleotide composition and heterogeneity provide unique predictive information beyond GC, k-mers, and positional identity.",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    },
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_DROP_DINUCLEOTIDE_FREQUENCY",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "DINUCLEOTIDE_FREQUENCY",
+      "fit_seed": 42,
+      "inferential_role": "primary paired comparison versus FULL",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 181,
+      "scientific_hypothesis": "Global dinucleotide frequencies provide unique predictive information despite overlap with the global 2-mer family.",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    },
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_DROP_GLOBAL_KMER",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "GLOBAL_KMER",
+      "fit_seed": 42,
+      "inferential_role": "primary paired comparison versus FULL",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 117,
+      "scientific_hypothesis": "Global 2-mer and 3-mer frequencies provide unique order-local motif information beyond composition and spacer-position indicators.",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    },
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_DROP_ENTROPY_COMPLEXITY",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "ENTROPY_COMPLEXITY",
+      "fit_seed": 42,
+      "inferential_role": "primary paired comparison versus FULL",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 193,
+      "scientific_hypothesis": "K-mer entropy and complexity summaries provide unique predictive information beyond their underlying k-mer frequencies.",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    },
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_DROP_POSITION_SPECIFIC_NUCLEOTIDE",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY"
+      ],
+      "feature_family_removed": "POSITION_SPECIFIC_NUCLEOTIDE",
+      "fit_seed": 42,
+      "inferential_role": "primary paired comparison versus FULL",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 117,
+      "scientific_hypothesis": "Spacer-position nucleotide indicators provide unique predictive information beyond order-agnostic sequence summaries.",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    },
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_ONLY_POSITION_SPECIFIC_NUCLEOTIDE",
+      "experiment_type": "FAMILY_ONLY",
+      "feature_families_retained": [
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": null,
+      "fit_seed": 42,
+      "inferential_role": "secondary descriptive sufficiency analysis; not a primary contribution category",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 80,
+      "scientific_hypothesis": "whether spacer-position identity alone is sufficient for much of within-domain predictive performance",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    },
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "deepspcas9",
+      "experiment_id": "18F_XGB_A_ONLY_GLOBAL_KMER",
+      "experiment_type": "FAMILY_ONLY",
+      "feature_families_retained": [
+        "GLOBAL_KMER"
+      ],
+      "feature_family_removed": null,
+      "fit_seed": 42,
+      "inferential_role": "secondary descriptive sufficiency analysis; not a primary contribution category",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 80,
+      "scientific_hypothesis": "whether order-agnostic 2/3-mer spectra alone are sufficient for much of within-domain predictive performance",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    },
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_FULL",
+      "experiment_type": "FULL_CONTROL",
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": null,
+      "fit_seed": 42,
+      "inferential_role": "corresponding within-domain control",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 197,
+      "scientific_hypothesis": "Locked full-feature within-domain reference for paired drop-one comparisons.",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    },
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_DROP_GC_AND_SKEW",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_families_retained": [
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "GC_AND_SKEW",
+      "fit_seed": 42,
+      "inferential_role": "primary paired comparison versus FULL",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 187,
+      "scientific_hypothesis": "GC and skew summaries provide predictive information not recoverable from the remaining sequence representations.",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    },
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_DROP_NUCLEOTIDE_COMPOSITION",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "NUCLEOTIDE_COMPOSITION",
+      "fit_seed": 42,
+      "inferential_role": "primary paired comparison versus FULL",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 190,
+      "scientific_hypothesis": "Global nucleotide composition and heterogeneity provide unique predictive information beyond GC, k-mers, and positional identity.",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    },
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_DROP_DINUCLEOTIDE_FREQUENCY",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "DINUCLEOTIDE_FREQUENCY",
+      "fit_seed": 42,
+      "inferential_role": "primary paired comparison versus FULL",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 181,
+      "scientific_hypothesis": "Global dinucleotide frequencies provide unique predictive information despite overlap with the global 2-mer family.",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    },
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_DROP_GLOBAL_KMER",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "ENTROPY_COMPLEXITY",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "GLOBAL_KMER",
+      "fit_seed": 42,
+      "inferential_role": "primary paired comparison versus FULL",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 117,
+      "scientific_hypothesis": "Global 2-mer and 3-mer frequencies provide unique order-local motif information beyond composition and spacer-position indicators.",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    },
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_DROP_ENTROPY_COMPLEXITY",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": "ENTROPY_COMPLEXITY",
+      "fit_seed": 42,
+      "inferential_role": "primary paired comparison versus FULL",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 193,
+      "scientific_hypothesis": "K-mer entropy and complexity summaries provide unique predictive information beyond their underlying k-mer frequencies.",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    },
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_DROP_POSITION_SPECIFIC_NUCLEOTIDE",
+      "experiment_type": "DROP_ONE_FAMILY",
+      "feature_families_retained": [
+        "GC_AND_SKEW",
+        "NUCLEOTIDE_COMPOSITION",
+        "DINUCLEOTIDE_FREQUENCY",
+        "GLOBAL_KMER",
+        "ENTROPY_COMPLEXITY"
+      ],
+      "feature_family_removed": "POSITION_SPECIFIC_NUCLEOTIDE",
+      "fit_seed": 42,
+      "inferential_role": "primary paired comparison versus FULL",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 117,
+      "scientific_hypothesis": "Spacer-position nucleotide indicators provide unique predictive information beyond order-agnostic sequence summaries.",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    },
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_ONLY_POSITION_SPECIFIC_NUCLEOTIDE",
+      "experiment_type": "FAMILY_ONLY",
+      "feature_families_retained": [
+        "POSITION_SPECIFIC_NUCLEOTIDE"
+      ],
+      "feature_family_removed": null,
+      "fit_seed": 42,
+      "inferential_role": "secondary descriptive sufficiency analysis; not a primary contribution category",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 80,
+      "scientific_hypothesis": "whether spacer-position identity alone is sufficient for much of within-domain predictive performance",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    },
+    {
+      "bootstrap_policy": {
+        "interval": "percentile with linear quantiles",
+        "invalid_replicate": "Any undefined/nonfinite primary metric is reported; one or more invalid replicates makes that comparison UNSTABLE_OR_INCONCLUSIVE.",
+        "method": "paired percentile bootstrap over internal-test spacer groups",
+        "nominal_confidence": 0.95,
+        "primary_pairing": "Each drop-one-family arm versus FULL in the same domain only; the same sampled groups index both prediction vectors.",
+        "replicates": 10000,
+        "resampling_unit": "sorted unique exact forward spacer20 groups; sample groups with replacement and retain every observation of each sampled group",
+        "rng": "numpy.random.Generator(PCG64(42))",
+        "seed": 42
+      },
+      "canonical_xgboost_configuration": {
+        "colsample_bytree": 1.0,
+        "device": "cpu",
+        "early_stopping": false,
+        "eval_set": null,
+        "hyperparameter_tuning": false,
+        "learning_rate": 0.1,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 100,
+        "n_jobs": 4,
+        "objective": "reg:squarederror",
+        "random_state": 42,
+        "reg_alpha": 0.0,
+        "reg_lambda": 1.0,
+        "sample_weight": null,
+        "subsample": 1.0,
+        "tree_method": "hist",
+        "verbosity": 0
+      },
+      "domain": "crispron_xiang_luo",
+      "experiment_id": "18F_XGB_B_ONLY_GLOBAL_KMER",
+      "experiment_type": "FAMILY_ONLY",
+      "feature_families_retained": [
+        "GLOBAL_KMER"
+      ],
+      "feature_family_removed": null,
+      "fit_seed": 42,
+      "inferential_role": "secondary descriptive sufficiency analysis; not a primary contribution category",
+      "metric_policy": {
+        "degradation_directions": {
+          "delta_rmse": "positive",
+          "delta_spearman": "negative",
+          "relative_rmse_degradation": "positive"
+        },
+        "domain_aggregation": "none",
+        "effects": {
+          "delta_rmse": "rmse_ablation - rmse_full",
+          "delta_spearman": "spearman_ablation - spearman_full",
+          "relative_rmse_degradation": "(rmse_ablation - rmse_full) / rmse_full"
+        },
+        "native_label_scales_retained": true,
+        "primary": "spearman",
+        "raw_domain_scale_comparison": false,
+        "regression_guardrail": "rmse",
+        "secondary": [
+          "pearson",
+          "r2",
+          "mae"
+        ]
+      },
+      "number_of_features_remaining": 80,
+      "scientific_hypothesis": "whether order-agnostic 2/3-mer spectra alone are sufficient for much of within-domain predictive performance",
+      "split_hash": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+    }
+  ],
+  "models_directory": "models/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905",
+  "phase": "18F",
+  "phase18e_protocol_sha256": "79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df",
+  "preflight": {
+    "bonferroni_quantiles": [
+      0.0010416666666666667,
+      0.9989583333333333
+    ],
+    "bridge_materialized": false,
+    "canonical_integrity": {
+      "data/phase17i/raw/crispron/Luo2020_Kim2019.xlsx": {
+        "exists": true,
+        "expected_sha256": "146f211575179fc31669dbd5eaef46434b0866013a2d03767354375a1cc5d61f",
+        "matches_expected": true,
+        "sha256": "146f211575179fc31669dbd5eaef46434b0866013a2d03767354375a1cc5d61f"
+      },
+      "data/raw/DeepSpCas9.csv": {
+        "exists": true,
+        "expected_sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df",
+        "matches_expected": true,
+        "sha256": "6aeab30f55155ca9f1b80aae3159231ce113815354597ea4ca1d6c84ba0296df"
+      },
+      "models/cnn_baseline_20260905_011720.pt": {
+        "exists": true,
+        "expected_sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616",
+        "matches_expected": true,
+        "sha256": "76773642b59923fa0d4407011c6f656715cb7bf247ac5ab9a437c1d0f3d8f616"
+      },
+      "models/rf_baseline_fixed_20260905_001107.pkl": {
+        "exists": true,
+        "expected_sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6",
+        "matches_expected": true,
+        "sha256": "1f521bed090c091dd7a35e060f1166eaaa8e864ad4be09708a285750740280b6"
+      },
+      "models/xgboost_baseline_20260905_002839.pkl": {
+        "exists": true,
+        "expected_sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd",
+        "matches_expected": true,
+        "sha256": "129aa2c7826bc6ae087ba6b751eb39838a34aafeea27aa88674be8bcbf606dbd"
+      }
+    },
+    "family_counts": {
+      "DINUCLEOTIDE_FREQUENCY": 16,
+      "ENTROPY_COMPLEXITY": 4,
+      "GC_AND_SKEW": 10,
+      "GLOBAL_KMER": 80,
+      "NUCLEOTIDE_COMPOSITION": 7,
+      "POSITION_SPECIFIC_NUCLEOTIDE": 80
+    },
+    "feature_count": 197,
+    "feature_space_sha256": "9adf5c5e285338ac3cf4bfd3987b1245ae61f7a18d2cbf78f6b96d6079c84dab",
+    "fit_seed": 42,
+    "implementation_hashes": {
+      "requirements.txt": "bd8e4dcdc6684fc923ea780a766a33da89d487a6c544c933ed0ef253dbb57070",
+      "scripts/run_phase18f_feature_ablation.py": "0963f573b61a3a6ece9c879895e9ee59367bbc981132feff4575540fd6d31116",
+      "src/evaluation/phase18c_statistics.py": "fcee6d52a017610a6ea5ba4162b1cfc9e30152f67565c5dd4e1d7ce7306c5b6f",
+      "src/experiment_protocols/phase18c_access.py": "4727fb10d0dd46a2ab2743076ba40ccc58772ec5242c5225a901d21b509a9e0f",
+      "src/experiment_protocols/phase18e_feature_ablation_protocol.py": "8b8364e17c928af4787d3b9e08de8d5556a816c0022a033f966c5ba3e14f3786",
+      "src/feature_ablation/__init__.py": "df12bc95cfa4c714339a7c6235f0fb107476682d25dfcebc7e95281db53ae0f6",
+      "src/feature_ablation/phase18f.py": "7103d54e9378d70bbb98e986269ad45410bdf345540f184175b54bccc4731789",
+      "src/models/xgboost_model.py": "7031f62dcd91a00d2773784ae1aec3ed8354101b996befb89066156314dffcec",
+      "src/multidomain/campaign.py": "c9603f7f0c6bc325316ce4e71ff76f649265b16cb0bc10a7347e7ad7cadd8e7b",
+      "src/multidomain/data.py": "9adbc0a72f64859d8df32ffccfeb54ace13a2964bf08d35a7e7296af4cb5dc72"
+    },
+    "implementation_sha256": "b80e77c039c12fbd4fb339740de7da3691a96fdf0b6bea17da2cf61da24840b0",
+    "matrix_rows": 18,
+    "model_training_occurred": false,
+    "output_created": false,
+    "phase18e_protocol_sha256": "79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df",
+    "predictions_generated": false,
+    "quarantine_materialized": false,
+    "resolved_xgboost": {
+      "base_score": null,
+      "booster": null,
+      "callbacks": null,
+      "colsample_bylevel": null,
+      "colsample_bynode": null,
+      "colsample_bytree": 1.0,
+      "device": "cpu",
+      "early_stopping_rounds": null,
+      "enable_categorical": false,
+      "eval_metric": null,
+      "feature_types": null,
+      "feature_weights": null,
+      "gamma": null,
+      "grow_policy": null,
+      "importance_type": null,
+      "interaction_constraints": null,
+      "learning_rate": 0.1,
+      "max_bin": null,
+      "max_cat_threshold": null,
+      "max_cat_to_onehot": null,
+      "max_delta_step": null,
+      "max_depth": 6,
+      "max_leaves": null,
+      "min_child_weight": 1,
+      "missing": "nan",
+      "monotone_constraints": null,
+      "multi_strategy": null,
+      "n_estimators": 100,
+      "n_jobs": 4,
+      "num_parallel_tree": null,
+      "objective": "reg:squarederror",
+      "random_state": 42,
+      "reg_alpha": 0.0,
+      "reg_lambda": 1.0,
+      "sampling_method": null,
+      "scale_pos_weight": null,
+      "subsample": 1.0,
+      "tree_method": "hist",
+      "validate_parameters": null,
+      "verbosity": 0
+    },
+    "selections": {
+      "18F_XGB_A_DROP_DINUCLEOTIDE_FREQUENCY": {
+        "feature_count": 181,
+        "feature_name_sha256": "27abfc6b8ea85f1cd378b90c9f0bedde69b746d93205395a7e65bd8dcd26d183"
+      },
+      "18F_XGB_A_DROP_ENTROPY_COMPLEXITY": {
+        "feature_count": 193,
+        "feature_name_sha256": "21bb5534a49746cca877851d369089ad774f0a287abd3668751fcdac77e81c6f"
+      },
+      "18F_XGB_A_DROP_GC_AND_SKEW": {
+        "feature_count": 187,
+        "feature_name_sha256": "232fa7552eddf0b8f12e6862d904d58ca92aac2dd224d412e56db5bf2efbaa95"
+      },
+      "18F_XGB_A_DROP_GLOBAL_KMER": {
+        "feature_count": 117,
+        "feature_name_sha256": "b631ddc446aaea7fee1f9e7df5fe36483bc0b0adc4fe4b93573fffa353641d9d"
+      },
+      "18F_XGB_A_DROP_NUCLEOTIDE_COMPOSITION": {
+        "feature_count": 190,
+        "feature_name_sha256": "165cbd6a586bbdd4bc42c688199a65db62d7cd65cd26eb6c1ecc79201d20b482"
+      },
+      "18F_XGB_A_DROP_POSITION_SPECIFIC_NUCLEOTIDE": {
+        "feature_count": 117,
+        "feature_name_sha256": "339e986564ee57c1e0688b46163629ad9399b744f353bc2f926a0147515dc509"
+      },
+      "18F_XGB_A_FULL": {
+        "feature_count": 197,
+        "feature_name_sha256": "9adf5c5e285338ac3cf4bfd3987b1245ae61f7a18d2cbf78f6b96d6079c84dab"
+      },
+      "18F_XGB_A_ONLY_GLOBAL_KMER": {
+        "feature_count": 80,
+        "feature_name_sha256": "f247a9c6c090c20fabb4f94eb0d90afb20dee1d62ff94c1747488509233178e4"
+      },
+      "18F_XGB_A_ONLY_POSITION_SPECIFIC_NUCLEOTIDE": {
+        "feature_count": 80,
+        "feature_name_sha256": "73e23152a66ec80f6e52a9d37324b4cf0bc705123d82720bcd5e3ee8ce88f939"
+      },
+      "18F_XGB_B_DROP_DINUCLEOTIDE_FREQUENCY": {
+        "feature_count": 181,
+        "feature_name_sha256": "27abfc6b8ea85f1cd378b90c9f0bedde69b746d93205395a7e65bd8dcd26d183"
+      },
+      "18F_XGB_B_DROP_ENTROPY_COMPLEXITY": {
+        "feature_count": 193,
+        "feature_name_sha256": "21bb5534a49746cca877851d369089ad774f0a287abd3668751fcdac77e81c6f"
+      },
+      "18F_XGB_B_DROP_GC_AND_SKEW": {
+        "feature_count": 187,
+        "feature_name_sha256": "232fa7552eddf0b8f12e6862d904d58ca92aac2dd224d412e56db5bf2efbaa95"
+      },
+      "18F_XGB_B_DROP_GLOBAL_KMER": {
+        "feature_count": 117,
+        "feature_name_sha256": "b631ddc446aaea7fee1f9e7df5fe36483bc0b0adc4fe4b93573fffa353641d9d"
+      },
+      "18F_XGB_B_DROP_NUCLEOTIDE_COMPOSITION": {
+        "feature_count": 190,
+        "feature_name_sha256": "165cbd6a586bbdd4bc42c688199a65db62d7cd65cd26eb6c1ecc79201d20b482"
+      },
+      "18F_XGB_B_DROP_POSITION_SPECIFIC_NUCLEOTIDE": {
+        "feature_count": 117,
+        "feature_name_sha256": "339e986564ee57c1e0688b46163629ad9399b744f353bc2f926a0147515dc509"
+      },
+      "18F_XGB_B_FULL": {
+        "feature_count": 197,
+        "feature_name_sha256": "9adf5c5e285338ac3cf4bfd3987b1245ae61f7a18d2cbf78f6b96d6079c84dab"
+      },
+      "18F_XGB_B_ONLY_GLOBAL_KMER": {
+        "feature_count": 80,
+        "feature_name_sha256": "f247a9c6c090c20fabb4f94eb0d90afb20dee1d62ff94c1747488509233178e4"
+      },
+      "18F_XGB_B_ONLY_POSITION_SPECIFIC_NUCLEOTIDE": {
+        "feature_count": 80,
+        "feature_name_sha256": "73e23152a66ec80f6e52a9d37324b4cf0bc705123d82720bcd5e3ee8ce88f939"
+      }
+    },
+    "source_hashes": {
+      "src/bioinformatics/gc_content.py": "eefe280553ba1dd16a3d395df6be4c71897ce64482eea5a6c7ed3f4fdc72f624",
+      "src/bioinformatics/kmer.py": "c13af1ea83983177b10555614bb8b9e8af262b4185a1ef6515efd71aac62da62",
+      "src/bioinformatics/nucleotide_composition.py": "a06e539080b30345c6637575271a1627bb0bea8425d749cedb803e9421e455ff",
+      "src/bioinformatics/positional_features.py": "515dc94f120f1a9aae0f2740206bdef5f24b3409159fb1ec915f2b25f3c9fdd3",
+      "src/bioinformatics/sequence_features.py": "fa54ce127b75222e66036c5239e8f2329e72cc7c0fe21b7596e475662bc33d4f",
+      "src/experiment_protocols/multidomain_protocol.py": "155de4611614193f8d29362b83f45be628eff60c42edab5487e6cf5c27ecc875",
+      "src/models/xgboost_model.py": "7031f62dcd91a00d2773784ae1aec3ed8354101b996befb89066156314dffcec",
+      "src/multidomain/data.py": "9adbc0a72f64859d8df32ffccfeb54ace13a2964bf08d35a7e7296af4cb5dc72"
+    },
+    "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8",
+    "status": "PREFLIGHT_PASSED_NO_TRAINING"
+  },
+  "results_directory": "results/phase18f/79d56d051ffbc91b0a096483aa1be64a95f577cd57b94148d8734bbacf92f8df/campaign_20260914_231905",
+  "split_sha256": "b7e043b30b3d070e1a41c461ad83774aec21a6abbfe9948cf1387a4ae49ab4a8"
+}
